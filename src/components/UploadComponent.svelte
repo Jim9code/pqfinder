@@ -3,10 +3,10 @@
 
 	const dispatch = createEventDispatcher();
 
-	export let uploadedFiles = [];
-	export let onAddCoins = null;
-	export let onAddUploadedFile = null;
-	export let onAddAvailableFile = null;
+	export const uploadedFiles = [];
+	export const onAddCoins = null;
+	export const onAddUploadedFile = null;
+	export const onAddAvailableFile = null;
 
 	let selectedFile = null;
 	let subject = '';
@@ -144,7 +144,6 @@
 		year = '';
 		examType = '';
 		description = '';
-		price = 5;
 		currentStep = 1;
 		
 		// Reset file input
@@ -208,6 +207,9 @@
 							class:active={currentStep === step.number}
 							class:completed={currentStep > step.number}
 							on:click={() => goToStep(step.number)}
+							on:keydown={() => goToStep(step.number)}
+							role="button"
+							tabindex="0"
 						>
 							<div class="step-number">
 								{#if currentStep > step.number}
@@ -492,11 +494,6 @@
 		margin-bottom: 24px;
 	}
 
-	.coins-earned {
-		color: var(--accent-color);
-		font-weight: 700;
-		font-size: 1.2rem;
-	}
 
 	/* Steps Progress */
 	.steps-container {
@@ -784,137 +781,6 @@
 		text-align: center;
 	}
 
-	/* Price Section */
-	.price-section {
-		max-width: 500px;
-		margin: 0 auto;
-	}
-
-	.price-display {
-		text-align: center;
-		margin-bottom: 32px;
-	}
-
-	.price-amount {
-		font-size: 3rem;
-		font-weight: 700;
-		color: var(--accent-color);
-		display: block;
-	}
-
-	.price-label {
-		font-size: 1rem;
-		color: var(--text-secondary);
-		text-transform: uppercase;
-		letter-spacing: 0.5px;
-	}
-
-	.price-slider-container {
-		margin-bottom: 32px;
-	}
-
-	.price-slider {
-		width: 100%;
-		height: 8px;
-		border-radius: 4px;
-		background: var(--bg-tertiary);
-		outline: none;
-		-webkit-appearance: none;
-		margin-bottom: 12px;
-	}
-
-	.price-slider::-webkit-slider-thumb {
-		-webkit-appearance: none;
-		appearance: none;
-		width: 20px;
-		height: 20px;
-		border-radius: 50%;
-		background: var(--primary-color);
-		cursor: pointer;
-		box-shadow: var(--shadow-md);
-	}
-
-	.price-slider::-moz-range-thumb {
-		width: 20px;
-		height: 20px;
-		border-radius: 50%;
-		background: var(--primary-color);
-		cursor: pointer;
-		border: none;
-		box-shadow: var(--shadow-md);
-	}
-
-	.price-labels {
-		display: flex;
-		justify-content: space-between;
-		font-size: 0.85rem;
-		color: var(--text-light);
-	}
-
-	.price-suggestions {
-		display: flex;
-		gap: 16px;
-		margin-bottom: 32px;
-		justify-content: center;
-	}
-
-	.suggestion-item {
-		text-align: center;
-		padding: 16px;
-		border: 2px solid var(--border-color);
-		border-radius: var(--radius-lg);
-		cursor: pointer;
-		transition: all 0.2s ease;
-		background: var(--bg-primary);
-		min-width: 80px;
-	}
-
-	.suggestion-item:hover {
-		border-color: var(--primary-color);
-		background: rgba(59, 130, 246, 0.05);
-	}
-
-	.suggestion-price {
-		font-size: 1.5rem;
-		font-weight: 700;
-		color: var(--accent-color);
-		display: block;
-		margin-bottom: 4px;
-	}
-
-	.suggestion-label {
-		font-size: 0.8rem;
-		color: var(--text-secondary);
-		text-transform: uppercase;
-		letter-spacing: 0.5px;
-	}
-
-	.price-tips {
-		background: var(--bg-secondary);
-		padding: 20px;
-		border-radius: var(--radius-lg);
-		border: 1px solid var(--border-color);
-	}
-
-	.tip-item {
-		display: flex;
-		align-items: center;
-		gap: 12px;
-		margin-bottom: 12px;
-	}
-
-	.tip-item:last-child {
-		margin-bottom: 0;
-	}
-
-	.tip-icon {
-		font-size: 1.2rem;
-	}
-
-	.tip-text {
-		font-size: 0.9rem;
-		color: var(--text-secondary);
-	}
 
 	/* Review Card */
 	.review-card {
@@ -1089,10 +955,6 @@
 			grid-template-columns: repeat(2, 1fr);
 		}
 
-		.price-suggestions {
-			flex-direction: column;
-			align-items: center;
-		}
 
 		.review-header {
 			flex-direction: column;

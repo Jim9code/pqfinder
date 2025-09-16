@@ -158,8 +158,8 @@
 			</div>
 
 			<div class="form-group">
-				<label>Withdrawal Method</label>
-				<div class="method-selector">
+				<label for="withdrawalMethod">Withdrawal Method</label>
+				<div class="method-selector" id="withdrawalMethod">
 					<label class="method-option">
 						<input 
 							type="radio" 
@@ -305,13 +305,6 @@
 		opacity: 0.9;
 	}
 
-	.exchange-rate {
-		background: #e8f4fd;
-		padding: 15px;
-		border-radius: 8px;
-		text-align: center;
-		margin-top: 20px;
-	}
 
 	.method-selector {
 		display: flex;

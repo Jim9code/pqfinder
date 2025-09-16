@@ -102,8 +102,8 @@
 
 <!-- Login Modal -->
 {#if showLoginModal}
-	<div class="modal-overlay" on:click={closeModals}>
-		<div class="modal-content auth-modal" on:click|stopPropagation>
+	<div class="modal-overlay" on:click={closeModals} on:keydown={closeModals} role="button" tabindex="0">
+		<div class="modal-content auth-modal" on:click|stopPropagation on:keydown|stopPropagation>
 			<div class="modal-header">
 				<h3>🔑 Sign In</h3>
 				<button class="modal-close" on:click={closeModals}>×</button>
@@ -127,8 +127,8 @@
 
 <!-- Signup Modal -->
 {#if showSignupModal}
-	<div class="modal-overlay" on:click={closeModals}>
-		<div class="modal-content auth-modal" on:click|stopPropagation>
+	<div class="modal-overlay" on:click={closeModals} on:keydown={closeModals} role="button" tabindex="0">
+		<div class="modal-content auth-modal" on:click|stopPropagation on:keydown|stopPropagation>
 			<div class="modal-header">
 				<h3>🚀 Get Started</h3>
 				<button class="modal-close" on:click={closeModals}>×</button>

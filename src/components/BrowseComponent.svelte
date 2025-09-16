@@ -3,11 +3,11 @@
 
 	const dispatch = createEventDispatcher();
 
-	export let availableFiles = [];
-	export let userCoins = 0;
+	export const availableFiles = [];
+	export const userCoins = 0;
 	
 	// Event handlers
-	export let onSpendCoins = null;
+	export const onSpendCoins = null;
 
 	let searchTerm = '';
 	let selectedSubject = '';
@@ -282,8 +282,8 @@
 
 	<!-- Preview & Download Modal -->
 	{#if showDownloadModal && selectedFile}
-		<div class="modal-overlay" on:click={closeDownloadModal}>
-			<div class="modal-content preview-modal" on:click|stopPropagation>
+	<div class="modal-overlay" on:click={closeDownloadModal} on:keydown={closeDownloadModal} role="button" tabindex="0">
+		<div class="modal-content preview-modal" on:click|stopPropagation on:keydown|stopPropagation>
 				<div class="modal-header">
 					<h3>📄 Past Question Preview</h3>
 					<button class="modal-close" on:click={closeDownloadModal}>×</button>
@@ -700,24 +700,6 @@
 		box-shadow: var(--shadow-md);
 	}
 
-	.download-btn.unavailable {
-		background: var(--bg-tertiary);
-		color: var(--text-light);
-		cursor: not-allowed;
-	}
-
-	.download-btn.free {
-		background: var(--success-color);
-		color: white;
-		border: 2px solid var(--success-color);
-	}
-
-	.download-btn.free:hover {
-		background: #059669;
-		border-color: #059669;
-		transform: translateY(-1px);
-		box-shadow: var(--shadow-md);
-	}
 
 	.btn-icon {
 		font-size: 1.1rem;
@@ -791,14 +773,6 @@
 		padding: 0 24px;
 	}
 
-	.download-preview {
-		display: flex;
-		gap: 16px;
-		margin-bottom: 24px;
-		padding: 20px;
-		background: var(--bg-secondary);
-		border-radius: var(--radius-lg);
-	}
 
 	.preview-icon {
 		font-size: 2.5rem;
@@ -820,49 +794,6 @@
 		word-break: break-word;
 	}
 
-	.preview-info p {
-		font-size: 0.9rem;
-		color: var(--text-secondary);
-		margin: 0 0 8px 0;
-	}
-
-	.preview-description {
-		font-size: 0.85rem !important;
-		color: var(--text-light) !important;
-		line-height: 1.4;
-	}
-
-	.download-details {
-		margin-bottom: 24px;
-	}
-
-	.detail-row {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 12px 0;
-		border-bottom: 1px solid var(--border-color);
-	}
-
-	.detail-row:last-child {
-		border-bottom: none;
-	}
-
-	.detail-label {
-		font-weight: 500;
-		color: var(--text-primary);
-	}
-
-	.detail-value {
-		font-weight: 600;
-		color: var(--text-secondary);
-	}
-
-	.free-text {
-		color: var(--success-color);
-		font-weight: 700;
-		font-size: 1.1rem;
-	}
 
 	/* Preview Modal Styles */
 	.file-preview-section {
@@ -1072,10 +1003,6 @@
 			max-width: none;
 		}
 
-		.download-preview {
-			flex-direction: column;
-			text-align: center;
-		}
 
 		.modal-footer {
 			flex-direction: column;

@@ -1,2 +1,8384 @@
-var app=function(){"use strict";function e(){}function t(e){return e()}function n(){return Object.create(null)}function l(e){e.forEach(t)}function s(e){return"function"==typeof e}function a(e,t){return e!=e?t==t:e!==t||e&&"object"==typeof e||"function"==typeof e}function i(e,t){e.appendChild(t)}function o(e,t,n){e.insertBefore(t,n||null)}function c(e){e.parentNode&&e.parentNode.removeChild(e)}function r(e,t){for(let n=0;n<e.length;n+=1)e[n]&&e[n].d(t)}function d(e){return document.createElement(e)}function u(e){return document.createTextNode(e)}function p(){return u(" ")}function v(){return u("")}function f(e,t,n,l){return e.addEventListener(t,n,l),()=>e.removeEventListener(t,n,l)}function m(e){return function(t){return t.stopPropagation(),e.call(this,t)}}function h(e,t,n){null==n?e.removeAttribute(t):e.getAttribute(t)!==n&&e.setAttribute(t,n)}function g(e){let t;return{p(...n){t=n,t.forEach(t=>e.push(t))},r(){t.forEach(t=>e.splice(e.indexOf(t),1))}}}function b(e){return""===e?null:+e}function y(e,t){t=""+t,e.data!==t&&(e.data=t)}function x(e,t){e.value=null==t?"":t}function w(e,t,n,l){null==n?e.style.removeProperty(t):e.style.setProperty(t,n,l?"important":"")}function C(e,t,n){for(let n=0;n<e.options.length;n+=1){const l=e.options[n];if(l.__value===t)return void(l.selected=!0)}n&&void 0===t||(e.selectedIndex=-1)}function _(e){const t=e.querySelector(":checked");return t&&t.__value}function $(e,t,n){e.classList[n?"add":"remove"](t)}let S;function F(e){S=e}function k(){if(!S)throw new Error("Function called outside component initialization");return S}function z(){const e=k();return(t,n,{cancelable:l=!1}={})=>{const s=e.$$.callbacks[t];if(s){const a=function(e,t,{bubbles:n=!1,cancelable:l=!1}={}){const s=document.createEvent("CustomEvent");return s.initCustomEvent(e,n,l,t),s}(t,n,{cancelable:l});return s.slice().forEach(t=>{t.call(e,a)}),!a.defaultPrevented}return!0}}function T(e,t){const n=e.$$.callbacks[t.type];n&&n.slice().forEach(e=>e.call(this,t))}const N=[],A=[];let E=[];const D=[],M=Promise.resolve();let L=!1;function j(e){E.push(e)}const P=new Set;let I=0;function U(){if(0!==I)return;const e=S;do{try{for(;I<N.length;){const e=N[I];I++,F(e),B(e.$$)}}catch(e){throw N.length=0,I=0,e}for(F(null),N.length=0,I=0;A.length;)A.pop()();for(let e=0;e<E.length;e+=1){const t=E[e];P.has(t)||(P.add(t),t())}E.length=0}while(N.length);for(;D.length;)D.pop()();L=!1,P.clear(),F(e)}function B(e){if(null!==e.fragment){e.update(),l(e.before_update);const t=e.dirty;e.dirty=[-1],e.fragment&&e.fragment.p(e.ctx,t),e.after_update.forEach(j)}}const H=new Set;let O;function q(){O={r:0,c:[],p:O}}function J(){O.r||l(O.c),O=O.p}function R(e,t){e&&e.i&&(H.delete(e),e.i(t))}function Q(e,t,n,l){if(e&&e.o){if(H.has(e))return;H.add(e),O.c.push(()=>{H.delete(e),l&&(n&&e.d(1),l())}),e.o(t)}else l&&l()}function W(e){e&&e.c()}function G(e,n,a,i){const{fragment:o,after_update:c}=e.$$;o&&o.m(n,a),i||j(()=>{const n=e.$$.on_mount.map(t).filter(s);e.$$.on_destroy?e.$$.on_destroy.push(...n):l(n),e.$$.on_mount=[]}),c.forEach(j)}function Y(e,t){const n=e.$$;null!==n.fragment&&(!function(e){const t=[],n=[];E.forEach(l=>-1===e.indexOf(l)?t.push(l):n.push(l)),n.forEach(e=>e()),E=t}(n.after_update),l(n.on_destroy),n.fragment&&n.fragment.d(t),n.on_destroy=n.fragment=null,n.ctx=[])}function Z(e,t){-1===e.$$.dirty[0]&&(N.push(e),L||(L=!0,M.then(U)),e.$$.dirty.fill(0)),e.$$.dirty[t/31|0]|=1<<t%31}function V(t,s,a,i,o,r,d,u=[-1]){const p=S;F(t);const v=t.$$={fragment:null,ctx:[],props:r,update:e,not_equal:o,bound:n(),on_mount:[],on_destroy:[],on_disconnect:[],before_update:[],after_update:[],context:new Map(s.context||(p?p.$$.context:[])),callbacks:n(),dirty:u,skip_bound:!1,root:s.target||p.$$.root};d&&d(v.root);let f=!1;if(v.ctx=a?a(t,s.props||{},(e,n,...l)=>{const s=l.length?l[0]:n;return v.ctx&&o(v.ctx[e],v.ctx[e]=s)&&(!v.skip_bound&&v.bound[e]&&v.bound[e](s),f&&Z(t,e)),n}):[],v.update(),f=!0,l(v.before_update),v.fragment=!!i&&i(v.ctx),s.target){if(s.hydrate){const e=function(e){return Array.from(e.childNodes)}(s.target);v.fragment&&v.fragment.l(e),e.forEach(c)}else v.fragment&&v.fragment.c();s.intro&&R(t.$$.fragment),G(t,s.target,s.anchor,s.customElement),U()}F(p)}class K{$destroy(){Y(this,1),this.$destroy=e}$on(t,n){if(!s(n))return e;const l=this.$$.callbacks[t]||(this.$$.callbacks[t]=[]);return l.push(n),()=>{const e=l.indexOf(n);-1!==e&&l.splice(e,1)}}$set(e){var t;this.$$set&&(t=e,0!==Object.keys(t).length)&&(this.$$.skip_bound=!0,this.$$set(e),this.$$.skip_bound=!1)}}function X(t){let n,s,a,r,v,g,b,y,x,w,C,_,$,S,F,k,z,T;return{c(){n=d("div"),s=d("div"),a=d("div"),r=d("h3"),r.textContent="🔑 Sign In",v=p(),g=d("button"),g.textContent="×",b=p(),y=d("div"),x=d("p"),x.textContent="Sign in to access your past questions and continue learning",w=p(),C=d("button"),C.innerHTML='<span class="google-icon svelte-1iznbt5">🔍</span> \n\t\t\t\t\t<span class="google-text svelte-1iznbt5">Continue with Google</span>',_=p(),$=d("div"),S=d("p"),F=u("Don't have an account? "),k=d("button"),k.textContent="Sign up",h(r,"class","svelte-1iznbt5"),h(g,"class","modal-close svelte-1iznbt5"),h(a,"class","modal-header svelte-1iznbt5"),h(x,"class","auth-description svelte-1iznbt5"),h(C,"class","google-auth-btn svelte-1iznbt5"),h(k,"class","link-btn svelte-1iznbt5"),h(S,"class","svelte-1iznbt5"),h($,"class","auth-footer svelte-1iznbt5"),h(y,"class","modal-body svelte-1iznbt5"),h(s,"class","modal-content auth-modal svelte-1iznbt5"),h(n,"class","modal-overlay svelte-1iznbt5")},m(e,l){o(e,n,l),i(n,s),i(s,a),i(a,r),i(a,v),i(a,g),i(s,b),i(s,y),i(y,x),i(y,w),i(y,C),i(y,_),i(y,$),i($,S),i(S,F),i(S,k),z||(T=[f(g,"click",t[4]),f(C,"click",t[8]),f(k,"click",t[3]),f(s,"click",m(t[7])),f(n,"click",t[4])],z=!0)},p:e,d(e){e&&c(n),z=!1,l(T)}}}function ee(t){let n,s,a,r,v,g,b,y,x,w,C,_,$,S,F,k,z,T;return{c(){n=d("div"),s=d("div"),a=d("div"),r=d("h3"),r.textContent="🚀 Get Started",v=p(),g=d("button"),g.textContent="×",b=p(),y=d("div"),x=d("p"),x.textContent="Create your account and start accessing past questions",w=p(),C=d("button"),C.innerHTML='<span class="google-icon svelte-1iznbt5">🔍</span> \n\t\t\t\t\t<span class="google-text svelte-1iznbt5">Sign up with Google</span>',_=p(),$=d("div"),S=d("p"),F=u("Already have an account? "),k=d("button"),k.textContent="Sign in",h(r,"class","svelte-1iznbt5"),h(g,"class","modal-close svelte-1iznbt5"),h(a,"class","modal-header svelte-1iznbt5"),h(x,"class","auth-description svelte-1iznbt5"),h(C,"class","google-auth-btn svelte-1iznbt5"),h(k,"class","link-btn svelte-1iznbt5"),h(S,"class","svelte-1iznbt5"),h($,"class","auth-footer svelte-1iznbt5"),h(y,"class","modal-body svelte-1iznbt5"),h(s,"class","modal-content auth-modal svelte-1iznbt5"),h(n,"class","modal-overlay svelte-1iznbt5")},m(e,l){o(e,n,l),i(n,s),i(s,a),i(a,r),i(a,v),i(a,g),i(s,b),i(s,y),i(y,x),i(y,w),i(y,C),i(y,_),i(y,$),i($,S),i(S,F),i(S,k),z||(T=[f(g,"click",t[4]),f(C,"click",t[9]),f(k,"click",t[2]),f(s,"click",m(t[6])),f(n,"click",t[4])],z=!0)},p:e,d(e){e&&c(n),z=!1,l(T)}}}function te(t){let n,s,a,r,u,m,g,b,y,x,w,C,_,$,S,F,k,z,T,N,A,E,D,M,L,j,P,I,U=t[0]&&X(t),B=t[1]&&ee(t);return{c(){n=d("div"),s=d("div"),a=d("div"),r=d("h1"),r.innerHTML='<span class="hero-icon svelte-1iznbt5">📚</span>\n\t\t\t\tPQ Finder',u=p(),m=d("p"),m.textContent="Find and share past questions from universities across Nigeria",g=p(),b=d("p"),b.textContent="Connect with fellow students, access quality study materials, and excel in your exams",y=p(),x=d("div"),w=d("button"),w.innerHTML="<span>🚀</span>\n\t\t\t\t\tGet Started",C=p(),_=d("button"),_.innerHTML="<span>🔑</span>\n\t\t\t\t\tSign In",$=p(),S=d("div"),S.innerHTML='<div class="container svelte-1iznbt5"><h2 class="section-title svelte-1iznbt5">Why Choose PQ Finder?</h2> \n\t\t\t<div class="features-grid svelte-1iznbt5"><div class="feature-card svelte-1iznbt5"><div class="feature-icon svelte-1iznbt5">📖</div> \n\t\t\t\t\t<h3 class="svelte-1iznbt5">Quality Content</h3> \n\t\t\t\t\t<p class="svelte-1iznbt5">Access verified past questions from top Nigerian universities</p></div> \n\t\t\t\t<div class="feature-card svelte-1iznbt5"><div class="feature-icon svelte-1iznbt5">👥</div> \n\t\t\t\t\t<h3 class="svelte-1iznbt5">Student Community</h3> \n\t\t\t\t\t<p class="svelte-1iznbt5">Connect with fellow students and share knowledge</p></div> \n\t\t\t\t<div class="feature-card svelte-1iznbt5"><div class="feature-icon svelte-1iznbt5">⚡</div> \n\t\t\t\t\t<h3 class="svelte-1iznbt5">Quick Access</h3> \n\t\t\t\t\t<p class="svelte-1iznbt5">Find and download past questions in seconds</p></div></div></div>',F=p(),k=d("div"),z=d("div"),T=d("h2"),T.textContent="Ready to Ace Your Exams?",N=p(),A=d("p"),A.textContent="Join thousands of students who are already using PQ Finder",E=p(),D=d("button"),D.innerHTML="<span>🎓</span>\n\t\t\t\tStart Learning Today",M=p(),U&&U.c(),L=p(),B&&B.c(),j=v(),h(r,"class","hero-title svelte-1iznbt5"),h(m,"class","hero-subtitle svelte-1iznbt5"),h(b,"class","hero-description svelte-1iznbt5"),h(w,"class","btn btn-primary svelte-1iznbt5"),h(_,"class","btn btn-secondary svelte-1iznbt5"),h(x,"class","hero-actions svelte-1iznbt5"),h(a,"class","hero-content svelte-1iznbt5"),h(s,"class","hero-section svelte-1iznbt5"),h(S,"class","features-section svelte-1iznbt5"),h(T,"class","svelte-1iznbt5"),h(A,"class","svelte-1iznbt5"),h(D,"class","btn btn-primary btn-large svelte-1iznbt5"),h(z,"class","container svelte-1iznbt5"),h(k,"class","cta-section svelte-1iznbt5"),h(n,"class","landing-page svelte-1iznbt5")},m(e,l){o(e,n,l),i(n,s),i(s,a),i(a,r),i(a,u),i(a,m),i(a,g),i(a,b),i(a,y),i(a,x),i(x,w),i(x,C),i(x,_),i(n,$),i(n,S),i(n,F),i(n,k),i(k,z),i(z,T),i(z,N),i(z,A),i(z,E),i(z,D),o(e,M,l),U&&U.m(e,l),o(e,L,l),B&&B.m(e,l),o(e,j,l),P||(I=[f(w,"click",t[3]),f(_,"click",t[2]),f(D,"click",t[3])],P=!0)},p(e,[t]){e[0]?U?U.p(e,t):(U=X(e),U.c(),U.m(L.parentNode,L)):U&&(U.d(1),U=null),e[1]?B?B.p(e,t):(B=ee(e),B.c(),B.m(j.parentNode,j)):B&&(B.d(1),B=null)},i:e,o:e,d(e){e&&c(n),e&&c(M),U&&U.d(e),e&&c(L),B&&B.d(e),e&&c(j),P=!1,l(I)}}}function ne(e,t,n){const l=z();let s=!1,a=!1;function i(){n(0,s=!1),n(1,a=!1)}function o(e){console.log(`Google ${e} clicked`),i(),l("userLogin",{name:"John Doe",email:"john@example.com",avatar:"👤"})}return[s,a,function(){n(0,s=!0),n(1,a=!1)},function(){n(1,a=!0),n(0,s=!1)},i,o,function(t){T.call(this,e,t)},function(t){T.call(this,e,t)},()=>o("Login"),()=>o("Signup")]}class le extends K{constructor(e){super(),V(this,e,ne,te,a,{})}}function se(t){let n,l,s;return{c(){n=d("button"),n.innerHTML="<span>🔑</span>\n\t\t\t\t\tSign In",h(n,"class","login-btn svelte-19ofluw")},m(e,a){o(e,n,a),l||(s=f(n,"click",t[8]),l=!0)},p:e,d(e){e&&c(n),l=!1,s()}}}function ae(e){let t,n,l,s,a,r,v,m,g,b,x,w,C,_,$,S=(e[1].avatar||"👤")+"",F=e[1].name+"",k=(e[1].balance||0)+"";return{c(){t=d("div"),n=d("div"),l=u(S),s=p(),a=d("div"),r=d("div"),v=u(F),m=p(),g=d("div"),b=u("₦"),x=u(k),w=p(),C=d("button"),C.innerHTML="<span>🚪</span>\n\t\t\t\t\tLogout",h(n,"class","user-avatar svelte-19ofluw"),h(r,"class","user-name svelte-19ofluw"),h(g,"class","user-balance svelte-19ofluw"),h(a,"class","user-details svelte-19ofluw"),h(t,"class","user-info svelte-19ofluw"),h(C,"class","logout-btn svelte-19ofluw")},m(c,d){o(c,t,d),i(t,n),i(n,l),i(t,s),i(t,a),i(a,r),i(r,v),i(a,m),i(a,g),i(g,b),i(g,x),o(c,w,d),o(c,C,d),_||($=f(C,"click",e[4]),_=!0)},p(e,t){2&t&&S!==(S=(e[1].avatar||"👤")+"")&&y(l,S),2&t&&F!==(F=e[1].name+"")&&y(v,F),2&t&&k!==(k=(e[1].balance||0)+"")&&y(x,k)},d(e){e&&c(t),e&&c(w),e&&c(C),_=!1,$()}}}function ie(t){let n,s,a,r,u,v,m,g,b,y,x,w,C,_;function S(e,t){return e[1]?ae:se}let F=S(t),k=F(t);return{c(){n=d("nav"),s=d("div"),a=d("div"),a.innerHTML='<span class="brand-icon svelte-19ofluw">📚</span> \n\t\t\t<span class="brand-text svelte-19ofluw">PQ Finder</span>',r=p(),u=d("div"),v=d("button"),v.innerHTML='<span class="nav-icon svelte-19ofluw">🔍</span> \n\t\t\t\t<span class="nav-text svelte-19ofluw">Browse</span>',m=p(),g=d("button"),g.innerHTML='<span class="nav-icon svelte-19ofluw">📤</span> \n\t\t\t\t<span class="nav-text svelte-19ofluw">Upload</span>',b=p(),y=d("button"),y.innerHTML='<span class="nav-icon svelte-19ofluw">💳</span> \n\t\t\t\t<span class="nav-text svelte-19ofluw">Wallet</span>',x=p(),w=d("div"),k.c(),h(a,"class","nav-brand svelte-19ofluw"),h(v,"class","nav-link svelte-19ofluw"),$(v,"active","browse"===t[0]),h(g,"class","nav-link svelte-19ofluw"),$(g,"active","upload"===t[0]),h(y,"class","nav-link svelte-19ofluw"),$(y,"active","wallet"===t[0]),h(u,"class","nav-links svelte-19ofluw"),h(w,"class","nav-user svelte-19ofluw"),h(s,"class","nav-container svelte-19ofluw"),h(n,"class","nav-header svelte-19ofluw")},m(e,l){o(e,n,l),i(n,s),i(s,a),i(s,r),i(s,u),i(u,v),i(u,m),i(u,g),i(u,b),i(u,y),i(s,x),i(s,w),k.m(w,null),C||(_=[f(v,"click",t[5]),f(g,"click",t[6]),f(y,"click",t[7])],C=!0)},p(e,[t]){1&t&&$(v,"active","browse"===e[0]),1&t&&$(g,"active","upload"===e[0]),1&t&&$(y,"active","wallet"===e[0]),F===(F=S(e))&&k?k.p(e,t):(k.d(1),k=F(e),k&&(k.c(),k.m(w,null)))},i:e,o:e,d(e){e&&c(n),k.d(),C=!1,l(_)}}}function oe(e,t,n){const l=z();let{user:s=null}=t,{currentView:a="browse"}=t;function i(e){n(0,a=e),l("viewChange",e)}return e.$$set=e=>{"user"in e&&n(1,s=e.user),"currentView"in e&&n(0,a=e.currentView)},[a,s,l,i,function(){l("logout")},()=>i("browse"),()=>i("upload"),()=>i("wallet"),()=>l("showAuth")]}class ce extends K{constructor(e){super(),V(this,e,oe,ie,a,{user:1,currentView:0})}}function re(e,t,n){const l=e.slice();return l[38]=t[n],l}function de(e,t,n){const l=e.slice();return l[41]=t[n],l}function ue(e,t,n){const l=e.slice();return l[44]=t[n],l}function pe(e,t,n){const l=e.slice();return l[47]=t[n],l[49]=n,l}function ve(e){let t,n,l,s,a,u,v,f,m,g=e[12],b=[];for(let t=0;t<g.length;t+=1)b[t]=ge(pe(e,g,t));function y(e,t){return 1===e[7]?xe:2===e[7]?ye:3===e[7]?be:void 0}let x=y(e),w=x&&x(e),C=e[7]>1&&ke(e);function _(e,t){return e[7]<3?Te:ze}let $=_(e),S=$(e);return{c(){t=d("div"),n=d("div");for(let e=0;e<b.length;e+=1)b[e].c();l=p(),s=d("div"),w&&w.c(),a=p(),u=d("div"),C&&C.c(),v=p(),f=d("div"),m=p(),S.c(),h(n,"class","steps-progress svelte-1fdt9px"),h(t,"class","steps-container svelte-1fdt9px"),h(s,"class","step-content svelte-1fdt9px"),h(f,"class","nav-spacer svelte-1fdt9px"),h(u,"class","step-navigation svelte-1fdt9px")},m(e,c){o(e,t,c),i(t,n);for(let e=0;e<b.length;e+=1)b[e]&&b[e].m(n,null);o(e,l,c),o(e,s,c),w&&w.m(s,null),o(e,a,c),o(e,u,c),C&&C.m(u,null),i(u,v),i(u,f),i(u,m),S.m(u,null)},p(e,t){if(528512&t[0]){let l;for(g=e[12],l=0;l<g.length;l+=1){const s=pe(e,g,l);b[l]?b[l].p(s,t):(b[l]=ge(s),b[l].c(),b[l].m(n,null))}for(;l<b.length;l+=1)b[l].d(1);b.length=g.length}x===(x=y(e))&&w?w.p(e,t):(w&&w.d(1),w=x&&x(e),w&&(w.c(),w.m(s,null))),e[7]>1?C?C.p(e,t):(C=ke(e),C.c(),C.m(u,v)):C&&(C.d(1),C=null),$===($=_(e))&&S?S.p(e,t):(S.d(1),S=$(e),S&&(S.c(),S.m(u,null)))},d(e){e&&c(t),r(b,e),e&&c(l),e&&c(s),w&&w.d(),e&&c(a),e&&c(u),C&&C.d(),S.d()}}}function fe(t){let n,l,s,a,r,u,v,m,g,b,y;return{c(){n=d("div"),l=d("div"),s=d("div"),s.textContent="🎉",a=p(),r=d("h3"),r.textContent="Upload Successful!",u=p(),v=d("p"),v.textContent="Your file has been uploaded successfully!",m=p(),g=d("button"),g.textContent="Upload Another File",h(s,"class","success-icon svelte-1fdt9px"),h(r,"class","svelte-1fdt9px"),h(v,"class","svelte-1fdt9px"),h(g,"class","btn btn-success"),h(l,"class","success-content svelte-1fdt9px"),h(n,"class","success-modal svelte-1fdt9px")},m(e,c){o(e,n,c),i(n,l),i(l,s),i(l,a),i(l,r),i(l,u),i(l,v),i(l,m),i(l,g),b||(y=f(g,"click",t[27]),b=!0)},p:e,d(e){e&&c(n),b=!1,y()}}}function me(t){let n,l=t[47].number+"";return{c(){n=u(l)},m(e,t){o(e,n,t)},p:e,d(e){e&&c(n)}}}function he(t){let n;return{c(){n=u("✓")},m(e,t){o(e,n,t)},p:e,d(e){e&&c(n)}}}function ge(e){let t,n,l,s,a,r,v,m,g,b,y,x,w=e[47].title+"",C=e[47].description+"";function _(e,t){return e[7]>e[47].number?he:me}let S=_(e),F=S(e);function k(){return e[28](e[47])}return{c(){t=d("div"),n=d("div"),F.c(),l=p(),s=d("div"),a=d("div"),r=u(w),v=p(),m=d("div"),g=u(C),b=p(),h(n,"class","step-number svelte-1fdt9px"),h(a,"class","step-title svelte-1fdt9px"),h(m,"class","step-description svelte-1fdt9px"),h(s,"class","step-info svelte-1fdt9px"),h(t,"class","step-item svelte-1fdt9px"),$(t,"active",e[7]===e[47].number),$(t,"completed",e[7]>e[47].number)},m(e,c){o(e,t,c),i(t,n),F.m(n,null),i(t,l),i(t,s),i(s,a),i(a,r),i(s,v),i(s,m),i(m,g),i(t,b),y||(x=f(t,"click",k),y=!0)},p(l,s){S===(S=_(e=l))&&F?F.p(e,s):(F.d(1),F=S(e),F&&(F.c(),F.m(n,null))),4224&s[0]&&$(t,"active",e[7]===e[47].number),4224&s[0]&&$(t,"completed",e[7]>e[47].number)},d(e){e&&c(t),F.d(),y=!1,x()}}}function be(e){let t,n,l,s,a,r,v,f,m,g,b,x,w,C,_,$,S,F,k,z,T,N,A,E,D,M,L,j,P,I,U,B,H,O,q,J,R,Q,W,G,Y=Me(e[0]?.type)+"",Z=e[0]?.name+"",V=De(e[0]?.size)+"",K=e[4]&&we(e);return{c(){t=d("div"),n=d("h3"),n.textContent="🔍 Review & Upload",l=p(),s=d("p"),s.textContent="Review your file details before uploading",a=p(),r=d("div"),v=d("div"),f=d("div"),m=u(Y),g=p(),b=d("div"),x=d("h4"),w=u(Z),C=p(),_=d("p"),$=u(V),S=p(),F=d("div"),F.textContent="FREE",k=p(),z=d("div"),T=d("div"),N=d("span"),N.textContent="Subject:",A=p(),E=d("span"),D=u(e[1]),M=p(),L=d("div"),j=d("span"),j.textContent="Year:",P=p(),I=d("span"),U=u(e[2]),B=p(),H=d("div"),O=d("span"),O.textContent="Type:",q=p(),J=d("span"),R=u(e[3]),Q=p(),K&&K.c(),W=p(),G=d("div"),G.innerHTML='<div class="summary-item svelte-1fdt9px"><span class="summary-label svelte-1fdt9px">File Status:</span> \n\t\t\t\t\t\t\t\t<span class="summary-value svelte-1fdt9px">FREE for all students</span></div> \n\t\t\t\t\t\t\t<div class="summary-item svelte-1fdt9px"><span class="summary-label svelte-1fdt9px">Purpose:</span> \n\t\t\t\t\t\t\t\t<span class="summary-value svelte-1fdt9px">Help fellow students succeed</span></div>',h(n,"class","svelte-1fdt9px"),h(s,"class","svelte-1fdt9px"),h(f,"class","review-file-icon svelte-1fdt9px"),h(x,"class","svelte-1fdt9px"),h(_,"class","svelte-1fdt9px"),h(b,"class","review-file-info svelte-1fdt9px"),h(F,"class","review-price svelte-1fdt9px"),h(v,"class","review-header svelte-1fdt9px"),h(N,"class","detail-label svelte-1fdt9px"),h(E,"class","detail-value svelte-1fdt9px"),h(T,"class","review-detail svelte-1fdt9px"),h(j,"class","detail-label svelte-1fdt9px"),h(I,"class","detail-value svelte-1fdt9px"),h(L,"class","review-detail svelte-1fdt9px"),h(O,"class","detail-label svelte-1fdt9px"),h(J,"class","detail-value svelte-1fdt9px"),h(H,"class","review-detail svelte-1fdt9px"),h(z,"class","review-details svelte-1fdt9px"),h(r,"class","review-card svelte-1fdt9px"),h(G,"class","upload-summary svelte-1fdt9px"),h(t,"class","step-panel svelte-1fdt9px")},m(e,c){o(e,t,c),i(t,n),i(t,l),i(t,s),i(t,a),i(t,r),i(r,v),i(v,f),i(f,m),i(v,g),i(v,b),i(b,x),i(x,w),i(b,C),i(b,_),i(_,$),i(v,S),i(v,F),i(r,k),i(r,z),i(z,T),i(T,N),i(T,A),i(T,E),i(E,D),i(z,M),i(z,L),i(L,j),i(L,P),i(L,I),i(I,U),i(z,B),i(z,H),i(H,O),i(H,q),i(H,J),i(J,R),i(z,Q),K&&K.m(z,null),i(t,W),i(t,G)},p(e,t){1&t[0]&&Y!==(Y=Me(e[0]?.type)+"")&&y(m,Y),1&t[0]&&Z!==(Z=e[0]?.name+"")&&y(w,Z),1&t[0]&&V!==(V=De(e[0]?.size)+"")&&y($,V),2&t[0]&&y(D,e[1]),4&t[0]&&y(U,e[2]),8&t[0]&&y(R,e[3]),e[4]?K?K.p(e,t):(K=we(e),K.c(),K.m(z,null)):K&&(K.d(1),K=null)},d(e){e&&c(t),K&&K.d()}}}function ye(e){let t,n,s,a,u,v,m,g,b,y,w,_,$,S,F,k,z,T,N,A,E,D,M,L,P,I,U,B,H,O=e[10],q=[];for(let t=0;t<O.length;t+=1)q[t]=Ce(ue(e,O,t));let J=e[11],R=[];for(let t=0;t<J.length;t+=1)R[t]=_e(de(e,J,t));let Q=e[9],W=[];for(let t=0;t<Q.length;t+=1)W[t]=$e(re(e,Q,t));return{c(){t=d("div"),n=d("h3"),n.textContent="📝 Add File Details",s=p(),a=d("p"),a.textContent="Provide information about your past question",u=p(),v=d("div"),m=d("div"),g=d("label"),g.textContent="Subject *",b=p(),y=d("select"),w=d("option"),w.textContent="Choose a subject";for(let e=0;e<q.length;e+=1)q[e].c();_=p(),$=d("div"),S=d("label"),S.textContent="Academic Year *",F=p(),k=d("select"),z=d("option"),z.textContent="Select year";for(let e=0;e<R.length;e+=1)R[e].c();T=p(),N=d("div"),A=d("label"),A.textContent="Exam Type *",E=p(),D=d("div");for(let e=0;e<W.length;e+=1)W[e].c();M=p(),L=d("div"),P=d("label"),P.textContent="Description (Optional)",I=p(),U=d("textarea"),h(n,"class","svelte-1fdt9px"),h(a,"class","svelte-1fdt9px"),h(g,"for","subject"),w.__value="",w.value=w.__value,h(y,"id","subject"),y.required=!0,void 0===e[1]&&j(()=>e[31].call(y)),h(m,"class","form-group"),h(S,"for","year"),z.__value="",z.value=z.__value,h(k,"id","year"),k.required=!0,void 0===e[2]&&j(()=>e[32].call(k)),h($,"class","form-group"),h(A,"for","examType"),h(D,"class","exam-type-grid svelte-1fdt9px"),h(N,"class","form-group"),h(P,"for","description"),h(U,"id","description"),h(U,"placeholder","Add any additional details about the exam, topics covered, or special notes..."),h(U,"rows","3"),h(L,"class","form-group full-width svelte-1fdt9px"),h(v,"class","form-grid svelte-1fdt9px"),h(t,"class","step-panel svelte-1fdt9px")},m(l,c){o(l,t,c),i(t,n),i(t,s),i(t,a),i(t,u),i(t,v),i(v,m),i(m,g),i(m,b),i(m,y),i(y,w);for(let e=0;e<q.length;e+=1)q[e]&&q[e].m(y,null);C(y,e[1],!0),i(v,_),i(v,$),i($,S),i($,F),i($,k),i(k,z);for(let e=0;e<R.length;e+=1)R[e]&&R[e].m(k,null);C(k,e[2],!0),i(v,T),i(v,N),i(N,A),i(N,E),i(N,D);for(let e=0;e<W.length;e+=1)W[e]&&W[e].m(D,null);i(v,M),i(v,L),i(L,P),i(L,I),i(L,U),x(U,e[4]),B||(H=[f(y,"change",e[31]),f(k,"change",e[32]),f(U,"input",e[35])],B=!0)},p(e,t){if(1024&t[0]){let n;for(O=e[10],n=0;n<O.length;n+=1){const l=ue(e,O,n);q[n]?q[n].p(l,t):(q[n]=Ce(l),q[n].c(),q[n].m(y,null))}for(;n<q.length;n+=1)q[n].d(1);q.length=O.length}if(1026&t[0]&&C(y,e[1]),2048&t[0]){let n;for(J=e[11],n=0;n<J.length;n+=1){const l=de(e,J,n);R[n]?R[n].p(l,t):(R[n]=_e(l),R[n].c(),R[n].m(k,null))}for(;n<R.length;n+=1)R[n].d(1);R.length=J.length}if(2052&t[0]&&C(k,e[2]),520&t[0]){let n;for(Q=e[9],n=0;n<Q.length;n+=1){const l=re(e,Q,n);W[n]?W[n].p(l,t):(W[n]=$e(l),W[n].c(),W[n].m(D,null))}for(;n<W.length;n+=1)W[n].d(1);W.length=Q.length}16&t[0]&&x(U,e[4])},d(e){e&&c(t),r(q,e),r(R,e),r(W,e),B=!1,l(H)}}}function xe(e){let t,n,s,a,r,u,v,m,g,b;function y(e,t){return e[0]?Fe:Se}let x=y(e),w=x(e);return{c(){t=d("div"),n=d("h3"),n.textContent="📁 Select Your File",s=p(),a=d("p"),a.textContent="Choose the past question file you want to upload",r=p(),u=d("div"),v=d("input"),m=p(),w.c(),h(n,"class","svelte-1fdt9px"),h(a,"class","svelte-1fdt9px"),h(v,"id","fileInput"),h(v,"type","file"),h(v,"accept",".pdf,.doc,.docx,.jpg,.jpeg,.png"),h(v,"class","file-input-hidden svelte-1fdt9px"),h(u,"class","file-drop-zone svelte-1fdt9px"),$(u,"drag-over",e[8]),h(t,"class","step-panel svelte-1fdt9px")},m(l,c){o(l,t,c),i(t,n),i(t,s),i(t,a),i(t,r),i(t,u),i(u,v),i(u,m),w.m(u,null),g||(b=[f(v,"change",e[13]),f(u,"dragover",e[14]),f(u,"dragleave",e[15]),f(u,"drop",e[16])],g=!0)},p(e,t){x===(x=y(e))&&w?w.p(e,t):(w.d(1),w=x(e),w&&(w.c(),w.m(u,null))),256&t[0]&&$(u,"drag-over",e[8])},d(e){e&&c(t),w.d(),g=!1,l(b)}}}function we(e){let t,n,l,s,a;return{c(){t=d("div"),n=d("span"),n.textContent="Description:",l=p(),s=d("span"),a=u(e[4]),h(n,"class","detail-label svelte-1fdt9px"),h(s,"class","detail-value svelte-1fdt9px"),h(t,"class","review-detail svelte-1fdt9px")},m(e,c){o(e,t,c),i(t,n),i(t,l),i(t,s),i(s,a)},p(e,t){16&t[0]&&y(a,e[4])},d(e){e&&c(t)}}}function Ce(t){let n,l,s=t[44]+"";return{c(){n=d("option"),l=u(s),n.__value=t[44],n.value=n.__value},m(e,t){o(e,n,t),i(n,l)},p:e,d(e){e&&c(n)}}}function _e(t){let n,l,s=t[41]+"";return{c(){n=d("option"),l=u(s),n.__value=t[41],n.value=n.__value},m(e,t){o(e,n,t),i(n,l)},p:e,d(e){e&&c(n)}}}function $e(e){let t,n,l,s,a,r,v,m,b,y,x,w,C,_=e[38].icon+"",S=e[38].label+"";return x=g(e[34][0]),{c(){t=d("label"),n=d("input"),l=p(),s=d("div"),a=d("span"),r=u(_),v=p(),m=d("span"),b=u(S),y=p(),h(n,"type","radio"),n.__value=e[38].value,n.value=n.__value,h(n,"class","exam-type-input svelte-1fdt9px"),h(a,"class","exam-type-icon svelte-1fdt9px"),h(m,"class","exam-type-label svelte-1fdt9px"),h(s,"class","exam-type-content svelte-1fdt9px"),h(t,"class","exam-type-option svelte-1fdt9px"),$(t,"selected",e[3]===e[38].value),x.p(n)},m(c,d){o(c,t,d),i(t,n),n.checked=n.__value===e[3],i(t,l),i(t,s),i(s,a),i(a,r),i(s,v),i(s,m),i(m,b),i(t,y),w||(C=f(n,"change",e[33]),w=!0)},p(e,l){8&l[0]&&(n.checked=n.__value===e[3]),520&l[0]&&$(t,"selected",e[3]===e[38].value)},d(e){e&&c(t),x.r(),w=!1,C()}}}function Se(t){let n,l,s,a,r,v,m,g,b,y,x,w;return{c(){n=d("div"),l=d("div"),l.textContent="📁",s=p(),a=d("h4"),a.textContent="Drop your file here",r=p(),v=d("p"),m=u("or "),g=d("button"),g.textContent="browse files",b=p(),y=d("div"),y.textContent="Supported: PDF, DOC, DOCX, JPG, PNG",h(l,"class","drop-icon svelte-1fdt9px"),h(a,"class","svelte-1fdt9px"),h(g,"class","browse-btn svelte-1fdt9px"),h(v,"class","svelte-1fdt9px"),h(y,"class","supported-formats svelte-1fdt9px"),h(n,"class","file-drop-content svelte-1fdt9px")},m(e,c){o(e,n,c),i(n,l),i(n,s),i(n,a),i(n,r),i(n,v),i(v,m),i(v,g),i(n,b),i(n,y),x||(w=f(g,"click",t[30]),x=!0)},p:e,d(e){e&&c(n),x=!1,w()}}}function Fe(e){let t,n,l,s,a,r,v,m,g,b,x,w,C,_,$=Me(e[0].type)+"",S=e[0].name+"",F=De(e[0].size)+"";return{c(){t=d("div"),n=d("div"),l=u($),s=p(),a=d("div"),r=d("div"),v=u(S),m=p(),g=d("div"),b=u(F),x=p(),w=d("button"),w.textContent="Change File",h(n,"class","file-icon svelte-1fdt9px"),h(r,"class","file-name svelte-1fdt9px"),h(g,"class","file-size svelte-1fdt9px"),h(a,"class","file-details svelte-1fdt9px"),h(w,"class","change-file-btn svelte-1fdt9px"),h(t,"class","file-selected svelte-1fdt9px")},m(c,d){o(c,t,d),i(t,n),i(n,l),i(t,s),i(t,a),i(a,r),i(r,v),i(a,m),i(a,g),i(g,b),i(t,x),i(t,w),C||(_=f(w,"click",e[29]),C=!0)},p(e,t){1&t[0]&&$!==($=Me(e[0].type)+"")&&y(l,$),1&t[0]&&S!==(S=e[0].name+"")&&y(v,S),1&t[0]&&F!==(F=De(e[0].size)+"")&&y(b,F)},d(e){e&&c(t),C=!1,_()}}}function ke(t){let n,l,s;return{c(){n=d("button"),n.innerHTML="<span>←</span>\n\t\t\t\t\t\tPrevious",h(n,"class","btn btn-secondary")},m(e,a){o(e,n,a),l||(s=f(n,"click",t[18]),l=!0)},p:e,d(e){e&&c(n),l=!1,s()}}}function ze(e){let t,n,l,s;function a(e,t){return e[5]?Ae:Ne}let i=a(e),r=i(e);return{c(){t=d("button"),r.c(),h(t,"class","btn btn-success upload-btn svelte-1fdt9px"),t.disabled=n=e[5]||!e[22]()},m(n,a){o(n,t,a),r.m(t,null),l||(s=f(t,"click",e[20]),l=!0)},p(e,l){i!==(i=a(e))&&(r.d(1),r=i(e),r&&(r.c(),r.m(t,null))),32&l[0]&&n!==(n=e[5]||!e[22]())&&(t.disabled=n)},d(e){e&&c(t),r.d(),l=!1,s()}}}function Te(t){let n,l,s,a,r;return{c(){n=d("button"),l=u("Next\r\n\t\t\t\t\t\t"),s=d("span"),s.textContent="→",h(n,"class","btn btn-success"),n.disabled=!t[21]()},m(e,c){o(e,n,c),i(n,l),i(n,s),a||(r=f(n,"click",t[17]),a=!0)},p:e,d(e){e&&c(n),a=!1,r()}}}function Ne(e){let t,n;return{c(){t=d("span"),t.textContent="📤",n=u("\r\n\t\t\t\t\t\t\tUpload File")},m(e,l){o(e,t,l),o(e,n,l)},d(e){e&&c(t),e&&c(n)}}}function Ae(e){let t,n;return{c(){t=d("span"),n=u("\r\n\t\t\t\t\t\t\tUploading..."),h(t,"class","loading-spinner svelte-1fdt9px")},m(e,l){o(e,t,l),o(e,n,l)},d(e){e&&c(t),e&&c(n)}}}function Ee(t){let n,l,s,a;function r(e,t){return e[6]?fe:ve}let u=r(t),v=u(t);return{c(){n=d("div"),l=d("div"),s=d("div"),s.innerHTML='<h2 class="svelte-1fdt9px">📤 Upload Past Questions</h2> \n\t\t\t<p class="svelte-1fdt9px">Share your knowledge and help fellow students succeed</p>',a=p(),v.c(),h(s,"class","upload-header svelte-1fdt9px"),h(l,"class","card"),h(n,"class","upload-container svelte-1fdt9px")},m(e,t){o(e,n,t),i(n,l),i(l,s),i(l,a),v.m(l,null)},p(e,t){u===(u=r(e))&&v?v.p(e,t):(v.d(1),v=u(e),v&&(v.c(),v.m(l,null)))},i:e,o:e,d(e){e&&c(n),v.d()}}}function De(e){if(0===e)return"0 Bytes";const t=Math.floor(Math.log(e)/Math.log(1024));return parseFloat((e/Math.pow(1024,t)).toFixed(2))+" "+["Bytes","KB","MB","GB"][t]}function Me(e){return e.includes("pdf")?"📄":e.includes("word")||e.includes("document")?"📝":e.includes("image")?"🖼️":"📁"}function Le(e,t,n){const l=z();let{uploadedFiles:s=[]}=t,{onAddCoins:a=null}=t,{onAddUploadedFile:i=null}=t,{onAddAvailableFile:o=null}=t,c=null,r="",d="",u="",p="",v=!1,f=!1,m=1,h=!1;const g=["Mathematics","Physics","Chemistry","Biology","Computer Science","Economics","Business","Engineering","Medicine","Law","Other"],b=Array.from({length:10},(e,t)=>(new Date).getFullYear()-t);function y(){m<3&&n(7,m++,m)}function x(e){(e<=m||2===e&&c||3===e&&c&&r&&d&&u)&&n(7,m=e)}return e.$$set=e=>{"uploadedFiles"in e&&n(23,s=e.uploadedFiles),"onAddCoins"in e&&n(24,a=e.onAddCoins),"onAddUploadedFile"in e&&n(25,i=e.onAddUploadedFile),"onAddAvailableFile"in e&&n(26,o=e.onAddAvailableFile)},[c,r,d,u,p,v,f,m,h,[{value:"Midterm",label:"Midterm Exam",icon:"📝"},{value:"Final",label:"Final Exam",icon:"🎓"},{value:"Quiz",label:"Quiz",icon:"❓"},{value:"Assignment",label:"Assignment",icon:"📋"},{value:"Other",label:"Other",icon:"📄"}],g,b,[{number:1,title:"Select File",description:"Choose your past question file"},{number:2,title:"Add Details",description:"Provide subject and exam information"},{number:3,title:"Review & Upload",description:"Confirm and upload your file"}],function(e){n(0,c=e.target.files[0]),c&&y()},function(e){e.preventDefault(),n(8,h=!0)},function(e){e.preventDefault(),n(8,h=!1)},function(e){e.preventDefault(),n(8,h=!1);const t=e.dataTransfer.files;t.length>0&&(n(0,c=t[0]),y())},y,function(){m>1&&n(7,m--,m)},x,function(){c&&r&&d&&u?(n(5,v=!0),setTimeout(()=>{const e={id:Date.now(),name:c.name,subject:r,year:d,examType:u,description:p,price:0,uploadDate:(new Date).toISOString(),size:c.size,type:c.type,downloads:0,rating:0};i?i(e):l("addUploadedFile",e),o?o(e):l("addAvailableFile",e),n(5,v=!1),n(6,f=!0),function(){n(0,c=null),n(1,r=""),n(2,d=""),n(3,u=""),n(4,p=""),price=5,n(7,m=1);const e=document.getElementById("fileInput");e&&(e.value="")}(),setTimeout(()=>{n(6,f=!1)},3e3)},1500)):alert("Please fill in all required fields")},function(){switch(m){case 1:return c;case 2:return r&&d&&u;default:return!0}},function(){return c&&r&&d&&u},s,a,i,o,()=>n(6,f=!1),e=>x(e.number),()=>document.getElementById("fileInput").click(),()=>document.getElementById("fileInput").click(),function(){r=_(this),n(1,r),n(10,g)},function(){d=_(this),n(2,d),n(11,b)},function(){u=this.__value,n(3,u)},[[]],function(){p=this.value,n(4,p)}]}class je extends K{constructor(e){super(),V(this,e,Le,Ee,a,{uploadedFiles:23,onAddCoins:24,onAddUploadedFile:25,onAddAvailableFile:26},null,[-1,-1])}}function Pe(e,t,n){const l=e.slice();return l[28]=t[n],l}function Ie(e,t,n){const l=e.slice();return l[31]=t[n],l}function Ue(e,t,n){const l=e.slice();return l[34]=t[n],l}function Be(e,t,n){const l=e.slice();return l[37]=t[n],l}function He(e){let t,n,l,s=e[37]+"";return{c(){t=d("option"),n=u(s),t.__value=l=e[37],t.value=t.__value},m(e,l){o(e,t,l),i(t,n)},p(e,a){4096&a[0]&&s!==(s=e[37]+"")&&y(n,s),4096&a[0]&&l!==(l=e[37])&&(t.__value=l,t.value=t.__value)},d(e){e&&c(t)}}}function Oe(e){let t,n,l,s=e[34]+"";return{c(){t=d("option"),n=u(s),t.__value=l=e[34],t.value=t.__value},m(e,l){o(e,t,l),i(t,n)},p(e,a){2048&a[0]&&s!==(s=e[34]+"")&&y(n,s),2048&a[0]&&l!==(l=e[34])&&(t.__value=l,t.value=t.__value)},d(e){e&&c(t)}}}function qe(e){let t,n,l,s=e[31]+"";return{c(){t=d("option"),n=u(s),t.__value=l=e[31],t.value=t.__value},m(e,l){o(e,t,l),i(t,n)},p(e,a){1024&a[0]&&s!==(s=e[31]+"")&&y(n,s),1024&a[0]&&l!==(l=e[31])&&(t.__value=l,t.value=t.__value)},d(e){e&&c(t)}}}function Je(e){let t,n=e[9],l=[];for(let t=0;t<n.length;t+=1)l[t]=Ze(Pe(e,n,t));return{c(){t=d("div");for(let e=0;e<l.length;e+=1)l[e].c();h(t,"class","files-grid svelte-n344dg")},m(e,n){o(e,t,n);for(let e=0;e<l.length;e+=1)l[e]&&l[e].m(t,null)},p(e,s){if(8704&s[0]){let a;for(n=e[9],a=0;a<n.length;a+=1){const i=Pe(e,n,a);l[a]?l[a].p(i,s):(l[a]=Ze(i),l[a].c(),l[a].m(t,null))}for(;a<l.length;a+=1)l[a].d(1);l.length=n.length}},d(e){e&&c(t),r(l,e)}}}function Re(t){let n;return{c(){n=d("div"),n.innerHTML='<div class="no-results-icon svelte-n344dg">🔍</div> \n\t\t\t\t\t<h4 class="svelte-n344dg">No files found</h4> \n\t\t\t\t\t<p>Try adjusting your search criteria or filters to find what you&#39;re looking for.</p>',h(n,"class","no-results svelte-n344dg")},m(e,t){o(e,n,t)},p:e,d(e){e&&c(n)}}}function Qe(e){let t;return{c(){t=d("span"),t.textContent="FREE",h(t,"class","free-badge svelte-n344dg")},m(e,n){o(e,t,n)},d(e){e&&c(t)}}}function We(e){let t,n,l,s,a=e[28].price+"";return{c(){t=d("span"),n=u(a),l=p(),s=d("span"),s.textContent="coins",h(t,"class","price-amount svelte-n344dg"),h(s,"class","price-label svelte-n344dg")},m(e,a){o(e,t,a),i(t,n),o(e,l,a),o(e,s,a)},p(e,t){512&t[0]&&a!==(a=e[28].price+"")&&y(n,a)},d(e){e&&c(t),e&&c(l),e&&c(s)}}}function Ge(t){let n;return{c(){n=d("span"),n.textContent="FREE",h(n,"class","price-amount free svelte-n344dg")},m(e,t){o(e,n,t)},p:e,d(e){e&&c(n)}}}function Ye(e){let t,n,l,s,a,r,v,f,m=e[28].rating+"",g=lt(e[28].rating)+"";return{c(){t=d("div"),n=d("span"),n.textContent="⭐",l=p(),s=d("span"),a=u(m),r=u(" ("),v=u(g),f=u(")"),h(n,"class","meta-icon svelte-n344dg"),h(s,"class","meta-text"),h(t,"class","meta-item svelte-n344dg")},m(e,c){o(e,t,c),i(t,n),i(t,l),i(t,s),i(s,a),i(s,r),i(s,v),i(s,f)},p(e,t){512&t[0]&&m!==(m=e[28].rating+"")&&y(a,m),512&t[0]&&g!==(g=lt(e[28].rating)+"")&&y(v,g)},d(e){e&&c(t)}}}function Ze(e){let t,n,l,s,a,r,v,m,g,b,x,w,C,_,$,S,F,k,z,T,N,A,E,D,M,L,j,P,I,U,B,H,O,q,J,R,Q,W,G,Y,Z,V,K,X,ee,te,ne,le,se,ae=tt(e[28].type)+"",ie=e[28].subject+"",oe=e[28].examType+"",ce=e[28].name+"",re=e[28].description+"",de=e[28].year+"",ue=nt(e[28].size)+"",pe=(e[28].downloads||0)+"",ve=(0===e[28].price||e[28].isFree)&&Qe();function fe(e,t){return 0===e[28].price||e[28].isFree?Ge:We}let me=fe(e),he=me(e),ge=e[28].rating&&Ye(e);function be(){return e[26](e[28])}return{c(){t=d("div"),n=d("div"),l=d("div"),s=u(ae),a=p(),r=d("div"),v=d("h4"),m=u(ie),g=p(),b=d("div"),x=d("span"),w=u(oe),C=p(),ve&&ve.c(),_=p(),$=d("div"),he.c(),S=p(),F=d("div"),k=d("div"),z=u(ce),T=p(),N=d("div"),A=u(re),E=p(),D=d("div"),M=d("div"),L=d("span"),L.textContent="📅",j=p(),P=d("span"),I=u(de),U=p(),B=d("div"),H=d("span"),H.textContent="📊",O=p(),q=d("span"),J=u(ue),R=p(),Q=d("div"),W=d("span"),W.textContent="📥",G=p(),Y=d("span"),Z=u(pe),V=u(" downloads"),K=p(),ge&&ge.c(),X=p(),ee=d("div"),te=d("button"),te.innerHTML='<span class="btn-icon svelte-n344dg">👁️</span> \n\t\t\t\t\t\t\t\t\t<span class="btn-text">View &amp; Download</span>',ne=p(),h(l,"class","file-icon svelte-n344dg"),h(v,"class","svelte-n344dg"),h(x,"class","file-type svelte-n344dg"),h(b,"class","file-type-badges svelte-n344dg"),h(r,"class","file-title svelte-n344dg"),h($,"class","file-price svelte-n344dg"),h(n,"class","file-header svelte-n344dg"),h(k,"class","file-name svelte-n344dg"),h(N,"class","file-description svelte-n344dg"),h(L,"class","meta-icon svelte-n344dg"),h(P,"class","meta-text"),h(M,"class","meta-item svelte-n344dg"),h(H,"class","meta-icon svelte-n344dg"),h(q,"class","meta-text"),h(B,"class","meta-item svelte-n344dg"),h(W,"class","meta-icon svelte-n344dg"),h(Y,"class","meta-text"),h(Q,"class","meta-item svelte-n344dg"),h(D,"class","file-meta svelte-n344dg"),h(F,"class","file-content svelte-n344dg"),h(te,"class","download-btn available svelte-n344dg"),h(ee,"class","file-actions svelte-n344dg"),h(t,"class","file-card svelte-n344dg")},m(e,c){o(e,t,c),i(t,n),i(n,l),i(l,s),i(n,a),i(n,r),i(r,v),i(v,m),i(r,g),i(r,b),i(b,x),i(x,w),i(b,C),ve&&ve.m(b,null),i(n,_),i(n,$),he.m($,null),i(t,S),i(t,F),i(F,k),i(k,z),i(F,T),i(F,N),i(N,A),i(F,E),i(F,D),i(D,M),i(M,L),i(M,j),i(M,P),i(P,I),i(D,U),i(D,B),i(B,H),i(B,O),i(B,q),i(q,J),i(D,R),i(D,Q),i(Q,W),i(Q,G),i(Q,Y),i(Y,Z),i(Y,V),i(D,K),ge&&ge.m(D,null),i(t,X),i(t,ee),i(ee,te),i(t,ne),le||(se=f(te,"click",be),le=!0)},p(t,n){e=t,512&n[0]&&ae!==(ae=tt(e[28].type)+"")&&y(s,ae),512&n[0]&&ie!==(ie=e[28].subject+"")&&y(m,ie),512&n[0]&&oe!==(oe=e[28].examType+"")&&y(w,oe),0===e[28].price||e[28].isFree?ve||(ve=Qe(),ve.c(),ve.m(b,null)):ve&&(ve.d(1),ve=null),me===(me=fe(e))&&he?he.p(e,n):(he.d(1),he=me(e),he&&(he.c(),he.m($,null))),512&n[0]&&ce!==(ce=e[28].name+"")&&y(z,ce),512&n[0]&&re!==(re=e[28].description+"")&&y(A,re),512&n[0]&&de!==(de=e[28].year+"")&&y(I,de),512&n[0]&&ue!==(ue=nt(e[28].size)+"")&&y(J,ue),512&n[0]&&pe!==(pe=(e[28].downloads||0)+"")&&y(Z,pe),e[28].rating?ge?ge.p(e,n):(ge=Ye(e),ge.c(),ge.m(D,null)):ge&&(ge.d(1),ge=null)},d(e){e&&c(t),ve&&ve.d(),he.d(),ge&&ge.d(),le=!1,se()}}}function Ve(e){let t,n,s,a,r,v,g,b,x,w,C,_,$,S,F,k,z,T,N,A,E,D,M,L,j,P,I,U,B,H,O,q,J,R,Q,W,G,Y,Z,V,K,X,ee,te,ne,le,se,ae,ie,oe,ce,re,de,ue,pe,ve,fe,me,he,ge,be,ye,xe,we,Ce,_e,$e,Se,Fe,ke,ze,Te,Ne,Ae,Ee,De,Me,Le,je,Pe,Ie,Ue,Be=tt(e[6].type)+"",He=e[6].name+"",Oe=e[6].subject+"",qe=e[6].examType+"",Je=e[6].year+"",Re=e[6].description+"",Qe=nt(e[6].size)+"",We=(e[6].downloads||0)+"",Ge=(e[6].rating||"N/A")+"",Ye=new Date(e[6].uploadDate).toLocaleDateString()+"",Ze=tt(e[6].type)+"",Ve=e[7]&&Ke(e),et=!e[7]&&Xe(e);return{c(){t=d("div"),n=d("div"),s=d("div"),a=d("h3"),a.textContent="📄 Past Question Preview",r=p(),v=d("button"),v.textContent="×",g=p(),b=d("div"),x=d("div"),w=d("div"),C=d("div"),_=u(Be),$=p(),S=d("div"),F=d("h4"),k=u(He),z=p(),T=d("div"),N=d("span"),A=u(Oe),E=p(),D=d("span"),M=u(qe),L=p(),j=d("span"),P=u(Je),I=p(),U=d("div"),B=d("h5"),B.textContent="Description",H=p(),O=d("p"),q=u(Re),J=p(),R=d("div"),Q=d("div"),W=d("span"),W.textContent="📊",G=p(),Y=d("span"),Y.textContent="File Size",Z=p(),V=d("span"),K=u(Qe),X=p(),ee=d("div"),te=d("span"),te.textContent="📥",ne=p(),le=d("span"),le.textContent="Downloads",se=p(),ae=d("span"),ie=u(We),oe=p(),ce=d("div"),re=d("span"),re.textContent="⭐",de=p(),ue=d("span"),ue.textContent="Rating",pe=p(),ve=d("span"),fe=u(Ge),me=p(),he=d("div"),ge=d("span"),ge.textContent="📅",be=p(),ye=d("span"),ye.textContent="Uploaded",xe=p(),we=d("span"),Ce=u(Ye),_e=p(),$e=d("div"),Se=d("h5"),Se.textContent="Preview Content",Fe=p(),ke=d("div"),ze=d("div"),Te=d("div"),Ne=u(Ze),Ae=p(),Ee=d("p"),Ee.textContent="This is a preview of the past question content.",De=p(),Me=d("p"),Me.textContent='Click "Download" to get the full file.',Le=p(),Ve&&Ve.c(),je=p(),Pe=d("div"),et&&et.c(),h(a,"class","svelte-n344dg"),h(v,"class","modal-close svelte-n344dg"),h(s,"class","modal-header svelte-n344dg"),h(C,"class","preview-icon svelte-n344dg"),h(F,"class","svelte-n344dg"),h(N,"class","meta-badge svelte-n344dg"),h(D,"class","meta-badge svelte-n344dg"),h(j,"class","meta-badge svelte-n344dg"),h(T,"class","preview-meta svelte-n344dg"),h(S,"class","preview-info svelte-n344dg"),h(w,"class","preview-header svelte-n344dg"),h(B,"class","svelte-n344dg"),h(O,"class","svelte-n344dg"),h(U,"class","preview-description svelte-n344dg"),h(W,"class","stat-icon svelte-n344dg"),h(Y,"class","stat-label svelte-n344dg"),h(V,"class","stat-value svelte-n344dg"),h(Q,"class","stat-item svelte-n344dg"),h(te,"class","stat-icon svelte-n344dg"),h(le,"class","stat-label svelte-n344dg"),h(ae,"class","stat-value svelte-n344dg"),h(ee,"class","stat-item svelte-n344dg"),h(re,"class","stat-icon svelte-n344dg"),h(ue,"class","stat-label svelte-n344dg"),h(ve,"class","stat-value svelte-n344dg"),h(ce,"class","stat-item svelte-n344dg"),h(ge,"class","stat-icon svelte-n344dg"),h(ye,"class","stat-label svelte-n344dg"),h(we,"class","stat-value svelte-n344dg"),h(he,"class","stat-item svelte-n344dg"),h(R,"class","preview-stats svelte-n344dg"),h(Se,"class","svelte-n344dg"),h(Te,"class","preview-icon-large svelte-n344dg"),h(Ee,"class","svelte-n344dg"),h(Me,"class","svelte-n344dg"),h(ze,"class","preview-placeholder svelte-n344dg"),h(ke,"class","content-preview svelte-n344dg"),h($e,"class","preview-content svelte-n344dg"),h(x,"class","file-preview-section svelte-n344dg"),h(b,"class","modal-body svelte-n344dg"),h(Pe,"class","modal-footer svelte-n344dg"),h(n,"class","modal-content preview-modal svelte-n344dg"),h(t,"class","modal-overlay svelte-n344dg")},m(l,c){o(l,t,c),i(t,n),i(n,s),i(s,a),i(s,r),i(s,v),i(n,g),i(n,b),i(b,x),i(x,w),i(w,C),i(C,_),i(w,$),i(w,S),i(S,F),i(F,k),i(S,z),i(S,T),i(T,N),i(N,A),i(T,E),i(T,D),i(D,M),i(T,L),i(T,j),i(j,P),i(x,I),i(x,U),i(U,B),i(U,H),i(U,O),i(O,q),i(x,J),i(x,R),i(R,Q),i(Q,W),i(Q,G),i(Q,Y),i(Q,Z),i(Q,V),i(V,K),i(R,X),i(R,ee),i(ee,te),i(ee,ne),i(ee,le),i(ee,se),i(ee,ae),i(ae,ie),i(R,oe),i(R,ce),i(ce,re),i(ce,de),i(ce,ue),i(ce,pe),i(ce,ve),i(ve,fe),i(R,me),i(R,he),i(he,ge),i(he,be),i(he,ye),i(he,xe),i(he,we),i(we,Ce),i(x,_e),i(x,$e),i($e,Se),i($e,Fe),i($e,ke),i(ke,ze),i(ze,Te),i(Te,Ne),i(ze,Ae),i(ze,Ee),i(ze,De),i(ze,Me),i(b,Le),Ve&&Ve.m(b,null),i(n,je),i(n,Pe),et&&et.m(Pe,null),Ie||(Ue=[f(v,"click",e[15]),f(n,"click",m(e[20])),f(t,"click",e[15])],Ie=!0)},p(e,t){64&t[0]&&Be!==(Be=tt(e[6].type)+"")&&y(_,Be),64&t[0]&&He!==(He=e[6].name+"")&&y(k,He),64&t[0]&&Oe!==(Oe=e[6].subject+"")&&y(A,Oe),64&t[0]&&qe!==(qe=e[6].examType+"")&&y(M,qe),64&t[0]&&Je!==(Je=e[6].year+"")&&y(P,Je),64&t[0]&&Re!==(Re=e[6].description+"")&&y(q,Re),64&t[0]&&Qe!==(Qe=nt(e[6].size)+"")&&y(K,Qe),64&t[0]&&We!==(We=(e[6].downloads||0)+"")&&y(ie,We),64&t[0]&&Ge!==(Ge=(e[6].rating||"N/A")+"")&&y(fe,Ge),64&t[0]&&Ye!==(Ye=new Date(e[6].uploadDate).toLocaleDateString()+"")&&y(Ce,Ye),64&t[0]&&Ze!==(Ze=tt(e[6].type)+"")&&y(Ne,Ze),e[7]?Ve?Ve.p(e,t):(Ve=Ke(e),Ve.c(),Ve.m(b,null)):Ve&&(Ve.d(1),Ve=null),e[7]?et&&(et.d(1),et=null):et?et.p(e,t):(et=Xe(e),et.c(),et.m(Pe,null))},d(e){e&&c(t),Ve&&Ve.d(),et&&et.d(),Ie=!1,l(Ue)}}}function Ke(e){let t,n,l,s,a,r,v,f,m=Math.round(e[8])+"";return{c(){t=d("div"),n=d("div"),l=d("div"),s=p(),a=d("div"),r=u("Downloading... "),v=u(m),f=u("%"),h(l,"class","progress-fill svelte-n344dg"),w(l,"width",e[8]+"%"),h(n,"class","progress-bar svelte-n344dg"),h(a,"class","progress-text svelte-n344dg"),h(t,"class","download-progress svelte-n344dg")},m(e,c){o(e,t,c),i(t,n),i(n,l),i(t,s),i(t,a),i(a,r),i(a,v),i(a,f)},p(e,t){256&t[0]&&w(l,"width",e[8]+"%"),256&t[0]&&m!==(m=Math.round(e[8])+"")&&y(v,m)},d(e){e&&c(t)}}}function Xe(t){let n,s,a,i,r;return{c(){n=d("button"),n.innerHTML="<span>←</span>\n\t\t\t\t\t\t\tBack to Browse",s=p(),a=d("button"),a.innerHTML="<span>📥</span>\n\t\t\t\t\t\t\tDownload File",h(n,"class","btn btn-secondary svelte-n344dg"),h(a,"class","btn btn-success svelte-n344dg")},m(e,l){o(e,n,l),o(e,s,l),o(e,a,l),i||(r=[f(n,"click",t[15]),f(a,"click",t[14])],i=!0)},p:e,d(e){e&&c(n),e&&c(s),e&&c(a),i=!1,l(r)}}}function et(t){let n,s,a,v,m,g,b,w,_,$,S,F,k,z,T,N,A,E,D,M,L,P,I,U,B,H,O,q,J,R,Q,W,G,Y,Z,V,K,X,ee,te,ne,le,se,ae,ie,oe,ce,re,de,ue,pe,ve,fe,me,he,ge,be=t[9].length+"",ye=t[12],xe=[];for(let e=0;e<ye.length;e+=1)xe[e]=He(Be(t,ye,e));let we=t[11],Ce=[];for(let e=0;e<we.length;e+=1)Ce[e]=Oe(Ue(t,we,e));let _e=t[10],$e=[];for(let e=0;e<_e.length;e+=1)$e[e]=qe(Ie(t,_e,e));function Se(e,t){return 0===e[9].length?Re:Je}let Fe=Se(t),ke=Fe(t),ze=t[5]&&t[6]&&Ve(t);return{c(){n=d("div"),s=d("div"),a=d("div"),a.innerHTML='<h2 class="svelte-n344dg">🔍 Browse Past Questions</h2> \n\t\t\t<p class="svelte-n344dg">Discover and download high-quality study materials from fellow students</p>',v=p(),m=d("div"),g=d("div"),b=d("div"),w=d("span"),w.textContent="🔍",_=p(),$=d("input"),S=p(),F=d("div"),k=d("div"),z=d("label"),z.textContent="Subject",T=p(),N=d("select"),A=d("option"),A.textContent="All Subjects";for(let e=0;e<xe.length;e+=1)xe[e].c();E=p(),D=d("div"),M=d("label"),M.textContent="Academic Year",L=p(),P=d("select"),I=d("option"),I.textContent="All Years";for(let e=0;e<Ce.length;e+=1)Ce[e].c();U=p(),B=d("div"),H=d("label"),H.textContent="Exam Type",O=p(),q=d("select"),J=d("option"),J.textContent="All Types";for(let e=0;e<$e.length;e+=1)$e[e].c();R=p(),Q=d("div"),W=d("label"),W.textContent="Sort By",G=p(),Y=d("select"),Z=d("option"),Z.textContent="Newest First",V=d("option"),V.textContent="Most Popular",K=d("option"),K.textContent="Price: Low to High",X=d("option"),X.textContent="Price: High to Low",ee=d("option"),ee.textContent="Subject A-Z",te=p(),ne=d("div"),le=d("button"),le.innerHTML="<span>🔄</span>\n\t\t\t\t\tClear Filters",se=p(),ae=d("div"),ie=d("div"),oe=d("h3"),oe.textContent="Available Files",ce=p(),re=d("div"),de=d("span"),ue=u(be),pe=p(),ve=d("span"),ve.textContent="files found",fe=p(),ke.c(),me=p(),ze&&ze.c(),h(a,"class","section-header svelte-n344dg"),h(w,"class","search-icon svelte-n344dg"),h($,"type","text"),h($,"placeholder","Search by subject, description, or filename..."),h($,"class","search-input svelte-n344dg"),h(b,"class","search-input-wrapper svelte-n344dg"),h(g,"class","search-section svelte-n344dg"),h(z,"for","subjectFilter"),A.__value="",A.value=A.__value,h(N,"id","subjectFilter"),void 0===t[1]&&j(()=>t[22].call(N)),h(k,"class","form-group"),h(M,"for","yearFilter"),I.__value="",I.value=I.__value,h(P,"id","yearFilter"),void 0===t[2]&&j(()=>t[23].call(P)),h(D,"class","form-group"),h(H,"for","examTypeFilter"),J.__value="",J.value=J.__value,h(q,"id","examTypeFilter"),void 0===t[3]&&j(()=>t[24].call(q)),h(B,"class","form-group"),h(W,"for","sortBy"),Z.__value="newest",Z.value=Z.__value,V.__value="popular",V.value=V.__value,K.__value="price-low",K.value=K.__value,X.__value="price-high",X.value=X.__value,ee.__value="subject",ee.value=ee.__value,h(Y,"id","sortBy"),void 0===t[4]&&j(()=>t[25].call(Y)),h(Q,"class","form-group"),h(F,"class","filters-grid svelte-n344dg"),h(le,"class","btn btn-secondary"),h(ne,"class","filter-actions svelte-n344dg"),h(m,"class","search-filters svelte-n344dg"),h(oe,"class","svelte-n344dg"),h(de,"class","count-number svelte-n344dg"),h(ve,"class","count-label svelte-n344dg"),h(re,"class","results-count svelte-n344dg"),h(ie,"class","results-header svelte-n344dg"),h(ae,"class","results-section svelte-n344dg"),h(s,"class","card"),h(n,"class","browse-container svelte-n344dg")},m(e,l){o(e,n,l),i(n,s),i(s,a),i(s,v),i(s,m),i(m,g),i(g,b),i(b,w),i(b,_),i(b,$),x($,t[0]),i(m,S),i(m,F),i(F,k),i(k,z),i(k,T),i(k,N),i(N,A);for(let e=0;e<xe.length;e+=1)xe[e]&&xe[e].m(N,null);C(N,t[1],!0),i(F,E),i(F,D),i(D,M),i(D,L),i(D,P),i(P,I);for(let e=0;e<Ce.length;e+=1)Ce[e]&&Ce[e].m(P,null);C(P,t[2],!0),i(F,U),i(F,B),i(B,H),i(B,O),i(B,q),i(q,J);for(let e=0;e<$e.length;e+=1)$e[e]&&$e[e].m(q,null);C(q,t[3],!0),i(F,R),i(F,Q),i(Q,W),i(Q,G),i(Q,Y),i(Y,Z),i(Y,V),i(Y,K),i(Y,X),i(Y,ee),C(Y,t[4],!0),i(m,te),i(m,ne),i(ne,le),i(s,se),i(s,ae),i(ae,ie),i(ie,oe),i(ie,ce),i(ie,re),i(re,de),i(de,ue),i(re,pe),i(re,ve),i(ae,fe),ke.m(ae,null),i(n,me),ze&&ze.m(n,null),he||(ge=[f($,"input",t[21]),f(N,"change",t[22]),f(P,"change",t[23]),f(q,"change",t[24]),f(Y,"change",t[25]),f(le,"click",t[16])],he=!0)},p(e,t){if(1&t[0]&&$.value!==e[0]&&x($,e[0]),4096&t[0]){let n;for(ye=e[12],n=0;n<ye.length;n+=1){const l=Be(e,ye,n);xe[n]?xe[n].p(l,t):(xe[n]=He(l),xe[n].c(),xe[n].m(N,null))}for(;n<xe.length;n+=1)xe[n].d(1);xe.length=ye.length}if(4098&t[0]&&C(N,e[1]),2048&t[0]){let n;for(we=e[11],n=0;n<we.length;n+=1){const l=Ue(e,we,n);Ce[n]?Ce[n].p(l,t):(Ce[n]=Oe(l),Ce[n].c(),Ce[n].m(P,null))}for(;n<Ce.length;n+=1)Ce[n].d(1);Ce.length=we.length}if(2052&t[0]&&C(P,e[2]),1024&t[0]){let n;for(_e=e[10],n=0;n<_e.length;n+=1){const l=Ie(e,_e,n);$e[n]?$e[n].p(l,t):($e[n]=qe(l),$e[n].c(),$e[n].m(q,null))}for(;n<$e.length;n+=1)$e[n].d(1);$e.length=_e.length}1032&t[0]&&C(q,e[3]),16&t[0]&&C(Y,e[4]),512&t[0]&&be!==(be=e[9].length+"")&&y(ue,be),Fe===(Fe=Se(e))&&ke?ke.p(e,t):(ke.d(1),ke=Fe(e),ke&&(ke.c(),ke.m(ae,null))),e[5]&&e[6]?ze?ze.p(e,t):(ze=Ve(e),ze.c(),ze.m(n,null)):ze&&(ze.d(1),ze=null)},i:e,o:e,d(e){e&&c(n),r(xe,e),r(Ce,e),r($e,e),ke.d(),ze&&ze.d(),he=!1,l(ge)}}}function tt(e){return e.includes("pdf")?"📄":e.includes("word")||e.includes("document")?"📝":e.includes("image")?"🖼️":"📁"}function nt(e){if(0===e)return"0 Bytes";const t=Math.floor(Math.log(e)/Math.log(1024));return parseFloat((e/Math.pow(1024,t)).toFixed(2))+" "+["Bytes","KB","MB","GB"][t]}function lt(e){return"★".repeat(Math.floor(e))+"☆".repeat(5-Math.floor(e))}function st(e,t,n){let l,s,a,i;z();let{availableFiles:o=[]}=t,{userCoins:c=0}=t,{onSpendCoins:r=null}=t,d="",u="",p="",v="",f="newest",m=!1,h=null,g=!1,b=0;function y(e){n(6,h=e),n(5,m=!0)}return e.$$set=e=>{"availableFiles"in e&&n(17,o=e.availableFiles),"userCoins"in e&&n(18,c=e.userCoins),"onSpendCoins"in e&&n(19,r=e.onSpendCoins)},e.$$.update=()=>{131072&e.$$.dirty[0]&&n(12,l=[...new Set(o.map(e=>e.subject))].sort()),131072&e.$$.dirty[0]&&n(11,s=[...new Set(o.map(e=>e.year))].sort((e,t)=>t-e)),131072&e.$$.dirty[0]&&n(10,a=[...new Set(o.map(e=>e.examType))].sort()),131103&e.$$.dirty[0]&&n(9,i=o.filter(e=>{const t=e.subject.toLowerCase().includes(d.toLowerCase())||e.description.toLowerCase().includes(d.toLowerCase())||e.name.toLowerCase().includes(d.toLowerCase()),n=!u||e.subject===u,l=!p||e.year===p,s=!v||e.examType===v;return t&&n&&l&&s}).sort((e,t)=>{switch(f){case"newest":return new Date(t.uploadDate)-new Date(e.uploadDate);case"oldest":return new Date(e.uploadDate)-new Date(t.uploadDate);case"price-low":return e.price-t.price;case"price-high":return t.price-e.price;case"subject":return e.subject.localeCompare(t.subject);case"popular":return(t.downloads||0)-(e.downloads||0);default:return 0}}))},[d,u,p,v,f,m,h,g,b,i,a,s,l,y,async function(){if(!h)return;n(7,g=!0),n(8,b=0);const e=setInterval(()=>{n(8,b+=30*Math.random()),b>=100&&(n(8,b=100),clearInterval(e),setTimeout(()=>{n(7,g=!1),n(5,m=!1),n(6,h=null),n(8,b=0),alert("✅ Download completed! Enjoy your study material.")},1e3))},200)},function(){g||(n(5,m=!1),n(6,h=null),n(8,b=0))},function(){n(0,d=""),n(1,u=""),n(2,p=""),n(3,v=""),n(4,f="newest")},o,c,r,function(t){T.call(this,e,t)},function(){d=this.value,n(0,d)},function(){u=_(this),n(1,u),n(12,l),n(17,o)},function(){p=_(this),n(2,p),n(11,s),n(17,o)},function(){v=_(this),n(3,v),n(10,a),n(17,o)},function(){f=_(this),n(4,f)},e=>y(e)]}class at extends K{constructor(e){super(),V(this,e,st,et,a,{availableFiles:17,userCoins:18,onSpendCoins:19},null,[-1,-1])}}function it(e,t,n){const l=e.slice();return l[22]=t[n],l}function ot(e,t,n){const l=e.slice();return l[25]=t[n],l}function ct(e){let t;return{c(){t=d("div"),t.textContent="✅ Withdrawal successful! Your cash will be processed within 24 hours.",h(t,"class","success-message")},m(e,n){o(e,t,n)},d(e){e&&c(t)}}}function rt(e){let t,n,l;return{c(){t=d("p"),n=u("= ₦"),l=u(e[2]),h(t,"class","cash-equivalent svelte-hvh1uy")},m(e,s){o(e,t,s),i(t,n),i(t,l)},p(e,t){4&t&&y(l,e[2])},d(e){e&&c(t)}}}function dt(e){let t,n,s,a,u,v,m,g,b,y,w,_,$,S,F=e[9],k=[];for(let t=0;t<F.length;t+=1)k[t]=pt(ot(e,F,t));return{c(){t=d("div"),n=d("h4"),n.textContent="Mobile Money Details",s=p(),a=d("div"),u=d("label"),u.textContent="Phone Number",v=p(),m=d("input"),g=p(),b=d("div"),y=d("label"),y.textContent="Provider",w=p(),_=d("select");for(let e=0;e<k.length;e+=1)k[e].c();h(u,"for","phoneNumber"),h(m,"id","phoneNumber"),h(m,"type","tel"),h(m,"placeholder","e.g., 0241234567"),m.required=!0,h(a,"class","form-group"),h(y,"for","provider"),h(_,"id","provider"),void 0===e[5].provider&&j(()=>e[21].call(_)),h(b,"class","form-group"),h(t,"class","mobile-details svelte-hvh1uy")},m(l,c){o(l,t,c),i(t,n),i(t,s),i(t,a),i(a,u),i(a,v),i(a,m),x(m,e[5].phoneNumber),i(t,g),i(t,b),i(b,y),i(b,w),i(b,_);for(let e=0;e<k.length;e+=1)k[e]&&k[e].m(_,null);C(_,e[5].provider,!0),$||(S=[f(m,"input",e[20]),f(_,"change",e[21])],$=!0)},p(e,t){if(544&t&&x(m,e[5].phoneNumber),512&t){let n;for(F=e[9],n=0;n<F.length;n+=1){const l=ot(e,F,n);k[n]?k[n].p(l,t):(k[n]=pt(l),k[n].c(),k[n].m(_,null))}for(;n<k.length;n+=1)k[n].d(1);k.length=F.length}544&t&&C(_,e[5].provider)},d(e){e&&c(t),r(k,e),$=!1,l(S)}}}function ut(e){let t,n,s,a,r,u,v,m,g,b,y,w,C,_,$,S,F,k,z;return{c(){t=d("div"),n=d("h4"),n.textContent="Bank Details",s=p(),a=d("div"),r=d("label"),r.textContent="Account Number",u=p(),v=d("input"),m=p(),g=d("div"),b=d("label"),b.textContent="Bank Name",y=p(),w=d("input"),C=p(),_=d("div"),$=d("label"),$.textContent="Account Name",S=p(),F=d("input"),h(r,"for","accountNumber"),h(v,"id","accountNumber"),h(v,"type","text"),h(v,"placeholder","Enter your account number"),v.required=!0,h(a,"class","form-group"),h(b,"for","bankName"),h(w,"id","bankName"),h(w,"type","text"),h(w,"placeholder","e.g., Ghana Commercial Bank"),w.required=!0,h(g,"class","form-group"),h($,"for","accountName"),h(F,"id","accountName"),h(F,"type","text"),h(F,"placeholder","Full name on account"),F.required=!0,h(_,"class","form-group"),h(t,"class","bank-details svelte-hvh1uy")},m(l,c){o(l,t,c),i(t,n),i(t,s),i(t,a),i(a,r),i(a,u),i(a,v),x(v,e[4].accountNumber),i(t,m),i(t,g),i(g,b),i(g,y),i(g,w),x(w,e[4].bankName),i(t,C),i(t,_),i(_,$),i(_,S),i(_,F),x(F,e[4].accountName),k||(z=[f(v,"input",e[17]),f(w,"input",e[18]),f(F,"input",e[19])],k=!0)},p(e,t){16&t&&v.value!==e[4].accountNumber&&x(v,e[4].accountNumber),16&t&&w.value!==e[4].bankName&&x(w,e[4].bankName),16&t&&F.value!==e[4].accountName&&x(F,e[4].accountName)},d(e){e&&c(t),k=!1,l(z)}}}function pt(t){let n,l,s=t[25].toUpperCase()+"";return{c(){n=d("option"),l=u(s),n.__value=t[25],n.value=n.__value},m(e,t){o(e,n,t),i(n,l)},p:e,d(e){e&&c(n)}}}function vt(e){let t;return{c(){t=u("💸 Request Withdrawal")},m(e,n){o(e,t,n)},d(e){e&&c(t)}}}function ft(e){let t;return{c(){t=u("⏳ Processing...")},m(e,n){o(e,t,n)},d(e){e&&c(t)}}}function mt(e){let t,n,l,s,a=e[6],u=[];for(let t=0;t<a.length;t+=1)u[t]=ht(it(e,a,t));return{c(){t=d("div"),n=d("h3"),n.textContent="📋 Withdrawal History",l=p(),s=d("div");for(let e=0;e<u.length;e+=1)u[e].c();h(s,"class","history-list svelte-hvh1uy"),h(t,"class","card")},m(e,a){o(e,t,a),i(t,n),i(t,l),i(t,s);for(let e=0;e<u.length;e+=1)u[e]&&u[e].m(s,null)},p(e,t){if(64&t){let n;for(a=e[6],n=0;n<a.length;n+=1){const l=it(e,a,n);u[n]?u[n].p(l,t):(u[n]=ht(l),u[n].c(),u[n].m(s,null))}for(;n<u.length;n+=1)u[n].d(1);u.length=a.length}},d(e){e&&c(t),r(u,e)}}}function ht(e){let t,n,l,s,a,r,v,f,m,g,b,x,w,C,_,$,S=e[22].cashAmount+"",F="bank"===e[22].method?"Bank Transfer":"Mobile Money",k=new Date(e[22].date).toLocaleDateString()+"";return{c(){t=d("div"),n=d("div"),l=d("div"),s=u("₦"),a=u(S),r=p(),v=d("div"),f=d("p"),m=d("strong"),g=u(F),b=p(),x=d("p"),w=u(k),C=p(),_=d("p"),_.textContent="✅ Completed",$=p(),h(l,"class","history-amount svelte-hvh1uy"),h(f,"class","svelte-hvh1uy"),h(x,"class","svelte-hvh1uy"),h(_,"class","status completed svelte-hvh1uy"),h(v,"class","history-details svelte-hvh1uy"),h(n,"class","history-info svelte-hvh1uy"),h(t,"class","history-item svelte-hvh1uy")},m(e,c){o(e,t,c),i(t,n),i(n,l),i(l,s),i(l,a),i(n,r),i(n,v),i(v,f),i(f,m),i(m,g),i(v,b),i(v,x),i(x,w),i(v,C),i(v,_),i(t,$)},p(e,t){64&t&&S!==(S=e[22].cashAmount+"")&&y(a,S),64&t&&F!==(F="bank"===e[22].method?"Bank Transfer":"Mobile Money")&&y(g,F),64&t&&k!==(k=new Date(e[22].date).toLocaleDateString()+"")&&y(w,k)},d(e){e&&c(t)}}}function gt(t){let n,s,a,r,v,m,w,C,_,$,S,F,k,z,T,N,A,E,D,M,L,j,P,I,U,B,H,O,q,J,R,Q,W,G,Y,Z,V,K,X,ee,te,ne,le,se,ae,ie,oe,ce,re,de,ue,pe,ve,fe,me,he,ge,be,ye,xe,we,Ce,_e=t[1].length+"",$e=t[8]&&ct(),Se=t[2]>0&&rt(t);function Fe(e,t){return"bank"===e[3]?ut:dt}let ke=Fe(t),ze=ke(t);function Te(e,t){return e[7]?ft:vt}let Ne=Te(t),Ae=Ne(t),Ee=t[6].length>0&&mt(t);return xe=g(t[15][0]),{c(){n=d("div"),s=d("div"),a=d("h2"),a.textContent="💰 My Wallet",r=p(),v=d("div"),m=d("div"),w=d("div"),C=u("₦"),_=u(t[0]),$=p(),S=d("div"),S.textContent="Available Balance",F=p(),k=d("div"),z=d("div"),T=u(_e),N=p(),A=d("div"),A.textContent="Files Uploaded",E=p(),D=d("div"),M=d("div"),M.textContent=`₦${t[11]().toFixed(0)}`,L=p(),j=d("div"),j.textContent="Total Earned",P=p(),I=d("div"),U=d("div"),U.textContent=`₦${t[12]().toFixed(0)}`,B=p(),H=d("div"),H.textContent="Total Withdrawn",O=p(),q=d("div"),J=d("h3"),J.textContent="💸 Withdraw Cash",R=p(),$e&&$e.c(),Q=p(),W=d("form"),G=d("div"),Y=d("label"),Y.textContent="Amount to Withdraw (Naira)",Z=p(),V=d("input"),K=p(),X=d("small"),X.textContent="Minimum withdrawal: ₦100",ee=p(),Se&&Se.c(),te=p(),ne=d("div"),le=d("label"),le.textContent="Withdrawal Method",se=p(),ae=d("div"),ie=d("label"),oe=d("input"),ce=p(),re=d("span"),re.textContent="🏦 Bank Transfer",de=p(),ue=d("label"),pe=d("input"),ve=p(),fe=d("span"),fe.textContent="📱 Mobile Money",me=p(),ze.c(),he=p(),ge=d("button"),Ae.c(),ye=p(),Ee&&Ee.c(),h(w,"class","stat-value svelte-hvh1uy"),h(S,"class","stat-label svelte-hvh1uy"),h(m,"class","stat-card svelte-hvh1uy"),h(z,"class","stat-value svelte-hvh1uy"),h(A,"class","stat-label svelte-hvh1uy"),h(k,"class","stat-card svelte-hvh1uy"),h(M,"class","stat-value svelte-hvh1uy"),h(j,"class","stat-label svelte-hvh1uy"),h(D,"class","stat-card svelte-hvh1uy"),h(U,"class","stat-value svelte-hvh1uy"),h(H,"class","stat-label svelte-hvh1uy"),h(I,"class","stat-card svelte-hvh1uy"),h(v,"class","wallet-stats svelte-hvh1uy"),h(s,"class","card"),h(Y,"for","withdrawalAmount"),h(V,"id","withdrawalAmount"),h(V,"type","number"),h(V,"min","100"),h(V,"max",t[0]),h(V,"step","100"),V.required=!0,h(G,"class","form-group"),h(oe,"type","radio"),oe.__value="bank",oe.value=oe.__value,h(oe,"class","svelte-hvh1uy"),h(ie,"class","method-option svelte-hvh1uy"),h(pe,"type","radio"),pe.__value="mobile",pe.value=pe.__value,h(pe,"class","svelte-hvh1uy"),h(ue,"class","method-option svelte-hvh1uy"),h(ae,"class","method-selector svelte-hvh1uy"),h(ne,"class","form-group"),h(ge,"type","submit"),h(ge,"class","btn btn-success svelte-hvh1uy"),ge.disabled=be=t[7]||t[0]<100,h(q,"class","card"),h(n,"class","wallet-container svelte-hvh1uy"),xe.p(oe,pe)},m(e,l){var c;o(e,n,l),i(n,s),i(s,a),i(s,r),i(s,v),i(v,m),i(m,w),i(w,C),i(w,_),i(m,$),i(m,S),i(v,F),i(v,k),i(k,z),i(z,T),i(k,N),i(k,A),i(v,E),i(v,D),i(D,M),i(D,L),i(D,j),i(v,P),i(v,I),i(I,U),i(I,B),i(I,H),i(n,O),i(n,q),i(q,J),i(q,R),$e&&$e.m(q,null),i(q,Q),i(q,W),i(W,G),i(G,Y),i(G,Z),i(G,V),x(V,t[2]),i(G,K),i(G,X),i(G,ee),Se&&Se.m(G,null),i(W,te),i(W,ne),i(ne,le),i(ne,se),i(ne,ae),i(ae,ie),i(ie,oe),oe.checked=oe.__value===t[3],i(ie,ce),i(ie,re),i(ae,de),i(ae,ue),i(ue,pe),pe.checked=pe.__value===t[3],i(ue,ve),i(ue,fe),i(W,me),ze.m(W,null),i(W,he),i(W,ge),Ae.m(ge,null),i(n,ye),Ee&&Ee.m(n,null),we||(Ce=[f(V,"input",t[13]),f(oe,"change",t[14]),f(pe,"change",t[16]),f(W,"submit",(c=t[10],function(e){return e.preventDefault(),c.call(this,e)}))],we=!0)},p(e,[t]){1&t&&y(_,e[0]),2&t&&_e!==(_e=e[1].length+"")&&y(T,_e),e[8]?$e||($e=ct(),$e.c(),$e.m(q,Q)):$e&&($e.d(1),$e=null),1&t&&h(V,"max",e[0]),4&t&&b(V.value)!==e[2]&&x(V,e[2]),e[2]>0?Se?Se.p(e,t):(Se=rt(e),Se.c(),Se.m(G,null)):Se&&(Se.d(1),Se=null),8&t&&(oe.checked=oe.__value===e[3]),8&t&&(pe.checked=pe.__value===e[3]),ke===(ke=Fe(e))&&ze?ze.p(e,t):(ze.d(1),ze=ke(e),ze&&(ze.c(),ze.m(W,he))),Ne!==(Ne=Te(e))&&(Ae.d(1),Ae=Ne(e),Ae&&(Ae.c(),Ae.m(ge,null))),129&t&&be!==(be=e[7]||e[0]<100)&&(ge.disabled=be),e[6].length>0?Ee?Ee.p(e,t):(Ee=mt(e),Ee.c(),Ee.m(n,null)):Ee&&(Ee.d(1),Ee=null)},i:e,o:e,d(e){e&&c(n),$e&&$e.d(),Se&&Se.d(),ze.d(),Ae.d(),Ee&&Ee.d(),xe.r(),we=!1,l(Ce)}}}function bt(e,t,n){let{userCoins:l=0}=t,{uploadedFiles:s=[]}=t,a=0,i="bank",o={accountNumber:"",bankName:"",accountName:""},c={phoneNumber:"",provider:"mtn"},r=[],d=!1,u=!1;const p=["mtn","airtel","vodafone","tigo"];e.$$set=e=>{"userCoins"in e&&n(0,l=e.userCoins),"uploadedFiles"in e&&n(1,s=e.uploadedFiles)};{const e=localStorage.getItem("withdrawalHistory");e&&n(6,r=JSON.parse(e))}return[l,s,a,i,o,c,r,d,u,p,function(){if(a<=0)alert("Please enter a valid withdrawal amount");else if(a>l)alert(`You only have ${l} coins available`);else{if("bank"===i){if(!o.accountNumber||!o.bankName||!o.accountName)return void alert("Please fill in all bank details")}else if(!c.phoneNumber)return void alert("Please enter your phone number");(a/100).toFixed(2),confirm(`Withdraw ₦${a} to your ${"bank"===i?"bank account":"mobile money"}?`)&&(n(7,d=!0),setTimeout(()=>{const e={id:Date.now(),amount:a,cashAmount:a,method:i,details:"bank"===i?o:c,date:(new Date).toISOString(),status:"completed"};r.unshift(e),localStorage.setItem("withdrawalHistory",JSON.stringify(r)),n(7,d=!1),n(8,u=!0),n(2,a=0),n(4,o={accountNumber:"",bankName:"",accountName:""}),n(5,c={phoneNumber:"",provider:"mtn"}),setTimeout(()=>{n(8,u=!1)},3e3)},2e3))}},function(){return s.reduce((e,t)=>e+t.price,0)},function(){return r.reduce((e,t)=>e+t.cashAmount,0)},function(){a=b(this.value),n(2,a)},function(){i=this.__value,n(3,i)},[[]],function(){i=this.__value,n(3,i)},function(){o.accountNumber=this.value,n(4,o)},function(){o.bankName=this.value,n(4,o)},function(){o.accountName=this.value,n(4,o)},function(){c.phoneNumber=this.value,n(5,c),n(9,p)},function(){c.provider=_(this),n(5,c),n(9,p)}]}class yt extends K{constructor(e){super(),V(this,e,bt,gt,a,{userCoins:0,uploadedFiles:1})}}var xt=new class{constructor(){this.baseUrl="http://localhost:8000",this.useLocalStorage=!0}async getUserCoins(){if(this.useLocalStorage)return parseInt(localStorage.getItem("userCoins")||"0");return(await fetch(`${this.baseUrl}/api/user/coins`)).json()}async updateUserCoins(e){if(this.useLocalStorage)return localStorage.setItem("userCoins",e.toString()),e;return(await fetch(`${this.baseUrl}/api/user/coins`,{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify({coins:e})})).json()}async getUploadedFiles(){if(this.useLocalStorage)return JSON.parse(localStorage.getItem("uploadedFiles")||"[]");return(await fetch(`${this.baseUrl}/api/files/uploaded`)).json()}async getAvailableFiles(){if(this.useLocalStorage)return JSON.parse(localStorage.getItem("availableFiles")||"[]");return(await fetch(`${this.baseUrl}/api/files/available`)).json()}async uploadFile(e){if(this.useLocalStorage){const t=JSON.parse(localStorage.getItem("uploadedFiles")||"[]");return t.push(e),localStorage.setItem("uploadedFiles",JSON.stringify(t)),e}const t=new FormData;t.append("file",e.file),t.append("subject",e.subject),t.append("year",e.year),t.append("examType",e.examType),t.append("description",e.description),t.append("price",e.price);return(await fetch(`${this.baseUrl}/api/files/upload`,{method:"POST",body:t})).json()}async downloadFile(e){if(this.useLocalStorage)return{success:!0,message:"Download started"};return(await fetch(`${this.baseUrl}/api/files/${e}/download`)).json()}async getWithdrawalHistory(){if(this.useLocalStorage)return JSON.parse(localStorage.getItem("withdrawalHistory")||"[]");return(await fetch(`${this.baseUrl}/api/withdrawals`)).json()}async requestWithdrawal(e){if(this.useLocalStorage){const t=JSON.parse(localStorage.getItem("withdrawalHistory")||"[]"),n={id:Date.now(),...e,date:(new Date).toISOString(),status:"completed"};return t.unshift(n),localStorage.setItem("withdrawalHistory",JSON.stringify(t)),n}return(await fetch(`${this.baseUrl}/api/withdrawals`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(e)})).json()}enableBackend(){this.useLocalStorage=!1}enableLocalStorage(){this.useLocalStorage=!0}};function wt(e){let t,n,l,s,a,r,u,v,f;n=new ce({props:{user:e[1],currentView:e[0]}}),n.$on("viewChange",e[8]),n.$on("logout",e[7]),n.$on("showAuth",e[9]);const m=[St,$t,_t],g=[];function b(e,t){return"browse"===e[0]?0:"upload"===e[0]?1:"wallet"===e[0]?2:-1}return~(u=b(e))&&(v=g[u]=m[u](e)),{c(){t=d("main"),W(n.$$.fragment),l=p(),s=d("div"),a=d("div"),r=d("div"),v&&v.c(),h(r,"class","content-area slide-up svelte-l1rmoo"),h(a,"class","container svelte-l1rmoo"),h(s,"class","app-content svelte-l1rmoo"),h(t,"class","svelte-l1rmoo")},m(e,c){o(e,t,c),G(n,t,null),i(t,l),i(t,s),i(s,a),i(a,r),~u&&g[u].m(r,null),f=!0},p(e,t){const l={};2&t&&(l.user=e[1]),1&t&&(l.currentView=e[0]),n.$set(l);let s=u;u=b(e),u===s?~u&&g[u].p(e,t):(v&&(q(),Q(g[s],1,1,()=>{g[s]=null}),J()),~u?(v=g[u],v?v.p(e,t):(v=g[u]=m[u](e),v.c()),R(v,1),v.m(r,null)):v=null)},i(e){f||(R(n.$$.fragment,e),R(v),f=!0)},o(e){Q(n.$$.fragment,e),Q(v),f=!1},d(e){e&&c(t),Y(n),~u&&g[u].d()}}}function Ct(t){let n,l;return n=new le({}),n.$on("userLogin",t[6]),{c(){W(n.$$.fragment)},m(e,t){G(n,e,t),l=!0},p:e,i(e){l||(R(n.$$.fragment,e),l=!0)},o(e){Q(n.$$.fragment,e),l=!1},d(e){Y(n,e)}}}function _t(e){let t,n;return t=new yt({props:{userCoins:e[2],uploadedFiles:e[3]}}),{c(){W(t.$$.fragment)},m(e,l){G(t,e,l),n=!0},p(e,n){const l={};4&n&&(l.userCoins=e[2]),8&n&&(l.uploadedFiles=e[3]),t.$set(l)},i(e){n||(R(t.$$.fragment,e),n=!0)},o(e){Q(t.$$.fragment,e),n=!1},d(e){Y(t,e)}}}function $t(e){let t,n;return t=new je({props:{uploadedFiles:e[3],onAddCoins:e[10],onAddUploadedFile:e[12],onAddAvailableFile:e[13]}}),{c(){W(t.$$.fragment)},m(e,l){G(t,e,l),n=!0},p(e,n){const l={};8&n&&(l.uploadedFiles=e[3]),t.$set(l)},i(e){n||(R(t.$$.fragment,e),n=!0)},o(e){Q(t.$$.fragment,e),n=!1},d(e){Y(t,e)}}}function St(e){let t,n;return t=new at({props:{availableFiles:e[4],userCoins:e[2],onSpendCoins:e[11]}}),{c(){W(t.$$.fragment)},m(e,l){G(t,e,l),n=!0},p(e,n){const l={};16&n&&(l.availableFiles=e[4]),4&n&&(l.userCoins=e[2]),t.$set(l)},i(e){n||(R(t.$$.fragment,e),n=!0)},o(e){Q(t.$$.fragment,e),n=!1},d(e){Y(t,e)}}}function Ft(e){let t,n,l,s;const a=[Ct,wt],i=[];function r(e,t){return e[5]?0:1}return t=r(e),n=i[t]=a[t](e),{c(){n.c(),l=v()},m(e,n){i[t].m(e,n),o(e,l,n),s=!0},p(e,[s]){let o=t;t=r(e),t===o?i[t].p(e,s):(q(),Q(i[o],1,1,()=>{i[o]=null}),J(),n=i[t],n?n.p(e,s):(n=i[t]=a[t](e),n.c()),R(n,1),n.m(l.parentNode,l))},i(e){s||(R(n),s=!0)},o(e){Q(n),s=!1},d(e){i[t].d(e),e&&c(l)}}}function kt(e,t,n){let{name:l="PQ Finder"}=t,s="browse",a=null,i=0,o=[],c=[],r=!0;const d=[{id:1,name:"Mathematics_2023_Final_Exam.pdf",subject:"Mathematics",year:2023,examType:"Final",description:"Complete final exam with solutions and detailed explanations",price:150,uploadDate:"2024-01-15T10:30:00Z",size:2048576,type:"application/pdf",downloads:47,rating:4.8},{id:2,name:"Physics_Midterm_2023_FREE.pdf",subject:"Physics",year:2023,examType:"Midterm",description:"Physics midterm exam covering mechanics and thermodynamics - FREE SAMPLE",price:0,uploadDate:"2024-01-14T14:20:00Z",size:1536e3,type:"application/pdf",downloads:89,rating:4.6,isFree:!0},{id:3,name:"Chemistry_Quiz_Collection.pdf",subject:"Chemistry",year:2023,examType:"Quiz",description:"Collection of 5 chemistry quizzes with answer keys",price:80,uploadDate:"2024-01-13T09:15:00Z",size:1024e3,type:"application/pdf",downloads:28,rating:4.7},{id:4,name:"Computer_Science_Sample_2023_FREE.pdf",subject:"Computer Science",year:2023,examType:"Final",description:"Sample Computer Science questions - FREE PREVIEW",price:0,uploadDate:"2024-01-12T16:45:00Z",size:1024e3,type:"application/pdf",downloads:156,rating:4.9,isFree:!0},{id:5,name:"Economics_Assignment_2023.docx",subject:"Economics",year:2023,examType:"Assignment",description:"Economics assignment with case studies and analysis",price:100,uploadDate:"2024-01-11T11:30:00Z",size:512e3,type:"application/vnd.openxmlformats-officedocument.wordprocessingml.document",downloads:19,rating:4.5},{id:6,name:"Biology_Lab_Report_FREE.pdf",subject:"Biology",year:2023,examType:"Assignment",description:"Sample biology lab report with diagrams - FREE",price:0,uploadDate:"2024-01-10T13:20:00Z",size:512e3,type:"application/pdf",downloads:67,rating:4.4,isFree:!0},{id:7,name:"Mathematics_Quiz_Sample_FREE.pdf",subject:"Mathematics",year:2023,examType:"Quiz",description:"Free sample mathematics quiz questions",price:0,uploadDate:"2024-01-09T08:15:00Z",size:768e3,type:"application/pdf",downloads:124,rating:4.7,isFree:!0},{id:8,name:"Engineering_Design_2023.pdf",subject:"Engineering",year:2023,examType:"Assignment",description:"Engineering design project with detailed solutions",price:180,uploadDate:"2024-01-08T15:30:00Z",size:256e4,type:"application/pdf",downloads:23,rating:4.8}];var u;return u=async()=>{const e=localStorage.getItem("user");e&&(n(1,a=JSON.parse(e)),n(5,r=!1)),n(2,i=await xt.getUserCoins()),n(3,o=await xt.getUploadedFiles()),n(4,c=await xt.getAvailableFiles()),0===c.length&&(n(4,c=d),localStorage.setItem("availableFiles",JSON.stringify(c)))},k().$$.on_mount.push(u),e.$$set=e=>{"name"in e&&n(14,l=e.name)},[s,a,i,o,c,r,function(e){n(1,a=e.detail),n(1,a.balance=i,a),n(5,r=!1),localStorage.setItem("user",JSON.stringify(a))},function(){n(1,a=null),n(5,r=!0),localStorage.removeItem("user")},function(e){n(0,s=e.detail)},function(){n(5,r=!0)},async function(e){n(2,i+=e),a&&(n(1,a.balance=i,a),localStorage.setItem("user",JSON.stringify(a))),await xt.updateUserCoins(i)},async function(e){return i>=e&&(n(2,i-=e),a&&(n(1,a.balance=i,a),localStorage.setItem("user",JSON.stringify(a))),await xt.updateUserCoins(i),!0)},async function(e){o.push(e)},async function(e){c.push(e)},l]}return new class extends K{constructor(e){super(),V(this,e,kt,Ft,a,{name:14})}}({target:document.body,props:{name:"PQ Finder"}})}();
+
+(function(l, r) { if (!l || l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (self.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(self.document);
+var app = (function () {
+    'use strict';
+
+    function noop() { }
+    function add_location(element, file, line, column, char) {
+        element.__svelte_meta = {
+            loc: { file, line, column, char }
+        };
+    }
+    function run(fn) {
+        return fn();
+    }
+    function blank_object() {
+        return Object.create(null);
+    }
+    function run_all(fns) {
+        fns.forEach(run);
+    }
+    function is_function(thing) {
+        return typeof thing === 'function';
+    }
+    function safe_not_equal(a, b) {
+        return a != a ? b == b : a !== b || ((a && typeof a === 'object') || typeof a === 'function');
+    }
+    function is_empty(obj) {
+        return Object.keys(obj).length === 0;
+    }
+
+    const globals = (typeof window !== 'undefined'
+        ? window
+        : typeof globalThis !== 'undefined'
+            ? globalThis
+            : global);
+    function append(target, node) {
+        target.appendChild(node);
+    }
+    function insert(target, node, anchor) {
+        target.insertBefore(node, anchor || null);
+    }
+    function detach(node) {
+        if (node.parentNode) {
+            node.parentNode.removeChild(node);
+        }
+    }
+    function destroy_each(iterations, detaching) {
+        for (let i = 0; i < iterations.length; i += 1) {
+            if (iterations[i])
+                iterations[i].d(detaching);
+        }
+    }
+    function element(name) {
+        return document.createElement(name);
+    }
+    function text(data) {
+        return document.createTextNode(data);
+    }
+    function space() {
+        return text(' ');
+    }
+    function empty() {
+        return text('');
+    }
+    function listen(node, event, handler, options) {
+        node.addEventListener(event, handler, options);
+        return () => node.removeEventListener(event, handler, options);
+    }
+    function prevent_default(fn) {
+        return function (event) {
+            event.preventDefault();
+            // @ts-ignore
+            return fn.call(this, event);
+        };
+    }
+    function stop_propagation(fn) {
+        return function (event) {
+            event.stopPropagation();
+            // @ts-ignore
+            return fn.call(this, event);
+        };
+    }
+    function attr(node, attribute, value) {
+        if (value == null)
+            node.removeAttribute(attribute);
+        else if (node.getAttribute(attribute) !== value)
+            node.setAttribute(attribute, value);
+    }
+    function init_binding_group(group) {
+        let _inputs;
+        return {
+            /* push */ p(...inputs) {
+                _inputs = inputs;
+                _inputs.forEach(input => group.push(input));
+            },
+            /* remove */ r() {
+                _inputs.forEach(input => group.splice(group.indexOf(input), 1));
+            }
+        };
+    }
+    function to_number(value) {
+        return value === '' ? null : +value;
+    }
+    function children(element) {
+        return Array.from(element.childNodes);
+    }
+    function set_input_value(input, value) {
+        input.value = value == null ? '' : value;
+    }
+    function set_style(node, key, value, important) {
+        if (value == null) {
+            node.style.removeProperty(key);
+        }
+        else {
+            node.style.setProperty(key, value, important ? 'important' : '');
+        }
+    }
+    function select_option(select, value, mounting) {
+        for (let i = 0; i < select.options.length; i += 1) {
+            const option = select.options[i];
+            if (option.__value === value) {
+                option.selected = true;
+                return;
+            }
+        }
+        if (!mounting || value !== undefined) {
+            select.selectedIndex = -1; // no option should be selected
+        }
+    }
+    function select_value(select) {
+        const selected_option = select.querySelector(':checked');
+        return selected_option && selected_option.__value;
+    }
+    function toggle_class(element, name, toggle) {
+        element.classList[toggle ? 'add' : 'remove'](name);
+    }
+    function custom_event(type, detail, { bubbles = false, cancelable = false } = {}) {
+        const e = document.createEvent('CustomEvent');
+        e.initCustomEvent(type, bubbles, cancelable, detail);
+        return e;
+    }
+
+    let current_component;
+    function set_current_component(component) {
+        current_component = component;
+    }
+    function get_current_component() {
+        if (!current_component)
+            throw new Error('Function called outside component initialization');
+        return current_component;
+    }
+    /**
+     * The `onMount` function schedules a callback to run as soon as the component has been mounted to the DOM.
+     * It must be called during the component's initialisation (but doesn't need to live *inside* the component;
+     * it can be called from an external module).
+     *
+     * `onMount` does not run inside a [server-side component](/docs#run-time-server-side-component-api).
+     *
+     * https://svelte.dev/docs#run-time-svelte-onmount
+     */
+    function onMount(fn) {
+        get_current_component().$$.on_mount.push(fn);
+    }
+    /**
+     * Creates an event dispatcher that can be used to dispatch [component events](/docs#template-syntax-component-directives-on-eventname).
+     * Event dispatchers are functions that can take two arguments: `name` and `detail`.
+     *
+     * Component events created with `createEventDispatcher` create a
+     * [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent).
+     * These events do not [bubble](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#Event_bubbling_and_capture).
+     * The `detail` argument corresponds to the [CustomEvent.detail](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/detail)
+     * property and can contain any type of data.
+     *
+     * https://svelte.dev/docs#run-time-svelte-createeventdispatcher
+     */
+    function createEventDispatcher() {
+        const component = get_current_component();
+        return (type, detail, { cancelable = false } = {}) => {
+            const callbacks = component.$$.callbacks[type];
+            if (callbacks) {
+                // TODO are there situations where events could be dispatched
+                // in a server (non-DOM) environment?
+                const event = custom_event(type, detail, { cancelable });
+                callbacks.slice().forEach(fn => {
+                    fn.call(component, event);
+                });
+                return !event.defaultPrevented;
+            }
+            return true;
+        };
+    }
+    // TODO figure out if we still want to support
+    // shorthand events, or if we want to implement
+    // a real bubbling mechanism
+    function bubble(component, event) {
+        const callbacks = component.$$.callbacks[event.type];
+        if (callbacks) {
+            // @ts-ignore
+            callbacks.slice().forEach(fn => fn.call(this, event));
+        }
+    }
+
+    const dirty_components = [];
+    const binding_callbacks = [];
+    let render_callbacks = [];
+    const flush_callbacks = [];
+    const resolved_promise = /* @__PURE__ */ Promise.resolve();
+    let update_scheduled = false;
+    function schedule_update() {
+        if (!update_scheduled) {
+            update_scheduled = true;
+            resolved_promise.then(flush);
+        }
+    }
+    function add_render_callback(fn) {
+        render_callbacks.push(fn);
+    }
+    // flush() calls callbacks in this order:
+    // 1. All beforeUpdate callbacks, in order: parents before children
+    // 2. All bind:this callbacks, in reverse order: children before parents.
+    // 3. All afterUpdate callbacks, in order: parents before children. EXCEPT
+    //    for afterUpdates called during the initial onMount, which are called in
+    //    reverse order: children before parents.
+    // Since callbacks might update component values, which could trigger another
+    // call to flush(), the following steps guard against this:
+    // 1. During beforeUpdate, any updated components will be added to the
+    //    dirty_components array and will cause a reentrant call to flush(). Because
+    //    the flush index is kept outside the function, the reentrant call will pick
+    //    up where the earlier call left off and go through all dirty components. The
+    //    current_component value is saved and restored so that the reentrant call will
+    //    not interfere with the "parent" flush() call.
+    // 2. bind:this callbacks cannot trigger new flush() calls.
+    // 3. During afterUpdate, any updated components will NOT have their afterUpdate
+    //    callback called a second time; the seen_callbacks set, outside the flush()
+    //    function, guarantees this behavior.
+    const seen_callbacks = new Set();
+    let flushidx = 0; // Do *not* move this inside the flush() function
+    function flush() {
+        // Do not reenter flush while dirty components are updated, as this can
+        // result in an infinite loop. Instead, let the inner flush handle it.
+        // Reentrancy is ok afterwards for bindings etc.
+        if (flushidx !== 0) {
+            return;
+        }
+        const saved_component = current_component;
+        do {
+            // first, call beforeUpdate functions
+            // and update components
+            try {
+                while (flushidx < dirty_components.length) {
+                    const component = dirty_components[flushidx];
+                    flushidx++;
+                    set_current_component(component);
+                    update(component.$$);
+                }
+            }
+            catch (e) {
+                // reset dirty state to not end up in a deadlocked state and then rethrow
+                dirty_components.length = 0;
+                flushidx = 0;
+                throw e;
+            }
+            set_current_component(null);
+            dirty_components.length = 0;
+            flushidx = 0;
+            while (binding_callbacks.length)
+                binding_callbacks.pop()();
+            // then, once components are updated, call
+            // afterUpdate functions. This may cause
+            // subsequent updates...
+            for (let i = 0; i < render_callbacks.length; i += 1) {
+                const callback = render_callbacks[i];
+                if (!seen_callbacks.has(callback)) {
+                    // ...so guard against infinite loops
+                    seen_callbacks.add(callback);
+                    callback();
+                }
+            }
+            render_callbacks.length = 0;
+        } while (dirty_components.length);
+        while (flush_callbacks.length) {
+            flush_callbacks.pop()();
+        }
+        update_scheduled = false;
+        seen_callbacks.clear();
+        set_current_component(saved_component);
+    }
+    function update($$) {
+        if ($$.fragment !== null) {
+            $$.update();
+            run_all($$.before_update);
+            const dirty = $$.dirty;
+            $$.dirty = [-1];
+            $$.fragment && $$.fragment.p($$.ctx, dirty);
+            $$.after_update.forEach(add_render_callback);
+        }
+    }
+    /**
+     * Useful for example to execute remaining `afterUpdate` callbacks before executing `destroy`.
+     */
+    function flush_render_callbacks(fns) {
+        const filtered = [];
+        const targets = [];
+        render_callbacks.forEach((c) => fns.indexOf(c) === -1 ? filtered.push(c) : targets.push(c));
+        targets.forEach((c) => c());
+        render_callbacks = filtered;
+    }
+    const outroing = new Set();
+    let outros;
+    function group_outros() {
+        outros = {
+            r: 0,
+            c: [],
+            p: outros // parent group
+        };
+    }
+    function check_outros() {
+        if (!outros.r) {
+            run_all(outros.c);
+        }
+        outros = outros.p;
+    }
+    function transition_in(block, local) {
+        if (block && block.i) {
+            outroing.delete(block);
+            block.i(local);
+        }
+    }
+    function transition_out(block, local, detach, callback) {
+        if (block && block.o) {
+            if (outroing.has(block))
+                return;
+            outroing.add(block);
+            outros.c.push(() => {
+                outroing.delete(block);
+                if (callback) {
+                    if (detach)
+                        block.d(1);
+                    callback();
+                }
+            });
+            block.o(local);
+        }
+        else if (callback) {
+            callback();
+        }
+    }
+    function create_component(block) {
+        block && block.c();
+    }
+    function mount_component(component, target, anchor, customElement) {
+        const { fragment, after_update } = component.$$;
+        fragment && fragment.m(target, anchor);
+        if (!customElement) {
+            // onMount happens before the initial afterUpdate
+            add_render_callback(() => {
+                const new_on_destroy = component.$$.on_mount.map(run).filter(is_function);
+                // if the component was destroyed immediately
+                // it will update the `$$.on_destroy` reference to `null`.
+                // the destructured on_destroy may still reference to the old array
+                if (component.$$.on_destroy) {
+                    component.$$.on_destroy.push(...new_on_destroy);
+                }
+                else {
+                    // Edge case - component was destroyed immediately,
+                    // most likely as a result of a binding initialising
+                    run_all(new_on_destroy);
+                }
+                component.$$.on_mount = [];
+            });
+        }
+        after_update.forEach(add_render_callback);
+    }
+    function destroy_component(component, detaching) {
+        const $$ = component.$$;
+        if ($$.fragment !== null) {
+            flush_render_callbacks($$.after_update);
+            run_all($$.on_destroy);
+            $$.fragment && $$.fragment.d(detaching);
+            // TODO null out other refs, including component.$$ (but need to
+            // preserve final state?)
+            $$.on_destroy = $$.fragment = null;
+            $$.ctx = [];
+        }
+    }
+    function make_dirty(component, i) {
+        if (component.$$.dirty[0] === -1) {
+            dirty_components.push(component);
+            schedule_update();
+            component.$$.dirty.fill(0);
+        }
+        component.$$.dirty[(i / 31) | 0] |= (1 << (i % 31));
+    }
+    function init(component, options, instance, create_fragment, not_equal, props, append_styles, dirty = [-1]) {
+        const parent_component = current_component;
+        set_current_component(component);
+        const $$ = component.$$ = {
+            fragment: null,
+            ctx: [],
+            // state
+            props,
+            update: noop,
+            not_equal,
+            bound: blank_object(),
+            // lifecycle
+            on_mount: [],
+            on_destroy: [],
+            on_disconnect: [],
+            before_update: [],
+            after_update: [],
+            context: new Map(options.context || (parent_component ? parent_component.$$.context : [])),
+            // everything else
+            callbacks: blank_object(),
+            dirty,
+            skip_bound: false,
+            root: options.target || parent_component.$$.root
+        };
+        append_styles && append_styles($$.root);
+        let ready = false;
+        $$.ctx = instance
+            ? instance(component, options.props || {}, (i, ret, ...rest) => {
+                const value = rest.length ? rest[0] : ret;
+                if ($$.ctx && not_equal($$.ctx[i], $$.ctx[i] = value)) {
+                    if (!$$.skip_bound && $$.bound[i])
+                        $$.bound[i](value);
+                    if (ready)
+                        make_dirty(component, i);
+                }
+                return ret;
+            })
+            : [];
+        $$.update();
+        ready = true;
+        run_all($$.before_update);
+        // `false` as a special case of no DOM component
+        $$.fragment = create_fragment ? create_fragment($$.ctx) : false;
+        if (options.target) {
+            if (options.hydrate) {
+                const nodes = children(options.target);
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                $$.fragment && $$.fragment.l(nodes);
+                nodes.forEach(detach);
+            }
+            else {
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                $$.fragment && $$.fragment.c();
+            }
+            if (options.intro)
+                transition_in(component.$$.fragment);
+            mount_component(component, options.target, options.anchor, options.customElement);
+            flush();
+        }
+        set_current_component(parent_component);
+    }
+    /**
+     * Base class for Svelte components. Used when dev=false.
+     */
+    class SvelteComponent {
+        $destroy() {
+            destroy_component(this, 1);
+            this.$destroy = noop;
+        }
+        $on(type, callback) {
+            if (!is_function(callback)) {
+                return noop;
+            }
+            const callbacks = (this.$$.callbacks[type] || (this.$$.callbacks[type] = []));
+            callbacks.push(callback);
+            return () => {
+                const index = callbacks.indexOf(callback);
+                if (index !== -1)
+                    callbacks.splice(index, 1);
+            };
+        }
+        $set($$props) {
+            if (this.$$set && !is_empty($$props)) {
+                this.$$.skip_bound = true;
+                this.$$set($$props);
+                this.$$.skip_bound = false;
+            }
+        }
+    }
+
+    function dispatch_dev(type, detail) {
+        document.dispatchEvent(custom_event(type, Object.assign({ version: '3.59.2' }, detail), { bubbles: true }));
+    }
+    function append_dev(target, node) {
+        dispatch_dev('SvelteDOMInsert', { target, node });
+        append(target, node);
+    }
+    function insert_dev(target, node, anchor) {
+        dispatch_dev('SvelteDOMInsert', { target, node, anchor });
+        insert(target, node, anchor);
+    }
+    function detach_dev(node) {
+        dispatch_dev('SvelteDOMRemove', { node });
+        detach(node);
+    }
+    function listen_dev(node, event, handler, options, has_prevent_default, has_stop_propagation, has_stop_immediate_propagation) {
+        const modifiers = options === true ? ['capture'] : options ? Array.from(Object.keys(options)) : [];
+        if (has_prevent_default)
+            modifiers.push('preventDefault');
+        if (has_stop_propagation)
+            modifiers.push('stopPropagation');
+        if (has_stop_immediate_propagation)
+            modifiers.push('stopImmediatePropagation');
+        dispatch_dev('SvelteDOMAddEventListener', { node, event, handler, modifiers });
+        const dispose = listen(node, event, handler, options);
+        return () => {
+            dispatch_dev('SvelteDOMRemoveEventListener', { node, event, handler, modifiers });
+            dispose();
+        };
+    }
+    function attr_dev(node, attribute, value) {
+        attr(node, attribute, value);
+        if (value == null)
+            dispatch_dev('SvelteDOMRemoveAttribute', { node, attribute });
+        else
+            dispatch_dev('SvelteDOMSetAttribute', { node, attribute, value });
+    }
+    function prop_dev(node, property, value) {
+        node[property] = value;
+        dispatch_dev('SvelteDOMSetProperty', { node, property, value });
+    }
+    function set_data_dev(text, data) {
+        data = '' + data;
+        if (text.data === data)
+            return;
+        dispatch_dev('SvelteDOMSetData', { node: text, data });
+        text.data = data;
+    }
+    function validate_each_argument(arg) {
+        if (typeof arg !== 'string' && !(arg && typeof arg === 'object' && 'length' in arg)) {
+            let msg = '{#each} only iterates over array-like objects.';
+            if (typeof Symbol === 'function' && arg && Symbol.iterator in arg) {
+                msg += ' You can use a spread to convert this iterable into an array.';
+            }
+            throw new Error(msg);
+        }
+    }
+    function validate_slots(name, slot, keys) {
+        for (const slot_key of Object.keys(slot)) {
+            if (!~keys.indexOf(slot_key)) {
+                console.warn(`<${name}> received an unexpected slot "${slot_key}".`);
+            }
+        }
+    }
+    /**
+     * Base class for Svelte components with some minor dev-enhancements. Used when dev=true.
+     */
+    class SvelteComponentDev extends SvelteComponent {
+        constructor(options) {
+            if (!options || (!options.target && !options.$$inline)) {
+                throw new Error("'target' is a required option");
+            }
+            super();
+        }
+        $destroy() {
+            super.$destroy();
+            this.$destroy = () => {
+                console.warn('Component was already destroyed'); // eslint-disable-line no-console
+            };
+        }
+        $capture_state() { }
+        $inject_state() { }
+    }
+
+    /* src\components\LandingPage.svelte generated by Svelte v3.59.2 */
+
+    const { console: console_1 } = globals;
+    const file$5 = "src\\components\\LandingPage.svelte";
+
+    // (104:0) {#if showLoginModal}
+    function create_if_block_1$4(ctx) {
+    	let div4;
+    	let div3;
+    	let div0;
+    	let h3;
+    	let t1;
+    	let button0;
+    	let t3;
+    	let div2;
+    	let p0;
+    	let t5;
+    	let button1;
+    	let span0;
+    	let t7;
+    	let span1;
+    	let t9;
+    	let div1;
+    	let p1;
+    	let t10;
+    	let button2;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			div4 = element("div");
+    			div3 = element("div");
+    			div0 = element("div");
+    			h3 = element("h3");
+    			h3.textContent = "🔑 Sign In";
+    			t1 = space();
+    			button0 = element("button");
+    			button0.textContent = "×";
+    			t3 = space();
+    			div2 = element("div");
+    			p0 = element("p");
+    			p0.textContent = "Sign in to access your past questions and continue learning";
+    			t5 = space();
+    			button1 = element("button");
+    			span0 = element("span");
+    			span0.textContent = "🔍";
+    			t7 = space();
+    			span1 = element("span");
+    			span1.textContent = "Continue with Google";
+    			t9 = space();
+    			div1 = element("div");
+    			p1 = element("p");
+    			t10 = text("Don't have an account? ");
+    			button2 = element("button");
+    			button2.textContent = "Sign up";
+    			attr_dev(h3, "class", "svelte-1iznbt5");
+    			add_location(h3, file$5, 107, 4, 2869);
+    			attr_dev(button0, "class", "modal-close svelte-1iznbt5");
+    			add_location(button0, file$5, 108, 4, 2894);
+    			attr_dev(div0, "class", "modal-header svelte-1iznbt5");
+    			add_location(div0, file$5, 106, 3, 2837);
+    			attr_dev(p0, "class", "auth-description svelte-1iznbt5");
+    			add_location(p0, file$5, 112, 4, 3006);
+    			attr_dev(span0, "class", "google-icon svelte-1iznbt5");
+    			add_location(span0, file$5, 115, 5, 3191);
+    			attr_dev(span1, "class", "google-text svelte-1iznbt5");
+    			add_location(span1, file$5, 116, 5, 3233);
+    			attr_dev(button1, "class", "google-auth-btn svelte-1iznbt5");
+    			add_location(button1, file$5, 114, 4, 3109);
+    			attr_dev(button2, "class", "link-btn svelte-1iznbt5");
+    			add_location(button2, file$5, 120, 31, 3371);
+    			attr_dev(p1, "class", "svelte-1iznbt5");
+    			add_location(p1, file$5, 120, 5, 3345);
+    			attr_dev(div1, "class", "auth-footer svelte-1iznbt5");
+    			add_location(div1, file$5, 119, 4, 3313);
+    			attr_dev(div2, "class", "modal-body svelte-1iznbt5");
+    			add_location(div2, file$5, 111, 3, 2976);
+    			attr_dev(div3, "class", "modal-content auth-modal svelte-1iznbt5");
+    			add_location(div3, file$5, 105, 2, 2742);
+    			attr_dev(div4, "class", "modal-overlay svelte-1iznbt5");
+    			attr_dev(div4, "role", "button");
+    			attr_dev(div4, "tabindex", "0");
+    			add_location(div4, file$5, 104, 1, 2636);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div4, anchor);
+    			append_dev(div4, div3);
+    			append_dev(div3, div0);
+    			append_dev(div0, h3);
+    			append_dev(div0, t1);
+    			append_dev(div0, button0);
+    			append_dev(div3, t3);
+    			append_dev(div3, div2);
+    			append_dev(div2, p0);
+    			append_dev(div2, t5);
+    			append_dev(div2, button1);
+    			append_dev(button1, span0);
+    			append_dev(button1, t7);
+    			append_dev(button1, span1);
+    			append_dev(div2, t9);
+    			append_dev(div2, div1);
+    			append_dev(div1, p1);
+    			append_dev(p1, t10);
+    			append_dev(p1, button2);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(button0, "click", /*closeModals*/ ctx[4], false, false, false, false),
+    					listen_dev(button1, "click", /*click_handler_2*/ ctx[10], false, false, false, false),
+    					listen_dev(button2, "click", /*openSignupModal*/ ctx[3], false, false, false, false),
+    					listen_dev(div3, "click", stop_propagation(/*click_handler*/ ctx[8]), false, false, true, false),
+    					listen_dev(div3, "keydown", stop_propagation(/*keydown_handler*/ ctx[9]), false, false, true, false),
+    					listen_dev(div4, "click", /*closeModals*/ ctx[4], false, false, false, false),
+    					listen_dev(div4, "keydown", /*closeModals*/ ctx[4], false, false, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div4);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_1$4.name,
+    		type: "if",
+    		source: "(104:0) {#if showLoginModal}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (129:0) {#if showSignupModal}
+    function create_if_block$5(ctx) {
+    	let div4;
+    	let div3;
+    	let div0;
+    	let h3;
+    	let t1;
+    	let button0;
+    	let t3;
+    	let div2;
+    	let p0;
+    	let t5;
+    	let button1;
+    	let span0;
+    	let t7;
+    	let span1;
+    	let t9;
+    	let div1;
+    	let p1;
+    	let t10;
+    	let button2;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			div4 = element("div");
+    			div3 = element("div");
+    			div0 = element("div");
+    			h3 = element("h3");
+    			h3.textContent = "🚀 Get Started";
+    			t1 = space();
+    			button0 = element("button");
+    			button0.textContent = "×";
+    			t3 = space();
+    			div2 = element("div");
+    			p0 = element("p");
+    			p0.textContent = "Create your account and start accessing past questions";
+    			t5 = space();
+    			button1 = element("button");
+    			span0 = element("span");
+    			span0.textContent = "🔍";
+    			t7 = space();
+    			span1 = element("span");
+    			span1.textContent = "Sign up with Google";
+    			t9 = space();
+    			div1 = element("div");
+    			p1 = element("p");
+    			t10 = text("Already have an account? ");
+    			button2 = element("button");
+    			button2.textContent = "Sign in";
+    			attr_dev(h3, "class", "svelte-1iznbt5");
+    			add_location(h3, file$5, 132, 4, 3776);
+    			attr_dev(button0, "class", "modal-close svelte-1iznbt5");
+    			add_location(button0, file$5, 133, 4, 3805);
+    			attr_dev(div0, "class", "modal-header svelte-1iznbt5");
+    			add_location(div0, file$5, 131, 3, 3744);
+    			attr_dev(p0, "class", "auth-description svelte-1iznbt5");
+    			add_location(p0, file$5, 137, 4, 3917);
+    			attr_dev(span0, "class", "google-icon svelte-1iznbt5");
+    			add_location(span0, file$5, 140, 5, 4098);
+    			attr_dev(span1, "class", "google-text svelte-1iznbt5");
+    			add_location(span1, file$5, 141, 5, 4140);
+    			attr_dev(button1, "class", "google-auth-btn svelte-1iznbt5");
+    			add_location(button1, file$5, 139, 4, 4015);
+    			attr_dev(button2, "class", "link-btn svelte-1iznbt5");
+    			add_location(button2, file$5, 145, 33, 4279);
+    			attr_dev(p1, "class", "svelte-1iznbt5");
+    			add_location(p1, file$5, 145, 5, 4251);
+    			attr_dev(div1, "class", "auth-footer svelte-1iznbt5");
+    			add_location(div1, file$5, 144, 4, 4219);
+    			attr_dev(div2, "class", "modal-body svelte-1iznbt5");
+    			add_location(div2, file$5, 136, 3, 3887);
+    			attr_dev(div3, "class", "modal-content auth-modal svelte-1iznbt5");
+    			add_location(div3, file$5, 130, 2, 3649);
+    			attr_dev(div4, "class", "modal-overlay svelte-1iznbt5");
+    			attr_dev(div4, "role", "button");
+    			attr_dev(div4, "tabindex", "0");
+    			add_location(div4, file$5, 129, 1, 3543);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div4, anchor);
+    			append_dev(div4, div3);
+    			append_dev(div3, div0);
+    			append_dev(div0, h3);
+    			append_dev(div0, t1);
+    			append_dev(div0, button0);
+    			append_dev(div3, t3);
+    			append_dev(div3, div2);
+    			append_dev(div2, p0);
+    			append_dev(div2, t5);
+    			append_dev(div2, button1);
+    			append_dev(button1, span0);
+    			append_dev(button1, t7);
+    			append_dev(button1, span1);
+    			append_dev(div2, t9);
+    			append_dev(div2, div1);
+    			append_dev(div1, p1);
+    			append_dev(p1, t10);
+    			append_dev(p1, button2);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(button0, "click", /*closeModals*/ ctx[4], false, false, false, false),
+    					listen_dev(button1, "click", /*click_handler_3*/ ctx[11], false, false, false, false),
+    					listen_dev(button2, "click", /*openLoginModal*/ ctx[2], false, false, false, false),
+    					listen_dev(div3, "click", stop_propagation(/*click_handler_1*/ ctx[6]), false, false, true, false),
+    					listen_dev(div3, "keydown", stop_propagation(/*keydown_handler_1*/ ctx[7]), false, false, true, false),
+    					listen_dev(div4, "click", /*closeModals*/ ctx[4], false, false, false, false),
+    					listen_dev(div4, "keydown", /*closeModals*/ ctx[4], false, false, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div4);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$5.name,
+    		type: "if",
+    		source: "(129:0) {#if showSignupModal}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$5(ctx) {
+    	let div14;
+    	let div2;
+    	let div1;
+    	let h1;
+    	let span0;
+    	let t1;
+    	let t2;
+    	let p0;
+    	let t4;
+    	let p1;
+    	let t6;
+    	let div0;
+    	let button0;
+    	let span1;
+    	let t8;
+    	let t9;
+    	let button1;
+    	let span2;
+    	let t11;
+    	let t12;
+    	let div11;
+    	let div10;
+    	let h20;
+    	let t14;
+    	let div9;
+    	let div4;
+    	let div3;
+    	let t16;
+    	let h30;
+    	let t18;
+    	let p2;
+    	let t20;
+    	let div6;
+    	let div5;
+    	let t22;
+    	let h31;
+    	let t24;
+    	let p3;
+    	let t26;
+    	let div8;
+    	let div7;
+    	let t28;
+    	let h32;
+    	let t30;
+    	let p4;
+    	let t32;
+    	let div13;
+    	let div12;
+    	let h21;
+    	let t34;
+    	let p5;
+    	let t36;
+    	let button2;
+    	let span3;
+    	let t38;
+    	let t39;
+    	let t40;
+    	let if_block1_anchor;
+    	let mounted;
+    	let dispose;
+    	let if_block0 = /*showLoginModal*/ ctx[0] && create_if_block_1$4(ctx);
+    	let if_block1 = /*showSignupModal*/ ctx[1] && create_if_block$5(ctx);
+
+    	const block = {
+    		c: function create() {
+    			div14 = element("div");
+    			div2 = element("div");
+    			div1 = element("div");
+    			h1 = element("h1");
+    			span0 = element("span");
+    			span0.textContent = "📚";
+    			t1 = text("\r\n\t\t\t\tPQ Finder");
+    			t2 = space();
+    			p0 = element("p");
+    			p0.textContent = "Find and share past questions from universities across Nigeria";
+    			t4 = space();
+    			p1 = element("p");
+    			p1.textContent = "Connect with fellow students, access quality study materials, and excel in your exams";
+    			t6 = space();
+    			div0 = element("div");
+    			button0 = element("button");
+    			span1 = element("span");
+    			span1.textContent = "🚀";
+    			t8 = text("\r\n\t\t\t\t\tGet Started");
+    			t9 = space();
+    			button1 = element("button");
+    			span2 = element("span");
+    			span2.textContent = "🔑";
+    			t11 = text("\r\n\t\t\t\t\tSign In");
+    			t12 = space();
+    			div11 = element("div");
+    			div10 = element("div");
+    			h20 = element("h2");
+    			h20.textContent = "Why Choose PQ Finder?";
+    			t14 = space();
+    			div9 = element("div");
+    			div4 = element("div");
+    			div3 = element("div");
+    			div3.textContent = "📖";
+    			t16 = space();
+    			h30 = element("h3");
+    			h30.textContent = "Quality Content";
+    			t18 = space();
+    			p2 = element("p");
+    			p2.textContent = "Access verified past questions from top Nigerian universities";
+    			t20 = space();
+    			div6 = element("div");
+    			div5 = element("div");
+    			div5.textContent = "👥";
+    			t22 = space();
+    			h31 = element("h3");
+    			h31.textContent = "Student Community";
+    			t24 = space();
+    			p3 = element("p");
+    			p3.textContent = "Connect with fellow students and share knowledge";
+    			t26 = space();
+    			div8 = element("div");
+    			div7 = element("div");
+    			div7.textContent = "⚡";
+    			t28 = space();
+    			h32 = element("h3");
+    			h32.textContent = "Quick Access";
+    			t30 = space();
+    			p4 = element("p");
+    			p4.textContent = "Find and download past questions in seconds";
+    			t32 = space();
+    			div13 = element("div");
+    			div12 = element("div");
+    			h21 = element("h2");
+    			h21.textContent = "Ready to Ace Your Exams?";
+    			t34 = space();
+    			p5 = element("p");
+    			p5.textContent = "Join thousands of students who are already using PQ Finder";
+    			t36 = space();
+    			button2 = element("button");
+    			span3 = element("span");
+    			span3.textContent = "🎓";
+    			t38 = text("\r\n\t\t\t\tStart Learning Today");
+    			t39 = space();
+    			if (if_block0) if_block0.c();
+    			t40 = space();
+    			if (if_block1) if_block1.c();
+    			if_block1_anchor = empty();
+    			attr_dev(span0, "class", "hero-icon svelte-1iznbt5");
+    			add_location(span0, file$5, 42, 4, 887);
+    			attr_dev(h1, "class", "hero-title svelte-1iznbt5");
+    			add_location(h1, file$5, 41, 3, 858);
+    			attr_dev(p0, "class", "hero-subtitle svelte-1iznbt5");
+    			add_location(p0, file$5, 45, 3, 950);
+    			attr_dev(p1, "class", "hero-description svelte-1iznbt5");
+    			add_location(p1, file$5, 48, 3, 1057);
+    			add_location(span1, file$5, 54, 5, 1293);
+    			attr_dev(button0, "class", "btn btn-primary svelte-1iznbt5");
+    			add_location(button0, file$5, 53, 4, 1227);
+    			add_location(span2, file$5, 58, 5, 1414);
+    			attr_dev(button1, "class", "btn btn-secondary svelte-1iznbt5");
+    			add_location(button1, file$5, 57, 4, 1347);
+    			attr_dev(div0, "class", "hero-actions svelte-1iznbt5");
+    			add_location(div0, file$5, 52, 3, 1195);
+    			attr_dev(div1, "class", "hero-content svelte-1iznbt5");
+    			add_location(div1, file$5, 40, 2, 827);
+    			attr_dev(div2, "class", "hero-section svelte-1iznbt5");
+    			add_location(div2, file$5, 39, 1, 797);
+    			attr_dev(h20, "class", "section-title svelte-1iznbt5");
+    			add_location(h20, file$5, 68, 3, 1583);
+    			attr_dev(div3, "class", "feature-icon svelte-1iznbt5");
+    			add_location(div3, file$5, 71, 5, 1706);
+    			attr_dev(h30, "class", "svelte-1iznbt5");
+    			add_location(h30, file$5, 72, 5, 1747);
+    			attr_dev(p2, "class", "svelte-1iznbt5");
+    			add_location(p2, file$5, 73, 5, 1778);
+    			attr_dev(div4, "class", "feature-card svelte-1iznbt5");
+    			add_location(div4, file$5, 70, 4, 1673);
+    			attr_dev(div5, "class", "feature-icon svelte-1iznbt5");
+    			add_location(div5, file$5, 76, 5, 1897);
+    			attr_dev(h31, "class", "svelte-1iznbt5");
+    			add_location(h31, file$5, 77, 5, 1938);
+    			attr_dev(p3, "class", "svelte-1iznbt5");
+    			add_location(p3, file$5, 78, 5, 1971);
+    			attr_dev(div6, "class", "feature-card svelte-1iznbt5");
+    			add_location(div6, file$5, 75, 4, 1864);
+    			attr_dev(div7, "class", "feature-icon svelte-1iznbt5");
+    			add_location(div7, file$5, 81, 5, 2077);
+    			attr_dev(h32, "class", "svelte-1iznbt5");
+    			add_location(h32, file$5, 82, 5, 2117);
+    			attr_dev(p4, "class", "svelte-1iznbt5");
+    			add_location(p4, file$5, 83, 5, 2145);
+    			attr_dev(div8, "class", "feature-card svelte-1iznbt5");
+    			add_location(div8, file$5, 80, 4, 2044);
+    			attr_dev(div9, "class", "features-grid svelte-1iznbt5");
+    			add_location(div9, file$5, 69, 3, 1640);
+    			attr_dev(div10, "class", "container svelte-1iznbt5");
+    			add_location(div10, file$5, 67, 2, 1555);
+    			attr_dev(div11, "class", "features-section svelte-1iznbt5");
+    			add_location(div11, file$5, 66, 1, 1521);
+    			attr_dev(h21, "class", "svelte-1iznbt5");
+    			add_location(h21, file$5, 92, 3, 2322);
+    			attr_dev(p5, "class", "svelte-1iznbt5");
+    			add_location(p5, file$5, 93, 3, 2360);
+    			add_location(span3, file$5, 95, 4, 2505);
+    			attr_dev(button2, "class", "btn btn-primary btn-large svelte-1iznbt5");
+    			add_location(button2, file$5, 94, 3, 2430);
+    			attr_dev(div12, "class", "container svelte-1iznbt5");
+    			add_location(div12, file$5, 91, 2, 2294);
+    			attr_dev(div13, "class", "cta-section svelte-1iznbt5");
+    			add_location(div13, file$5, 90, 1, 2265);
+    			attr_dev(div14, "class", "landing-page svelte-1iznbt5");
+    			add_location(div14, file$5, 37, 0, 744);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div14, anchor);
+    			append_dev(div14, div2);
+    			append_dev(div2, div1);
+    			append_dev(div1, h1);
+    			append_dev(h1, span0);
+    			append_dev(h1, t1);
+    			append_dev(div1, t2);
+    			append_dev(div1, p0);
+    			append_dev(div1, t4);
+    			append_dev(div1, p1);
+    			append_dev(div1, t6);
+    			append_dev(div1, div0);
+    			append_dev(div0, button0);
+    			append_dev(button0, span1);
+    			append_dev(button0, t8);
+    			append_dev(div0, t9);
+    			append_dev(div0, button1);
+    			append_dev(button1, span2);
+    			append_dev(button1, t11);
+    			append_dev(div14, t12);
+    			append_dev(div14, div11);
+    			append_dev(div11, div10);
+    			append_dev(div10, h20);
+    			append_dev(div10, t14);
+    			append_dev(div10, div9);
+    			append_dev(div9, div4);
+    			append_dev(div4, div3);
+    			append_dev(div4, t16);
+    			append_dev(div4, h30);
+    			append_dev(div4, t18);
+    			append_dev(div4, p2);
+    			append_dev(div9, t20);
+    			append_dev(div9, div6);
+    			append_dev(div6, div5);
+    			append_dev(div6, t22);
+    			append_dev(div6, h31);
+    			append_dev(div6, t24);
+    			append_dev(div6, p3);
+    			append_dev(div9, t26);
+    			append_dev(div9, div8);
+    			append_dev(div8, div7);
+    			append_dev(div8, t28);
+    			append_dev(div8, h32);
+    			append_dev(div8, t30);
+    			append_dev(div8, p4);
+    			append_dev(div14, t32);
+    			append_dev(div14, div13);
+    			append_dev(div13, div12);
+    			append_dev(div12, h21);
+    			append_dev(div12, t34);
+    			append_dev(div12, p5);
+    			append_dev(div12, t36);
+    			append_dev(div12, button2);
+    			append_dev(button2, span3);
+    			append_dev(button2, t38);
+    			insert_dev(target, t39, anchor);
+    			if (if_block0) if_block0.m(target, anchor);
+    			insert_dev(target, t40, anchor);
+    			if (if_block1) if_block1.m(target, anchor);
+    			insert_dev(target, if_block1_anchor, anchor);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(button0, "click", /*openSignupModal*/ ctx[3], false, false, false, false),
+    					listen_dev(button1, "click", /*openLoginModal*/ ctx[2], false, false, false, false),
+    					listen_dev(button2, "click", /*openSignupModal*/ ctx[3], false, false, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (/*showLoginModal*/ ctx[0]) {
+    				if (if_block0) {
+    					if_block0.p(ctx, dirty);
+    				} else {
+    					if_block0 = create_if_block_1$4(ctx);
+    					if_block0.c();
+    					if_block0.m(t40.parentNode, t40);
+    				}
+    			} else if (if_block0) {
+    				if_block0.d(1);
+    				if_block0 = null;
+    			}
+
+    			if (/*showSignupModal*/ ctx[1]) {
+    				if (if_block1) {
+    					if_block1.p(ctx, dirty);
+    				} else {
+    					if_block1 = create_if_block$5(ctx);
+    					if_block1.c();
+    					if_block1.m(if_block1_anchor.parentNode, if_block1_anchor);
+    				}
+    			} else if (if_block1) {
+    				if_block1.d(1);
+    				if_block1 = null;
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div14);
+    			if (detaching) detach_dev(t39);
+    			if (if_block0) if_block0.d(detaching);
+    			if (detaching) detach_dev(t40);
+    			if (if_block1) if_block1.d(detaching);
+    			if (detaching) detach_dev(if_block1_anchor);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$5.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$5($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('LandingPage', slots, []);
+    	const dispatch = createEventDispatcher();
+    	let showLoginModal = false;
+    	let showSignupModal = false;
+
+    	function openLoginModal() {
+    		$$invalidate(0, showLoginModal = true);
+    		$$invalidate(1, showSignupModal = false);
+    	}
+
+    	function openSignupModal() {
+    		$$invalidate(1, showSignupModal = true);
+    		$$invalidate(0, showLoginModal = false);
+    	}
+
+    	function closeModals() {
+    		$$invalidate(0, showLoginModal = false);
+    		$$invalidate(1, showSignupModal = false);
+    	}
+
+    	function handleGoogleAuth(type) {
+    		// Simulate Google authentication
+    		console.log(`Google ${type} clicked`);
+
+    		// Close modals and dispatch login event
+    		closeModals();
+
+    		dispatch('userLogin', {
+    			name: 'John Doe',
+    			email: 'john@example.com',
+    			avatar: '👤'
+    		});
+    	}
+
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console_1.warn(`<LandingPage> was created with unknown prop '${key}'`);
+    	});
+
+    	function click_handler_1(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	function keydown_handler_1(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	function click_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	function keydown_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	const click_handler_2 = () => handleGoogleAuth('Login');
+    	const click_handler_3 = () => handleGoogleAuth('Signup');
+
+    	$$self.$capture_state = () => ({
+    		createEventDispatcher,
+    		dispatch,
+    		showLoginModal,
+    		showSignupModal,
+    		openLoginModal,
+    		openSignupModal,
+    		closeModals,
+    		handleGoogleAuth
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('showLoginModal' in $$props) $$invalidate(0, showLoginModal = $$props.showLoginModal);
+    		if ('showSignupModal' in $$props) $$invalidate(1, showSignupModal = $$props.showSignupModal);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [
+    		showLoginModal,
+    		showSignupModal,
+    		openLoginModal,
+    		openSignupModal,
+    		closeModals,
+    		handleGoogleAuth,
+    		click_handler_1,
+    		keydown_handler_1,
+    		click_handler,
+    		keydown_handler,
+    		click_handler_2,
+    		click_handler_3
+    	];
+    }
+
+    class LandingPage extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$5, create_fragment$5, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "LandingPage",
+    			options,
+    			id: create_fragment$5.name
+    		});
+    	}
+    }
+
+    /* src\components\NavHeader.svelte generated by Svelte v3.59.2 */
+    const file$4 = "src\\components\\NavHeader.svelte";
+
+    // (66:3) {:else}
+    function create_else_block$4(ctx) {
+    	let button;
+    	let span;
+    	let t1;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			button = element("button");
+    			span = element("span");
+    			span.textContent = "🔑";
+    			t1 = text("\r\n\t\t\t\t\tSign In");
+    			add_location(span, file$4, 67, 5, 1704);
+    			attr_dev(button, "class", "login-btn svelte-19ofluw");
+    			add_location(button, file$4, 66, 4, 1633);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, button, anchor);
+    			append_dev(button, span);
+    			append_dev(button, t1);
+
+    			if (!mounted) {
+    				dispose = listen_dev(button, "click", /*click_handler_3*/ ctx[8], false, false, false, false);
+    				mounted = true;
+    			}
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(button);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block$4.name,
+    		type: "else",
+    		source: "(66:3) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (54:3) {#if user}
+    function create_if_block$4(ctx) {
+    	let div4;
+    	let div0;
+    	let t0_value = (/*user*/ ctx[1].avatar || '👤') + "";
+    	let t0;
+    	let t1;
+    	let div3;
+    	let div1;
+    	let t2_value = /*user*/ ctx[1].name + "";
+    	let t2;
+    	let t3;
+    	let div2;
+    	let t4;
+    	let t5_value = (/*user*/ ctx[1].balance || 0) + "";
+    	let t5;
+    	let t6;
+    	let button;
+    	let span;
+    	let t8;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			div4 = element("div");
+    			div0 = element("div");
+    			t0 = text(t0_value);
+    			t1 = space();
+    			div3 = element("div");
+    			div1 = element("div");
+    			t2 = text(t2_value);
+    			t3 = space();
+    			div2 = element("div");
+    			t4 = text("₦");
+    			t5 = text(t5_value);
+    			t6 = space();
+    			button = element("button");
+    			span = element("span");
+    			span.textContent = "🚪";
+    			t8 = text("\r\n\t\t\t\t\tLogout");
+    			attr_dev(div0, "class", "user-avatar svelte-19ofluw");
+    			add_location(div0, file$4, 55, 5, 1296);
+    			attr_dev(div1, "class", "user-name svelte-19ofluw");
+    			add_location(div1, file$4, 57, 6, 1389);
+    			attr_dev(div2, "class", "user-balance svelte-19ofluw");
+    			add_location(div2, file$4, 58, 6, 1437);
+    			attr_dev(div3, "class", "user-details svelte-19ofluw");
+    			add_location(div3, file$4, 56, 5, 1355);
+    			attr_dev(div4, "class", "user-info svelte-19ofluw");
+    			add_location(div4, file$4, 54, 4, 1266);
+    			add_location(span, file$4, 62, 5, 1572);
+    			attr_dev(button, "class", "logout-btn svelte-19ofluw");
+    			add_location(button, file$4, 61, 4, 1520);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div4, anchor);
+    			append_dev(div4, div0);
+    			append_dev(div0, t0);
+    			append_dev(div4, t1);
+    			append_dev(div4, div3);
+    			append_dev(div3, div1);
+    			append_dev(div1, t2);
+    			append_dev(div3, t3);
+    			append_dev(div3, div2);
+    			append_dev(div2, t4);
+    			append_dev(div2, t5);
+    			insert_dev(target, t6, anchor);
+    			insert_dev(target, button, anchor);
+    			append_dev(button, span);
+    			append_dev(button, t8);
+
+    			if (!mounted) {
+    				dispose = listen_dev(button, "click", /*logout*/ ctx[4], false, false, false, false);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*user*/ 2 && t0_value !== (t0_value = (/*user*/ ctx[1].avatar || '👤') + "")) set_data_dev(t0, t0_value);
+    			if (dirty & /*user*/ 2 && t2_value !== (t2_value = /*user*/ ctx[1].name + "")) set_data_dev(t2, t2_value);
+    			if (dirty & /*user*/ 2 && t5_value !== (t5_value = (/*user*/ ctx[1].balance || 0) + "")) set_data_dev(t5, t5_value);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div4);
+    			if (detaching) detach_dev(t6);
+    			if (detaching) detach_dev(button);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$4.name,
+    		type: "if",
+    		source: "(54:3) {#if user}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$4(ctx) {
+    	let nav;
+    	let div3;
+    	let div0;
+    	let span0;
+    	let t1;
+    	let span1;
+    	let t3;
+    	let div1;
+    	let button0;
+    	let span2;
+    	let t5;
+    	let span3;
+    	let t7;
+    	let button1;
+    	let span4;
+    	let t9;
+    	let span5;
+    	let t11;
+    	let button2;
+    	let span6;
+    	let t13;
+    	let span7;
+    	let t15;
+    	let div2;
+    	let mounted;
+    	let dispose;
+
+    	function select_block_type(ctx, dirty) {
+    		if (/*user*/ ctx[1]) return create_if_block$4;
+    		return create_else_block$4;
+    	}
+
+    	let current_block_type = select_block_type(ctx);
+    	let if_block = current_block_type(ctx);
+
+    	const block = {
+    		c: function create() {
+    			nav = element("nav");
+    			div3 = element("div");
+    			div0 = element("div");
+    			span0 = element("span");
+    			span0.textContent = "📚";
+    			t1 = space();
+    			span1 = element("span");
+    			span1.textContent = "PQ Finder";
+    			t3 = space();
+    			div1 = element("div");
+    			button0 = element("button");
+    			span2 = element("span");
+    			span2.textContent = "🔍";
+    			t5 = space();
+    			span3 = element("span");
+    			span3.textContent = "Browse";
+    			t7 = space();
+    			button1 = element("button");
+    			span4 = element("span");
+    			span4.textContent = "📤";
+    			t9 = space();
+    			span5 = element("span");
+    			span5.textContent = "Upload";
+    			t11 = space();
+    			button2 = element("button");
+    			span6 = element("span");
+    			span6.textContent = "💳";
+    			t13 = space();
+    			span7 = element("span");
+    			span7.textContent = "Wallet";
+    			t15 = space();
+    			div2 = element("div");
+    			if_block.c();
+    			attr_dev(span0, "class", "brand-icon svelte-19ofluw");
+    			add_location(span0, file$4, 21, 3, 413);
+    			attr_dev(span1, "class", "brand-text svelte-19ofluw");
+    			add_location(span1, file$4, 22, 3, 452);
+    			attr_dev(div0, "class", "nav-brand svelte-19ofluw");
+    			add_location(div0, file$4, 20, 2, 385);
+    			attr_dev(span2, "class", "nav-icon svelte-19ofluw");
+    			add_location(span2, file$4, 31, 4, 669);
+    			attr_dev(span3, "class", "nav-text svelte-19ofluw");
+    			add_location(span3, file$4, 32, 4, 707);
+    			attr_dev(button0, "class", "nav-link svelte-19ofluw");
+    			toggle_class(button0, "active", /*currentView*/ ctx[0] === 'browse');
+    			add_location(button0, file$4, 26, 3, 537);
+    			attr_dev(span4, "class", "nav-icon svelte-19ofluw");
+    			add_location(span4, file$4, 39, 4, 894);
+    			attr_dev(span5, "class", "nav-text svelte-19ofluw");
+    			add_location(span5, file$4, 40, 4, 932);
+    			attr_dev(button1, "class", "nav-link svelte-19ofluw");
+    			toggle_class(button1, "active", /*currentView*/ ctx[0] === 'upload');
+    			add_location(button1, file$4, 34, 3, 762);
+    			attr_dev(span6, "class", "nav-icon svelte-19ofluw");
+    			add_location(span6, file$4, 47, 4, 1119);
+    			attr_dev(span7, "class", "nav-text svelte-19ofluw");
+    			add_location(span7, file$4, 48, 4, 1157);
+    			attr_dev(button2, "class", "nav-link svelte-19ofluw");
+    			toggle_class(button2, "active", /*currentView*/ ctx[0] === 'wallet');
+    			add_location(button2, file$4, 42, 3, 987);
+    			attr_dev(div1, "class", "nav-links svelte-19ofluw");
+    			add_location(div1, file$4, 25, 2, 509);
+    			attr_dev(div2, "class", "nav-user svelte-19ofluw");
+    			add_location(div2, file$4, 52, 2, 1223);
+    			attr_dev(div3, "class", "nav-container svelte-19ofluw");
+    			add_location(div3, file$4, 19, 1, 354);
+    			attr_dev(nav, "class", "nav-header svelte-19ofluw");
+    			add_location(nav, file$4, 18, 0, 327);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, nav, anchor);
+    			append_dev(nav, div3);
+    			append_dev(div3, div0);
+    			append_dev(div0, span0);
+    			append_dev(div0, t1);
+    			append_dev(div0, span1);
+    			append_dev(div3, t3);
+    			append_dev(div3, div1);
+    			append_dev(div1, button0);
+    			append_dev(button0, span2);
+    			append_dev(button0, t5);
+    			append_dev(button0, span3);
+    			append_dev(div1, t7);
+    			append_dev(div1, button1);
+    			append_dev(button1, span4);
+    			append_dev(button1, t9);
+    			append_dev(button1, span5);
+    			append_dev(div1, t11);
+    			append_dev(div1, button2);
+    			append_dev(button2, span6);
+    			append_dev(button2, t13);
+    			append_dev(button2, span7);
+    			append_dev(div3, t15);
+    			append_dev(div3, div2);
+    			if_block.m(div2, null);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(button0, "click", /*click_handler*/ ctx[5], false, false, false, false),
+    					listen_dev(button1, "click", /*click_handler_1*/ ctx[6], false, false, false, false),
+    					listen_dev(button2, "click", /*click_handler_2*/ ctx[7], false, false, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*currentView*/ 1) {
+    				toggle_class(button0, "active", /*currentView*/ ctx[0] === 'browse');
+    			}
+
+    			if (dirty & /*currentView*/ 1) {
+    				toggle_class(button1, "active", /*currentView*/ ctx[0] === 'upload');
+    			}
+
+    			if (dirty & /*currentView*/ 1) {
+    				toggle_class(button2, "active", /*currentView*/ ctx[0] === 'wallet');
+    			}
+
+    			if (current_block_type === (current_block_type = select_block_type(ctx)) && if_block) {
+    				if_block.p(ctx, dirty);
+    			} else {
+    				if_block.d(1);
+    				if_block = current_block_type(ctx);
+
+    				if (if_block) {
+    					if_block.c();
+    					if_block.m(div2, null);
+    				}
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(nav);
+    			if_block.d();
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$4.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$4($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('NavHeader', slots, []);
+    	const dispatch = createEventDispatcher();
+    	let { user = null } = $$props;
+    	let { currentView = 'browse' } = $$props;
+
+    	function switchView(view) {
+    		$$invalidate(0, currentView = view);
+    		dispatch('viewChange', view);
+    	}
+
+    	function logout() {
+    		dispatch('logout');
+    	}
+
+    	const writable_props = ['user', 'currentView'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<NavHeader> was created with unknown prop '${key}'`);
+    	});
+
+    	const click_handler = () => switchView('browse');
+    	const click_handler_1 = () => switchView('upload');
+    	const click_handler_2 = () => switchView('wallet');
+    	const click_handler_3 = () => dispatch('showAuth');
+
+    	$$self.$$set = $$props => {
+    		if ('user' in $$props) $$invalidate(1, user = $$props.user);
+    		if ('currentView' in $$props) $$invalidate(0, currentView = $$props.currentView);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		createEventDispatcher,
+    		dispatch,
+    		user,
+    		currentView,
+    		switchView,
+    		logout
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('user' in $$props) $$invalidate(1, user = $$props.user);
+    		if ('currentView' in $$props) $$invalidate(0, currentView = $$props.currentView);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [
+    		currentView,
+    		user,
+    		dispatch,
+    		switchView,
+    		logout,
+    		click_handler,
+    		click_handler_1,
+    		click_handler_2,
+    		click_handler_3
+    	];
+    }
+
+    class NavHeader extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$4, create_fragment$4, safe_not_equal, { user: 1, currentView: 0 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "NavHeader",
+    			options,
+    			id: create_fragment$4.name
+    		});
+    	}
+
+    	get user() {
+    		throw new Error("<NavHeader>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set user(value) {
+    		throw new Error("<NavHeader>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get currentView() {
+    		throw new Error("<NavHeader>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set currentView(value) {
+    		throw new Error("<NavHeader>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\components\UploadComponent.svelte generated by Svelte v3.59.2 */
+    const file$3 = "src\\components\\UploadComponent.svelte";
+
+    function get_each_context$2(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[39] = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context_1$2(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[42] = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context_2$1(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[45] = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context_3$1(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[48] = list[i];
+    	child_ctx[50] = i;
+    	return child_ctx;
+    }
+
+    // (200:2) {:else}
+    function create_else_block$3(ctx) {
+    	let div1;
+    	let div0;
+    	let t0;
+    	let div2;
+    	let t1;
+    	let div4;
+    	let t2;
+    	let div3;
+    	let t3;
+    	let each_value_3 = /*steps*/ ctx[12];
+    	validate_each_argument(each_value_3);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value_3.length; i += 1) {
+    		each_blocks[i] = create_each_block_3$1(get_each_context_3$1(ctx, each_value_3, i));
+    	}
+
+    	function select_block_type_2(ctx, dirty) {
+    		if (/*currentStep*/ ctx[7] === 1) return create_if_block_4$2;
+    		if (/*currentStep*/ ctx[7] === 2) return create_if_block_6$1;
+    		if (/*currentStep*/ ctx[7] === 3) return create_if_block_7;
+    	}
+
+    	let current_block_type = select_block_type_2(ctx);
+    	let if_block0 = current_block_type && current_block_type(ctx);
+    	let if_block1 = /*currentStep*/ ctx[7] > 1 && create_if_block_3$3(ctx);
+
+    	function select_block_type_4(ctx, dirty) {
+    		if (/*currentStep*/ ctx[7] < 3) return create_if_block_1$3;
+    		return create_else_block_1$2;
+    	}
+
+    	let current_block_type_1 = select_block_type_4(ctx);
+    	let if_block2 = current_block_type_1(ctx);
+
+    	const block = {
+    		c: function create() {
+    			div1 = element("div");
+    			div0 = element("div");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			t0 = space();
+    			div2 = element("div");
+    			if (if_block0) if_block0.c();
+    			t1 = space();
+    			div4 = element("div");
+    			if (if_block1) if_block1.c();
+    			t2 = space();
+    			div3 = element("div");
+    			t3 = space();
+    			if_block2.c();
+    			attr_dev(div0, "class", "steps-progress svelte-oio1la");
+    			add_location(div0, file$3, 202, 4, 5023);
+    			attr_dev(div1, "class", "steps-container svelte-oio1la");
+    			add_location(div1, file$3, 201, 3, 4988);
+    			attr_dev(div2, "class", "step-content svelte-oio1la");
+    			add_location(div2, file$3, 230, 3, 5781);
+    			attr_dev(div3, "class", "nav-spacer svelte-oio1la");
+    			add_location(div3, file$3, 396, 4, 11294);
+    			attr_dev(div4, "class", "step-navigation svelte-oio1la");
+    			add_location(div4, file$3, 388, 3, 11100);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div1, anchor);
+    			append_dev(div1, div0);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				if (each_blocks[i]) {
+    					each_blocks[i].m(div0, null);
+    				}
+    			}
+
+    			insert_dev(target, t0, anchor);
+    			insert_dev(target, div2, anchor);
+    			if (if_block0) if_block0.m(div2, null);
+    			insert_dev(target, t1, anchor);
+    			insert_dev(target, div4, anchor);
+    			if (if_block1) if_block1.m(div4, null);
+    			append_dev(div4, t2);
+    			append_dev(div4, div3);
+    			append_dev(div4, t3);
+    			if_block2.m(div4, null);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*currentStep, steps, goToStep*/ 528512) {
+    				each_value_3 = /*steps*/ ctx[12];
+    				validate_each_argument(each_value_3);
+    				let i;
+
+    				for (i = 0; i < each_value_3.length; i += 1) {
+    					const child_ctx = get_each_context_3$1(ctx, each_value_3, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block_3$1(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(div0, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value_3.length;
+    			}
+
+    			if (current_block_type === (current_block_type = select_block_type_2(ctx)) && if_block0) {
+    				if_block0.p(ctx, dirty);
+    			} else {
+    				if (if_block0) if_block0.d(1);
+    				if_block0 = current_block_type && current_block_type(ctx);
+
+    				if (if_block0) {
+    					if_block0.c();
+    					if_block0.m(div2, null);
+    				}
+    			}
+
+    			if (/*currentStep*/ ctx[7] > 1) {
+    				if (if_block1) {
+    					if_block1.p(ctx, dirty);
+    				} else {
+    					if_block1 = create_if_block_3$3(ctx);
+    					if_block1.c();
+    					if_block1.m(div4, t2);
+    				}
+    			} else if (if_block1) {
+    				if_block1.d(1);
+    				if_block1 = null;
+    			}
+
+    			if (current_block_type_1 === (current_block_type_1 = select_block_type_4(ctx)) && if_block2) {
+    				if_block2.p(ctx, dirty);
+    			} else {
+    				if_block2.d(1);
+    				if_block2 = current_block_type_1(ctx);
+
+    				if (if_block2) {
+    					if_block2.c();
+    					if_block2.m(div4, null);
+    				}
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div1);
+    			destroy_each(each_blocks, detaching);
+    			if (detaching) detach_dev(t0);
+    			if (detaching) detach_dev(div2);
+
+    			if (if_block0) {
+    				if_block0.d();
+    			}
+
+    			if (detaching) detach_dev(t1);
+    			if (detaching) detach_dev(div4);
+    			if (if_block1) if_block1.d();
+    			if_block2.d();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block$3.name,
+    		type: "else",
+    		source: "(200:2) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (189:2) {#if uploadSuccess}
+    function create_if_block$3(ctx) {
+    	let div2;
+    	let div1;
+    	let div0;
+    	let t1;
+    	let h3;
+    	let t3;
+    	let p;
+    	let t5;
+    	let button;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			div2 = element("div");
+    			div1 = element("div");
+    			div0 = element("div");
+    			div0.textContent = "🎉";
+    			t1 = space();
+    			h3 = element("h3");
+    			h3.textContent = "Upload Successful!";
+    			t3 = space();
+    			p = element("p");
+    			p.textContent = "Your file has been uploaded successfully!";
+    			t5 = space();
+    			button = element("button");
+    			button.textContent = "Upload Another File";
+    			attr_dev(div0, "class", "success-icon svelte-oio1la");
+    			add_location(div0, file$3, 191, 5, 4677);
+    			attr_dev(h3, "class", "svelte-oio1la");
+    			add_location(h3, file$3, 192, 5, 4718);
+    			attr_dev(p, "class", "svelte-oio1la");
+    			add_location(p, file$3, 193, 5, 4752);
+    			attr_dev(button, "class", "btn btn-success");
+    			add_location(button, file$3, 194, 5, 4807);
+    			attr_dev(div1, "class", "success-content svelte-oio1la");
+    			add_location(div1, file$3, 190, 4, 4641);
+    			attr_dev(div2, "class", "success-modal svelte-oio1la");
+    			add_location(div2, file$3, 189, 3, 4608);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div2, anchor);
+    			append_dev(div2, div1);
+    			append_dev(div1, div0);
+    			append_dev(div1, t1);
+    			append_dev(div1, h3);
+    			append_dev(div1, t3);
+    			append_dev(div1, p);
+    			append_dev(div1, t5);
+    			append_dev(div1, button);
+
+    			if (!mounted) {
+    				dispose = listen_dev(button, "click", /*click_handler*/ ctx[27], false, false, false, false);
+    				mounted = true;
+    			}
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div2);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$3.name,
+    		type: "if",
+    		source: "(189:2) {#if uploadSuccess}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (217:8) {:else}
+    function create_else_block_4(ctx) {
+    	let t_value = /*step*/ ctx[48].number + "";
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text(t_value);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block_4.name,
+    		type: "else",
+    		source: "(217:8) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (215:8) {#if currentStep > step.number}
+    function create_if_block_9(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("✓");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_9.name,
+    		type: "if",
+    		source: "(215:8) {#if currentStep > step.number}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (204:5) {#each steps as step, index}
+    function create_each_block_3$1(ctx) {
+    	let div4;
+    	let div0;
+    	let t0;
+    	let div3;
+    	let div1;
+    	let t1_value = /*step*/ ctx[48].title + "";
+    	let t1;
+    	let t2;
+    	let div2;
+    	let t3_value = /*step*/ ctx[48].description + "";
+    	let t3;
+    	let t4;
+    	let mounted;
+    	let dispose;
+
+    	function select_block_type_1(ctx, dirty) {
+    		if (/*currentStep*/ ctx[7] > /*step*/ ctx[48].number) return create_if_block_9;
+    		return create_else_block_4;
+    	}
+
+    	let current_block_type = select_block_type_1(ctx);
+    	let if_block = current_block_type(ctx);
+
+    	function click_handler_1() {
+    		return /*click_handler_1*/ ctx[28](/*step*/ ctx[48]);
+    	}
+
+    	function keydown_handler() {
+    		return /*keydown_handler*/ ctx[29](/*step*/ ctx[48]);
+    	}
+
+    	const block = {
+    		c: function create() {
+    			div4 = element("div");
+    			div0 = element("div");
+    			if_block.c();
+    			t0 = space();
+    			div3 = element("div");
+    			div1 = element("div");
+    			t1 = text(t1_value);
+    			t2 = space();
+    			div2 = element("div");
+    			t3 = text(t3_value);
+    			t4 = space();
+    			attr_dev(div0, "class", "step-number svelte-oio1la");
+    			add_location(div0, file$3, 213, 7, 5385);
+    			attr_dev(div1, "class", "step-title svelte-oio1la");
+    			add_location(div1, file$3, 221, 8, 5576);
+    			attr_dev(div2, "class", "step-description svelte-oio1la");
+    			add_location(div2, file$3, 222, 8, 5628);
+    			attr_dev(div3, "class", "step-info svelte-oio1la");
+    			add_location(div3, file$3, 220, 7, 5543);
+    			attr_dev(div4, "class", "step-item svelte-oio1la");
+    			attr_dev(div4, "role", "button");
+    			attr_dev(div4, "tabindex", "0");
+    			toggle_class(div4, "active", /*currentStep*/ ctx[7] === /*step*/ ctx[48].number);
+    			toggle_class(div4, "completed", /*currentStep*/ ctx[7] > /*step*/ ctx[48].number);
+    			add_location(div4, file$3, 204, 6, 5094);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div4, anchor);
+    			append_dev(div4, div0);
+    			if_block.m(div0, null);
+    			append_dev(div4, t0);
+    			append_dev(div4, div3);
+    			append_dev(div3, div1);
+    			append_dev(div1, t1);
+    			append_dev(div3, t2);
+    			append_dev(div3, div2);
+    			append_dev(div2, t3);
+    			append_dev(div4, t4);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(div4, "click", click_handler_1, false, false, false, false),
+    					listen_dev(div4, "keydown", keydown_handler, false, false, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(new_ctx, dirty) {
+    			ctx = new_ctx;
+
+    			if (current_block_type === (current_block_type = select_block_type_1(ctx)) && if_block) {
+    				if_block.p(ctx, dirty);
+    			} else {
+    				if_block.d(1);
+    				if_block = current_block_type(ctx);
+
+    				if (if_block) {
+    					if_block.c();
+    					if_block.m(div0, null);
+    				}
+    			}
+
+    			if (dirty[0] & /*currentStep, steps*/ 4224) {
+    				toggle_class(div4, "active", /*currentStep*/ ctx[7] === /*step*/ ctx[48].number);
+    			}
+
+    			if (dirty[0] & /*currentStep, steps*/ 4224) {
+    				toggle_class(div4, "completed", /*currentStep*/ ctx[7] > /*step*/ ctx[48].number);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div4);
+    			if_block.d();
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_3$1.name,
+    		type: "each",
+    		source: "(204:5) {#each steps as step, index}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (336:32) 
+    function create_if_block_7(ctx) {
+    	let div12;
+    	let h3;
+    	let t1;
+    	let p0;
+    	let t3;
+    	let div8;
+    	let div3;
+    	let div0;
+    	let t4_value = getFileIcon$1(/*selectedFile*/ ctx[0]?.type) + "";
+    	let t4;
+    	let t5;
+    	let div1;
+    	let h4;
+    	let t6_value = /*selectedFile*/ ctx[0]?.name + "";
+    	let t6;
+    	let t7;
+    	let p1;
+    	let t8_value = formatFileSize$1(/*selectedFile*/ ctx[0]?.size) + "";
+    	let t8;
+    	let t9;
+    	let div2;
+    	let t11;
+    	let div7;
+    	let div4;
+    	let span0;
+    	let t13;
+    	let span1;
+    	let t14;
+    	let t15;
+    	let div5;
+    	let span2;
+    	let t17;
+    	let span3;
+    	let t18;
+    	let t19;
+    	let div6;
+    	let span4;
+    	let t21;
+    	let span5;
+    	let t22;
+    	let t23;
+    	let t24;
+    	let div11;
+    	let div9;
+    	let span6;
+    	let t26;
+    	let span7;
+    	let t28;
+    	let div10;
+    	let span8;
+    	let t30;
+    	let span9;
+    	let if_block = /*description*/ ctx[4] && create_if_block_8(ctx);
+
+    	const block = {
+    		c: function create() {
+    			div12 = element("div");
+    			h3 = element("h3");
+    			h3.textContent = "🔍 Review & Upload";
+    			t1 = space();
+    			p0 = element("p");
+    			p0.textContent = "Review your file details before uploading";
+    			t3 = space();
+    			div8 = element("div");
+    			div3 = element("div");
+    			div0 = element("div");
+    			t4 = text(t4_value);
+    			t5 = space();
+    			div1 = element("div");
+    			h4 = element("h4");
+    			t6 = text(t6_value);
+    			t7 = space();
+    			p1 = element("p");
+    			t8 = text(t8_value);
+    			t9 = space();
+    			div2 = element("div");
+    			div2.textContent = "FREE";
+    			t11 = space();
+    			div7 = element("div");
+    			div4 = element("div");
+    			span0 = element("span");
+    			span0.textContent = "Subject:";
+    			t13 = space();
+    			span1 = element("span");
+    			t14 = text(/*subject*/ ctx[1]);
+    			t15 = space();
+    			div5 = element("div");
+    			span2 = element("span");
+    			span2.textContent = "Year:";
+    			t17 = space();
+    			span3 = element("span");
+    			t18 = text(/*year*/ ctx[2]);
+    			t19 = space();
+    			div6 = element("div");
+    			span4 = element("span");
+    			span4.textContent = "Type:";
+    			t21 = space();
+    			span5 = element("span");
+    			t22 = text(/*examType*/ ctx[3]);
+    			t23 = space();
+    			if (if_block) if_block.c();
+    			t24 = space();
+    			div11 = element("div");
+    			div9 = element("div");
+    			span6 = element("span");
+    			span6.textContent = "File Status:";
+    			t26 = space();
+    			span7 = element("span");
+    			span7.textContent = "FREE for all students";
+    			t28 = space();
+    			div10 = element("div");
+    			span8 = element("span");
+    			span8.textContent = "Purpose:";
+    			t30 = space();
+    			span9 = element("span");
+    			span9.textContent = "Help fellow students succeed";
+    			attr_dev(h3, "class", "svelte-oio1la");
+    			add_location(h3, file$3, 338, 6, 9426);
+    			attr_dev(p0, "class", "svelte-oio1la");
+    			add_location(p0, file$3, 339, 6, 9461);
+    			attr_dev(div0, "class", "review-file-icon svelte-oio1la");
+    			add_location(div0, file$3, 343, 8, 9596);
+    			attr_dev(h4, "class", "svelte-oio1la");
+    			add_location(h4, file$3, 345, 9, 9716);
+    			attr_dev(p1, "class", "svelte-oio1la");
+    			add_location(p1, file$3, 346, 9, 9756);
+    			attr_dev(div1, "class", "review-file-info svelte-oio1la");
+    			add_location(div1, file$3, 344, 8, 9675);
+    			attr_dev(div2, "class", "review-price svelte-oio1la");
+    			add_location(div2, file$3, 348, 8, 9825);
+    			attr_dev(div3, "class", "review-header svelte-oio1la");
+    			add_location(div3, file$3, 342, 7, 9559);
+    			attr_dev(span0, "class", "detail-label svelte-oio1la");
+    			add_location(span0, file$3, 353, 9, 9970);
+    			attr_dev(span1, "class", "detail-value svelte-oio1la");
+    			add_location(span1, file$3, 354, 9, 10023);
+    			attr_dev(div4, "class", "review-detail svelte-oio1la");
+    			add_location(div4, file$3, 352, 8, 9932);
+    			attr_dev(span2, "class", "detail-label svelte-oio1la");
+    			add_location(span2, file$3, 357, 9, 10130);
+    			attr_dev(span3, "class", "detail-value svelte-oio1la");
+    			add_location(span3, file$3, 358, 9, 10180);
+    			attr_dev(div5, "class", "review-detail svelte-oio1la");
+    			add_location(div5, file$3, 356, 8, 10092);
+    			attr_dev(span4, "class", "detail-label svelte-oio1la");
+    			add_location(span4, file$3, 361, 9, 10284);
+    			attr_dev(span5, "class", "detail-value svelte-oio1la");
+    			add_location(span5, file$3, 362, 9, 10334);
+    			attr_dev(div6, "class", "review-detail svelte-oio1la");
+    			add_location(div6, file$3, 360, 8, 10246);
+    			attr_dev(div7, "class", "review-details svelte-oio1la");
+    			add_location(div7, file$3, 351, 7, 9894);
+    			attr_dev(div8, "class", "review-card svelte-oio1la");
+    			add_location(div8, file$3, 341, 6, 9525);
+    			attr_dev(span6, "class", "summary-label svelte-oio1la");
+    			add_location(span6, file$3, 375, 8, 10716);
+    			attr_dev(span7, "class", "summary-value svelte-oio1la");
+    			add_location(span7, file$3, 376, 8, 10773);
+    			attr_dev(div9, "class", "summary-item svelte-oio1la");
+    			add_location(div9, file$3, 374, 7, 10680);
+    			attr_dev(span8, "class", "summary-label svelte-oio1la");
+    			add_location(span8, file$3, 379, 8, 10889);
+    			attr_dev(span9, "class", "summary-value svelte-oio1la");
+    			add_location(span9, file$3, 380, 8, 10942);
+    			attr_dev(div10, "class", "summary-item svelte-oio1la");
+    			add_location(div10, file$3, 378, 7, 10853);
+    			attr_dev(div11, "class", "upload-summary svelte-oio1la");
+    			add_location(div11, file$3, 373, 6, 10643);
+    			attr_dev(div12, "class", "step-panel svelte-oio1la");
+    			add_location(div12, file$3, 337, 5, 9394);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div12, anchor);
+    			append_dev(div12, h3);
+    			append_dev(div12, t1);
+    			append_dev(div12, p0);
+    			append_dev(div12, t3);
+    			append_dev(div12, div8);
+    			append_dev(div8, div3);
+    			append_dev(div3, div0);
+    			append_dev(div0, t4);
+    			append_dev(div3, t5);
+    			append_dev(div3, div1);
+    			append_dev(div1, h4);
+    			append_dev(h4, t6);
+    			append_dev(div1, t7);
+    			append_dev(div1, p1);
+    			append_dev(p1, t8);
+    			append_dev(div3, t9);
+    			append_dev(div3, div2);
+    			append_dev(div8, t11);
+    			append_dev(div8, div7);
+    			append_dev(div7, div4);
+    			append_dev(div4, span0);
+    			append_dev(div4, t13);
+    			append_dev(div4, span1);
+    			append_dev(span1, t14);
+    			append_dev(div7, t15);
+    			append_dev(div7, div5);
+    			append_dev(div5, span2);
+    			append_dev(div5, t17);
+    			append_dev(div5, span3);
+    			append_dev(span3, t18);
+    			append_dev(div7, t19);
+    			append_dev(div7, div6);
+    			append_dev(div6, span4);
+    			append_dev(div6, t21);
+    			append_dev(div6, span5);
+    			append_dev(span5, t22);
+    			append_dev(div7, t23);
+    			if (if_block) if_block.m(div7, null);
+    			append_dev(div12, t24);
+    			append_dev(div12, div11);
+    			append_dev(div11, div9);
+    			append_dev(div9, span6);
+    			append_dev(div9, t26);
+    			append_dev(div9, span7);
+    			append_dev(div11, t28);
+    			append_dev(div11, div10);
+    			append_dev(div10, span8);
+    			append_dev(div10, t30);
+    			append_dev(div10, span9);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*selectedFile*/ 1 && t4_value !== (t4_value = getFileIcon$1(/*selectedFile*/ ctx[0]?.type) + "")) set_data_dev(t4, t4_value);
+    			if (dirty[0] & /*selectedFile*/ 1 && t6_value !== (t6_value = /*selectedFile*/ ctx[0]?.name + "")) set_data_dev(t6, t6_value);
+    			if (dirty[0] & /*selectedFile*/ 1 && t8_value !== (t8_value = formatFileSize$1(/*selectedFile*/ ctx[0]?.size) + "")) set_data_dev(t8, t8_value);
+    			if (dirty[0] & /*subject*/ 2) set_data_dev(t14, /*subject*/ ctx[1]);
+    			if (dirty[0] & /*year*/ 4) set_data_dev(t18, /*year*/ ctx[2]);
+    			if (dirty[0] & /*examType*/ 8) set_data_dev(t22, /*examType*/ ctx[3]);
+
+    			if (/*description*/ ctx[4]) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+    				} else {
+    					if_block = create_if_block_8(ctx);
+    					if_block.c();
+    					if_block.m(div7, null);
+    				}
+    			} else if (if_block) {
+    				if_block.d(1);
+    				if_block = null;
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div12);
+    			if (if_block) if_block.d();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_7.name,
+    		type: "if",
+    		source: "(336:32) ",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (277:32) 
+    function create_if_block_6$1(ctx) {
+    	let div6;
+    	let h3;
+    	let t1;
+    	let p;
+    	let t3;
+    	let div5;
+    	let div0;
+    	let label0;
+    	let t5;
+    	let select0;
+    	let option0;
+    	let t7;
+    	let div1;
+    	let label1;
+    	let t9;
+    	let select1;
+    	let option1;
+    	let t11;
+    	let div3;
+    	let label2;
+    	let t13;
+    	let div2;
+    	let t14;
+    	let div4;
+    	let label3;
+    	let t16;
+    	let textarea;
+    	let mounted;
+    	let dispose;
+    	let each_value_2 = /*subjects*/ ctx[10];
+    	validate_each_argument(each_value_2);
+    	let each_blocks_2 = [];
+
+    	for (let i = 0; i < each_value_2.length; i += 1) {
+    		each_blocks_2[i] = create_each_block_2$1(get_each_context_2$1(ctx, each_value_2, i));
+    	}
+
+    	let each_value_1 = /*years*/ ctx[11];
+    	validate_each_argument(each_value_1);
+    	let each_blocks_1 = [];
+
+    	for (let i = 0; i < each_value_1.length; i += 1) {
+    		each_blocks_1[i] = create_each_block_1$2(get_each_context_1$2(ctx, each_value_1, i));
+    	}
+
+    	let each_value = /*examTypes*/ ctx[9];
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block$2(get_each_context$2(ctx, each_value, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			div6 = element("div");
+    			h3 = element("h3");
+    			h3.textContent = "📝 Add File Details";
+    			t1 = space();
+    			p = element("p");
+    			p.textContent = "Provide information about your past question";
+    			t3 = space();
+    			div5 = element("div");
+    			div0 = element("div");
+    			label0 = element("label");
+    			label0.textContent = "Subject *";
+    			t5 = space();
+    			select0 = element("select");
+    			option0 = element("option");
+    			option0.textContent = "Choose a subject";
+
+    			for (let i = 0; i < each_blocks_2.length; i += 1) {
+    				each_blocks_2[i].c();
+    			}
+
+    			t7 = space();
+    			div1 = element("div");
+    			label1 = element("label");
+    			label1.textContent = "Academic Year *";
+    			t9 = space();
+    			select1 = element("select");
+    			option1 = element("option");
+    			option1.textContent = "Select year";
+
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].c();
+    			}
+
+    			t11 = space();
+    			div3 = element("div");
+    			label2 = element("label");
+    			label2.textContent = "Exam Type *";
+    			t13 = space();
+    			div2 = element("div");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			t14 = space();
+    			div4 = element("div");
+    			label3 = element("label");
+    			label3.textContent = "Description (Optional)";
+    			t16 = space();
+    			textarea = element("textarea");
+    			attr_dev(h3, "class", "svelte-oio1la");
+    			add_location(h3, file$3, 279, 6, 7443);
+    			attr_dev(p, "class", "svelte-oio1la");
+    			add_location(p, file$3, 280, 6, 7479);
+    			attr_dev(label0, "for", "subject");
+    			add_location(label0, file$3, 284, 8, 7612);
+    			option0.__value = "";
+    			option0.value = option0.__value;
+    			add_location(option0, file$3, 286, 9, 7722);
+    			attr_dev(select0, "id", "subject");
+    			select0.required = true;
+    			if (/*subject*/ ctx[1] === void 0) add_render_callback(() => /*select0_change_handler*/ ctx[32].call(select0));
+    			add_location(select0, file$3, 285, 8, 7660);
+    			attr_dev(div0, "class", "form-group");
+    			add_location(div0, file$3, 283, 7, 7578);
+    			attr_dev(label1, "for", "year");
+    			add_location(label1, file$3, 294, 8, 7971);
+    			option1.__value = "";
+    			option1.value = option1.__value;
+    			add_location(option1, file$3, 296, 9, 8078);
+    			attr_dev(select1, "id", "year");
+    			select1.required = true;
+    			if (/*year*/ ctx[2] === void 0) add_render_callback(() => /*select1_change_handler*/ ctx[33].call(select1));
+    			add_location(select1, file$3, 295, 8, 8022);
+    			attr_dev(div1, "class", "form-group");
+    			add_location(div1, file$3, 293, 7, 7937);
+    			attr_dev(label2, "for", "examType");
+    			add_location(label2, file$3, 304, 8, 8310);
+    			attr_dev(div2, "class", "exam-type-grid svelte-oio1la");
+    			add_location(div2, file$3, 305, 8, 8361);
+    			attr_dev(div3, "class", "form-group");
+    			add_location(div3, file$3, 303, 7, 8276);
+    			attr_dev(label3, "for", "description");
+    			add_location(label3, file$3, 324, 8, 8989);
+    			attr_dev(textarea, "id", "description");
+    			attr_dev(textarea, "placeholder", "Add any additional details about the exam, topics covered, or special notes...");
+    			attr_dev(textarea, "rows", "3");
+    			add_location(textarea, file$3, 325, 8, 9054);
+    			attr_dev(div4, "class", "form-group full-width svelte-oio1la");
+    			add_location(div4, file$3, 323, 7, 8944);
+    			attr_dev(div5, "class", "form-grid svelte-oio1la");
+    			add_location(div5, file$3, 282, 6, 7546);
+    			attr_dev(div6, "class", "step-panel svelte-oio1la");
+    			add_location(div6, file$3, 278, 5, 7411);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div6, anchor);
+    			append_dev(div6, h3);
+    			append_dev(div6, t1);
+    			append_dev(div6, p);
+    			append_dev(div6, t3);
+    			append_dev(div6, div5);
+    			append_dev(div5, div0);
+    			append_dev(div0, label0);
+    			append_dev(div0, t5);
+    			append_dev(div0, select0);
+    			append_dev(select0, option0);
+
+    			for (let i = 0; i < each_blocks_2.length; i += 1) {
+    				if (each_blocks_2[i]) {
+    					each_blocks_2[i].m(select0, null);
+    				}
+    			}
+
+    			select_option(select0, /*subject*/ ctx[1], true);
+    			append_dev(div5, t7);
+    			append_dev(div5, div1);
+    			append_dev(div1, label1);
+    			append_dev(div1, t9);
+    			append_dev(div1, select1);
+    			append_dev(select1, option1);
+
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				if (each_blocks_1[i]) {
+    					each_blocks_1[i].m(select1, null);
+    				}
+    			}
+
+    			select_option(select1, /*year*/ ctx[2], true);
+    			append_dev(div5, t11);
+    			append_dev(div5, div3);
+    			append_dev(div3, label2);
+    			append_dev(div3, t13);
+    			append_dev(div3, div2);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				if (each_blocks[i]) {
+    					each_blocks[i].m(div2, null);
+    				}
+    			}
+
+    			append_dev(div5, t14);
+    			append_dev(div5, div4);
+    			append_dev(div4, label3);
+    			append_dev(div4, t16);
+    			append_dev(div4, textarea);
+    			set_input_value(textarea, /*description*/ ctx[4]);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(select0, "change", /*select0_change_handler*/ ctx[32]),
+    					listen_dev(select1, "change", /*select1_change_handler*/ ctx[33]),
+    					listen_dev(textarea, "input", /*textarea_input_handler*/ ctx[36])
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*subjects*/ 1024) {
+    				each_value_2 = /*subjects*/ ctx[10];
+    				validate_each_argument(each_value_2);
+    				let i;
+
+    				for (i = 0; i < each_value_2.length; i += 1) {
+    					const child_ctx = get_each_context_2$1(ctx, each_value_2, i);
+
+    					if (each_blocks_2[i]) {
+    						each_blocks_2[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks_2[i] = create_each_block_2$1(child_ctx);
+    						each_blocks_2[i].c();
+    						each_blocks_2[i].m(select0, null);
+    					}
+    				}
+
+    				for (; i < each_blocks_2.length; i += 1) {
+    					each_blocks_2[i].d(1);
+    				}
+
+    				each_blocks_2.length = each_value_2.length;
+    			}
+
+    			if (dirty[0] & /*subject, subjects*/ 1026) {
+    				select_option(select0, /*subject*/ ctx[1]);
+    			}
+
+    			if (dirty[0] & /*years*/ 2048) {
+    				each_value_1 = /*years*/ ctx[11];
+    				validate_each_argument(each_value_1);
+    				let i;
+
+    				for (i = 0; i < each_value_1.length; i += 1) {
+    					const child_ctx = get_each_context_1$2(ctx, each_value_1, i);
+
+    					if (each_blocks_1[i]) {
+    						each_blocks_1[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks_1[i] = create_each_block_1$2(child_ctx);
+    						each_blocks_1[i].c();
+    						each_blocks_1[i].m(select1, null);
+    					}
+    				}
+
+    				for (; i < each_blocks_1.length; i += 1) {
+    					each_blocks_1[i].d(1);
+    				}
+
+    				each_blocks_1.length = each_value_1.length;
+    			}
+
+    			if (dirty[0] & /*year, years*/ 2052) {
+    				select_option(select1, /*year*/ ctx[2]);
+    			}
+
+    			if (dirty[0] & /*examType, examTypes*/ 520) {
+    				each_value = /*examTypes*/ ctx[9];
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context$2(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block$2(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(div2, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value.length;
+    			}
+
+    			if (dirty[0] & /*description*/ 16) {
+    				set_input_value(textarea, /*description*/ ctx[4]);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div6);
+    			destroy_each(each_blocks_2, detaching);
+    			destroy_each(each_blocks_1, detaching);
+    			destroy_each(each_blocks, detaching);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_6$1.name,
+    		type: "if",
+    		source: "(277:32) ",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (232:4) {#if currentStep === 1}
+    function create_if_block_4$2(ctx) {
+    	let div1;
+    	let h3;
+    	let t1;
+    	let p;
+    	let t3;
+    	let div0;
+    	let input;
+    	let t4;
+    	let mounted;
+    	let dispose;
+
+    	function select_block_type_3(ctx, dirty) {
+    		if (/*selectedFile*/ ctx[0]) return create_if_block_5$1;
+    		return create_else_block_3;
+    	}
+
+    	let current_block_type = select_block_type_3(ctx);
+    	let if_block = current_block_type(ctx);
+
+    	const block = {
+    		c: function create() {
+    			div1 = element("div");
+    			h3 = element("h3");
+    			h3.textContent = "📁 Select Your File";
+    			t1 = space();
+    			p = element("p");
+    			p.textContent = "Choose the past question file you want to upload";
+    			t3 = space();
+    			div0 = element("div");
+    			input = element("input");
+    			t4 = space();
+    			if_block.c();
+    			attr_dev(h3, "class", "svelte-oio1la");
+    			add_location(h3, file$3, 234, 6, 5913);
+    			attr_dev(p, "class", "svelte-oio1la");
+    			add_location(p, file$3, 235, 6, 5949);
+    			attr_dev(input, "id", "fileInput");
+    			attr_dev(input, "type", "file");
+    			attr_dev(input, "accept", ".pdf,.doc,.docx,.jpg,.jpeg,.png");
+    			attr_dev(input, "class", "file-input-hidden svelte-oio1la");
+    			add_location(input, file$3, 244, 7, 6214);
+    			attr_dev(div0, "class", "file-drop-zone svelte-oio1la");
+    			toggle_class(div0, "drag-over", /*dragOver*/ ctx[8]);
+    			add_location(div0, file$3, 237, 6, 6020);
+    			attr_dev(div1, "class", "step-panel svelte-oio1la");
+    			add_location(div1, file$3, 233, 5, 5881);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div1, anchor);
+    			append_dev(div1, h3);
+    			append_dev(div1, t1);
+    			append_dev(div1, p);
+    			append_dev(div1, t3);
+    			append_dev(div1, div0);
+    			append_dev(div0, input);
+    			append_dev(div0, t4);
+    			if_block.m(div0, null);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(input, "change", /*handleFileSelect*/ ctx[13], false, false, false, false),
+    					listen_dev(div0, "dragover", /*handleDragOver*/ ctx[14], false, false, false, false),
+    					listen_dev(div0, "dragleave", /*handleDragLeave*/ ctx[15], false, false, false, false),
+    					listen_dev(div0, "drop", /*handleDrop*/ ctx[16], false, false, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (current_block_type === (current_block_type = select_block_type_3(ctx)) && if_block) {
+    				if_block.p(ctx, dirty);
+    			} else {
+    				if_block.d(1);
+    				if_block = current_block_type(ctx);
+
+    				if (if_block) {
+    					if_block.c();
+    					if_block.m(div0, null);
+    				}
+    			}
+
+    			if (dirty[0] & /*dragOver*/ 256) {
+    				toggle_class(div0, "drag-over", /*dragOver*/ ctx[8]);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div1);
+    			if_block.d();
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_4$2.name,
+    		type: "if",
+    		source: "(232:4) {#if currentStep === 1}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (365:8) {#if description}
+    function create_if_block_8(ctx) {
+    	let div;
+    	let span0;
+    	let t1;
+    	let span1;
+    	let t2;
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			span0 = element("span");
+    			span0.textContent = "Description:";
+    			t1 = space();
+    			span1 = element("span");
+    			t2 = text(/*description*/ ctx[4]);
+    			attr_dev(span0, "class", "detail-label svelte-oio1la");
+    			add_location(span0, file$3, 366, 9, 10469);
+    			attr_dev(span1, "class", "detail-value svelte-oio1la");
+    			add_location(span1, file$3, 367, 9, 10526);
+    			attr_dev(div, "class", "review-detail svelte-oio1la");
+    			add_location(div, file$3, 365, 8, 10431);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			append_dev(div, span0);
+    			append_dev(div, t1);
+    			append_dev(div, span1);
+    			append_dev(span1, t2);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*description*/ 16) set_data_dev(t2, /*description*/ ctx[4]);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_8.name,
+    		type: "if",
+    		source: "(365:8) {#if description}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (288:9) {#each subjects as subjectOption}
+    function create_each_block_2$1(ctx) {
+    	let option;
+    	let t_value = /*subjectOption*/ ctx[45] + "";
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			option = element("option");
+    			t = text(t_value);
+    			option.__value = /*subjectOption*/ ctx[45];
+    			option.value = option.__value;
+    			add_location(option, file$3, 288, 10, 7820);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, option, anchor);
+    			append_dev(option, t);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(option);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_2$1.name,
+    		type: "each",
+    		source: "(288:9) {#each subjects as subjectOption}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (298:9) {#each years as yearOption}
+    function create_each_block_1$2(ctx) {
+    	let option;
+    	let t_value = /*yearOption*/ ctx[42] + "";
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			option = element("option");
+    			t = text(t_value);
+    			option.__value = /*yearOption*/ ctx[42];
+    			option.value = option.__value;
+    			add_location(option, file$3, 298, 10, 8165);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, option, anchor);
+    			append_dev(option, t);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(option);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_1$2.name,
+    		type: "each",
+    		source: "(298:9) {#each years as yearOption}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (307:9) {#each examTypes as type}
+    function create_each_block$2(ctx) {
+    	let label;
+    	let input;
+    	let t0;
+    	let div;
+    	let span0;
+    	let t1_value = /*type*/ ctx[39].icon + "";
+    	let t1;
+    	let t2;
+    	let span1;
+    	let t3_value = /*type*/ ctx[39].label + "";
+    	let t3;
+    	let t4;
+    	let binding_group;
+    	let mounted;
+    	let dispose;
+    	binding_group = init_binding_group(/*$$binding_groups*/ ctx[35][0]);
+
+    	const block = {
+    		c: function create() {
+    			label = element("label");
+    			input = element("input");
+    			t0 = space();
+    			div = element("div");
+    			span0 = element("span");
+    			t1 = text(t1_value);
+    			t2 = space();
+    			span1 = element("span");
+    			t3 = text(t3_value);
+    			t4 = space();
+    			attr_dev(input, "type", "radio");
+    			input.__value = /*type*/ ctx[39].value;
+    			input.value = input.__value;
+    			attr_dev(input, "class", "exam-type-input svelte-oio1la");
+    			add_location(input, file$3, 308, 11, 8523);
+    			attr_dev(span0, "class", "exam-type-icon svelte-oio1la");
+    			add_location(span0, file$3, 315, 12, 8735);
+    			attr_dev(span1, "class", "exam-type-label svelte-oio1la");
+    			add_location(span1, file$3, 316, 12, 8796);
+    			attr_dev(div, "class", "exam-type-content svelte-oio1la");
+    			add_location(div, file$3, 314, 11, 8690);
+    			attr_dev(label, "class", "exam-type-option svelte-oio1la");
+    			toggle_class(label, "selected", /*examType*/ ctx[3] === /*type*/ ctx[39].value);
+    			add_location(label, file$3, 307, 10, 8437);
+    			binding_group.p(input);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, label, anchor);
+    			append_dev(label, input);
+    			input.checked = input.__value === /*examType*/ ctx[3];
+    			append_dev(label, t0);
+    			append_dev(label, div);
+    			append_dev(div, span0);
+    			append_dev(span0, t1);
+    			append_dev(div, t2);
+    			append_dev(div, span1);
+    			append_dev(span1, t3);
+    			append_dev(label, t4);
+
+    			if (!mounted) {
+    				dispose = listen_dev(input, "change", /*input_change_handler*/ ctx[34]);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*examType*/ 8) {
+    				input.checked = input.__value === /*examType*/ ctx[3];
+    			}
+
+    			if (dirty[0] & /*examType, examTypes*/ 520) {
+    				toggle_class(label, "selected", /*examType*/ ctx[3] === /*type*/ ctx[39].value);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(label);
+    			binding_group.r();
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$2.name,
+    		type: "each",
+    		source: "(307:9) {#each examTypes as type}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (264:7) {:else}
+    function create_else_block_3(ctx) {
+    	let div2;
+    	let div0;
+    	let t1;
+    	let h4;
+    	let t3;
+    	let p;
+    	let t4;
+    	let button;
+    	let t6;
+    	let div1;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			div2 = element("div");
+    			div0 = element("div");
+    			div0.textContent = "📁";
+    			t1 = space();
+    			h4 = element("h4");
+    			h4.textContent = "Drop your file here";
+    			t3 = space();
+    			p = element("p");
+    			t4 = text("or ");
+    			button = element("button");
+    			button.textContent = "browse files";
+    			t6 = space();
+    			div1 = element("div");
+    			div1.textContent = "Supported: PDF, DOC, DOCX, JPG, PNG";
+    			attr_dev(div0, "class", "drop-icon svelte-oio1la");
+    			add_location(div0, file$3, 265, 9, 6968);
+    			attr_dev(h4, "class", "svelte-oio1la");
+    			add_location(h4, file$3, 266, 9, 7010);
+    			attr_dev(button, "class", "browse-btn svelte-oio1la");
+    			add_location(button, file$3, 267, 15, 7055);
+    			attr_dev(p, "class", "svelte-oio1la");
+    			add_location(p, file$3, 267, 9, 7049);
+    			attr_dev(div1, "class", "supported-formats svelte-oio1la");
+    			add_location(div1, file$3, 268, 9, 7180);
+    			attr_dev(div2, "class", "file-drop-content svelte-oio1la");
+    			add_location(div2, file$3, 264, 8, 6926);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div2, anchor);
+    			append_dev(div2, div0);
+    			append_dev(div2, t1);
+    			append_dev(div2, h4);
+    			append_dev(div2, t3);
+    			append_dev(div2, p);
+    			append_dev(p, t4);
+    			append_dev(p, button);
+    			append_dev(div2, t6);
+    			append_dev(div2, div1);
+
+    			if (!mounted) {
+    				dispose = listen_dev(button, "click", /*click_handler_3*/ ctx[31], false, false, false, false);
+    				mounted = true;
+    			}
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div2);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block_3.name,
+    		type: "else",
+    		source: "(264:7) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (253:7) {#if selectedFile}
+    function create_if_block_5$1(ctx) {
+    	let div4;
+    	let div0;
+    	let t0_value = getFileIcon$1(/*selectedFile*/ ctx[0].type) + "";
+    	let t0;
+    	let t1;
+    	let div3;
+    	let div1;
+    	let t2_value = /*selectedFile*/ ctx[0].name + "";
+    	let t2;
+    	let t3;
+    	let div2;
+    	let t4_value = formatFileSize$1(/*selectedFile*/ ctx[0].size) + "";
+    	let t4;
+    	let t5;
+    	let button;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			div4 = element("div");
+    			div0 = element("div");
+    			t0 = text(t0_value);
+    			t1 = space();
+    			div3 = element("div");
+    			div1 = element("div");
+    			t2 = text(t2_value);
+    			t3 = space();
+    			div2 = element("div");
+    			t4 = text(t4_value);
+    			t5 = space();
+    			button = element("button");
+    			button.textContent = "Change File";
+    			attr_dev(div0, "class", "file-icon svelte-oio1la");
+    			add_location(div0, file$3, 254, 9, 6485);
+    			attr_dev(div1, "class", "file-name svelte-oio1la");
+    			add_location(div1, file$3, 256, 10, 6595);
+    			attr_dev(div2, "class", "file-size svelte-oio1la");
+    			add_location(div2, file$3, 257, 10, 6655);
+    			attr_dev(div3, "class", "file-details svelte-oio1la");
+    			add_location(div3, file$3, 255, 9, 6557);
+    			attr_dev(button, "class", "change-file-btn svelte-oio1la");
+    			add_location(button, file$3, 259, 9, 6747);
+    			attr_dev(div4, "class", "file-selected svelte-oio1la");
+    			add_location(div4, file$3, 253, 8, 6447);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div4, anchor);
+    			append_dev(div4, div0);
+    			append_dev(div0, t0);
+    			append_dev(div4, t1);
+    			append_dev(div4, div3);
+    			append_dev(div3, div1);
+    			append_dev(div1, t2);
+    			append_dev(div3, t3);
+    			append_dev(div3, div2);
+    			append_dev(div2, t4);
+    			append_dev(div4, t5);
+    			append_dev(div4, button);
+
+    			if (!mounted) {
+    				dispose = listen_dev(button, "click", /*click_handler_2*/ ctx[30], false, false, false, false);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*selectedFile*/ 1 && t0_value !== (t0_value = getFileIcon$1(/*selectedFile*/ ctx[0].type) + "")) set_data_dev(t0, t0_value);
+    			if (dirty[0] & /*selectedFile*/ 1 && t2_value !== (t2_value = /*selectedFile*/ ctx[0].name + "")) set_data_dev(t2, t2_value);
+    			if (dirty[0] & /*selectedFile*/ 1 && t4_value !== (t4_value = formatFileSize$1(/*selectedFile*/ ctx[0].size) + "")) set_data_dev(t4, t4_value);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div4);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_5$1.name,
+    		type: "if",
+    		source: "(253:7) {#if selectedFile}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (390:4) {#if currentStep > 1}
+    function create_if_block_3$3(ctx) {
+    	let button;
+    	let span;
+    	let t1;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			button = element("button");
+    			span = element("span");
+    			span.textContent = "←";
+    			t1 = text("\r\n\t\t\t\t\t\tPrevious");
+    			add_location(span, file$3, 391, 6, 11225);
+    			attr_dev(button, "class", "btn btn-secondary");
+    			add_location(button, file$3, 390, 5, 11163);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, button, anchor);
+    			append_dev(button, span);
+    			append_dev(button, t1);
+
+    			if (!mounted) {
+    				dispose = listen_dev(button, "click", /*prevStep*/ ctx[18], false, false, false, false);
+    				mounted = true;
+    			}
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(button);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_3$3.name,
+    		type: "if",
+    		source: "(390:4) {#if currentStep > 1}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (408:4) {:else}
+    function create_else_block_1$2(ctx) {
+    	let button;
+    	let button_disabled_value;
+    	let mounted;
+    	let dispose;
+
+    	function select_block_type_5(ctx, dirty) {
+    		if (/*uploading*/ ctx[5]) return create_if_block_2$3;
+    		return create_else_block_2;
+    	}
+
+    	let current_block_type = select_block_type_5(ctx);
+    	let if_block = current_block_type(ctx);
+
+    	const block = {
+    		c: function create() {
+    			button = element("button");
+    			if_block.c();
+    			attr_dev(button, "class", "btn btn-success upload-btn svelte-oio1la");
+    			button.disabled = button_disabled_value = /*uploading*/ ctx[5] || !/*canUpload*/ ctx[22]();
+    			add_location(button, file$3, 408, 5, 11541);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, button, anchor);
+    			if_block.m(button, null);
+
+    			if (!mounted) {
+    				dispose = listen_dev(button, "click", /*handleUpload*/ ctx[20], false, false, false, false);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (current_block_type !== (current_block_type = select_block_type_5(ctx))) {
+    				if_block.d(1);
+    				if_block = current_block_type(ctx);
+
+    				if (if_block) {
+    					if_block.c();
+    					if_block.m(button, null);
+    				}
+    			}
+
+    			if (dirty[0] & /*uploading*/ 32 && button_disabled_value !== (button_disabled_value = /*uploading*/ ctx[5] || !/*canUpload*/ ctx[22]())) {
+    				prop_dev(button, "disabled", button_disabled_value);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(button);
+    			if_block.d();
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block_1$2.name,
+    		type: "else",
+    		source: "(408:4) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (399:4) {#if currentStep < 3}
+    function create_if_block_1$3(ctx) {
+    	let button;
+    	let t0;
+    	let span;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			button = element("button");
+    			t0 = text("Next\r\n\t\t\t\t\t\t");
+    			span = element("span");
+    			span.textContent = "→";
+    			add_location(span, file$3, 405, 6, 11491);
+    			attr_dev(button, "class", "btn btn-success");
+    			button.disabled = !/*canProceed*/ ctx[21]();
+    			add_location(button, file$3, 399, 5, 11364);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, button, anchor);
+    			append_dev(button, t0);
+    			append_dev(button, span);
+
+    			if (!mounted) {
+    				dispose = listen_dev(button, "click", /*nextStep*/ ctx[17], false, false, false, false);
+    				mounted = true;
+    			}
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(button);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_1$3.name,
+    		type: "if",
+    		source: "(399:4) {#if currentStep < 3}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (417:6) {:else}
+    function create_else_block_2(ctx) {
+    	let span;
+    	let t1;
+
+    	const block = {
+    		c: function create() {
+    			span = element("span");
+    			span.textContent = "📤";
+    			t1 = text("\r\n\t\t\t\t\t\t\tUpload File");
+    			add_location(span, file$3, 417, 7, 11788);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, span, anchor);
+    			insert_dev(target, t1, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(span);
+    			if (detaching) detach_dev(t1);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block_2.name,
+    		type: "else",
+    		source: "(417:6) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (414:6) {#if uploading}
+    function create_if_block_2$3(ctx) {
+    	let span;
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			span = element("span");
+    			t = text("\r\n\t\t\t\t\t\t\tUploading...");
+    			attr_dev(span, "class", "loading-spinner svelte-oio1la");
+    			add_location(span, file$3, 414, 7, 11706);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, span, anchor);
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(span);
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_2$3.name,
+    		type: "if",
+    		source: "(414:6) {#if uploading}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$3(ctx) {
+    	let div2;
+    	let div1;
+    	let div0;
+    	let h2;
+    	let t1;
+    	let p;
+    	let t3;
+
+    	function select_block_type(ctx, dirty) {
+    		if (/*uploadSuccess*/ ctx[6]) return create_if_block$3;
+    		return create_else_block$3;
+    	}
+
+    	let current_block_type = select_block_type(ctx);
+    	let if_block = current_block_type(ctx);
+
+    	const block = {
+    		c: function create() {
+    			div2 = element("div");
+    			div1 = element("div");
+    			div0 = element("div");
+    			h2 = element("h2");
+    			h2.textContent = "📤 Upload Past Questions";
+    			t1 = space();
+    			p = element("p");
+    			p.textContent = "Share your knowledge and help fellow students succeed";
+    			t3 = space();
+    			if_block.c();
+    			attr_dev(h2, "class", "svelte-oio1la");
+    			add_location(h2, file$3, 184, 3, 4470);
+    			attr_dev(p, "class", "svelte-oio1la");
+    			add_location(p, file$3, 185, 3, 4508);
+    			attr_dev(div0, "class", "upload-header svelte-oio1la");
+    			add_location(div0, file$3, 183, 2, 4438);
+    			attr_dev(div1, "class", "card");
+    			add_location(div1, file$3, 182, 1, 4416);
+    			attr_dev(div2, "class", "upload-container svelte-oio1la");
+    			add_location(div2, file$3, 181, 0, 4383);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div2, anchor);
+    			append_dev(div2, div1);
+    			append_dev(div1, div0);
+    			append_dev(div0, h2);
+    			append_dev(div0, t1);
+    			append_dev(div0, p);
+    			append_dev(div1, t3);
+    			if_block.m(div1, null);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (current_block_type === (current_block_type = select_block_type(ctx)) && if_block) {
+    				if_block.p(ctx, dirty);
+    			} else {
+    				if_block.d(1);
+    				if_block = current_block_type(ctx);
+
+    				if (if_block) {
+    					if_block.c();
+    					if_block.m(div1, null);
+    				}
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div2);
+    			if_block.d();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$3.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function formatFileSize$1(bytes) {
+    	if (bytes === 0) return '0 Bytes';
+    	const k = 1024;
+    	const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    	const i = Math.floor(Math.log(bytes) / Math.log(k));
+    	return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    }
+
+    function getFileIcon$1(type) {
+    	if (type.includes('pdf')) return '📄';
+    	if (type.includes('word') || type.includes('document')) return '📝';
+    	if (type.includes('image')) return '🖼️';
+    	return '📁';
+    }
+
+    function instance$3($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('UploadComponent', slots, []);
+    	const dispatch = createEventDispatcher();
+    	const uploadedFiles = [];
+    	const onAddCoins = null;
+    	const onAddUploadedFile = null;
+    	const onAddAvailableFile = null;
+    	let selectedFile = null;
+    	let subject = '';
+    	let year = '';
+    	let examType = '';
+    	let description = '';
+    	let uploading = false;
+    	let uploadSuccess = false;
+    	let currentStep = 1;
+    	let dragOver = false;
+
+    	const examTypes = [
+    		{
+    			value: 'Midterm',
+    			label: 'Midterm Exam',
+    			icon: '📝'
+    		},
+    		{
+    			value: 'Final',
+    			label: 'Final Exam',
+    			icon: '🎓'
+    		},
+    		{ value: 'Quiz', label: 'Quiz', icon: '❓' },
+    		{
+    			value: 'Assignment',
+    			label: 'Assignment',
+    			icon: '📋'
+    		},
+    		{
+    			value: 'Other',
+    			label: 'Other',
+    			icon: '📄'
+    		}
+    	];
+
+    	const subjects = [
+    		'Mathematics',
+    		'Physics',
+    		'Chemistry',
+    		'Biology',
+    		'Computer Science',
+    		'Economics',
+    		'Business',
+    		'Engineering',
+    		'Medicine',
+    		'Law',
+    		'Other'
+    	];
+
+    	const years = Array.from({ length: 10 }, (_, i) => new Date().getFullYear() - i);
+
+    	const steps = [
+    		{
+    			number: 1,
+    			title: 'Select File',
+    			description: 'Choose your past question file'
+    		},
+    		{
+    			number: 2,
+    			title: 'Add Details',
+    			description: 'Provide subject and exam information'
+    		},
+    		{
+    			number: 3,
+    			title: 'Review & Upload',
+    			description: 'Confirm and upload your file'
+    		}
+    	];
+
+    	function handleFileSelect(event) {
+    		$$invalidate(0, selectedFile = event.target.files[0]);
+
+    		if (selectedFile) {
+    			nextStep();
+    		}
+    	}
+
+    	function handleDragOver(event) {
+    		event.preventDefault();
+    		$$invalidate(8, dragOver = true);
+    	}
+
+    	function handleDragLeave(event) {
+    		event.preventDefault();
+    		$$invalidate(8, dragOver = false);
+    	}
+
+    	function handleDrop(event) {
+    		event.preventDefault();
+    		$$invalidate(8, dragOver = false);
+    		const files = event.dataTransfer.files;
+
+    		if (files.length > 0) {
+    			$$invalidate(0, selectedFile = files[0]);
+    			nextStep();
+    		}
+    	}
+
+    	function nextStep() {
+    		if (currentStep < 3) {
+    			$$invalidate(7, currentStep++, currentStep);
+    		}
+    	}
+
+    	function prevStep() {
+    		if (currentStep > 1) {
+    			$$invalidate(7, currentStep--, currentStep);
+    		}
+    	}
+
+    	function goToStep(step) {
+    		if (step <= currentStep || step === 2 && selectedFile || step === 3 && selectedFile && subject && year && examType) {
+    			$$invalidate(7, currentStep = step);
+    		}
+    	}
+
+    	function handleUpload() {
+    		if (!selectedFile || !subject || !year || !examType) {
+    			alert('Please fill in all required fields');
+    			return;
+    		}
+
+    		$$invalidate(5, uploading = true);
+
+    		// Simulate upload process
+    		setTimeout(
+    			() => {
+    				const fileData = {
+    					id: Date.now(),
+    					name: selectedFile.name,
+    					subject,
+    					year,
+    					examType,
+    					description,
+    					price: 0, // All files are free
+    					uploadDate: new Date().toISOString(),
+    					size: selectedFile.size,
+    					type: selectedFile.type,
+    					downloads: 0,
+    					rating: 0
+    				};
+
+    				// Add to uploaded files (user's uploads)
+    				{
+    					dispatch('addUploadedFile', fileData);
+    				}
+
+    				// Add to available files (for others to browse)
+    				{
+    					dispatch('addAvailableFile', fileData);
+    				}
+
+    				// No payment system - files are free
+    				$$invalidate(5, uploading = false);
+
+    				$$invalidate(6, uploadSuccess = true);
+
+    				// Reset form
+    				resetForm();
+
+    				// Hide success message after 3 seconds
+    				setTimeout(
+    					() => {
+    						$$invalidate(6, uploadSuccess = false);
+    					},
+    					3000
+    				);
+    			},
+    			1500
+    		);
+    	}
+
+    	function resetForm() {
+    		$$invalidate(0, selectedFile = null);
+    		$$invalidate(1, subject = '');
+    		$$invalidate(2, year = '');
+    		$$invalidate(3, examType = '');
+    		$$invalidate(4, description = '');
+    		$$invalidate(7, currentStep = 1);
+
+    		// Reset file input
+    		const fileInput = document.getElementById('fileInput');
+
+    		if (fileInput) fileInput.value = '';
+    	}
+
+    	function canProceed() {
+    		switch (currentStep) {
+    			case 1:
+    				return selectedFile;
+    			case 2:
+    				return subject && year && examType;
+    			default:
+    				return true;
+    		}
+    	}
+
+    	function canUpload() {
+    		return selectedFile && subject && year && examType;
+    	}
+
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<UploadComponent> was created with unknown prop '${key}'`);
+    	});
+
+    	const $$binding_groups = [[]];
+    	const click_handler = () => $$invalidate(6, uploadSuccess = false);
+    	const click_handler_1 = step => goToStep(step.number);
+    	const keydown_handler = step => goToStep(step.number);
+    	const click_handler_2 = () => document.getElementById('fileInput').click();
+    	const click_handler_3 = () => document.getElementById('fileInput').click();
+
+    	function select0_change_handler() {
+    		subject = select_value(this);
+    		$$invalidate(1, subject);
+    		$$invalidate(10, subjects);
+    	}
+
+    	function select1_change_handler() {
+    		year = select_value(this);
+    		$$invalidate(2, year);
+    		$$invalidate(11, years);
+    	}
+
+    	function input_change_handler() {
+    		examType = this.__value;
+    		$$invalidate(3, examType);
+    	}
+
+    	function textarea_input_handler() {
+    		description = this.value;
+    		$$invalidate(4, description);
+    	}
+
+    	$$self.$capture_state = () => ({
+    		createEventDispatcher,
+    		dispatch,
+    		uploadedFiles,
+    		onAddCoins,
+    		onAddUploadedFile,
+    		onAddAvailableFile,
+    		selectedFile,
+    		subject,
+    		year,
+    		examType,
+    		description,
+    		uploading,
+    		uploadSuccess,
+    		currentStep,
+    		dragOver,
+    		examTypes,
+    		subjects,
+    		years,
+    		steps,
+    		handleFileSelect,
+    		handleDragOver,
+    		handleDragLeave,
+    		handleDrop,
+    		nextStep,
+    		prevStep,
+    		goToStep,
+    		handleUpload,
+    		resetForm,
+    		formatFileSize: formatFileSize$1,
+    		getFileIcon: getFileIcon$1,
+    		canProceed,
+    		canUpload
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('selectedFile' in $$props) $$invalidate(0, selectedFile = $$props.selectedFile);
+    		if ('subject' in $$props) $$invalidate(1, subject = $$props.subject);
+    		if ('year' in $$props) $$invalidate(2, year = $$props.year);
+    		if ('examType' in $$props) $$invalidate(3, examType = $$props.examType);
+    		if ('description' in $$props) $$invalidate(4, description = $$props.description);
+    		if ('uploading' in $$props) $$invalidate(5, uploading = $$props.uploading);
+    		if ('uploadSuccess' in $$props) $$invalidate(6, uploadSuccess = $$props.uploadSuccess);
+    		if ('currentStep' in $$props) $$invalidate(7, currentStep = $$props.currentStep);
+    		if ('dragOver' in $$props) $$invalidate(8, dragOver = $$props.dragOver);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [
+    		selectedFile,
+    		subject,
+    		year,
+    		examType,
+    		description,
+    		uploading,
+    		uploadSuccess,
+    		currentStep,
+    		dragOver,
+    		examTypes,
+    		subjects,
+    		years,
+    		steps,
+    		handleFileSelect,
+    		handleDragOver,
+    		handleDragLeave,
+    		handleDrop,
+    		nextStep,
+    		prevStep,
+    		goToStep,
+    		handleUpload,
+    		canProceed,
+    		canUpload,
+    		uploadedFiles,
+    		onAddCoins,
+    		onAddUploadedFile,
+    		onAddAvailableFile,
+    		click_handler,
+    		click_handler_1,
+    		keydown_handler,
+    		click_handler_2,
+    		click_handler_3,
+    		select0_change_handler,
+    		select1_change_handler,
+    		input_change_handler,
+    		$$binding_groups,
+    		textarea_input_handler
+    	];
+    }
+
+    class UploadComponent extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+
+    		init(
+    			this,
+    			options,
+    			instance$3,
+    			create_fragment$3,
+    			safe_not_equal,
+    			{
+    				uploadedFiles: 23,
+    				onAddCoins: 24,
+    				onAddUploadedFile: 25,
+    				onAddAvailableFile: 26
+    			},
+    			null,
+    			[-1, -1]
+    		);
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "UploadComponent",
+    			options,
+    			id: create_fragment$3.name
+    		});
+    	}
+
+    	get uploadedFiles() {
+    		return this.$$.ctx[23];
+    	}
+
+    	set uploadedFiles(value) {
+    		throw new Error("<UploadComponent>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get onAddCoins() {
+    		return this.$$.ctx[24];
+    	}
+
+    	set onAddCoins(value) {
+    		throw new Error("<UploadComponent>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get onAddUploadedFile() {
+    		return this.$$.ctx[25];
+    	}
+
+    	set onAddUploadedFile(value) {
+    		throw new Error("<UploadComponent>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get onAddAvailableFile() {
+    		return this.$$.ctx[26];
+    	}
+
+    	set onAddAvailableFile(value) {
+    		throw new Error("<UploadComponent>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\components\BrowseComponent.svelte generated by Svelte v3.59.2 */
+    const file$2 = "src\\components\\BrowseComponent.svelte";
+
+    function get_each_context$1(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[29] = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context_1$1(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[32] = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context_2(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[35] = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context_3(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[38] = list[i];
+    	return child_ctx;
+    }
+
+    // (154:6) {#each subjects as subject}
+    function create_each_block_3(ctx) {
+    	let option;
+    	let t_value = /*subject*/ ctx[38] + "";
+    	let t;
+    	let option_value_value;
+
+    	const block = {
+    		c: function create() {
+    			option = element("option");
+    			t = text(t_value);
+    			option.__value = option_value_value = /*subject*/ ctx[38];
+    			option.value = option.__value;
+    			add_location(option, file$2, 154, 7, 4500);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, option, anchor);
+    			append_dev(option, t);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*subjects*/ 4096 && t_value !== (t_value = /*subject*/ ctx[38] + "")) set_data_dev(t, t_value);
+
+    			if (dirty[0] & /*subjects*/ 4096 && option_value_value !== (option_value_value = /*subject*/ ctx[38])) {
+    				prop_dev(option, "__value", option_value_value);
+    				option.value = option.__value;
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(option);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_3.name,
+    		type: "each",
+    		source: "(154:6) {#each subjects as subject}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (164:6) {#each years as year}
+    function create_each_block_2(ctx) {
+    	let option;
+    	let t_value = /*year*/ ctx[35] + "";
+    	let t;
+    	let option_value_value;
+
+    	const block = {
+    		c: function create() {
+    			option = element("option");
+    			t = text(t_value);
+    			option.__value = option_value_value = /*year*/ ctx[35];
+    			option.value = option.__value;
+    			add_location(option, file$2, 164, 7, 4807);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, option, anchor);
+    			append_dev(option, t);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*years*/ 2048 && t_value !== (t_value = /*year*/ ctx[35] + "")) set_data_dev(t, t_value);
+
+    			if (dirty[0] & /*years*/ 2048 && option_value_value !== (option_value_value = /*year*/ ctx[35])) {
+    				prop_dev(option, "__value", option_value_value);
+    				option.value = option.__value;
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(option);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_2.name,
+    		type: "each",
+    		source: "(164:6) {#each years as year}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (174:6) {#each examTypes as type}
+    function create_each_block_1$1(ctx) {
+    	let option;
+    	let t_value = /*type*/ ctx[32] + "";
+    	let t;
+    	let option_value_value;
+
+    	const block = {
+    		c: function create() {
+    			option = element("option");
+    			t = text(t_value);
+    			option.__value = option_value_value = /*type*/ ctx[32];
+    			option.value = option.__value;
+    			add_location(option, file$2, 174, 7, 5120);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, option, anchor);
+    			append_dev(option, t);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*examTypes*/ 1024 && t_value !== (t_value = /*type*/ ctx[32] + "")) set_data_dev(t, t_value);
+
+    			if (dirty[0] & /*examTypes*/ 1024 && option_value_value !== (option_value_value = /*type*/ ctx[32])) {
+    				prop_dev(option, "__value", option_value_value);
+    				option.value = option.__value;
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(option);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_1$1.name,
+    		type: "each",
+    		source: "(174:6) {#each examTypes as type}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (216:3) {:else}
+    function create_else_block$2(ctx) {
+    	let div;
+    	let each_value = /*filteredFiles*/ ctx[9];
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block$1(get_each_context$1(ctx, each_value, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			attr_dev(div, "class", "files-grid svelte-ih9af0");
+    			add_location(div, file$2, 216, 4, 6372);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				if (each_blocks[i]) {
+    					each_blocks[i].m(div, null);
+    				}
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*openDownloadModal, filteredFiles*/ 8704) {
+    				each_value = /*filteredFiles*/ ctx[9];
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context$1(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block$1(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(div, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value.length;
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			destroy_each(each_blocks, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block$2.name,
+    		type: "else",
+    		source: "(216:3) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (210:3) {#if filteredFiles.length === 0}
+    function create_if_block_3$2(ctx) {
+    	let div1;
+    	let div0;
+    	let t1;
+    	let h4;
+    	let t3;
+    	let p;
+
+    	const block = {
+    		c: function create() {
+    			div1 = element("div");
+    			div0 = element("div");
+    			div0.textContent = "🔍";
+    			t1 = space();
+    			h4 = element("h4");
+    			h4.textContent = "No files found";
+    			t3 = space();
+    			p = element("p");
+    			p.textContent = "Try adjusting your search criteria or filters to find what you're looking for.";
+    			attr_dev(div0, "class", "no-results-icon svelte-ih9af0");
+    			add_location(div0, file$2, 211, 5, 6183);
+    			attr_dev(h4, "class", "svelte-ih9af0");
+    			add_location(h4, file$2, 212, 5, 6227);
+    			add_location(p, file$2, 213, 5, 6257);
+    			attr_dev(div1, "class", "no-results svelte-ih9af0");
+    			add_location(div1, file$2, 210, 4, 6152);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div1, anchor);
+    			append_dev(div1, div0);
+    			append_dev(div1, t1);
+    			append_dev(div1, h4);
+    			append_dev(div1, t3);
+    			append_dev(div1, p);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div1);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_3$2.name,
+    		type: "if",
+    		source: "(210:3) {#if filteredFiles.length === 0}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (226:10) {#if file.price === 0 || file.isFree}
+    function create_if_block_6(ctx) {
+    	let span;
+
+    	const block = {
+    		c: function create() {
+    			span = element("span");
+    			span.textContent = "FREE";
+    			attr_dev(span, "class", "free-badge svelte-ih9af0");
+    			add_location(span, file$2, 226, 11, 6789);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, span, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(span);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_6.name,
+    		type: "if",
+    		source: "(226:10) {#if file.price === 0 || file.isFree}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (234:9) {:else}
+    function create_else_block_1$1(ctx) {
+    	let span0;
+    	let t0_value = /*file*/ ctx[29].price + "";
+    	let t0;
+    	let t1;
+    	let span1;
+
+    	const block = {
+    		c: function create() {
+    			span0 = element("span");
+    			t0 = text(t0_value);
+    			t1 = space();
+    			span1 = element("span");
+    			span1.textContent = "coins";
+    			attr_dev(span0, "class", "price-amount svelte-ih9af0");
+    			add_location(span0, file$2, 234, 10, 7042);
+    			attr_dev(span1, "class", "price-label svelte-ih9af0");
+    			add_location(span1, file$2, 235, 10, 7100);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, span0, anchor);
+    			append_dev(span0, t0);
+    			insert_dev(target, t1, anchor);
+    			insert_dev(target, span1, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*filteredFiles*/ 512 && t0_value !== (t0_value = /*file*/ ctx[29].price + "")) set_data_dev(t0, t0_value);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(span0);
+    			if (detaching) detach_dev(t1);
+    			if (detaching) detach_dev(span1);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block_1$1.name,
+    		type: "else",
+    		source: "(234:9) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (232:9) {#if file.price === 0 || file.isFree}
+    function create_if_block_5(ctx) {
+    	let span;
+
+    	const block = {
+    		c: function create() {
+    			span = element("span");
+    			span.textContent = "FREE";
+    			attr_dev(span, "class", "price-amount free svelte-ih9af0");
+    			add_location(span, file$2, 232, 10, 6969);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, span, anchor);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(span);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_5.name,
+    		type: "if",
+    		source: "(232:9) {#if file.price === 0 || file.isFree}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (258:9) {#if file.rating}
+    function create_if_block_4$1(ctx) {
+    	let div;
+    	let span0;
+    	let t1;
+    	let span1;
+    	let t2_value = /*file*/ ctx[29].rating + "";
+    	let t2;
+    	let t3;
+    	let t4_value = getRatingStars(/*file*/ ctx[29].rating) + "";
+    	let t4;
+    	let t5;
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			span0 = element("span");
+    			span0.textContent = "⭐";
+    			t1 = space();
+    			span1 = element("span");
+    			t2 = text(t2_value);
+    			t3 = text(" (");
+    			t4 = text(t4_value);
+    			t5 = text(")");
+    			attr_dev(span0, "class", "meta-icon svelte-ih9af0");
+    			add_location(span0, file$2, 259, 10, 7946);
+    			attr_dev(span1, "class", "meta-text");
+    			add_location(span1, file$2, 260, 10, 7990);
+    			attr_dev(div, "class", "meta-item svelte-ih9af0");
+    			add_location(div, file$2, 258, 9, 7911);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			append_dev(div, span0);
+    			append_dev(div, t1);
+    			append_dev(div, span1);
+    			append_dev(span1, t2);
+    			append_dev(span1, t3);
+    			append_dev(span1, t4);
+    			append_dev(span1, t5);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*filteredFiles*/ 512 && t2_value !== (t2_value = /*file*/ ctx[29].rating + "")) set_data_dev(t2, t2_value);
+    			if (dirty[0] & /*filteredFiles*/ 512 && t4_value !== (t4_value = getRatingStars(/*file*/ ctx[29].rating) + "")) set_data_dev(t4, t4_value);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_4$1.name,
+    		type: "if",
+    		source: "(258:9) {#if file.rating}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (218:5) {#each filteredFiles as file}
+    function create_each_block$1(ctx) {
+    	let div13;
+    	let div4;
+    	let div0;
+    	let t0_value = getFileIcon(/*file*/ ctx[29].type) + "";
+    	let t0;
+    	let t1;
+    	let div2;
+    	let h4;
+    	let t2_value = /*file*/ ctx[29].subject + "";
+    	let t2;
+    	let t3;
+    	let div1;
+    	let span0;
+    	let t4_value = /*file*/ ctx[29].examType + "";
+    	let t4;
+    	let t5;
+    	let t6;
+    	let div3;
+    	let t7;
+    	let div11;
+    	let div5;
+    	let t8_value = /*file*/ ctx[29].name + "";
+    	let t8;
+    	let t9;
+    	let div6;
+    	let t10_value = /*file*/ ctx[29].description + "";
+    	let t10;
+    	let t11;
+    	let div10;
+    	let div7;
+    	let span1;
+    	let t13;
+    	let span2;
+    	let t14_value = /*file*/ ctx[29].year + "";
+    	let t14;
+    	let t15;
+    	let div8;
+    	let span3;
+    	let t17;
+    	let span4;
+    	let t18_value = formatFileSize(/*file*/ ctx[29].size) + "";
+    	let t18;
+    	let t19;
+    	let div9;
+    	let span5;
+    	let t21;
+    	let span6;
+    	let t22_value = (/*file*/ ctx[29].downloads || 0) + "";
+    	let t22;
+    	let t23;
+    	let t24;
+    	let t25;
+    	let div12;
+    	let button;
+    	let span7;
+    	let t27;
+    	let span8;
+    	let t29;
+    	let mounted;
+    	let dispose;
+    	let if_block0 = (/*file*/ ctx[29].price === 0 || /*file*/ ctx[29].isFree) && create_if_block_6(ctx);
+
+    	function select_block_type_1(ctx, dirty) {
+    		if (/*file*/ ctx[29].price === 0 || /*file*/ ctx[29].isFree) return create_if_block_5;
+    		return create_else_block_1$1;
+    	}
+
+    	let current_block_type = select_block_type_1(ctx);
+    	let if_block1 = current_block_type(ctx);
+    	let if_block2 = /*file*/ ctx[29].rating && create_if_block_4$1(ctx);
+
+    	function click_handler_1() {
+    		return /*click_handler_1*/ ctx[27](/*file*/ ctx[29]);
+    	}
+
+    	const block = {
+    		c: function create() {
+    			div13 = element("div");
+    			div4 = element("div");
+    			div0 = element("div");
+    			t0 = text(t0_value);
+    			t1 = space();
+    			div2 = element("div");
+    			h4 = element("h4");
+    			t2 = text(t2_value);
+    			t3 = space();
+    			div1 = element("div");
+    			span0 = element("span");
+    			t4 = text(t4_value);
+    			t5 = space();
+    			if (if_block0) if_block0.c();
+    			t6 = space();
+    			div3 = element("div");
+    			if_block1.c();
+    			t7 = space();
+    			div11 = element("div");
+    			div5 = element("div");
+    			t8 = text(t8_value);
+    			t9 = space();
+    			div6 = element("div");
+    			t10 = text(t10_value);
+    			t11 = space();
+    			div10 = element("div");
+    			div7 = element("div");
+    			span1 = element("span");
+    			span1.textContent = "📅";
+    			t13 = space();
+    			span2 = element("span");
+    			t14 = text(t14_value);
+    			t15 = space();
+    			div8 = element("div");
+    			span3 = element("span");
+    			span3.textContent = "📊";
+    			t17 = space();
+    			span4 = element("span");
+    			t18 = text(t18_value);
+    			t19 = space();
+    			div9 = element("div");
+    			span5 = element("span");
+    			span5.textContent = "📥";
+    			t21 = space();
+    			span6 = element("span");
+    			t22 = text(t22_value);
+    			t23 = text(" downloads");
+    			t24 = space();
+    			if (if_block2) if_block2.c();
+    			t25 = space();
+    			div12 = element("div");
+    			button = element("button");
+    			span7 = element("span");
+    			span7.textContent = "👁️";
+    			t27 = space();
+    			span8 = element("span");
+    			span8.textContent = "View & Download";
+    			t29 = space();
+    			attr_dev(div0, "class", "file-icon svelte-ih9af0");
+    			add_location(div0, file$2, 220, 8, 6507);
+    			attr_dev(h4, "class", "svelte-ih9af0");
+    			add_location(h4, file$2, 222, 9, 6605);
+    			attr_dev(span0, "class", "file-type svelte-ih9af0");
+    			add_location(span0, file$2, 224, 10, 6681);
+    			attr_dev(div1, "class", "file-type-badges svelte-ih9af0");
+    			add_location(div1, file$2, 223, 9, 6639);
+    			attr_dev(div2, "class", "file-title svelte-ih9af0");
+    			add_location(div2, file$2, 221, 8, 6570);
+    			attr_dev(div3, "class", "file-price svelte-ih9af0");
+    			add_location(div3, file$2, 230, 8, 6885);
+    			attr_dev(div4, "class", "file-header svelte-ih9af0");
+    			add_location(div4, file$2, 219, 7, 6472);
+    			attr_dev(div5, "class", "file-name svelte-ih9af0");
+    			add_location(div5, file$2, 241, 8, 7239);
+    			attr_dev(div6, "class", "file-description svelte-ih9af0");
+    			add_location(div6, file$2, 242, 8, 7289);
+    			attr_dev(span1, "class", "meta-icon svelte-ih9af0");
+    			add_location(span1, file$2, 246, 10, 7432);
+    			attr_dev(span2, "class", "meta-text");
+    			add_location(span2, file$2, 247, 10, 7477);
+    			attr_dev(div7, "class", "meta-item svelte-ih9af0");
+    			add_location(div7, file$2, 245, 9, 7397);
+    			attr_dev(span3, "class", "meta-icon svelte-ih9af0");
+    			add_location(span3, file$2, 250, 10, 7582);
+    			attr_dev(span4, "class", "meta-text");
+    			add_location(span4, file$2, 251, 10, 7627);
+    			attr_dev(div8, "class", "meta-item svelte-ih9af0");
+    			add_location(div8, file$2, 249, 9, 7547);
+    			attr_dev(span5, "class", "meta-icon svelte-ih9af0");
+    			add_location(span5, file$2, 254, 10, 7748);
+    			attr_dev(span6, "class", "meta-text");
+    			add_location(span6, file$2, 255, 10, 7793);
+    			attr_dev(div9, "class", "meta-item svelte-ih9af0");
+    			add_location(div9, file$2, 253, 9, 7713);
+    			attr_dev(div10, "class", "file-meta svelte-ih9af0");
+    			add_location(div10, file$2, 244, 8, 7363);
+    			attr_dev(div11, "class", "file-content svelte-ih9af0");
+    			add_location(div11, file$2, 240, 7, 7203);
+    			attr_dev(span7, "class", "btn-icon svelte-ih9af0");
+    			add_location(span7, file$2, 271, 9, 8299);
+    			attr_dev(span8, "class", "btn-text");
+    			add_location(span8, file$2, 272, 9, 8343);
+    			attr_dev(button, "class", "download-btn available svelte-ih9af0");
+    			add_location(button, file$2, 267, 8, 8177);
+    			attr_dev(div12, "class", "file-actions svelte-ih9af0");
+    			add_location(div12, file$2, 266, 7, 8141);
+    			attr_dev(div13, "class", "file-card svelte-ih9af0");
+    			add_location(div13, file$2, 218, 6, 6440);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div13, anchor);
+    			append_dev(div13, div4);
+    			append_dev(div4, div0);
+    			append_dev(div0, t0);
+    			append_dev(div4, t1);
+    			append_dev(div4, div2);
+    			append_dev(div2, h4);
+    			append_dev(h4, t2);
+    			append_dev(div2, t3);
+    			append_dev(div2, div1);
+    			append_dev(div1, span0);
+    			append_dev(span0, t4);
+    			append_dev(div1, t5);
+    			if (if_block0) if_block0.m(div1, null);
+    			append_dev(div4, t6);
+    			append_dev(div4, div3);
+    			if_block1.m(div3, null);
+    			append_dev(div13, t7);
+    			append_dev(div13, div11);
+    			append_dev(div11, div5);
+    			append_dev(div5, t8);
+    			append_dev(div11, t9);
+    			append_dev(div11, div6);
+    			append_dev(div6, t10);
+    			append_dev(div11, t11);
+    			append_dev(div11, div10);
+    			append_dev(div10, div7);
+    			append_dev(div7, span1);
+    			append_dev(div7, t13);
+    			append_dev(div7, span2);
+    			append_dev(span2, t14);
+    			append_dev(div10, t15);
+    			append_dev(div10, div8);
+    			append_dev(div8, span3);
+    			append_dev(div8, t17);
+    			append_dev(div8, span4);
+    			append_dev(span4, t18);
+    			append_dev(div10, t19);
+    			append_dev(div10, div9);
+    			append_dev(div9, span5);
+    			append_dev(div9, t21);
+    			append_dev(div9, span6);
+    			append_dev(span6, t22);
+    			append_dev(span6, t23);
+    			append_dev(div10, t24);
+    			if (if_block2) if_block2.m(div10, null);
+    			append_dev(div13, t25);
+    			append_dev(div13, div12);
+    			append_dev(div12, button);
+    			append_dev(button, span7);
+    			append_dev(button, t27);
+    			append_dev(button, span8);
+    			append_dev(div13, t29);
+
+    			if (!mounted) {
+    				dispose = listen_dev(button, "click", click_handler_1, false, false, false, false);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(new_ctx, dirty) {
+    			ctx = new_ctx;
+    			if (dirty[0] & /*filteredFiles*/ 512 && t0_value !== (t0_value = getFileIcon(/*file*/ ctx[29].type) + "")) set_data_dev(t0, t0_value);
+    			if (dirty[0] & /*filteredFiles*/ 512 && t2_value !== (t2_value = /*file*/ ctx[29].subject + "")) set_data_dev(t2, t2_value);
+    			if (dirty[0] & /*filteredFiles*/ 512 && t4_value !== (t4_value = /*file*/ ctx[29].examType + "")) set_data_dev(t4, t4_value);
+
+    			if (/*file*/ ctx[29].price === 0 || /*file*/ ctx[29].isFree) {
+    				if (if_block0) ; else {
+    					if_block0 = create_if_block_6(ctx);
+    					if_block0.c();
+    					if_block0.m(div1, null);
+    				}
+    			} else if (if_block0) {
+    				if_block0.d(1);
+    				if_block0 = null;
+    			}
+
+    			if (current_block_type === (current_block_type = select_block_type_1(ctx)) && if_block1) {
+    				if_block1.p(ctx, dirty);
+    			} else {
+    				if_block1.d(1);
+    				if_block1 = current_block_type(ctx);
+
+    				if (if_block1) {
+    					if_block1.c();
+    					if_block1.m(div3, null);
+    				}
+    			}
+
+    			if (dirty[0] & /*filteredFiles*/ 512 && t8_value !== (t8_value = /*file*/ ctx[29].name + "")) set_data_dev(t8, t8_value);
+    			if (dirty[0] & /*filteredFiles*/ 512 && t10_value !== (t10_value = /*file*/ ctx[29].description + "")) set_data_dev(t10, t10_value);
+    			if (dirty[0] & /*filteredFiles*/ 512 && t14_value !== (t14_value = /*file*/ ctx[29].year + "")) set_data_dev(t14, t14_value);
+    			if (dirty[0] & /*filteredFiles*/ 512 && t18_value !== (t18_value = formatFileSize(/*file*/ ctx[29].size) + "")) set_data_dev(t18, t18_value);
+    			if (dirty[0] & /*filteredFiles*/ 512 && t22_value !== (t22_value = (/*file*/ ctx[29].downloads || 0) + "")) set_data_dev(t22, t22_value);
+
+    			if (/*file*/ ctx[29].rating) {
+    				if (if_block2) {
+    					if_block2.p(ctx, dirty);
+    				} else {
+    					if_block2 = create_if_block_4$1(ctx);
+    					if_block2.c();
+    					if_block2.m(div10, null);
+    				}
+    			} else if (if_block2) {
+    				if_block2.d(1);
+    				if_block2 = null;
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div13);
+    			if (if_block0) if_block0.d();
+    			if_block1.d();
+    			if (if_block2) if_block2.d();
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$1.name,
+    		type: "each",
+    		source: "(218:5) {#each filteredFiles as file}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (284:1) {#if showDownloadModal && selectedFile}
+    function create_if_block$2(ctx) {
+    	let div19;
+    	let div18;
+    	let div0;
+    	let h3;
+    	let t1;
+    	let button;
+    	let t3;
+    	let div16;
+    	let div15;
+    	let div4;
+    	let div1;
+    	let t4_value = getFileIcon(/*selectedFile*/ ctx[6].type) + "";
+    	let t4;
+    	let t5;
+    	let div3;
+    	let h4;
+    	let t6_value = /*selectedFile*/ ctx[6].name + "";
+    	let t6;
+    	let t7;
+    	let div2;
+    	let span0;
+    	let t8_value = /*selectedFile*/ ctx[6].subject + "";
+    	let t8;
+    	let t9;
+    	let span1;
+    	let t10_value = /*selectedFile*/ ctx[6].examType + "";
+    	let t10;
+    	let t11;
+    	let span2;
+    	let t12_value = /*selectedFile*/ ctx[6].year + "";
+    	let t12;
+    	let t13;
+    	let div5;
+    	let h50;
+    	let t15;
+    	let p0;
+    	let t16_value = /*selectedFile*/ ctx[6].description + "";
+    	let t16;
+    	let t17;
+    	let div10;
+    	let div6;
+    	let span3;
+    	let t19;
+    	let span4;
+    	let t21;
+    	let span5;
+    	let t22_value = formatFileSize(/*selectedFile*/ ctx[6].size) + "";
+    	let t22;
+    	let t23;
+    	let div7;
+    	let span6;
+    	let t25;
+    	let span7;
+    	let t27;
+    	let span8;
+    	let t28_value = (/*selectedFile*/ ctx[6].downloads || 0) + "";
+    	let t28;
+    	let t29;
+    	let div8;
+    	let span9;
+    	let t31;
+    	let span10;
+    	let t33;
+    	let span11;
+    	let t34_value = (/*selectedFile*/ ctx[6].rating || 'N/A') + "";
+    	let t34;
+    	let t35;
+    	let div9;
+    	let span12;
+    	let t37;
+    	let span13;
+    	let t39;
+    	let span14;
+    	let t40_value = new Date(/*selectedFile*/ ctx[6].uploadDate).toLocaleDateString() + "";
+    	let t40;
+    	let t41;
+    	let div14;
+    	let h51;
+    	let t43;
+    	let div13;
+    	let div12;
+    	let div11;
+    	let t44_value = getFileIcon(/*selectedFile*/ ctx[6].type) + "";
+    	let t44;
+    	let t45;
+    	let p1;
+    	let t47;
+    	let p2;
+    	let t49;
+    	let t50;
+    	let div17;
+    	let mounted;
+    	let dispose;
+    	let if_block0 = /*downloading*/ ctx[7] && create_if_block_2$2(ctx);
+    	let if_block1 = !/*downloading*/ ctx[7] && create_if_block_1$2(ctx);
+
+    	const block = {
+    		c: function create() {
+    			div19 = element("div");
+    			div18 = element("div");
+    			div0 = element("div");
+    			h3 = element("h3");
+    			h3.textContent = "📄 Past Question Preview";
+    			t1 = space();
+    			button = element("button");
+    			button.textContent = "×";
+    			t3 = space();
+    			div16 = element("div");
+    			div15 = element("div");
+    			div4 = element("div");
+    			div1 = element("div");
+    			t4 = text(t4_value);
+    			t5 = space();
+    			div3 = element("div");
+    			h4 = element("h4");
+    			t6 = text(t6_value);
+    			t7 = space();
+    			div2 = element("div");
+    			span0 = element("span");
+    			t8 = text(t8_value);
+    			t9 = space();
+    			span1 = element("span");
+    			t10 = text(t10_value);
+    			t11 = space();
+    			span2 = element("span");
+    			t12 = text(t12_value);
+    			t13 = space();
+    			div5 = element("div");
+    			h50 = element("h5");
+    			h50.textContent = "Description";
+    			t15 = space();
+    			p0 = element("p");
+    			t16 = text(t16_value);
+    			t17 = space();
+    			div10 = element("div");
+    			div6 = element("div");
+    			span3 = element("span");
+    			span3.textContent = "📊";
+    			t19 = space();
+    			span4 = element("span");
+    			span4.textContent = "File Size";
+    			t21 = space();
+    			span5 = element("span");
+    			t22 = text(t22_value);
+    			t23 = space();
+    			div7 = element("div");
+    			span6 = element("span");
+    			span6.textContent = "📥";
+    			t25 = space();
+    			span7 = element("span");
+    			span7.textContent = "Downloads";
+    			t27 = space();
+    			span8 = element("span");
+    			t28 = text(t28_value);
+    			t29 = space();
+    			div8 = element("div");
+    			span9 = element("span");
+    			span9.textContent = "⭐";
+    			t31 = space();
+    			span10 = element("span");
+    			span10.textContent = "Rating";
+    			t33 = space();
+    			span11 = element("span");
+    			t34 = text(t34_value);
+    			t35 = space();
+    			div9 = element("div");
+    			span12 = element("span");
+    			span12.textContent = "📅";
+    			t37 = space();
+    			span13 = element("span");
+    			span13.textContent = "Uploaded";
+    			t39 = space();
+    			span14 = element("span");
+    			t40 = text(t40_value);
+    			t41 = space();
+    			div14 = element("div");
+    			h51 = element("h5");
+    			h51.textContent = "Preview Content";
+    			t43 = space();
+    			div13 = element("div");
+    			div12 = element("div");
+    			div11 = element("div");
+    			t44 = text(t44_value);
+    			t45 = space();
+    			p1 = element("p");
+    			p1.textContent = "This is a preview of the past question content.";
+    			t47 = space();
+    			p2 = element("p");
+    			p2.textContent = "Click \"Download\" to get the full file.";
+    			t49 = space();
+    			if (if_block0) if_block0.c();
+    			t50 = space();
+    			div17 = element("div");
+    			if (if_block1) if_block1.c();
+    			attr_dev(h3, "class", "svelte-ih9af0");
+    			add_location(h3, file$2, 287, 5, 8826);
+    			attr_dev(button, "class", "modal-close svelte-ih9af0");
+    			add_location(button, file$2, 288, 5, 8866);
+    			attr_dev(div0, "class", "modal-header svelte-ih9af0");
+    			add_location(div0, file$2, 286, 4, 8793);
+    			attr_dev(div1, "class", "preview-icon svelte-ih9af0");
+    			add_location(div1, file$2, 294, 7, 9068);
+    			attr_dev(h4, "class", "svelte-ih9af0");
+    			add_location(h4, file$2, 296, 8, 9177);
+    			attr_dev(span0, "class", "meta-badge svelte-ih9af0");
+    			add_location(span0, file$2, 298, 9, 9252);
+    			attr_dev(span1, "class", "meta-badge svelte-ih9af0");
+    			add_location(span1, file$2, 299, 9, 9317);
+    			attr_dev(span2, "class", "meta-badge svelte-ih9af0");
+    			add_location(span2, file$2, 300, 9, 9383);
+    			attr_dev(div2, "class", "preview-meta svelte-ih9af0");
+    			add_location(div2, file$2, 297, 8, 9215);
+    			attr_dev(div3, "class", "preview-info svelte-ih9af0");
+    			add_location(div3, file$2, 295, 7, 9141);
+    			attr_dev(div4, "class", "preview-header svelte-ih9af0");
+    			add_location(div4, file$2, 293, 6, 9031);
+    			attr_dev(h50, "class", "svelte-ih9af0");
+    			add_location(h50, file$2, 306, 7, 9537);
+    			attr_dev(p0, "class", "svelte-ih9af0");
+    			add_location(p0, file$2, 307, 7, 9566);
+    			attr_dev(div5, "class", "preview-description svelte-ih9af0");
+    			add_location(div5, file$2, 305, 6, 9495);
+    			attr_dev(span3, "class", "stat-icon svelte-ih9af0");
+    			add_location(span3, file$2, 312, 8, 9692);
+    			attr_dev(span4, "class", "stat-label svelte-ih9af0");
+    			add_location(span4, file$2, 313, 8, 9735);
+    			attr_dev(span5, "class", "stat-value svelte-ih9af0");
+    			add_location(span5, file$2, 314, 8, 9786);
+    			attr_dev(div6, "class", "stat-item svelte-ih9af0");
+    			add_location(div6, file$2, 311, 7, 9659);
+    			attr_dev(span6, "class", "stat-icon svelte-ih9af0");
+    			add_location(span6, file$2, 317, 8, 9910);
+    			attr_dev(span7, "class", "stat-label svelte-ih9af0");
+    			add_location(span7, file$2, 318, 8, 9953);
+    			attr_dev(span8, "class", "stat-value svelte-ih9af0");
+    			add_location(span8, file$2, 319, 8, 10004);
+    			attr_dev(div7, "class", "stat-item svelte-ih9af0");
+    			add_location(div7, file$2, 316, 7, 9877);
+    			attr_dev(span9, "class", "stat-icon svelte-ih9af0");
+    			add_location(span9, file$2, 322, 8, 10122);
+    			attr_dev(span10, "class", "stat-label svelte-ih9af0");
+    			add_location(span10, file$2, 323, 8, 10164);
+    			attr_dev(span11, "class", "stat-value svelte-ih9af0");
+    			add_location(span11, file$2, 324, 8, 10212);
+    			attr_dev(div8, "class", "stat-item svelte-ih9af0");
+    			add_location(div8, file$2, 321, 7, 10089);
+    			attr_dev(span12, "class", "stat-icon svelte-ih9af0");
+    			add_location(span12, file$2, 327, 8, 10331);
+    			attr_dev(span13, "class", "stat-label svelte-ih9af0");
+    			add_location(span13, file$2, 328, 8, 10374);
+    			attr_dev(span14, "class", "stat-value svelte-ih9af0");
+    			add_location(span14, file$2, 329, 8, 10424);
+    			attr_dev(div9, "class", "stat-item svelte-ih9af0");
+    			add_location(div9, file$2, 326, 7, 10298);
+    			attr_dev(div10, "class", "preview-stats svelte-ih9af0");
+    			add_location(div10, file$2, 310, 6, 9623);
+    			attr_dev(h51, "class", "svelte-ih9af0");
+    			add_location(h51, file$2, 334, 7, 10589);
+    			attr_dev(div11, "class", "preview-icon-large svelte-ih9af0");
+    			add_location(div11, file$2, 337, 9, 10705);
+    			attr_dev(p1, "class", "svelte-ih9af0");
+    			add_location(p1, file$2, 338, 9, 10786);
+    			attr_dev(p2, "class", "svelte-ih9af0");
+    			add_location(p2, file$2, 339, 9, 10851);
+    			attr_dev(div12, "class", "preview-placeholder svelte-ih9af0");
+    			add_location(div12, file$2, 336, 8, 10661);
+    			attr_dev(div13, "class", "content-preview svelte-ih9af0");
+    			add_location(div13, file$2, 335, 7, 10622);
+    			attr_dev(div14, "class", "preview-content svelte-ih9af0");
+    			add_location(div14, file$2, 333, 6, 10551);
+    			attr_dev(div15, "class", "file-preview-section svelte-ih9af0");
+    			add_location(div15, file$2, 292, 5, 8989);
+    			attr_dev(div16, "class", "modal-body svelte-ih9af0");
+    			add_location(div16, file$2, 291, 4, 8958);
+    			attr_dev(div17, "class", "modal-footer svelte-ih9af0");
+    			add_location(div17, file$2, 355, 4, 11285);
+    			attr_dev(div18, "class", "modal-content preview-modal svelte-ih9af0");
+    			add_location(div18, file$2, 285, 2, 8694);
+    			attr_dev(div19, "class", "modal-overlay svelte-ih9af0");
+    			attr_dev(div19, "role", "button");
+    			attr_dev(div19, "tabindex", "0");
+    			add_location(div19, file$2, 284, 1, 8574);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div19, anchor);
+    			append_dev(div19, div18);
+    			append_dev(div18, div0);
+    			append_dev(div0, h3);
+    			append_dev(div0, t1);
+    			append_dev(div0, button);
+    			append_dev(div18, t3);
+    			append_dev(div18, div16);
+    			append_dev(div16, div15);
+    			append_dev(div15, div4);
+    			append_dev(div4, div1);
+    			append_dev(div1, t4);
+    			append_dev(div4, t5);
+    			append_dev(div4, div3);
+    			append_dev(div3, h4);
+    			append_dev(h4, t6);
+    			append_dev(div3, t7);
+    			append_dev(div3, div2);
+    			append_dev(div2, span0);
+    			append_dev(span0, t8);
+    			append_dev(div2, t9);
+    			append_dev(div2, span1);
+    			append_dev(span1, t10);
+    			append_dev(div2, t11);
+    			append_dev(div2, span2);
+    			append_dev(span2, t12);
+    			append_dev(div15, t13);
+    			append_dev(div15, div5);
+    			append_dev(div5, h50);
+    			append_dev(div5, t15);
+    			append_dev(div5, p0);
+    			append_dev(p0, t16);
+    			append_dev(div15, t17);
+    			append_dev(div15, div10);
+    			append_dev(div10, div6);
+    			append_dev(div6, span3);
+    			append_dev(div6, t19);
+    			append_dev(div6, span4);
+    			append_dev(div6, t21);
+    			append_dev(div6, span5);
+    			append_dev(span5, t22);
+    			append_dev(div10, t23);
+    			append_dev(div10, div7);
+    			append_dev(div7, span6);
+    			append_dev(div7, t25);
+    			append_dev(div7, span7);
+    			append_dev(div7, t27);
+    			append_dev(div7, span8);
+    			append_dev(span8, t28);
+    			append_dev(div10, t29);
+    			append_dev(div10, div8);
+    			append_dev(div8, span9);
+    			append_dev(div8, t31);
+    			append_dev(div8, span10);
+    			append_dev(div8, t33);
+    			append_dev(div8, span11);
+    			append_dev(span11, t34);
+    			append_dev(div10, t35);
+    			append_dev(div10, div9);
+    			append_dev(div9, span12);
+    			append_dev(div9, t37);
+    			append_dev(div9, span13);
+    			append_dev(div9, t39);
+    			append_dev(div9, span14);
+    			append_dev(span14, t40);
+    			append_dev(div15, t41);
+    			append_dev(div15, div14);
+    			append_dev(div14, h51);
+    			append_dev(div14, t43);
+    			append_dev(div14, div13);
+    			append_dev(div13, div12);
+    			append_dev(div12, div11);
+    			append_dev(div11, t44);
+    			append_dev(div12, t45);
+    			append_dev(div12, p1);
+    			append_dev(div12, t47);
+    			append_dev(div12, p2);
+    			append_dev(div16, t49);
+    			if (if_block0) if_block0.m(div16, null);
+    			append_dev(div18, t50);
+    			append_dev(div18, div17);
+    			if (if_block1) if_block1.m(div17, null);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(button, "click", /*closeDownloadModal*/ ctx[15], false, false, false, false),
+    					listen_dev(div18, "click", stop_propagation(/*click_handler*/ ctx[20]), false, false, true, false),
+    					listen_dev(div18, "keydown", stop_propagation(/*keydown_handler*/ ctx[21]), false, false, true, false),
+    					listen_dev(div19, "click", /*closeDownloadModal*/ ctx[15], false, false, false, false),
+    					listen_dev(div19, "keydown", /*closeDownloadModal*/ ctx[15], false, false, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*selectedFile*/ 64 && t4_value !== (t4_value = getFileIcon(/*selectedFile*/ ctx[6].type) + "")) set_data_dev(t4, t4_value);
+    			if (dirty[0] & /*selectedFile*/ 64 && t6_value !== (t6_value = /*selectedFile*/ ctx[6].name + "")) set_data_dev(t6, t6_value);
+    			if (dirty[0] & /*selectedFile*/ 64 && t8_value !== (t8_value = /*selectedFile*/ ctx[6].subject + "")) set_data_dev(t8, t8_value);
+    			if (dirty[0] & /*selectedFile*/ 64 && t10_value !== (t10_value = /*selectedFile*/ ctx[6].examType + "")) set_data_dev(t10, t10_value);
+    			if (dirty[0] & /*selectedFile*/ 64 && t12_value !== (t12_value = /*selectedFile*/ ctx[6].year + "")) set_data_dev(t12, t12_value);
+    			if (dirty[0] & /*selectedFile*/ 64 && t16_value !== (t16_value = /*selectedFile*/ ctx[6].description + "")) set_data_dev(t16, t16_value);
+    			if (dirty[0] & /*selectedFile*/ 64 && t22_value !== (t22_value = formatFileSize(/*selectedFile*/ ctx[6].size) + "")) set_data_dev(t22, t22_value);
+    			if (dirty[0] & /*selectedFile*/ 64 && t28_value !== (t28_value = (/*selectedFile*/ ctx[6].downloads || 0) + "")) set_data_dev(t28, t28_value);
+    			if (dirty[0] & /*selectedFile*/ 64 && t34_value !== (t34_value = (/*selectedFile*/ ctx[6].rating || 'N/A') + "")) set_data_dev(t34, t34_value);
+    			if (dirty[0] & /*selectedFile*/ 64 && t40_value !== (t40_value = new Date(/*selectedFile*/ ctx[6].uploadDate).toLocaleDateString() + "")) set_data_dev(t40, t40_value);
+    			if (dirty[0] & /*selectedFile*/ 64 && t44_value !== (t44_value = getFileIcon(/*selectedFile*/ ctx[6].type) + "")) set_data_dev(t44, t44_value);
+
+    			if (/*downloading*/ ctx[7]) {
+    				if (if_block0) {
+    					if_block0.p(ctx, dirty);
+    				} else {
+    					if_block0 = create_if_block_2$2(ctx);
+    					if_block0.c();
+    					if_block0.m(div16, null);
+    				}
+    			} else if (if_block0) {
+    				if_block0.d(1);
+    				if_block0 = null;
+    			}
+
+    			if (!/*downloading*/ ctx[7]) {
+    				if (if_block1) {
+    					if_block1.p(ctx, dirty);
+    				} else {
+    					if_block1 = create_if_block_1$2(ctx);
+    					if_block1.c();
+    					if_block1.m(div17, null);
+    				}
+    			} else if (if_block1) {
+    				if_block1.d(1);
+    				if_block1 = null;
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div19);
+    			if (if_block0) if_block0.d();
+    			if (if_block1) if_block1.d();
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$2.name,
+    		type: "if",
+    		source: "(284:1) {#if showDownloadModal && selectedFile}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (346:5) {#if downloading}
+    function create_if_block_2$2(ctx) {
+    	let div3;
+    	let div1;
+    	let div0;
+    	let t0;
+    	let div2;
+    	let t1;
+    	let t2_value = Math.round(/*downloadProgress*/ ctx[8]) + "";
+    	let t2;
+    	let t3;
+
+    	const block = {
+    		c: function create() {
+    			div3 = element("div");
+    			div1 = element("div");
+    			div0 = element("div");
+    			t0 = space();
+    			div2 = element("div");
+    			t1 = text("Downloading... ");
+    			t2 = text(t2_value);
+    			t3 = text("%");
+    			attr_dev(div0, "class", "progress-fill svelte-ih9af0");
+    			set_style(div0, "width", /*downloadProgress*/ ctx[8] + "%");
+    			add_location(div0, file$2, 348, 8, 11064);
+    			attr_dev(div1, "class", "progress-bar svelte-ih9af0");
+    			add_location(div1, file$2, 347, 7, 11028);
+    			attr_dev(div2, "class", "progress-text svelte-ih9af0");
+    			add_location(div2, file$2, 350, 7, 11156);
+    			attr_dev(div3, "class", "download-progress svelte-ih9af0");
+    			add_location(div3, file$2, 346, 6, 10988);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div3, anchor);
+    			append_dev(div3, div1);
+    			append_dev(div1, div0);
+    			append_dev(div3, t0);
+    			append_dev(div3, div2);
+    			append_dev(div2, t1);
+    			append_dev(div2, t2);
+    			append_dev(div2, t3);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*downloadProgress*/ 256) {
+    				set_style(div0, "width", /*downloadProgress*/ ctx[8] + "%");
+    			}
+
+    			if (dirty[0] & /*downloadProgress*/ 256 && t2_value !== (t2_value = Math.round(/*downloadProgress*/ ctx[8]) + "")) set_data_dev(t2, t2_value);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div3);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_2$2.name,
+    		type: "if",
+    		source: "(346:5) {#if downloading}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (357:5) {#if !downloading}
+    function create_if_block_1$2(ctx) {
+    	let button0;
+    	let span0;
+    	let t1;
+    	let t2;
+    	let button1;
+    	let span1;
+    	let t4;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			button0 = element("button");
+    			span0 = element("span");
+    			span0.textContent = "←";
+    			t1 = text("\r\n\t\t\t\t\t\t\tBack to Browse");
+    			t2 = space();
+    			button1 = element("button");
+    			span1 = element("span");
+    			span1.textContent = "📥";
+    			t4 = text("\r\n\t\t\t\t\t\t\tDownload File");
+    			add_location(span0, file$2, 358, 7, 11417);
+    			attr_dev(button0, "class", "btn btn-secondary svelte-ih9af0");
+    			add_location(button0, file$2, 357, 6, 11344);
+    			add_location(span1, file$2, 362, 7, 11547);
+    			attr_dev(button1, "class", "btn btn-success svelte-ih9af0");
+    			add_location(button1, file$2, 361, 6, 11479);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, button0, anchor);
+    			append_dev(button0, span0);
+    			append_dev(button0, t1);
+    			insert_dev(target, t2, anchor);
+    			insert_dev(target, button1, anchor);
+    			append_dev(button1, span1);
+    			append_dev(button1, t4);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(button0, "click", /*closeDownloadModal*/ ctx[15], false, false, false, false),
+    					listen_dev(button1, "click", /*confirmDownload*/ ctx[14], false, false, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(button0);
+    			if (detaching) detach_dev(t2);
+    			if (detaching) detach_dev(button1);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_1$2.name,
+    		type: "if",
+    		source: "(357:5) {#if !downloading}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$2(ctx) {
+    	let div14;
+    	let div13;
+    	let div0;
+    	let h2;
+    	let t1;
+    	let p;
+    	let t3;
+    	let div9;
+    	let div2;
+    	let div1;
+    	let span0;
+    	let t5;
+    	let input;
+    	let t6;
+    	let div7;
+    	let div3;
+    	let label0;
+    	let t8;
+    	let select0;
+    	let option0;
+    	let t10;
+    	let div4;
+    	let label1;
+    	let t12;
+    	let select1;
+    	let option1;
+    	let t14;
+    	let div5;
+    	let label2;
+    	let t16;
+    	let select2;
+    	let option2;
+    	let t18;
+    	let div6;
+    	let label3;
+    	let t20;
+    	let select3;
+    	let option3;
+    	let option4;
+    	let option5;
+    	let option6;
+    	let option7;
+    	let t26;
+    	let div8;
+    	let button;
+    	let span1;
+    	let t28;
+    	let t29;
+    	let div12;
+    	let div11;
+    	let h3;
+    	let t31;
+    	let div10;
+    	let span2;
+    	let t32_value = /*filteredFiles*/ ctx[9].length + "";
+    	let t32;
+    	let t33;
+    	let span3;
+    	let t35;
+    	let t36;
+    	let mounted;
+    	let dispose;
+    	let each_value_3 = /*subjects*/ ctx[12];
+    	validate_each_argument(each_value_3);
+    	let each_blocks_2 = [];
+
+    	for (let i = 0; i < each_value_3.length; i += 1) {
+    		each_blocks_2[i] = create_each_block_3(get_each_context_3(ctx, each_value_3, i));
+    	}
+
+    	let each_value_2 = /*years*/ ctx[11];
+    	validate_each_argument(each_value_2);
+    	let each_blocks_1 = [];
+
+    	for (let i = 0; i < each_value_2.length; i += 1) {
+    		each_blocks_1[i] = create_each_block_2(get_each_context_2(ctx, each_value_2, i));
+    	}
+
+    	let each_value_1 = /*examTypes*/ ctx[10];
+    	validate_each_argument(each_value_1);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value_1.length; i += 1) {
+    		each_blocks[i] = create_each_block_1$1(get_each_context_1$1(ctx, each_value_1, i));
+    	}
+
+    	function select_block_type(ctx, dirty) {
+    		if (/*filteredFiles*/ ctx[9].length === 0) return create_if_block_3$2;
+    		return create_else_block$2;
+    	}
+
+    	let current_block_type = select_block_type(ctx);
+    	let if_block0 = current_block_type(ctx);
+    	let if_block1 = /*showDownloadModal*/ ctx[5] && /*selectedFile*/ ctx[6] && create_if_block$2(ctx);
+
+    	const block = {
+    		c: function create() {
+    			div14 = element("div");
+    			div13 = element("div");
+    			div0 = element("div");
+    			h2 = element("h2");
+    			h2.textContent = "🔍 Browse Past Questions";
+    			t1 = space();
+    			p = element("p");
+    			p.textContent = "Discover and download high-quality study materials from fellow students";
+    			t3 = space();
+    			div9 = element("div");
+    			div2 = element("div");
+    			div1 = element("div");
+    			span0 = element("span");
+    			span0.textContent = "🔍";
+    			t5 = space();
+    			input = element("input");
+    			t6 = space();
+    			div7 = element("div");
+    			div3 = element("div");
+    			label0 = element("label");
+    			label0.textContent = "Subject";
+    			t8 = space();
+    			select0 = element("select");
+    			option0 = element("option");
+    			option0.textContent = "All Subjects";
+
+    			for (let i = 0; i < each_blocks_2.length; i += 1) {
+    				each_blocks_2[i].c();
+    			}
+
+    			t10 = space();
+    			div4 = element("div");
+    			label1 = element("label");
+    			label1.textContent = "Academic Year";
+    			t12 = space();
+    			select1 = element("select");
+    			option1 = element("option");
+    			option1.textContent = "All Years";
+
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].c();
+    			}
+
+    			t14 = space();
+    			div5 = element("div");
+    			label2 = element("label");
+    			label2.textContent = "Exam Type";
+    			t16 = space();
+    			select2 = element("select");
+    			option2 = element("option");
+    			option2.textContent = "All Types";
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			t18 = space();
+    			div6 = element("div");
+    			label3 = element("label");
+    			label3.textContent = "Sort By";
+    			t20 = space();
+    			select3 = element("select");
+    			option3 = element("option");
+    			option3.textContent = "Newest First";
+    			option4 = element("option");
+    			option4.textContent = "Most Popular";
+    			option5 = element("option");
+    			option5.textContent = "Price: Low to High";
+    			option6 = element("option");
+    			option6.textContent = "Price: High to Low";
+    			option7 = element("option");
+    			option7.textContent = "Subject A-Z";
+    			t26 = space();
+    			div8 = element("div");
+    			button = element("button");
+    			span1 = element("span");
+    			span1.textContent = "🔄";
+    			t28 = text("\r\n\t\t\t\t\tClear Filters");
+    			t29 = space();
+    			div12 = element("div");
+    			div11 = element("div");
+    			h3 = element("h3");
+    			h3.textContent = "Available Files";
+    			t31 = space();
+    			div10 = element("div");
+    			span2 = element("span");
+    			t32 = text(t32_value);
+    			t33 = space();
+    			span3 = element("span");
+    			span3.textContent = "files found";
+    			t35 = space();
+    			if_block0.c();
+    			t36 = space();
+    			if (if_block1) if_block1.c();
+    			attr_dev(h2, "class", "svelte-ih9af0");
+    			add_location(h2, file$2, 130, 3, 3736);
+    			attr_dev(p, "class", "svelte-ih9af0");
+    			add_location(p, file$2, 131, 3, 3774);
+    			attr_dev(div0, "class", "section-header svelte-ih9af0");
+    			add_location(div0, file$2, 129, 2, 3703);
+    			attr_dev(span0, "class", "search-icon svelte-ih9af0");
+    			add_location(span0, file$2, 138, 5, 4007);
+    			attr_dev(input, "type", "text");
+    			attr_dev(input, "placeholder", "Search by subject, description, or filename...");
+    			attr_dev(input, "class", "search-input svelte-ih9af0");
+    			add_location(input, file$2, 139, 5, 4049);
+    			attr_dev(div1, "class", "search-input-wrapper svelte-ih9af0");
+    			add_location(div1, file$2, 137, 4, 3966);
+    			attr_dev(div2, "class", "search-section svelte-ih9af0");
+    			add_location(div2, file$2, 136, 3, 3932);
+    			attr_dev(label0, "for", "subjectFilter");
+    			add_location(label0, file$2, 150, 5, 4305);
+    			option0.__value = "";
+    			option0.value = option0.__value;
+    			add_location(option0, file$2, 152, 6, 4418);
+    			attr_dev(select0, "id", "subjectFilter");
+    			if (/*selectedSubject*/ ctx[1] === void 0) add_render_callback(() => /*select0_change_handler*/ ctx[23].call(select0));
+    			add_location(select0, file$2, 151, 5, 4354);
+    			attr_dev(div3, "class", "form-group");
+    			add_location(div3, file$2, 149, 4, 4274);
+    			attr_dev(label1, "for", "yearFilter");
+    			add_location(label1, file$2, 160, 5, 4624);
+    			option1.__value = "";
+    			option1.value = option1.__value;
+    			add_location(option1, file$2, 162, 6, 4734);
+    			attr_dev(select1, "id", "yearFilter");
+    			if (/*selectedYear*/ ctx[2] === void 0) add_render_callback(() => /*select1_change_handler*/ ctx[24].call(select1));
+    			add_location(select1, file$2, 161, 5, 4676);
+    			attr_dev(div4, "class", "form-group");
+    			add_location(div4, file$2, 159, 4, 4593);
+    			attr_dev(label2, "for", "examTypeFilter");
+    			add_location(label2, file$2, 170, 5, 4925);
+    			option2.__value = "";
+    			option2.value = option2.__value;
+    			add_location(option2, file$2, 172, 6, 5043);
+    			attr_dev(select2, "id", "examTypeFilter");
+    			if (/*selectedExamType*/ ctx[3] === void 0) add_render_callback(() => /*select2_change_handler*/ ctx[25].call(select2));
+    			add_location(select2, file$2, 171, 5, 4977);
+    			attr_dev(div5, "class", "form-group");
+    			add_location(div5, file$2, 169, 4, 4894);
+    			attr_dev(label3, "for", "sortBy");
+    			add_location(label3, file$2, 180, 5, 5238);
+    			option3.__value = "newest";
+    			option3.value = option3.__value;
+    			add_location(option3, file$2, 182, 6, 5328);
+    			option4.__value = "popular";
+    			option4.value = option4.__value;
+    			add_location(option4, file$2, 183, 6, 5380);
+    			option5.__value = "price-low";
+    			option5.value = option5.__value;
+    			add_location(option5, file$2, 184, 6, 5433);
+    			option6.__value = "price-high";
+    			option6.value = option6.__value;
+    			add_location(option6, file$2, 185, 6, 5494);
+    			option7.__value = "subject";
+    			option7.value = option7.__value;
+    			add_location(option7, file$2, 186, 6, 5556);
+    			attr_dev(select3, "id", "sortBy");
+    			if (/*sortBy*/ ctx[4] === void 0) add_render_callback(() => /*select3_change_handler*/ ctx[26].call(select3));
+    			add_location(select3, file$2, 181, 5, 5280);
+    			attr_dev(div6, "class", "form-group");
+    			add_location(div6, file$2, 179, 4, 5207);
+    			attr_dev(div7, "class", "filters-grid svelte-ih9af0");
+    			add_location(div7, file$2, 148, 3, 4242);
+    			add_location(span1, file$2, 193, 5, 5745);
+    			attr_dev(button, "class", "btn btn-secondary");
+    			add_location(button, file$2, 192, 4, 5680);
+    			attr_dev(div8, "class", "filter-actions svelte-ih9af0");
+    			add_location(div8, file$2, 191, 3, 5646);
+    			attr_dev(div9, "class", "search-filters svelte-ih9af0");
+    			add_location(div9, file$2, 135, 2, 3899);
+    			attr_dev(h3, "class", "svelte-ih9af0");
+    			add_location(h3, file$2, 202, 4, 5910);
+    			attr_dev(span2, "class", "count-number svelte-ih9af0");
+    			add_location(span2, file$2, 204, 5, 5974);
+    			attr_dev(span3, "class", "count-label svelte-ih9af0");
+    			add_location(span3, file$2, 205, 5, 6037);
+    			attr_dev(div10, "class", "results-count svelte-ih9af0");
+    			add_location(div10, file$2, 203, 4, 5940);
+    			attr_dev(div11, "class", "results-header svelte-ih9af0");
+    			add_location(div11, file$2, 201, 3, 5876);
+    			attr_dev(div12, "class", "results-section svelte-ih9af0");
+    			add_location(div12, file$2, 200, 2, 5842);
+    			attr_dev(div13, "class", "card");
+    			add_location(div13, file$2, 128, 1, 3681);
+    			attr_dev(div14, "class", "browse-container svelte-ih9af0");
+    			add_location(div14, file$2, 127, 0, 3648);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div14, anchor);
+    			append_dev(div14, div13);
+    			append_dev(div13, div0);
+    			append_dev(div0, h2);
+    			append_dev(div0, t1);
+    			append_dev(div0, p);
+    			append_dev(div13, t3);
+    			append_dev(div13, div9);
+    			append_dev(div9, div2);
+    			append_dev(div2, div1);
+    			append_dev(div1, span0);
+    			append_dev(div1, t5);
+    			append_dev(div1, input);
+    			set_input_value(input, /*searchTerm*/ ctx[0]);
+    			append_dev(div9, t6);
+    			append_dev(div9, div7);
+    			append_dev(div7, div3);
+    			append_dev(div3, label0);
+    			append_dev(div3, t8);
+    			append_dev(div3, select0);
+    			append_dev(select0, option0);
+
+    			for (let i = 0; i < each_blocks_2.length; i += 1) {
+    				if (each_blocks_2[i]) {
+    					each_blocks_2[i].m(select0, null);
+    				}
+    			}
+
+    			select_option(select0, /*selectedSubject*/ ctx[1], true);
+    			append_dev(div7, t10);
+    			append_dev(div7, div4);
+    			append_dev(div4, label1);
+    			append_dev(div4, t12);
+    			append_dev(div4, select1);
+    			append_dev(select1, option1);
+
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				if (each_blocks_1[i]) {
+    					each_blocks_1[i].m(select1, null);
+    				}
+    			}
+
+    			select_option(select1, /*selectedYear*/ ctx[2], true);
+    			append_dev(div7, t14);
+    			append_dev(div7, div5);
+    			append_dev(div5, label2);
+    			append_dev(div5, t16);
+    			append_dev(div5, select2);
+    			append_dev(select2, option2);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				if (each_blocks[i]) {
+    					each_blocks[i].m(select2, null);
+    				}
+    			}
+
+    			select_option(select2, /*selectedExamType*/ ctx[3], true);
+    			append_dev(div7, t18);
+    			append_dev(div7, div6);
+    			append_dev(div6, label3);
+    			append_dev(div6, t20);
+    			append_dev(div6, select3);
+    			append_dev(select3, option3);
+    			append_dev(select3, option4);
+    			append_dev(select3, option5);
+    			append_dev(select3, option6);
+    			append_dev(select3, option7);
+    			select_option(select3, /*sortBy*/ ctx[4], true);
+    			append_dev(div9, t26);
+    			append_dev(div9, div8);
+    			append_dev(div8, button);
+    			append_dev(button, span1);
+    			append_dev(button, t28);
+    			append_dev(div13, t29);
+    			append_dev(div13, div12);
+    			append_dev(div12, div11);
+    			append_dev(div11, h3);
+    			append_dev(div11, t31);
+    			append_dev(div11, div10);
+    			append_dev(div10, span2);
+    			append_dev(span2, t32);
+    			append_dev(div10, t33);
+    			append_dev(div10, span3);
+    			append_dev(div12, t35);
+    			if_block0.m(div12, null);
+    			append_dev(div14, t36);
+    			if (if_block1) if_block1.m(div14, null);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(input, "input", /*input_input_handler*/ ctx[22]),
+    					listen_dev(select0, "change", /*select0_change_handler*/ ctx[23]),
+    					listen_dev(select1, "change", /*select1_change_handler*/ ctx[24]),
+    					listen_dev(select2, "change", /*select2_change_handler*/ ctx[25]),
+    					listen_dev(select3, "change", /*select3_change_handler*/ ctx[26]),
+    					listen_dev(button, "click", /*clearFilters*/ ctx[16], false, false, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*searchTerm*/ 1 && input.value !== /*searchTerm*/ ctx[0]) {
+    				set_input_value(input, /*searchTerm*/ ctx[0]);
+    			}
+
+    			if (dirty[0] & /*subjects*/ 4096) {
+    				each_value_3 = /*subjects*/ ctx[12];
+    				validate_each_argument(each_value_3);
+    				let i;
+
+    				for (i = 0; i < each_value_3.length; i += 1) {
+    					const child_ctx = get_each_context_3(ctx, each_value_3, i);
+
+    					if (each_blocks_2[i]) {
+    						each_blocks_2[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks_2[i] = create_each_block_3(child_ctx);
+    						each_blocks_2[i].c();
+    						each_blocks_2[i].m(select0, null);
+    					}
+    				}
+
+    				for (; i < each_blocks_2.length; i += 1) {
+    					each_blocks_2[i].d(1);
+    				}
+
+    				each_blocks_2.length = each_value_3.length;
+    			}
+
+    			if (dirty[0] & /*selectedSubject, subjects*/ 4098) {
+    				select_option(select0, /*selectedSubject*/ ctx[1]);
+    			}
+
+    			if (dirty[0] & /*years*/ 2048) {
+    				each_value_2 = /*years*/ ctx[11];
+    				validate_each_argument(each_value_2);
+    				let i;
+
+    				for (i = 0; i < each_value_2.length; i += 1) {
+    					const child_ctx = get_each_context_2(ctx, each_value_2, i);
+
+    					if (each_blocks_1[i]) {
+    						each_blocks_1[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks_1[i] = create_each_block_2(child_ctx);
+    						each_blocks_1[i].c();
+    						each_blocks_1[i].m(select1, null);
+    					}
+    				}
+
+    				for (; i < each_blocks_1.length; i += 1) {
+    					each_blocks_1[i].d(1);
+    				}
+
+    				each_blocks_1.length = each_value_2.length;
+    			}
+
+    			if (dirty[0] & /*selectedYear, years*/ 2052) {
+    				select_option(select1, /*selectedYear*/ ctx[2]);
+    			}
+
+    			if (dirty[0] & /*examTypes*/ 1024) {
+    				each_value_1 = /*examTypes*/ ctx[10];
+    				validate_each_argument(each_value_1);
+    				let i;
+
+    				for (i = 0; i < each_value_1.length; i += 1) {
+    					const child_ctx = get_each_context_1$1(ctx, each_value_1, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block_1$1(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(select2, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value_1.length;
+    			}
+
+    			if (dirty[0] & /*selectedExamType, examTypes*/ 1032) {
+    				select_option(select2, /*selectedExamType*/ ctx[3]);
+    			}
+
+    			if (dirty[0] & /*sortBy*/ 16) {
+    				select_option(select3, /*sortBy*/ ctx[4]);
+    			}
+
+    			if (dirty[0] & /*filteredFiles*/ 512 && t32_value !== (t32_value = /*filteredFiles*/ ctx[9].length + "")) set_data_dev(t32, t32_value);
+
+    			if (current_block_type === (current_block_type = select_block_type(ctx)) && if_block0) {
+    				if_block0.p(ctx, dirty);
+    			} else {
+    				if_block0.d(1);
+    				if_block0 = current_block_type(ctx);
+
+    				if (if_block0) {
+    					if_block0.c();
+    					if_block0.m(div12, null);
+    				}
+    			}
+
+    			if (/*showDownloadModal*/ ctx[5] && /*selectedFile*/ ctx[6]) {
+    				if (if_block1) {
+    					if_block1.p(ctx, dirty);
+    				} else {
+    					if_block1 = create_if_block$2(ctx);
+    					if_block1.c();
+    					if_block1.m(div14, null);
+    				}
+    			} else if (if_block1) {
+    				if_block1.d(1);
+    				if_block1 = null;
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div14);
+    			destroy_each(each_blocks_2, detaching);
+    			destroy_each(each_blocks_1, detaching);
+    			destroy_each(each_blocks, detaching);
+    			if_block0.d();
+    			if (if_block1) if_block1.d();
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$2.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function getFileIcon(type) {
+    	if (type.includes('pdf')) return '📄';
+    	if (type.includes('word') || type.includes('document')) return '📝';
+    	if (type.includes('image')) return '🖼️';
+    	return '📁';
+    }
+
+    function formatFileSize(bytes) {
+    	if (bytes === 0) return '0 Bytes';
+    	const k = 1024;
+    	const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    	const i = Math.floor(Math.log(bytes) / Math.log(k));
+    	return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    }
+
+    function getRatingStars(rating) {
+    	const stars = ('★').repeat(Math.floor(rating)) + ('☆').repeat(5 - Math.floor(rating));
+    	return stars;
+    }
+
+    function instance$2($$self, $$props, $$invalidate) {
+    	let subjects;
+    	let years;
+    	let examTypes;
+    	let filteredFiles;
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('BrowseComponent', slots, []);
+    	const dispatch = createEventDispatcher();
+    	const availableFiles = [];
+    	const userCoins = 0;
+    	const onSpendCoins = null;
+    	let searchTerm = '';
+    	let selectedSubject = '';
+    	let selectedYear = '';
+    	let selectedExamType = '';
+    	let sortBy = 'newest';
+    	let showDownloadModal = false;
+    	let selectedFile = null;
+    	let downloading = false;
+    	let downloadProgress = 0;
+
+    	function openDownloadModal(file) {
+    		// All files are now free to view and download
+    		$$invalidate(6, selectedFile = file);
+
+    		$$invalidate(5, showDownloadModal = true);
+    	}
+
+    	async function confirmDownload() {
+    		if (!selectedFile) return;
+    		$$invalidate(7, downloading = true);
+    		$$invalidate(8, downloadProgress = 0);
+
+    		// Simulate download progress
+    		const interval = setInterval(
+    			() => {
+    				$$invalidate(8, downloadProgress += Math.random() * 30);
+
+    				if (downloadProgress >= 100) {
+    					$$invalidate(8, downloadProgress = 100);
+    					clearInterval(interval);
+
+    					// All downloads are now free
+    					setTimeout(
+    						() => {
+    							$$invalidate(7, downloading = false);
+    							$$invalidate(5, showDownloadModal = false);
+    							$$invalidate(6, selectedFile = null);
+    							$$invalidate(8, downloadProgress = 0);
+
+    							// Show success message
+    							alert(`✅ Download completed! Enjoy your study material.`);
+    						},
+    						1000
+    					);
+    				}
+    			},
+    			200
+    		);
+    	}
+
+    	function closeDownloadModal() {
+    		if (!downloading) {
+    			$$invalidate(5, showDownloadModal = false);
+    			$$invalidate(6, selectedFile = null);
+    			$$invalidate(8, downloadProgress = 0);
+    		}
+    	}
+
+    	function clearFilters() {
+    		$$invalidate(0, searchTerm = '');
+    		$$invalidate(1, selectedSubject = '');
+    		$$invalidate(2, selectedYear = '');
+    		$$invalidate(3, selectedExamType = '');
+    		$$invalidate(4, sortBy = 'newest');
+    	}
+
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<BrowseComponent> was created with unknown prop '${key}'`);
+    	});
+
+    	function click_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	function keydown_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	function input_input_handler() {
+    		searchTerm = this.value;
+    		$$invalidate(0, searchTerm);
+    	}
+
+    	function select0_change_handler() {
+    		selectedSubject = select_value(this);
+    		$$invalidate(1, selectedSubject);
+    		$$invalidate(12, subjects);
+    	}
+
+    	function select1_change_handler() {
+    		selectedYear = select_value(this);
+    		$$invalidate(2, selectedYear);
+    		$$invalidate(11, years);
+    	}
+
+    	function select2_change_handler() {
+    		selectedExamType = select_value(this);
+    		$$invalidate(3, selectedExamType);
+    		$$invalidate(10, examTypes);
+    	}
+
+    	function select3_change_handler() {
+    		sortBy = select_value(this);
+    		$$invalidate(4, sortBy);
+    	}
+
+    	const click_handler_1 = file => openDownloadModal(file);
+
+    	$$self.$capture_state = () => ({
+    		createEventDispatcher,
+    		dispatch,
+    		availableFiles,
+    		userCoins,
+    		onSpendCoins,
+    		searchTerm,
+    		selectedSubject,
+    		selectedYear,
+    		selectedExamType,
+    		sortBy,
+    		showDownloadModal,
+    		selectedFile,
+    		downloading,
+    		downloadProgress,
+    		openDownloadModal,
+    		confirmDownload,
+    		closeDownloadModal,
+    		clearFilters,
+    		getFileIcon,
+    		formatFileSize,
+    		getRatingStars,
+    		filteredFiles,
+    		examTypes,
+    		years,
+    		subjects
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('searchTerm' in $$props) $$invalidate(0, searchTerm = $$props.searchTerm);
+    		if ('selectedSubject' in $$props) $$invalidate(1, selectedSubject = $$props.selectedSubject);
+    		if ('selectedYear' in $$props) $$invalidate(2, selectedYear = $$props.selectedYear);
+    		if ('selectedExamType' in $$props) $$invalidate(3, selectedExamType = $$props.selectedExamType);
+    		if ('sortBy' in $$props) $$invalidate(4, sortBy = $$props.sortBy);
+    		if ('showDownloadModal' in $$props) $$invalidate(5, showDownloadModal = $$props.showDownloadModal);
+    		if ('selectedFile' in $$props) $$invalidate(6, selectedFile = $$props.selectedFile);
+    		if ('downloading' in $$props) $$invalidate(7, downloading = $$props.downloading);
+    		if ('downloadProgress' in $$props) $$invalidate(8, downloadProgress = $$props.downloadProgress);
+    		if ('filteredFiles' in $$props) $$invalidate(9, filteredFiles = $$props.filteredFiles);
+    		if ('examTypes' in $$props) $$invalidate(10, examTypes = $$props.examTypes);
+    		if ('years' in $$props) $$invalidate(11, years = $$props.years);
+    		if ('subjects' in $$props) $$invalidate(12, subjects = $$props.subjects);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty[0] & /*searchTerm, selectedSubject, selectedYear, selectedExamType, sortBy*/ 31) {
+    			// Filter and sort files
+    			$$invalidate(9, filteredFiles = availableFiles.filter(file => {
+    				const matchesSearch = file.subject.toLowerCase().includes(searchTerm.toLowerCase()) || file.description.toLowerCase().includes(searchTerm.toLowerCase()) || file.name.toLowerCase().includes(searchTerm.toLowerCase());
+    				const matchesSubject = !selectedSubject || file.subject === selectedSubject;
+    				const matchesYear = !selectedYear || file.year === selectedYear;
+    				const matchesExamType = !selectedExamType || file.examType === selectedExamType;
+    				return matchesSearch && matchesSubject && matchesYear && matchesExamType;
+    			}).sort((a, b) => {
+    				switch (sortBy) {
+    					case 'newest':
+    						return new Date(b.uploadDate) - new Date(a.uploadDate);
+    					case 'oldest':
+    						return new Date(a.uploadDate) - new Date(b.uploadDate);
+    					case 'price-low':
+    						return a.price - b.price;
+    					case 'price-high':
+    						return b.price - a.price;
+    					case 'subject':
+    						return a.subject.localeCompare(b.subject);
+    					case 'popular':
+    						return (b.downloads || 0) - (a.downloads || 0);
+    					default:
+    						return 0;
+    				}
+    			}));
+    		}
+    	};
+
+    	$$invalidate(12, subjects = [...new Set(availableFiles.map(f => f.subject))].sort());
+    	$$invalidate(11, years = [...new Set(availableFiles.map(f => f.year))].sort((a, b) => b - a));
+    	$$invalidate(10, examTypes = [...new Set(availableFiles.map(f => f.examType))].sort());
+
+    	return [
+    		searchTerm,
+    		selectedSubject,
+    		selectedYear,
+    		selectedExamType,
+    		sortBy,
+    		showDownloadModal,
+    		selectedFile,
+    		downloading,
+    		downloadProgress,
+    		filteredFiles,
+    		examTypes,
+    		years,
+    		subjects,
+    		openDownloadModal,
+    		confirmDownload,
+    		closeDownloadModal,
+    		clearFilters,
+    		availableFiles,
+    		userCoins,
+    		onSpendCoins,
+    		click_handler,
+    		keydown_handler,
+    		input_input_handler,
+    		select0_change_handler,
+    		select1_change_handler,
+    		select2_change_handler,
+    		select3_change_handler,
+    		click_handler_1
+    	];
+    }
+
+    class BrowseComponent extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+
+    		init(
+    			this,
+    			options,
+    			instance$2,
+    			create_fragment$2,
+    			safe_not_equal,
+    			{
+    				availableFiles: 17,
+    				userCoins: 18,
+    				onSpendCoins: 19
+    			},
+    			null,
+    			[-1, -1]
+    		);
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "BrowseComponent",
+    			options,
+    			id: create_fragment$2.name
+    		});
+    	}
+
+    	get availableFiles() {
+    		return this.$$.ctx[17];
+    	}
+
+    	set availableFiles(value) {
+    		throw new Error("<BrowseComponent>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get userCoins() {
+    		return this.$$.ctx[18];
+    	}
+
+    	set userCoins(value) {
+    		throw new Error("<BrowseComponent>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get onSpendCoins() {
+    		return this.$$.ctx[19];
+    	}
+
+    	set onSpendCoins(value) {
+    		throw new Error("<BrowseComponent>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\components\WalletComponent.svelte generated by Svelte v3.59.2 */
+
+    const file$1 = "src\\components\\WalletComponent.svelte";
+
+    function get_each_context(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[22] = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context_1(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[25] = list[i];
+    	return child_ctx;
+    }
+
+    // (136:2) {#if withdrawalSuccess}
+    function create_if_block_4(ctx) {
+    	let div;
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			div.textContent = "✅ Withdrawal successful! Your cash will be processed within 24 hours.";
+    			attr_dev(div, "class", "success-message");
+    			add_location(div, file$1, 136, 3, 3700);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_4.name,
+    		type: "if",
+    		source: "(136:2) {#if withdrawalSuccess}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (155:4) {#if withdrawalAmount > 0}
+    function create_if_block_3$1(ctx) {
+    	let p;
+    	let t0;
+    	let t1;
+
+    	const block = {
+    		c: function create() {
+    			p = element("p");
+    			t0 = text("= ₦");
+    			t1 = text(/*withdrawalAmount*/ ctx[2]);
+    			attr_dev(p, "class", "cash-equivalent svelte-aiz7np");
+    			add_location(p, file$1, 155, 5, 4239);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, p, anchor);
+    			append_dev(p, t0);
+    			append_dev(p, t1);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*withdrawalAmount*/ 4) set_data_dev(t1, /*withdrawalAmount*/ ctx[2]);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(p);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_3$1.name,
+    		type: "if",
+    		source: "(155:4) {#if withdrawalAmount > 0}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (216:3) {:else}
+    function create_else_block_1(ctx) {
+    	let div2;
+    	let h4;
+    	let t1;
+    	let div0;
+    	let label0;
+    	let t3;
+    	let input;
+    	let t4;
+    	let div1;
+    	let label1;
+    	let t6;
+    	let select;
+    	let mounted;
+    	let dispose;
+    	let each_value_1 = /*providers*/ ctx[9];
+    	validate_each_argument(each_value_1);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value_1.length; i += 1) {
+    		each_blocks[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			div2 = element("div");
+    			h4 = element("h4");
+    			h4.textContent = "Mobile Money Details";
+    			t1 = space();
+    			div0 = element("div");
+    			label0 = element("label");
+    			label0.textContent = "Phone Number";
+    			t3 = space();
+    			input = element("input");
+    			t4 = space();
+    			div1 = element("div");
+    			label1 = element("label");
+    			label1.textContent = "Provider";
+    			t6 = space();
+    			select = element("select");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			add_location(h4, file$1, 217, 5, 5868);
+    			attr_dev(label0, "for", "phoneNumber");
+    			add_location(label0, file$1, 219, 6, 5936);
+    			attr_dev(input, "id", "phoneNumber");
+    			attr_dev(input, "type", "tel");
+    			attr_dev(input, "placeholder", "e.g., 0241234567");
+    			input.required = true;
+    			add_location(input, file$1, 220, 6, 5989);
+    			attr_dev(div0, "class", "form-group");
+    			add_location(div0, file$1, 218, 5, 5904);
+    			attr_dev(label1, "for", "provider");
+    			add_location(label1, file$1, 229, 6, 6211);
+    			attr_dev(select, "id", "provider");
+    			if (/*mobileMoneyDetails*/ ctx[5].provider === void 0) add_render_callback(() => /*select_change_handler*/ ctx[21].call(select));
+    			add_location(select, file$1, 230, 6, 6257);
+    			attr_dev(div1, "class", "form-group");
+    			add_location(div1, file$1, 228, 5, 6179);
+    			attr_dev(div2, "class", "mobile-details svelte-aiz7np");
+    			add_location(div2, file$1, 216, 4, 5833);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div2, anchor);
+    			append_dev(div2, h4);
+    			append_dev(div2, t1);
+    			append_dev(div2, div0);
+    			append_dev(div0, label0);
+    			append_dev(div0, t3);
+    			append_dev(div0, input);
+    			set_input_value(input, /*mobileMoneyDetails*/ ctx[5].phoneNumber);
+    			append_dev(div2, t4);
+    			append_dev(div2, div1);
+    			append_dev(div1, label1);
+    			append_dev(div1, t6);
+    			append_dev(div1, select);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				if (each_blocks[i]) {
+    					each_blocks[i].m(select, null);
+    				}
+    			}
+
+    			select_option(select, /*mobileMoneyDetails*/ ctx[5].provider, true);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(input, "input", /*input_input_handler*/ ctx[20]),
+    					listen_dev(select, "change", /*select_change_handler*/ ctx[21])
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*mobileMoneyDetails, providers*/ 544) {
+    				set_input_value(input, /*mobileMoneyDetails*/ ctx[5].phoneNumber);
+    			}
+
+    			if (dirty & /*providers*/ 512) {
+    				each_value_1 = /*providers*/ ctx[9];
+    				validate_each_argument(each_value_1);
+    				let i;
+
+    				for (i = 0; i < each_value_1.length; i += 1) {
+    					const child_ctx = get_each_context_1(ctx, each_value_1, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block_1(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(select, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value_1.length;
+    			}
+
+    			if (dirty & /*mobileMoneyDetails, providers*/ 544) {
+    				select_option(select, /*mobileMoneyDetails*/ ctx[5].provider);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div2);
+    			destroy_each(each_blocks, detaching);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block_1.name,
+    		type: "else",
+    		source: "(216:3) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (182:3) {#if withdrawalMethod === 'bank'}
+    function create_if_block_2$1(ctx) {
+    	let div3;
+    	let h4;
+    	let t1;
+    	let div0;
+    	let label0;
+    	let t3;
+    	let input0;
+    	let t4;
+    	let div1;
+    	let label1;
+    	let t6;
+    	let input1;
+    	let t7;
+    	let div2;
+    	let label2;
+    	let t9;
+    	let input2;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			div3 = element("div");
+    			h4 = element("h4");
+    			h4.textContent = "Bank Details";
+    			t1 = space();
+    			div0 = element("div");
+    			label0 = element("label");
+    			label0.textContent = "Account Number";
+    			t3 = space();
+    			input0 = element("input");
+    			t4 = space();
+    			div1 = element("div");
+    			label1 = element("label");
+    			label1.textContent = "Bank Name";
+    			t6 = space();
+    			input1 = element("input");
+    			t7 = space();
+    			div2 = element("div");
+    			label2 = element("label");
+    			label2.textContent = "Account Name";
+    			t9 = space();
+    			input2 = element("input");
+    			add_location(h4, file$1, 183, 5, 4955);
+    			attr_dev(label0, "for", "accountNumber");
+    			add_location(label0, file$1, 185, 6, 5015);
+    			attr_dev(input0, "id", "accountNumber");
+    			attr_dev(input0, "type", "text");
+    			attr_dev(input0, "placeholder", "Enter your account number");
+    			input0.required = true;
+    			add_location(input0, file$1, 186, 6, 5072);
+    			attr_dev(div0, "class", "form-group");
+    			add_location(div0, file$1, 184, 5, 4983);
+    			attr_dev(label1, "for", "bankName");
+    			add_location(label1, file$1, 195, 6, 5301);
+    			attr_dev(input1, "id", "bankName");
+    			attr_dev(input1, "type", "text");
+    			attr_dev(input1, "placeholder", "e.g., Ghana Commercial Bank");
+    			input1.required = true;
+    			add_location(input1, file$1, 196, 6, 5348);
+    			attr_dev(div1, "class", "form-group");
+    			add_location(div1, file$1, 194, 5, 5269);
+    			attr_dev(label2, "for", "accountName");
+    			add_location(label2, file$1, 205, 6, 5569);
+    			attr_dev(input2, "id", "accountName");
+    			attr_dev(input2, "type", "text");
+    			attr_dev(input2, "placeholder", "Full name on account");
+    			input2.required = true;
+    			add_location(input2, file$1, 206, 6, 5622);
+    			attr_dev(div2, "class", "form-group");
+    			add_location(div2, file$1, 204, 5, 5537);
+    			attr_dev(div3, "class", "bank-details svelte-aiz7np");
+    			add_location(div3, file$1, 182, 4, 4922);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div3, anchor);
+    			append_dev(div3, h4);
+    			append_dev(div3, t1);
+    			append_dev(div3, div0);
+    			append_dev(div0, label0);
+    			append_dev(div0, t3);
+    			append_dev(div0, input0);
+    			set_input_value(input0, /*bankDetails*/ ctx[4].accountNumber);
+    			append_dev(div3, t4);
+    			append_dev(div3, div1);
+    			append_dev(div1, label1);
+    			append_dev(div1, t6);
+    			append_dev(div1, input1);
+    			set_input_value(input1, /*bankDetails*/ ctx[4].bankName);
+    			append_dev(div3, t7);
+    			append_dev(div3, div2);
+    			append_dev(div2, label2);
+    			append_dev(div2, t9);
+    			append_dev(div2, input2);
+    			set_input_value(input2, /*bankDetails*/ ctx[4].accountName);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(input0, "input", /*input0_input_handler_1*/ ctx[17]),
+    					listen_dev(input1, "input", /*input1_input_handler*/ ctx[18]),
+    					listen_dev(input2, "input", /*input2_input_handler*/ ctx[19])
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*bankDetails*/ 16 && input0.value !== /*bankDetails*/ ctx[4].accountNumber) {
+    				set_input_value(input0, /*bankDetails*/ ctx[4].accountNumber);
+    			}
+
+    			if (dirty & /*bankDetails*/ 16 && input1.value !== /*bankDetails*/ ctx[4].bankName) {
+    				set_input_value(input1, /*bankDetails*/ ctx[4].bankName);
+    			}
+
+    			if (dirty & /*bankDetails*/ 16 && input2.value !== /*bankDetails*/ ctx[4].accountName) {
+    				set_input_value(input2, /*bankDetails*/ ctx[4].accountName);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div3);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_2$1.name,
+    		type: "if",
+    		source: "(182:3) {#if withdrawalMethod === 'bank'}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (232:7) {#each providers as provider}
+    function create_each_block_1(ctx) {
+    	let option;
+    	let t_value = /*provider*/ ctx[25].toUpperCase() + "";
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			option = element("option");
+    			t = text(t_value);
+    			option.__value = /*provider*/ ctx[25];
+    			option.value = option.__value;
+    			add_location(option, file$1, 232, 8, 6368);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, option, anchor);
+    			append_dev(option, t);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(option);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_1.name,
+    		type: "each",
+    		source: "(232:7) {#each providers as provider}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (247:4) {:else}
+    function create_else_block$1(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("💸 Request Withdrawal");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block$1.name,
+    		type: "else",
+    		source: "(247:4) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (245:4) {#if processingWithdrawal}
+    function create_if_block_1$1(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("⏳ Processing...");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_1$1.name,
+    		type: "if",
+    		source: "(245:4) {#if processingWithdrawal}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (255:1) {#if withdrawalHistory.length > 0}
+    function create_if_block$1(ctx) {
+    	let div1;
+    	let h3;
+    	let t1;
+    	let div0;
+    	let each_value = /*withdrawalHistory*/ ctx[6];
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			div1 = element("div");
+    			h3 = element("h3");
+    			h3.textContent = "📋 Withdrawal History";
+    			t1 = space();
+    			div0 = element("div");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			add_location(h3, file$1, 256, 3, 6856);
+    			attr_dev(div0, "class", "history-list svelte-aiz7np");
+    			add_location(div0, file$1, 257, 3, 6891);
+    			attr_dev(div1, "class", "card");
+    			add_location(div1, file$1, 255, 2, 6833);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div1, anchor);
+    			append_dev(div1, h3);
+    			append_dev(div1, t1);
+    			append_dev(div1, div0);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				if (each_blocks[i]) {
+    					each_blocks[i].m(div0, null);
+    				}
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*Date, withdrawalHistory*/ 64) {
+    				each_value = /*withdrawalHistory*/ ctx[6];
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(div0, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value.length;
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div1);
+    			destroy_each(each_blocks, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$1.name,
+    		type: "if",
+    		source: "(255:1) {#if withdrawalHistory.length > 0}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (259:4) {#each withdrawalHistory as withdrawal}
+    function create_each_block(ctx) {
+    	let div3;
+    	let div2;
+    	let div0;
+    	let t0;
+    	let t1_value = /*withdrawal*/ ctx[22].cashAmount + "";
+    	let t1;
+    	let t2;
+    	let div1;
+    	let p0;
+    	let strong;
+
+    	let t3_value = (/*withdrawal*/ ctx[22].method === 'bank'
+    	? 'Bank Transfer'
+    	: 'Mobile Money') + "";
+
+    	let t3;
+    	let t4;
+    	let p1;
+    	let t5_value = new Date(/*withdrawal*/ ctx[22].date).toLocaleDateString() + "";
+    	let t5;
+    	let t6;
+    	let p2;
+    	let t8;
+
+    	const block = {
+    		c: function create() {
+    			div3 = element("div");
+    			div2 = element("div");
+    			div0 = element("div");
+    			t0 = text("₦");
+    			t1 = text(t1_value);
+    			t2 = space();
+    			div1 = element("div");
+    			p0 = element("p");
+    			strong = element("strong");
+    			t3 = text(t3_value);
+    			t4 = space();
+    			p1 = element("p");
+    			t5 = text(t5_value);
+    			t6 = space();
+    			p2 = element("p");
+    			p2.textContent = "✅ Completed";
+    			t8 = space();
+    			attr_dev(div0, "class", "history-amount svelte-aiz7np");
+    			add_location(div0, file$1, 261, 7, 7038);
+    			add_location(strong, file$1, 263, 11, 7147);
+    			attr_dev(p0, "class", "svelte-aiz7np");
+    			add_location(p0, file$1, 263, 8, 7144);
+    			attr_dev(p1, "class", "svelte-aiz7np");
+    			add_location(p1, file$1, 264, 8, 7243);
+    			attr_dev(p2, "class", "status completed svelte-aiz7np");
+    			add_location(p2, file$1, 265, 8, 7308);
+    			attr_dev(div1, "class", "history-details svelte-aiz7np");
+    			add_location(div1, file$1, 262, 7, 7105);
+    			attr_dev(div2, "class", "history-info svelte-aiz7np");
+    			add_location(div2, file$1, 260, 6, 7003);
+    			attr_dev(div3, "class", "history-item svelte-aiz7np");
+    			add_location(div3, file$1, 259, 5, 6969);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div3, anchor);
+    			append_dev(div3, div2);
+    			append_dev(div2, div0);
+    			append_dev(div0, t0);
+    			append_dev(div0, t1);
+    			append_dev(div2, t2);
+    			append_dev(div2, div1);
+    			append_dev(div1, p0);
+    			append_dev(p0, strong);
+    			append_dev(strong, t3);
+    			append_dev(div1, t4);
+    			append_dev(div1, p1);
+    			append_dev(p1, t5);
+    			append_dev(div1, t6);
+    			append_dev(div1, p2);
+    			append_dev(div3, t8);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*withdrawalHistory*/ 64 && t1_value !== (t1_value = /*withdrawal*/ ctx[22].cashAmount + "")) set_data_dev(t1, t1_value);
+
+    			if (dirty & /*withdrawalHistory*/ 64 && t3_value !== (t3_value = (/*withdrawal*/ ctx[22].method === 'bank'
+    			? 'Bank Transfer'
+    			: 'Mobile Money') + "")) set_data_dev(t3, t3_value);
+
+    			if (dirty & /*withdrawalHistory*/ 64 && t5_value !== (t5_value = new Date(/*withdrawal*/ ctx[22].date).toLocaleDateString() + "")) set_data_dev(t5, t5_value);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div3);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block.name,
+    		type: "each",
+    		source: "(259:4) {#each withdrawalHistory as withdrawal}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$1(ctx) {
+    	let div18;
+    	let div13;
+    	let h2;
+    	let t1;
+    	let div12;
+    	let div2;
+    	let div0;
+    	let t2;
+    	let t3;
+    	let t4;
+    	let div1;
+    	let t6;
+    	let div5;
+    	let div3;
+    	let t7_value = /*uploadedFiles*/ ctx[1].length + "";
+    	let t7;
+    	let t8;
+    	let div4;
+    	let t10;
+    	let div8;
+    	let div6;
+    	let t13;
+    	let div7;
+    	let t15;
+    	let div11;
+    	let div9;
+    	let t18;
+    	let div10;
+    	let t20;
+    	let div17;
+    	let h3;
+    	let t22;
+    	let t23;
+    	let form;
+    	let div14;
+    	let label0;
+    	let t25;
+    	let input0;
+    	let t26;
+    	let small;
+    	let t28;
+    	let t29;
+    	let div16;
+    	let label1;
+    	let t31;
+    	let div15;
+    	let label2;
+    	let input1;
+    	let t32;
+    	let span0;
+    	let t34;
+    	let label3;
+    	let input2;
+    	let t35;
+    	let span1;
+    	let t37;
+    	let t38;
+    	let button;
+    	let button_disabled_value;
+    	let t39;
+    	let binding_group;
+    	let mounted;
+    	let dispose;
+    	let if_block0 = /*withdrawalSuccess*/ ctx[8] && create_if_block_4(ctx);
+    	let if_block1 = /*withdrawalAmount*/ ctx[2] > 0 && create_if_block_3$1(ctx);
+
+    	function select_block_type(ctx, dirty) {
+    		if (/*withdrawalMethod*/ ctx[3] === 'bank') return create_if_block_2$1;
+    		return create_else_block_1;
+    	}
+
+    	let current_block_type = select_block_type(ctx);
+    	let if_block2 = current_block_type(ctx);
+
+    	function select_block_type_1(ctx, dirty) {
+    		if (/*processingWithdrawal*/ ctx[7]) return create_if_block_1$1;
+    		return create_else_block$1;
+    	}
+
+    	let current_block_type_1 = select_block_type_1(ctx);
+    	let if_block3 = current_block_type_1(ctx);
+    	let if_block4 = /*withdrawalHistory*/ ctx[6].length > 0 && create_if_block$1(ctx);
+    	binding_group = init_binding_group(/*$$binding_groups*/ ctx[15][0]);
+
+    	const block = {
+    		c: function create() {
+    			div18 = element("div");
+    			div13 = element("div");
+    			h2 = element("h2");
+    			h2.textContent = "💰 My Wallet";
+    			t1 = space();
+    			div12 = element("div");
+    			div2 = element("div");
+    			div0 = element("div");
+    			t2 = text("₦");
+    			t3 = text(/*userCoins*/ ctx[0]);
+    			t4 = space();
+    			div1 = element("div");
+    			div1.textContent = "Available Balance";
+    			t6 = space();
+    			div5 = element("div");
+    			div3 = element("div");
+    			t7 = text(t7_value);
+    			t8 = space();
+    			div4 = element("div");
+    			div4.textContent = "Files Uploaded";
+    			t10 = space();
+    			div8 = element("div");
+    			div6 = element("div");
+    			div6.textContent = `₦${/*getTotalEarnings*/ ctx[11]().toFixed(0)}`;
+    			t13 = space();
+    			div7 = element("div");
+    			div7.textContent = "Total Earned";
+    			t15 = space();
+    			div11 = element("div");
+    			div9 = element("div");
+    			div9.textContent = `₦${/*getTotalWithdrawn*/ ctx[12]().toFixed(0)}`;
+    			t18 = space();
+    			div10 = element("div");
+    			div10.textContent = "Total Withdrawn";
+    			t20 = space();
+    			div17 = element("div");
+    			h3 = element("h3");
+    			h3.textContent = "💸 Withdraw Cash";
+    			t22 = space();
+    			if (if_block0) if_block0.c();
+    			t23 = space();
+    			form = element("form");
+    			div14 = element("div");
+    			label0 = element("label");
+    			label0.textContent = "Amount to Withdraw (Naira)";
+    			t25 = space();
+    			input0 = element("input");
+    			t26 = space();
+    			small = element("small");
+    			small.textContent = "Minimum withdrawal: ₦100";
+    			t28 = space();
+    			if (if_block1) if_block1.c();
+    			t29 = space();
+    			div16 = element("div");
+    			label1 = element("label");
+    			label1.textContent = "Withdrawal Method";
+    			t31 = space();
+    			div15 = element("div");
+    			label2 = element("label");
+    			input1 = element("input");
+    			t32 = space();
+    			span0 = element("span");
+    			span0.textContent = "🏦 Bank Transfer";
+    			t34 = space();
+    			label3 = element("label");
+    			input2 = element("input");
+    			t35 = space();
+    			span1 = element("span");
+    			span1.textContent = "📱 Mobile Money";
+    			t37 = space();
+    			if_block2.c();
+    			t38 = space();
+    			button = element("button");
+    			if_block3.c();
+    			t39 = space();
+    			if (if_block4) if_block4.c();
+    			add_location(h2, file$1, 109, 2, 2910);
+    			attr_dev(div0, "class", "stat-value svelte-aiz7np");
+    			add_location(div0, file$1, 113, 4, 2999);
+    			attr_dev(div1, "class", "stat-label svelte-aiz7np");
+    			add_location(div1, file$1, 114, 4, 3047);
+    			attr_dev(div2, "class", "stat-card svelte-aiz7np");
+    			add_location(div2, file$1, 112, 3, 2970);
+    			attr_dev(div3, "class", "stat-value svelte-aiz7np");
+    			add_location(div3, file$1, 117, 4, 3139);
+    			attr_dev(div4, "class", "stat-label svelte-aiz7np");
+    			add_location(div4, file$1, 118, 4, 3197);
+    			attr_dev(div5, "class", "stat-card svelte-aiz7np");
+    			add_location(div5, file$1, 116, 3, 3110);
+    			attr_dev(div6, "class", "stat-value svelte-aiz7np");
+    			add_location(div6, file$1, 121, 4, 3286);
+    			attr_dev(div7, "class", "stat-label svelte-aiz7np");
+    			add_location(div7, file$1, 122, 4, 3354);
+    			attr_dev(div8, "class", "stat-card svelte-aiz7np");
+    			add_location(div8, file$1, 120, 3, 3257);
+    			attr_dev(div9, "class", "stat-value svelte-aiz7np");
+    			add_location(div9, file$1, 125, 4, 3441);
+    			attr_dev(div10, "class", "stat-label svelte-aiz7np");
+    			add_location(div10, file$1, 126, 4, 3510);
+    			attr_dev(div11, "class", "stat-card svelte-aiz7np");
+    			add_location(div11, file$1, 124, 3, 3412);
+    			attr_dev(div12, "class", "wallet-stats svelte-aiz7np");
+    			add_location(div12, file$1, 111, 2, 2939);
+    			attr_dev(div13, "class", "card");
+    			add_location(div13, file$1, 108, 1, 2888);
+    			add_location(h3, file$1, 133, 2, 3639);
+    			attr_dev(label0, "for", "withdrawalAmount");
+    			add_location(label0, file$1, 143, 4, 3915);
+    			attr_dev(input0, "id", "withdrawalAmount");
+    			attr_dev(input0, "type", "number");
+    			attr_dev(input0, "min", "100");
+    			attr_dev(input0, "max", /*userCoins*/ ctx[0]);
+    			attr_dev(input0, "step", "100");
+    			input0.required = true;
+    			add_location(input0, file$1, 144, 4, 3985);
+    			add_location(small, file$1, 153, 4, 4161);
+    			attr_dev(div14, "class", "form-group");
+    			add_location(div14, file$1, 142, 3, 3885);
+    			attr_dev(label1, "for", "withdrawalMethod");
+    			add_location(label1, file$1, 160, 4, 4350);
+    			attr_dev(input1, "type", "radio");
+    			input1.__value = "bank";
+    			input1.value = input1.__value;
+    			attr_dev(input1, "class", "svelte-aiz7np");
+    			add_location(input1, file$1, 163, 6, 4506);
+    			add_location(span0, file$1, 168, 6, 4613);
+    			attr_dev(label2, "class", "method-option svelte-aiz7np");
+    			add_location(label2, file$1, 162, 5, 4469);
+    			attr_dev(input2, "type", "radio");
+    			input2.__value = "mobile";
+    			input2.value = input2.__value;
+    			attr_dev(input2, "class", "svelte-aiz7np");
+    			add_location(input2, file$1, 171, 6, 4701);
+    			add_location(span1, file$1, 176, 6, 4810);
+    			attr_dev(label3, "class", "method-option svelte-aiz7np");
+    			add_location(label3, file$1, 170, 5, 4664);
+    			attr_dev(div15, "class", "method-selector svelte-aiz7np");
+    			attr_dev(div15, "id", "withdrawalMethod");
+    			add_location(div15, file$1, 161, 4, 4411);
+    			attr_dev(div16, "class", "form-group");
+    			add_location(div16, file$1, 159, 3, 4320);
+    			attr_dev(button, "type", "submit");
+    			attr_dev(button, "class", "btn btn-success svelte-aiz7np");
+    			button.disabled = button_disabled_value = /*processingWithdrawal*/ ctx[7] || /*userCoins*/ ctx[0] < 100;
+    			add_location(button, file$1, 239, 3, 6501);
+    			add_location(form, file$1, 141, 2, 3830);
+    			attr_dev(div17, "class", "card");
+    			add_location(div17, file$1, 132, 1, 3617);
+    			attr_dev(div18, "class", "wallet-container svelte-aiz7np");
+    			add_location(div18, file$1, 106, 0, 2828);
+    			binding_group.p(input1, input2);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div18, anchor);
+    			append_dev(div18, div13);
+    			append_dev(div13, h2);
+    			append_dev(div13, t1);
+    			append_dev(div13, div12);
+    			append_dev(div12, div2);
+    			append_dev(div2, div0);
+    			append_dev(div0, t2);
+    			append_dev(div0, t3);
+    			append_dev(div2, t4);
+    			append_dev(div2, div1);
+    			append_dev(div12, t6);
+    			append_dev(div12, div5);
+    			append_dev(div5, div3);
+    			append_dev(div3, t7);
+    			append_dev(div5, t8);
+    			append_dev(div5, div4);
+    			append_dev(div12, t10);
+    			append_dev(div12, div8);
+    			append_dev(div8, div6);
+    			append_dev(div8, t13);
+    			append_dev(div8, div7);
+    			append_dev(div12, t15);
+    			append_dev(div12, div11);
+    			append_dev(div11, div9);
+    			append_dev(div11, t18);
+    			append_dev(div11, div10);
+    			append_dev(div18, t20);
+    			append_dev(div18, div17);
+    			append_dev(div17, h3);
+    			append_dev(div17, t22);
+    			if (if_block0) if_block0.m(div17, null);
+    			append_dev(div17, t23);
+    			append_dev(div17, form);
+    			append_dev(form, div14);
+    			append_dev(div14, label0);
+    			append_dev(div14, t25);
+    			append_dev(div14, input0);
+    			set_input_value(input0, /*withdrawalAmount*/ ctx[2]);
+    			append_dev(div14, t26);
+    			append_dev(div14, small);
+    			append_dev(div14, t28);
+    			if (if_block1) if_block1.m(div14, null);
+    			append_dev(form, t29);
+    			append_dev(form, div16);
+    			append_dev(div16, label1);
+    			append_dev(div16, t31);
+    			append_dev(div16, div15);
+    			append_dev(div15, label2);
+    			append_dev(label2, input1);
+    			input1.checked = input1.__value === /*withdrawalMethod*/ ctx[3];
+    			append_dev(label2, t32);
+    			append_dev(label2, span0);
+    			append_dev(div15, t34);
+    			append_dev(div15, label3);
+    			append_dev(label3, input2);
+    			input2.checked = input2.__value === /*withdrawalMethod*/ ctx[3];
+    			append_dev(label3, t35);
+    			append_dev(label3, span1);
+    			append_dev(form, t37);
+    			if_block2.m(form, null);
+    			append_dev(form, t38);
+    			append_dev(form, button);
+    			if_block3.m(button, null);
+    			append_dev(div18, t39);
+    			if (if_block4) if_block4.m(div18, null);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(input0, "input", /*input0_input_handler*/ ctx[13]),
+    					listen_dev(input1, "change", /*input1_change_handler*/ ctx[14]),
+    					listen_dev(input2, "change", /*input2_change_handler*/ ctx[16]),
+    					listen_dev(form, "submit", prevent_default(/*handleWithdrawal*/ ctx[10]), false, true, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*userCoins*/ 1) set_data_dev(t3, /*userCoins*/ ctx[0]);
+    			if (dirty & /*uploadedFiles*/ 2 && t7_value !== (t7_value = /*uploadedFiles*/ ctx[1].length + "")) set_data_dev(t7, t7_value);
+
+    			if (/*withdrawalSuccess*/ ctx[8]) {
+    				if (if_block0) ; else {
+    					if_block0 = create_if_block_4(ctx);
+    					if_block0.c();
+    					if_block0.m(div17, t23);
+    				}
+    			} else if (if_block0) {
+    				if_block0.d(1);
+    				if_block0 = null;
+    			}
+
+    			if (dirty & /*userCoins*/ 1) {
+    				attr_dev(input0, "max", /*userCoins*/ ctx[0]);
+    			}
+
+    			if (dirty & /*withdrawalAmount*/ 4 && to_number(input0.value) !== /*withdrawalAmount*/ ctx[2]) {
+    				set_input_value(input0, /*withdrawalAmount*/ ctx[2]);
+    			}
+
+    			if (/*withdrawalAmount*/ ctx[2] > 0) {
+    				if (if_block1) {
+    					if_block1.p(ctx, dirty);
+    				} else {
+    					if_block1 = create_if_block_3$1(ctx);
+    					if_block1.c();
+    					if_block1.m(div14, null);
+    				}
+    			} else if (if_block1) {
+    				if_block1.d(1);
+    				if_block1 = null;
+    			}
+
+    			if (dirty & /*withdrawalMethod*/ 8) {
+    				input1.checked = input1.__value === /*withdrawalMethod*/ ctx[3];
+    			}
+
+    			if (dirty & /*withdrawalMethod*/ 8) {
+    				input2.checked = input2.__value === /*withdrawalMethod*/ ctx[3];
+    			}
+
+    			if (current_block_type === (current_block_type = select_block_type(ctx)) && if_block2) {
+    				if_block2.p(ctx, dirty);
+    			} else {
+    				if_block2.d(1);
+    				if_block2 = current_block_type(ctx);
+
+    				if (if_block2) {
+    					if_block2.c();
+    					if_block2.m(form, t38);
+    				}
+    			}
+
+    			if (current_block_type_1 !== (current_block_type_1 = select_block_type_1(ctx))) {
+    				if_block3.d(1);
+    				if_block3 = current_block_type_1(ctx);
+
+    				if (if_block3) {
+    					if_block3.c();
+    					if_block3.m(button, null);
+    				}
+    			}
+
+    			if (dirty & /*processingWithdrawal, userCoins*/ 129 && button_disabled_value !== (button_disabled_value = /*processingWithdrawal*/ ctx[7] || /*userCoins*/ ctx[0] < 100)) {
+    				prop_dev(button, "disabled", button_disabled_value);
+    			}
+
+    			if (/*withdrawalHistory*/ ctx[6].length > 0) {
+    				if (if_block4) {
+    					if_block4.p(ctx, dirty);
+    				} else {
+    					if_block4 = create_if_block$1(ctx);
+    					if_block4.c();
+    					if_block4.m(div18, null);
+    				}
+    			} else if (if_block4) {
+    				if_block4.d(1);
+    				if_block4 = null;
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div18);
+    			if (if_block0) if_block0.d();
+    			if (if_block1) if_block1.d();
+    			if_block2.d();
+    			if_block3.d();
+    			if (if_block4) if_block4.d();
+    			binding_group.r();
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$1.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    const exchangeRate = 100; // 100 coins = $1
+
+    function calculateCashAmount(coins) {
+    	return (coins / exchangeRate).toFixed(2);
+    }
+
+    function calculateCoinsFromCash(cash) {
+    	return Math.floor(cash * exchangeRate);
+    }
+
+    function instance$1($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('WalletComponent', slots, []);
+    	let { userCoins = 0 } = $$props;
+    	let { uploadedFiles = [] } = $$props;
+    	let withdrawalAmount = 0;
+    	let withdrawalMethod = 'bank';
+
+    	let bankDetails = {
+    		accountNumber: '',
+    		bankName: '',
+    		accountName: ''
+    	};
+
+    	let mobileMoneyDetails = { phoneNumber: '', provider: 'mtn' };
+    	let withdrawalHistory = [];
+    	let processingWithdrawal = false;
+    	let withdrawalSuccess = false;
+    	const providers = ['mtn', 'airtel', 'vodafone', 'tigo'];
+
+    	function handleWithdrawal() {
+    		if (withdrawalAmount <= 0) {
+    			alert('Please enter a valid withdrawal amount');
+    			return;
+    		}
+
+    		if (withdrawalAmount > userCoins) {
+    			alert(`You only have ${userCoins} coins available`);
+    			return;
+    		}
+
+    		if (withdrawalMethod === 'bank') {
+    			if (!bankDetails.accountNumber || !bankDetails.bankName || !bankDetails.accountName) {
+    				alert('Please fill in all bank details');
+    				return;
+    			}
+    		} else {
+    			if (!mobileMoneyDetails.phoneNumber) {
+    				alert('Please enter your phone number');
+    				return;
+    			}
+    		}
+
+    		calculateCashAmount(withdrawalAmount);
+
+    		if (confirm(`Withdraw ₦${withdrawalAmount} to your ${withdrawalMethod === 'bank'
+		? 'bank account'
+		: 'mobile money'}?`)) {
+    			$$invalidate(7, processingWithdrawal = true);
+
+    			// Simulate processing
+    			setTimeout(
+    				() => {
+    					const withdrawal = {
+    						id: Date.now(),
+    						amount: withdrawalAmount,
+    						cashAmount: withdrawalAmount, // Same as amount since we're using Naira directly
+    						method: withdrawalMethod,
+    						details: withdrawalMethod === 'bank'
+    						? bankDetails
+    						: mobileMoneyDetails,
+    						date: new Date().toISOString(),
+    						status: 'completed'
+    					};
+
+    					withdrawalHistory.unshift(withdrawal);
+    					localStorage.setItem('withdrawalHistory', JSON.stringify(withdrawalHistory));
+    					$$invalidate(7, processingWithdrawal = false);
+    					$$invalidate(8, withdrawalSuccess = true);
+
+    					// Reset form
+    					$$invalidate(2, withdrawalAmount = 0);
+
+    					$$invalidate(4, bankDetails = {
+    						accountNumber: '',
+    						bankName: '',
+    						accountName: ''
+    					});
+
+    					$$invalidate(5, mobileMoneyDetails = { phoneNumber: '', provider: 'mtn' });
+
+    					// Hide success message after 3 seconds
+    					setTimeout(
+    						() => {
+    							$$invalidate(8, withdrawalSuccess = false);
+    						},
+    						3000
+    					);
+    				},
+    				2000
+    			);
+    		}
+    	}
+
+    	function getTotalEarnings() {
+    		return uploadedFiles.reduce((total, file) => total + file.price, 0);
+    	}
+
+    	function getTotalWithdrawn() {
+    		return withdrawalHistory.reduce((total, withdrawal) => total + withdrawal.cashAmount, 0);
+    	}
+
+    	const writable_props = ['userCoins', 'uploadedFiles'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<WalletComponent> was created with unknown prop '${key}'`);
+    	});
+
+    	const $$binding_groups = [[]];
+
+    	function input0_input_handler() {
+    		withdrawalAmount = to_number(this.value);
+    		$$invalidate(2, withdrawalAmount);
+    	}
+
+    	function input1_change_handler() {
+    		withdrawalMethod = this.__value;
+    		$$invalidate(3, withdrawalMethod);
+    	}
+
+    	function input2_change_handler() {
+    		withdrawalMethod = this.__value;
+    		$$invalidate(3, withdrawalMethod);
+    	}
+
+    	function input0_input_handler_1() {
+    		bankDetails.accountNumber = this.value;
+    		$$invalidate(4, bankDetails);
+    	}
+
+    	function input1_input_handler() {
+    		bankDetails.bankName = this.value;
+    		$$invalidate(4, bankDetails);
+    	}
+
+    	function input2_input_handler() {
+    		bankDetails.accountName = this.value;
+    		$$invalidate(4, bankDetails);
+    	}
+
+    	function input_input_handler() {
+    		mobileMoneyDetails.phoneNumber = this.value;
+    		$$invalidate(5, mobileMoneyDetails);
+    		$$invalidate(9, providers);
+    	}
+
+    	function select_change_handler() {
+    		mobileMoneyDetails.provider = select_value(this);
+    		$$invalidate(5, mobileMoneyDetails);
+    		$$invalidate(9, providers);
+    	}
+
+    	$$self.$$set = $$props => {
+    		if ('userCoins' in $$props) $$invalidate(0, userCoins = $$props.userCoins);
+    		if ('uploadedFiles' in $$props) $$invalidate(1, uploadedFiles = $$props.uploadedFiles);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		userCoins,
+    		uploadedFiles,
+    		withdrawalAmount,
+    		withdrawalMethod,
+    		bankDetails,
+    		mobileMoneyDetails,
+    		withdrawalHistory,
+    		processingWithdrawal,
+    		withdrawalSuccess,
+    		exchangeRate,
+    		providers,
+    		calculateCashAmount,
+    		calculateCoinsFromCash,
+    		handleWithdrawal,
+    		getTotalEarnings,
+    		getTotalWithdrawn
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('userCoins' in $$props) $$invalidate(0, userCoins = $$props.userCoins);
+    		if ('uploadedFiles' in $$props) $$invalidate(1, uploadedFiles = $$props.uploadedFiles);
+    		if ('withdrawalAmount' in $$props) $$invalidate(2, withdrawalAmount = $$props.withdrawalAmount);
+    		if ('withdrawalMethod' in $$props) $$invalidate(3, withdrawalMethod = $$props.withdrawalMethod);
+    		if ('bankDetails' in $$props) $$invalidate(4, bankDetails = $$props.bankDetails);
+    		if ('mobileMoneyDetails' in $$props) $$invalidate(5, mobileMoneyDetails = $$props.mobileMoneyDetails);
+    		if ('withdrawalHistory' in $$props) $$invalidate(6, withdrawalHistory = $$props.withdrawalHistory);
+    		if ('processingWithdrawal' in $$props) $$invalidate(7, processingWithdrawal = $$props.processingWithdrawal);
+    		if ('withdrawalSuccess' in $$props) $$invalidate(8, withdrawalSuccess = $$props.withdrawalSuccess);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	{
+    		const saved = localStorage.getItem('withdrawalHistory');
+
+    		if (saved) {
+    			$$invalidate(6, withdrawalHistory = JSON.parse(saved));
+    		}
+    	}
+
+    	return [
+    		userCoins,
+    		uploadedFiles,
+    		withdrawalAmount,
+    		withdrawalMethod,
+    		bankDetails,
+    		mobileMoneyDetails,
+    		withdrawalHistory,
+    		processingWithdrawal,
+    		withdrawalSuccess,
+    		providers,
+    		handleWithdrawal,
+    		getTotalEarnings,
+    		getTotalWithdrawn,
+    		input0_input_handler,
+    		input1_change_handler,
+    		$$binding_groups,
+    		input2_change_handler,
+    		input0_input_handler_1,
+    		input1_input_handler,
+    		input2_input_handler,
+    		input_input_handler,
+    		select_change_handler
+    	];
+    }
+
+    class WalletComponent extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$1, create_fragment$1, safe_not_equal, { userCoins: 0, uploadedFiles: 1 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "WalletComponent",
+    			options,
+    			id: create_fragment$1.name
+    		});
+    	}
+
+    	get userCoins() {
+    		throw new Error("<WalletComponent>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set userCoins(value) {
+    		throw new Error("<WalletComponent>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get uploadedFiles() {
+    		throw new Error("<WalletComponent>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set uploadedFiles(value) {
+    		throw new Error("<WalletComponent>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    // API Service Layer - Easy to swap between localStorage and FastAPI
+
+    class ApiService {
+      constructor() {
+        this.baseUrl = 'http://localhost:8000'; // FastAPI backend URL
+        this.useLocalStorage = true; // Set to false when backend is ready
+      }
+
+      // User/Coin Management
+      async getUserCoins() {
+        if (this.useLocalStorage) {
+          return parseInt(localStorage.getItem('userCoins') || '0');
+        }
+        // FastAPI call: GET /api/user/coins
+        const response = await fetch(`${this.baseUrl}/api/user/coins`);
+        return response.json();
+      }
+
+      async updateUserCoins(coins) {
+        if (this.useLocalStorage) {
+          localStorage.setItem('userCoins', coins.toString());
+          return coins;
+        }
+        // FastAPI call: PUT /api/user/coins
+        const response = await fetch(`${this.baseUrl}/api/user/coins`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ coins })
+        });
+        return response.json();
+      }
+
+      // File Management
+      async getUploadedFiles() {
+        if (this.useLocalStorage) {
+          return JSON.parse(localStorage.getItem('uploadedFiles') || '[]');
+        }
+        // FastAPI call: GET /api/files/uploaded
+        const response = await fetch(`${this.baseUrl}/api/files/uploaded`);
+        return response.json();
+      }
+
+      async getAvailableFiles() {
+        if (this.useLocalStorage) {
+          return JSON.parse(localStorage.getItem('availableFiles') || '[]');
+        }
+        // FastAPI call: GET /api/files/available
+        const response = await fetch(`${this.baseUrl}/api/files/available`);
+        return response.json();
+      }
+
+      async uploadFile(fileData) {
+        if (this.useLocalStorage) {
+          const files = JSON.parse(localStorage.getItem('uploadedFiles') || '[]');
+          files.push(fileData);
+          localStorage.setItem('uploadedFiles', JSON.stringify(files));
+          return fileData;
+        }
+        // FastAPI call: POST /api/files/upload
+        const formData = new FormData();
+        formData.append('file', fileData.file);
+        formData.append('subject', fileData.subject);
+        formData.append('year', fileData.year);
+        formData.append('examType', fileData.examType);
+        formData.append('description', fileData.description);
+        formData.append('price', fileData.price);
+
+        const response = await fetch(`${this.baseUrl}/api/files/upload`, {
+          method: 'POST',
+          body: formData
+        });
+        return response.json();
+      }
+
+      async downloadFile(fileId) {
+        if (this.useLocalStorage) {
+          // Simulate download
+          return { success: true, message: 'Download started' };
+        }
+        // FastAPI call: GET /api/files/{fileId}/download
+        const response = await fetch(`${this.baseUrl}/api/files/${fileId}/download`);
+        return response.json();
+      }
+
+      // Withdrawal Management
+      async getWithdrawalHistory() {
+        if (this.useLocalStorage) {
+          return JSON.parse(localStorage.getItem('withdrawalHistory') || '[]');
+        }
+        // FastAPI call: GET /api/withdrawals
+        const response = await fetch(`${this.baseUrl}/api/withdrawals`);
+        return response.json();
+      }
+
+      async requestWithdrawal(withdrawalData) {
+        if (this.useLocalStorage) {
+          const history = JSON.parse(localStorage.getItem('withdrawalHistory') || '[]');
+          const withdrawal = {
+            id: Date.now(),
+            ...withdrawalData,
+            date: new Date().toISOString(),
+            status: 'completed'
+          };
+          history.unshift(withdrawal);
+          localStorage.setItem('withdrawalHistory', JSON.stringify(history));
+          return withdrawal;
+        }
+        // FastAPI call: POST /api/withdrawals
+        const response = await fetch(`${this.baseUrl}/api/withdrawals`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(withdrawalData)
+        });
+        return response.json();
+      }
+
+      // Switch to backend mode
+      enableBackend() {
+        this.useLocalStorage = false;
+      }
+
+      // Switch back to localStorage mode
+      enableLocalStorage() {
+        this.useLocalStorage = true;
+      }
+    }
+
+    var api = new ApiService();
+
+    /* src\App.svelte generated by Svelte v3.59.2 */
+    const file = "src\\App.svelte";
+
+    // (219:0) {:else}
+    function create_else_block(ctx) {
+    	let main;
+    	let navheader;
+    	let t;
+    	let div2;
+    	let div1;
+    	let div0;
+    	let current_block_type_index;
+    	let if_block;
+    	let current;
+
+    	navheader = new NavHeader({
+    			props: {
+    				user: /*user*/ ctx[1],
+    				currentView: /*currentView*/ ctx[0]
+    			},
+    			$$inline: true
+    		});
+
+    	navheader.$on("viewChange", /*handleViewChange*/ ctx[8]);
+    	navheader.$on("logout", /*handleLogout*/ ctx[7]);
+    	navheader.$on("showAuth", /*handleShowAuth*/ ctx[9]);
+    	const if_block_creators = [create_if_block_1, create_if_block_2, create_if_block_3];
+    	const if_blocks = [];
+
+    	function select_block_type_1(ctx, dirty) {
+    		if (/*currentView*/ ctx[0] === 'browse') return 0;
+    		if (/*currentView*/ ctx[0] === 'upload') return 1;
+    		if (/*currentView*/ ctx[0] === 'wallet') return 2;
+    		return -1;
+    	}
+
+    	if (~(current_block_type_index = select_block_type_1(ctx))) {
+    		if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+    	}
+
+    	const block = {
+    		c: function create() {
+    			main = element("main");
+    			create_component(navheader.$$.fragment);
+    			t = space();
+    			div2 = element("div");
+    			div1 = element("div");
+    			div0 = element("div");
+    			if (if_block) if_block.c();
+    			attr_dev(div0, "class", "content-area slide-up svelte-l1rmoo");
+    			add_location(div0, file, 230, 4, 5709);
+    			attr_dev(div1, "class", "container svelte-l1rmoo");
+    			add_location(div1, file, 229, 3, 5680);
+    			attr_dev(div2, "class", "app-content svelte-l1rmoo");
+    			add_location(div2, file, 228, 2, 5650);
+    			attr_dev(main, "class", "svelte-l1rmoo");
+    			add_location(main, file, 219, 1, 5485);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, main, anchor);
+    			mount_component(navheader, main, null);
+    			append_dev(main, t);
+    			append_dev(main, div2);
+    			append_dev(div2, div1);
+    			append_dev(div1, div0);
+
+    			if (~current_block_type_index) {
+    				if_blocks[current_block_type_index].m(div0, null);
+    			}
+
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const navheader_changes = {};
+    			if (dirty & /*user*/ 2) navheader_changes.user = /*user*/ ctx[1];
+    			if (dirty & /*currentView*/ 1) navheader_changes.currentView = /*currentView*/ ctx[0];
+    			navheader.$set(navheader_changes);
+    			let previous_block_index = current_block_type_index;
+    			current_block_type_index = select_block_type_1(ctx);
+
+    			if (current_block_type_index === previous_block_index) {
+    				if (~current_block_type_index) {
+    					if_blocks[current_block_type_index].p(ctx, dirty);
+    				}
+    			} else {
+    				if (if_block) {
+    					group_outros();
+
+    					transition_out(if_blocks[previous_block_index], 1, 1, () => {
+    						if_blocks[previous_block_index] = null;
+    					});
+
+    					check_outros();
+    				}
+
+    				if (~current_block_type_index) {
+    					if_block = if_blocks[current_block_type_index];
+
+    					if (!if_block) {
+    						if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+    						if_block.c();
+    					} else {
+    						if_block.p(ctx, dirty);
+    					}
+
+    					transition_in(if_block, 1);
+    					if_block.m(div0, null);
+    				} else {
+    					if_block = null;
+    				}
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(navheader.$$.fragment, local);
+    			transition_in(if_block);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(navheader.$$.fragment, local);
+    			transition_out(if_block);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(main);
+    			destroy_component(navheader);
+
+    			if (~current_block_type_index) {
+    				if_blocks[current_block_type_index].d();
+    			}
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block.name,
+    		type: "else",
+    		source: "(219:0) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (217:0) {#if showLandingPage}
+    function create_if_block(ctx) {
+    	let landingpage;
+    	let current;
+    	landingpage = new LandingPage({ $$inline: true });
+    	landingpage.$on("userLogin", /*handleUserLogin*/ ctx[6]);
+
+    	const block = {
+    		c: function create() {
+    			create_component(landingpage.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(landingpage, target, anchor);
+    			current = true;
+    		},
+    		p: noop,
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(landingpage.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(landingpage.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(landingpage, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block.name,
+    		type: "if",
+    		source: "(217:0) {#if showLandingPage}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (245:40) 
+    function create_if_block_3(ctx) {
+    	let walletcomponent;
+    	let current;
+
+    	walletcomponent = new WalletComponent({
+    			props: {
+    				userCoins: /*userBalance*/ ctx[2],
+    				uploadedFiles: /*uploadedFiles*/ ctx[3]
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(walletcomponent.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(walletcomponent, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const walletcomponent_changes = {};
+    			if (dirty & /*userBalance*/ 4) walletcomponent_changes.userCoins = /*userBalance*/ ctx[2];
+    			if (dirty & /*uploadedFiles*/ 8) walletcomponent_changes.uploadedFiles = /*uploadedFiles*/ ctx[3];
+    			walletcomponent.$set(walletcomponent_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(walletcomponent.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(walletcomponent.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(walletcomponent, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_3.name,
+    		type: "if",
+    		source: "(245:40) ",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (238:40) 
+    function create_if_block_2(ctx) {
+    	let uploadcomponent;
+    	let current;
+
+    	uploadcomponent = new UploadComponent({
+    			props: {
+    				uploadedFiles: /*uploadedFiles*/ ctx[3],
+    				onAddCoins: /*addCoins*/ ctx[10],
+    				onAddUploadedFile: /*addUploadedFile*/ ctx[12],
+    				onAddAvailableFile: /*addAvailableFile*/ ctx[13]
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(uploadcomponent.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(uploadcomponent, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const uploadcomponent_changes = {};
+    			if (dirty & /*uploadedFiles*/ 8) uploadcomponent_changes.uploadedFiles = /*uploadedFiles*/ ctx[3];
+    			uploadcomponent.$set(uploadcomponent_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(uploadcomponent.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(uploadcomponent.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(uploadcomponent, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_2.name,
+    		type: "if",
+    		source: "(238:40) ",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (232:5) {#if currentView === 'browse'}
+    function create_if_block_1(ctx) {
+    	let browsecomponent;
+    	let current;
+
+    	browsecomponent = new BrowseComponent({
+    			props: {
+    				availableFiles: /*availableFiles*/ ctx[4],
+    				userCoins: /*userBalance*/ ctx[2],
+    				onSpendCoins: /*spendCoins*/ ctx[11]
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(browsecomponent.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(browsecomponent, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const browsecomponent_changes = {};
+    			if (dirty & /*availableFiles*/ 16) browsecomponent_changes.availableFiles = /*availableFiles*/ ctx[4];
+    			if (dirty & /*userBalance*/ 4) browsecomponent_changes.userCoins = /*userBalance*/ ctx[2];
+    			browsecomponent.$set(browsecomponent_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(browsecomponent.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(browsecomponent.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(browsecomponent, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_1.name,
+    		type: "if",
+    		source: "(232:5) {#if currentView === 'browse'}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment(ctx) {
+    	let current_block_type_index;
+    	let if_block;
+    	let if_block_anchor;
+    	let current;
+    	const if_block_creators = [create_if_block, create_else_block];
+    	const if_blocks = [];
+
+    	function select_block_type(ctx, dirty) {
+    		if (/*showLandingPage*/ ctx[5]) return 0;
+    		return 1;
+    	}
+
+    	current_block_type_index = select_block_type(ctx);
+    	if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+
+    	const block = {
+    		c: function create() {
+    			if_block.c();
+    			if_block_anchor = empty();
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			if_blocks[current_block_type_index].m(target, anchor);
+    			insert_dev(target, if_block_anchor, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, [dirty]) {
+    			let previous_block_index = current_block_type_index;
+    			current_block_type_index = select_block_type(ctx);
+
+    			if (current_block_type_index === previous_block_index) {
+    				if_blocks[current_block_type_index].p(ctx, dirty);
+    			} else {
+    				group_outros();
+
+    				transition_out(if_blocks[previous_block_index], 1, 1, () => {
+    					if_blocks[previous_block_index] = null;
+    				});
+
+    				check_outros();
+    				if_block = if_blocks[current_block_type_index];
+
+    				if (!if_block) {
+    					if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+    					if_block.c();
+    				} else {
+    					if_block.p(ctx, dirty);
+    				}
+
+    				transition_in(if_block, 1);
+    				if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(if_block);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(if_block);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if_blocks[current_block_type_index].d(detaching);
+    			if (detaching) detach_dev(if_block_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('App', slots, []);
+    	const name = 'PQ Finder';
+    	let currentView = 'browse';
+    	let user = null;
+    	let userBalance = 0;
+    	let uploadedFiles = [];
+    	let availableFiles = [];
+    	let showLandingPage = true;
+
+    	// Sample data to make the site look active
+    	const sampleFiles = [
+    		{
+    			id: 1,
+    			name: "Mathematics_2023_Final_Exam.pdf",
+    			subject: "Mathematics",
+    			year: 2023,
+    			examType: "Final",
+    			description: "Complete final exam with solutions and detailed explanations",
+    			price: 150,
+    			uploadDate: "2024-01-15T10:30:00Z",
+    			size: 2048576,
+    			type: "application/pdf",
+    			downloads: 47,
+    			rating: 4.8
+    		},
+    		{
+    			id: 2,
+    			name: "Physics_Midterm_2023_FREE.pdf",
+    			subject: "Physics",
+    			year: 2023,
+    			examType: "Midterm",
+    			description: "Physics midterm exam covering mechanics and thermodynamics - FREE SAMPLE",
+    			price: 0,
+    			uploadDate: "2024-01-14T14:20:00Z",
+    			size: 1536000,
+    			type: "application/pdf",
+    			downloads: 89,
+    			rating: 4.6,
+    			isFree: true
+    		},
+    		{
+    			id: 3,
+    			name: "Chemistry_Quiz_Collection.pdf",
+    			subject: "Chemistry",
+    			year: 2023,
+    			examType: "Quiz",
+    			description: "Collection of 5 chemistry quizzes with answer keys",
+    			price: 80,
+    			uploadDate: "2024-01-13T09:15:00Z",
+    			size: 1024000,
+    			type: "application/pdf",
+    			downloads: 28,
+    			rating: 4.7
+    		},
+    		{
+    			id: 4,
+    			name: "Computer_Science_Sample_2023_FREE.pdf",
+    			subject: "Computer Science",
+    			year: 2023,
+    			examType: "Final",
+    			description: "Sample Computer Science questions - FREE PREVIEW",
+    			price: 0,
+    			uploadDate: "2024-01-12T16:45:00Z",
+    			size: 1024000,
+    			type: "application/pdf",
+    			downloads: 156,
+    			rating: 4.9,
+    			isFree: true
+    		},
+    		{
+    			id: 5,
+    			name: "Economics_Assignment_2023.docx",
+    			subject: "Economics",
+    			year: 2023,
+    			examType: "Assignment",
+    			description: "Economics assignment with case studies and analysis",
+    			price: 100,
+    			uploadDate: "2024-01-11T11:30:00Z",
+    			size: 512000,
+    			type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    			downloads: 19,
+    			rating: 4.5
+    		},
+    		{
+    			id: 6,
+    			name: "Biology_Lab_Report_FREE.pdf",
+    			subject: "Biology",
+    			year: 2023,
+    			examType: "Assignment",
+    			description: "Sample biology lab report with diagrams - FREE",
+    			price: 0,
+    			uploadDate: "2024-01-10T13:20:00Z",
+    			size: 512000,
+    			type: "application/pdf",
+    			downloads: 67,
+    			rating: 4.4,
+    			isFree: true
+    		},
+    		{
+    			id: 7,
+    			name: "Mathematics_Quiz_Sample_FREE.pdf",
+    			subject: "Mathematics",
+    			year: 2023,
+    			examType: "Quiz",
+    			description: "Free sample mathematics quiz questions",
+    			price: 0,
+    			uploadDate: "2024-01-09T08:15:00Z",
+    			size: 768000,
+    			type: "application/pdf",
+    			downloads: 124,
+    			rating: 4.7,
+    			isFree: true
+    		},
+    		{
+    			id: 8,
+    			name: "Engineering_Design_2023.pdf",
+    			subject: "Engineering",
+    			year: 2023,
+    			examType: "Assignment",
+    			description: "Engineering design project with detailed solutions",
+    			price: 180,
+    			uploadDate: "2024-01-08T15:30:00Z",
+    			size: 2560000,
+    			type: "application/pdf",
+    			downloads: 23,
+    			rating: 4.8
+    		}
+    	];
+
+    	// Load data on mount
+    	onMount(async () => {
+    		// Check if user is already logged in
+    		const savedUser = localStorage.getItem('user');
+
+    		if (savedUser) {
+    			$$invalidate(1, user = JSON.parse(savedUser));
+    			$$invalidate(5, showLandingPage = false);
+    		}
+
+    		$$invalidate(2, userBalance = await api.getUserCoins());
+    		$$invalidate(3, uploadedFiles = await api.getUploadedFiles());
+    		$$invalidate(4, availableFiles = await api.getAvailableFiles());
+
+    		// Add sample data if no files exist
+    		if (availableFiles.length === 0) {
+    			$$invalidate(4, availableFiles = sampleFiles);
+    			localStorage.setItem('availableFiles', JSON.stringify(availableFiles));
+    		}
+    	});
+
+    	function switchView(view) {
+    		$$invalidate(0, currentView = view);
+    	}
+
+    	function handleUserLogin(event) {
+    		$$invalidate(1, user = event.detail);
+    		$$invalidate(1, user.balance = userBalance, user);
+    		$$invalidate(5, showLandingPage = false);
+    		localStorage.setItem('user', JSON.stringify(user));
+    	}
+
+    	function handleLogout() {
+    		$$invalidate(1, user = null);
+    		$$invalidate(5, showLandingPage = true);
+    		localStorage.removeItem('user');
+    	}
+
+    	function handleViewChange(event) {
+    		$$invalidate(0, currentView = event.detail);
+    	}
+
+    	function handleShowAuth() {
+    		$$invalidate(5, showLandingPage = true);
+    	}
+
+    	async function addCoins(amount) {
+    		$$invalidate(2, userBalance += amount);
+
+    		if (user) {
+    			$$invalidate(1, user.balance = userBalance, user);
+    			localStorage.setItem('user', JSON.stringify(user));
+    		}
+
+    		await api.updateUserCoins(userBalance);
+    	}
+
+    	async function spendCoins(amount) {
+    		if (userBalance >= amount) {
+    			$$invalidate(2, userBalance -= amount);
+
+    			if (user) {
+    				$$invalidate(1, user.balance = userBalance, user);
+    				localStorage.setItem('user', JSON.stringify(user));
+    			}
+
+    			await api.updateUserCoins(userBalance);
+    			return true;
+    		}
+
+    		return false;
+    	}
+
+    	async function addUploadedFile(file) {
+    		uploadedFiles.push(file);
+    	} // File will be saved via API service
+
+    	async function addAvailableFile(file) {
+    		availableFiles.push(file);
+    	} // File will be saved via API service
+
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<App> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$capture_state = () => ({
+    		onMount,
+    		LandingPage,
+    		NavHeader,
+    		UploadComponent,
+    		BrowseComponent,
+    		WalletComponent,
+    		api,
+    		name,
+    		currentView,
+    		user,
+    		userBalance,
+    		uploadedFiles,
+    		availableFiles,
+    		showLandingPage,
+    		sampleFiles,
+    		switchView,
+    		handleUserLogin,
+    		handleLogout,
+    		handleViewChange,
+    		handleShowAuth,
+    		addCoins,
+    		spendCoins,
+    		addUploadedFile,
+    		addAvailableFile
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('currentView' in $$props) $$invalidate(0, currentView = $$props.currentView);
+    		if ('user' in $$props) $$invalidate(1, user = $$props.user);
+    		if ('userBalance' in $$props) $$invalidate(2, userBalance = $$props.userBalance);
+    		if ('uploadedFiles' in $$props) $$invalidate(3, uploadedFiles = $$props.uploadedFiles);
+    		if ('availableFiles' in $$props) $$invalidate(4, availableFiles = $$props.availableFiles);
+    		if ('showLandingPage' in $$props) $$invalidate(5, showLandingPage = $$props.showLandingPage);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [
+    		currentView,
+    		user,
+    		userBalance,
+    		uploadedFiles,
+    		availableFiles,
+    		showLandingPage,
+    		handleUserLogin,
+    		handleLogout,
+    		handleViewChange,
+    		handleShowAuth,
+    		addCoins,
+    		spendCoins,
+    		addUploadedFile,
+    		addAvailableFile,
+    		name
+    	];
+    }
+
+    class App extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance, create_fragment, safe_not_equal, { name: 14 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "App",
+    			options,
+    			id: create_fragment.name
+    		});
+    	}
+
+    	get name() {
+    		return this.$$.ctx[14];
+    	}
+
+    	set name(value) {
+    		throw new Error("<App>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    const app = new App({
+    	target: document.body,
+    	props: {
+    		name: 'PQ Finder'
+    	}
+    });
+
+    return app;
+
+})();
 //# sourceMappingURL=bundle.js.map

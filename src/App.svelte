@@ -7,7 +7,7 @@
 	import WalletComponent from './components/WalletComponent.svelte';
 	import api from './services/api.js';
 
-	export let name = 'PQ Finder';
+	export const name = 'PQ Finder';
 	
 	let currentView = 'browse';
 	let user = null;
