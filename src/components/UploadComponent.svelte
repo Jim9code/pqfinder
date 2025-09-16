@@ -371,12 +371,12 @@
 
 						<div class="upload-summary">
 							<div class="summary-item">
-								<span class="summary-label">You will earn:</span>
-								<span class="summary-value">{price} coins</span>
+								<span class="summary-label">File Status:</span>
+								<span class="summary-value">FREE for all students</span>
 							</div>
 							<div class="summary-item">
-								<span class="summary-label">Students will pay:</span>
-								<span class="summary-value">{price} coins</span>
+								<span class="summary-label">Purpose:</span>
+								<span class="summary-value">Help fellow students succeed</span>
 							</div>
 						</div>
 					</div>

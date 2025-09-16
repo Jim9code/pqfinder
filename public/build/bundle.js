@@ -1797,9 +1797,9 @@ var app = (function () {
     			attr_dev(div2, "class", "step-content svelte-1fdt9px");
     			add_location(div2, file$3, 228, 3, 5695);
     			attr_dev(div3, "class", "nav-spacer svelte-1fdt9px");
-    			add_location(div3, file$3, 394, 4, 11197);
+    			add_location(div3, file$3, 394, 4, 11208);
     			attr_dev(div4, "class", "step-navigation svelte-1fdt9px");
-    			add_location(div4, file$3, 386, 3, 11003);
+    			add_location(div4, file$3, 386, 3, 11014);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -2210,10 +2210,10 @@ var app = (function () {
     	let span6;
     	let t26;
     	let span7;
-    	let t29;
+    	let t28;
     	let div10;
     	let span8;
-    	let t31;
+    	let t30;
     	let span9;
     	let if_block = /*description*/ ctx[4] && create_if_block_8(ctx);
 
@@ -2268,17 +2268,17 @@ var app = (function () {
     			div11 = element("div");
     			div9 = element("div");
     			span6 = element("span");
-    			span6.textContent = "You will earn:";
+    			span6.textContent = "File Status:";
     			t26 = space();
     			span7 = element("span");
-    			span7.textContent = `${price} coins`;
-    			t29 = space();
+    			span7.textContent = "FREE for all students";
+    			t28 = space();
     			div10 = element("div");
     			span8 = element("span");
-    			span8.textContent = "Students will pay:";
-    			t31 = space();
+    			span8.textContent = "Purpose:";
+    			t30 = space();
     			span9 = element("span");
-    			span9.textContent = `${price} coins`;
+    			span9.textContent = "Help fellow students succeed";
     			attr_dev(h3, "class", "svelte-1fdt9px");
     			add_location(h3, file$3, 336, 6, 9340);
     			attr_dev(p0, "class", "svelte-1fdt9px");
@@ -2320,15 +2320,15 @@ var app = (function () {
     			attr_dev(span6, "class", "summary-label svelte-1fdt9px");
     			add_location(span6, file$3, 373, 8, 10630);
     			attr_dev(span7, "class", "summary-value svelte-1fdt9px");
-    			add_location(span7, file$3, 374, 8, 10689);
+    			add_location(span7, file$3, 374, 8, 10687);
     			attr_dev(div9, "class", "summary-item svelte-1fdt9px");
     			add_location(div9, file$3, 372, 7, 10594);
     			attr_dev(span8, "class", "summary-label svelte-1fdt9px");
-    			add_location(span8, file$3, 377, 8, 10797);
+    			add_location(span8, file$3, 377, 8, 10803);
     			attr_dev(span9, "class", "summary-value svelte-1fdt9px");
-    			add_location(span9, file$3, 378, 8, 10860);
+    			add_location(span9, file$3, 378, 8, 10856);
     			attr_dev(div10, "class", "summary-item svelte-1fdt9px");
-    			add_location(div10, file$3, 376, 7, 10761);
+    			add_location(div10, file$3, 376, 7, 10767);
     			attr_dev(div11, "class", "upload-summary svelte-1fdt9px");
     			add_location(div11, file$3, 371, 6, 10557);
     			attr_dev(div12, "class", "step-panel svelte-1fdt9px");
@@ -2380,10 +2380,10 @@ var app = (function () {
     			append_dev(div9, span6);
     			append_dev(div9, t26);
     			append_dev(div9, span7);
-    			append_dev(div11, t29);
+    			append_dev(div11, t28);
     			append_dev(div11, div10);
     			append_dev(div10, span8);
-    			append_dev(div10, t31);
+    			append_dev(div10, t30);
     			append_dev(div10, span9);
     		},
     		p: function update(ctx, dirty) {
@@ -3248,9 +3248,9 @@ var app = (function () {
     			span = element("span");
     			span.textContent = "←";
     			t1 = text("\r\n\t\t\t\t\t\tPrevious");
-    			add_location(span, file$3, 389, 6, 11128);
+    			add_location(span, file$3, 389, 6, 11139);
     			attr_dev(button, "class", "btn btn-secondary");
-    			add_location(button, file$3, 388, 5, 11066);
+    			add_location(button, file$3, 388, 5, 11077);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button, anchor);
@@ -3302,7 +3302,7 @@ var app = (function () {
     			if_block.c();
     			attr_dev(button, "class", "btn btn-success upload-btn svelte-1fdt9px");
     			button.disabled = button_disabled_value = /*uploading*/ ctx[5] || !/*canUpload*/ ctx[22]();
-    			add_location(button, file$3, 406, 5, 11444);
+    			add_location(button, file$3, 406, 5, 11455);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button, anchor);
@@ -3363,10 +3363,10 @@ var app = (function () {
     			t0 = text("Next\r\n\t\t\t\t\t\t");
     			span = element("span");
     			span.textContent = "→";
-    			add_location(span, file$3, 403, 6, 11394);
+    			add_location(span, file$3, 403, 6, 11405);
     			attr_dev(button, "class", "btn btn-success");
     			button.disabled = !/*canProceed*/ ctx[21]();
-    			add_location(button, file$3, 397, 5, 11267);
+    			add_location(button, file$3, 397, 5, 11278);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button, anchor);
@@ -3411,7 +3411,7 @@ var app = (function () {
     			t1 = text("\r\n\t\t\t\t\t\t\tUpload & Earn ");
     			t2 = text(price);
     			t3 = text(" Coins");
-    			add_location(span, file$3, 415, 7, 11691);
+    			add_location(span, file$3, 415, 7, 11702);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -3449,7 +3449,7 @@ var app = (function () {
     			span = element("span");
     			t = text("\r\n\t\t\t\t\t\t\tUploading...");
     			attr_dev(span, "class", "loading-spinner svelte-1fdt9px");
-    			add_location(span, file$3, 412, 7, 11609);
+    			add_location(span, file$3, 412, 7, 11620);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
