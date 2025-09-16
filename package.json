@@ -4,8 +4,8 @@
   "description": "A platform for students to upload and share exam past questions",
   "main": "index.js",
   "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
+    "build": "npx rollup -c",
+    "dev": "npx rollup -c -w",
     "start": "sirv public --no-cors",
     "vercel-build": "npm run build"
   },

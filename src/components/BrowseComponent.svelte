@@ -832,6 +832,7 @@
 		word-break: break-word;
 	}
 
+
 	.preview-meta {
 		display: flex;
 		gap: 8px;
