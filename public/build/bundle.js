@@ -3314,9 +3314,7 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (current_block_type === (current_block_type = select_block_type_5(ctx)) && if_block) {
-    				if_block.p(ctx, dirty);
-    			} else {
+    			if (current_block_type !== (current_block_type = select_block_type_5(ctx))) {
     				if_block.d(1);
     				if_block = current_block_type(ctx);
 
@@ -3401,30 +3399,21 @@ var app = (function () {
     function create_else_block_2(ctx) {
     	let span;
     	let t1;
-    	let t2;
-    	let t3;
 
     	const block = {
     		c: function create() {
     			span = element("span");
     			span.textContent = "📤";
-    			t1 = text("\r\n\t\t\t\t\t\t\tUpload & Earn ");
-    			t2 = text(price);
-    			t3 = text(" Coins");
+    			t1 = text("\r\n\t\t\t\t\t\t\tUpload File");
     			add_location(span, file$3, 415, 7, 11702);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
     			insert_dev(target, t1, anchor);
-    			insert_dev(target, t2, anchor);
-    			insert_dev(target, t3, anchor);
     		},
-    		p: noop,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(span);
     			if (detaching) detach_dev(t1);
-    			if (detaching) detach_dev(t2);
-    			if (detaching) detach_dev(t3);
     		}
     	};
 
@@ -3455,7 +3444,6 @@ var app = (function () {
     			insert_dev(target, span, anchor);
     			insert_dev(target, t, anchor);
     		},
-    		p: noop,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(span);
     			if (detaching) detach_dev(t);
@@ -3679,7 +3667,7 @@ var app = (function () {
     	}
 
     	function nextStep() {
-    		if (currentStep < 4) {
+    		if (currentStep < 3) {
     			$$invalidate(7, currentStep++, currentStep);
     		}
     	}

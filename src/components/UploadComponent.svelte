@@ -67,7 +67,7 @@
 	}
 
 	function nextStep() {
-		if (currentStep < 4) {
+		if (currentStep < 3) {
 			currentStep++;
 		}
 	}
@@ -414,7 +414,7 @@
 							Uploading...
 						{:else}
 							<span>📤</span>
-							Upload & Earn {price} Coins
+							Upload File
 						{/if}
 					</button>
 				{/if}
