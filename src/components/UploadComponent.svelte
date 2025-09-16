@@ -13,7 +13,6 @@
 	let year = '';
 	let examType = '';
 	let description = '';
-	let price = 5;
 	let uploading = false;
 	let uploadSuccess = false;
 	let currentStep = 1;
@@ -37,8 +36,7 @@
 	const steps = [
 		{ number: 1, title: 'Select File', description: 'Choose your past question file' },
 		{ number: 2, title: 'Add Details', description: 'Provide subject and exam information' },
-		{ number: 3, title: 'Set Price', description: 'Choose how much to charge' },
-		{ number: 4, title: 'Review & Upload', description: 'Confirm and upload your file' }
+		{ number: 3, title: 'Review & Upload', description: 'Confirm and upload your file' }
 	];
 
 	function handleFileSelect(event) {
@@ -103,7 +101,7 @@
 				year,
 				examType,
 				description,
-				price,
+				price: 0, // All files are free
 				uploadDate: new Date().toISOString(),
 				size: selectedFile.size,
 				type: selectedFile.type,
@@ -125,12 +123,7 @@
 				dispatch('addAvailableFile', fileData);
 			}
 			
-			// Award coins to uploader
-			if (onAddCoins) {
-				onAddCoins(price);
-			} else {
-				dispatch('addCoins', price);
-			}
+			// No payment system - files are free
 
 			uploading = false;
 			uploadSuccess = true;
@@ -178,13 +171,12 @@
 		switch(currentStep) {
 			case 1: return selectedFile;
 			case 2: return subject && year && examType;
-			case 3: return price > 0;
 			default: return true;
 		}
 	}
 
 	function canUpload() {
-		return selectedFile && subject && year && examType && price > 0;
+		return selectedFile && subject && year && examType;
 	}
 </script>
 
@@ -192,7 +184,7 @@
 	<div class="card">
 		<div class="upload-header">
 			<h2>📤 Upload Past Questions</h2>
-			<p>Share your knowledge and earn coins when students download your files</p>
+			<p>Share your knowledge and help fellow students succeed</p>
 		</div>
 
 		{#if uploadSuccess}
@@ -200,7 +192,7 @@
 				<div class="success-content">
 					<div class="success-icon">🎉</div>
 					<h3>Upload Successful!</h3>
-					<p>You earned <span class="coins-earned">₦{price}</span> for your upload</p>
+					<p>Your file has been uploaded successfully!</p>
 					<button class="btn btn-success" on:click={() => uploadSuccess = false}>
 						Upload Another File
 					</button>
@@ -340,60 +332,6 @@
 					</div>
 
 				{:else if currentStep === 3}
-					<!-- Step 3: Set Price -->
-					<div class="step-panel">
-						<h3>💰 Set Your Price</h3>
-						<p>Choose how much students will pay to download your file</p>
-						
-						<div class="price-section">
-							<div class="price-display">
-								<span class="price-amount">₦{price}</span>
-								<span class="price-label">Naira</span>
-							</div>
-							
-							<div class="price-slider-container">
-								<input 
-									type="range" 
-									min="1" 
-									max="50" 
-									bind:value={price}
-									class="price-slider"
-								/>
-								<div class="price-labels">
-									<span>₦1</span>
-									<span>₦500</span>
-								</div>
-							</div>
-
-							<div class="price-suggestions">
-								<div class="suggestion-item" on:click={() => price = 50}>
-									<span class="suggestion-price">₦50</span>
-									<span class="suggestion-label">Basic</span>
-								</div>
-								<div class="suggestion-item" on:click={() => price = 150}>
-									<span class="suggestion-price">₦150</span>
-									<span class="suggestion-label">Standard</span>
-								</div>
-								<div class="suggestion-item" on:click={() => price = 300}>
-									<span class="suggestion-price">₦300</span>
-									<span class="suggestion-label">Premium</span>
-								</div>
-							</div>
-
-							<div class="price-tips">
-								<div class="tip-item">
-									<span class="tip-icon">💡</span>
-									<span class="tip-text">Higher quality files typically earn more Naira</span>
-								</div>
-								<div class="tip-item">
-									<span class="tip-icon">📊</span>
-									<span class="tip-text">You can adjust the price later</span>
-								</div>
-							</div>
-						</div>
-					</div>
-
-				{:else if currentStep === 4}
 					<!-- Step 4: Review & Upload -->
 					<div class="step-panel">
 						<h3>🔍 Review & Upload</h3>
@@ -406,7 +344,7 @@
 									<h4>{selectedFile?.name}</h4>
 									<p>{formatFileSize(selectedFile?.size)}</p>
 								</div>
-								<div class="review-price">₦{price}</div>
+								<div class="review-price">FREE</div>
 							</div>
 							
 							<div class="review-details">
@@ -456,7 +394,7 @@
 				
 				<div class="nav-spacer"></div>
 				
-				{#if currentStep < 4}
+				{#if currentStep < 3}
 					<button 
 						class="btn btn-success" 
 						on:click={nextStep}

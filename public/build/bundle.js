@@ -1711,30 +1711,30 @@ var app = (function () {
 
     function get_each_context$2(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[43] = list[i];
+    	child_ctx[38] = list[i];
     	return child_ctx;
     }
 
     function get_each_context_1$2(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[46] = list[i];
+    	child_ctx[41] = list[i];
     	return child_ctx;
     }
 
     function get_each_context_2$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[49] = list[i];
+    	child_ctx[44] = list[i];
     	return child_ctx;
     }
 
     function get_each_context_3$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[52] = list[i];
-    	child_ctx[54] = i;
+    	child_ctx[47] = list[i];
+    	child_ctx[49] = i;
     	return child_ctx;
     }
 
-    // (209:2) {:else}
+    // (201:2) {:else}
     function create_else_block$3(ctx) {
     	let div1;
     	let div0;
@@ -1745,7 +1745,7 @@ var app = (function () {
     	let t2;
     	let div3;
     	let t3;
-    	let each_value_3 = /*steps*/ ctx[13];
+    	let each_value_3 = /*steps*/ ctx[12];
     	validate_each_argument(each_value_3);
     	let each_blocks = [];
 
@@ -1754,18 +1754,17 @@ var app = (function () {
     	}
 
     	function select_block_type_2(ctx, dirty) {
-    		if (/*currentStep*/ ctx[8] === 1) return create_if_block_4$2;
-    		if (/*currentStep*/ ctx[8] === 2) return create_if_block_6$1;
-    		if (/*currentStep*/ ctx[8] === 3) return create_if_block_7;
-    		if (/*currentStep*/ ctx[8] === 4) return create_if_block_8;
+    		if (/*currentStep*/ ctx[7] === 1) return create_if_block_4$2;
+    		if (/*currentStep*/ ctx[7] === 2) return create_if_block_6$1;
+    		if (/*currentStep*/ ctx[7] === 3) return create_if_block_7;
     	}
 
     	let current_block_type = select_block_type_2(ctx);
     	let if_block0 = current_block_type && current_block_type(ctx);
-    	let if_block1 = /*currentStep*/ ctx[8] > 1 && create_if_block_3$3(ctx);
+    	let if_block1 = /*currentStep*/ ctx[7] > 1 && create_if_block_3$3(ctx);
 
     	function select_block_type_4(ctx, dirty) {
-    		if (/*currentStep*/ ctx[8] < 4) return create_if_block_1$3;
+    		if (/*currentStep*/ ctx[7] < 3) return create_if_block_1$3;
     		return create_else_block_1$2;
     	}
 
@@ -1792,15 +1791,15 @@ var app = (function () {
     			t3 = space();
     			if_block2.c();
     			attr_dev(div0, "class", "steps-progress svelte-1fdt9px");
-    			add_location(div0, file$3, 211, 4, 5276);
+    			add_location(div0, file$3, 203, 4, 5029);
     			attr_dev(div1, "class", "steps-container svelte-1fdt9px");
-    			add_location(div1, file$3, 210, 3, 5241);
+    			add_location(div1, file$3, 202, 3, 4994);
     			attr_dev(div2, "class", "step-content svelte-1fdt9px");
-    			add_location(div2, file$3, 236, 3, 5942);
+    			add_location(div2, file$3, 228, 3, 5695);
     			attr_dev(div3, "class", "nav-spacer svelte-1fdt9px");
-    			add_location(div3, file$3, 456, 4, 13223);
+    			add_location(div3, file$3, 394, 4, 11197);
     			attr_dev(div4, "class", "step-navigation svelte-1fdt9px");
-    			add_location(div4, file$3, 448, 3, 13029);
+    			add_location(div4, file$3, 386, 3, 11003);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -1824,8 +1823,8 @@ var app = (function () {
     			if_block2.m(div4, null);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*currentStep, steps, goToStep*/ 1057024) {
-    				each_value_3 = /*steps*/ ctx[13];
+    			if (dirty[0] & /*currentStep, steps, goToStep*/ 528512) {
+    				each_value_3 = /*steps*/ ctx[12];
     				validate_each_argument(each_value_3);
     				let i;
 
@@ -1860,7 +1859,7 @@ var app = (function () {
     				}
     			}
 
-    			if (/*currentStep*/ ctx[8] > 1) {
+    			if (/*currentStep*/ ctx[7] > 1) {
     				if (if_block1) {
     					if_block1.p(ctx, dirty);
     				} else {
@@ -1906,14 +1905,14 @@ var app = (function () {
     		block,
     		id: create_else_block$3.name,
     		type: "else",
-    		source: "(209:2) {:else}",
+    		source: "(201:2) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (198:2) {#if uploadSuccess}
+    // (190:2) {#if uploadSuccess}
     function create_if_block$3(ctx) {
     	let div2;
     	let div1;
@@ -1922,12 +1921,7 @@ var app = (function () {
     	let h3;
     	let t3;
     	let p;
-    	let t4;
-    	let span;
     	let t5;
-    	let t6;
-    	let t7;
-    	let t8;
     	let button;
     	let mounted;
     	let dispose;
@@ -1943,28 +1937,22 @@ var app = (function () {
     			h3.textContent = "Upload Successful!";
     			t3 = space();
     			p = element("p");
-    			t4 = text("You earned ");
-    			span = element("span");
-    			t5 = text("₦");
-    			t6 = text(/*price*/ ctx[5]);
-    			t7 = text(" for your upload");
-    			t8 = space();
+    			p.textContent = "Your file has been uploaded successfully!";
+    			t5 = space();
     			button = element("button");
     			button.textContent = "Upload Another File";
     			attr_dev(div0, "class", "success-icon svelte-1fdt9px");
-    			add_location(div0, file$3, 200, 5, 4902);
+    			add_location(div0, file$3, 192, 5, 4683);
     			attr_dev(h3, "class", "svelte-1fdt9px");
-    			add_location(h3, file$3, 201, 5, 4943);
-    			attr_dev(span, "class", "coins-earned svelte-1fdt9px");
-    			add_location(span, file$3, 202, 19, 4991);
+    			add_location(h3, file$3, 193, 5, 4724);
     			attr_dev(p, "class", "svelte-1fdt9px");
-    			add_location(p, file$3, 202, 5, 4977);
+    			add_location(p, file$3, 194, 5, 4758);
     			attr_dev(button, "class", "btn btn-success");
-    			add_location(button, file$3, 203, 5, 5060);
+    			add_location(button, file$3, 195, 5, 4813);
     			attr_dev(div1, "class", "success-content svelte-1fdt9px");
-    			add_location(div1, file$3, 199, 4, 4866);
+    			add_location(div1, file$3, 191, 4, 4647);
     			attr_dev(div2, "class", "success-modal svelte-1fdt9px");
-    			add_location(div2, file$3, 198, 3, 4833);
+    			add_location(div2, file$3, 190, 3, 4614);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div2, anchor);
@@ -1974,22 +1962,15 @@ var app = (function () {
     			append_dev(div1, h3);
     			append_dev(div1, t3);
     			append_dev(div1, p);
-    			append_dev(p, t4);
-    			append_dev(p, span);
-    			append_dev(span, t5);
-    			append_dev(span, t6);
-    			append_dev(p, t7);
-    			append_dev(div1, t8);
+    			append_dev(div1, t5);
     			append_dev(div1, button);
 
     			if (!mounted) {
-    				dispose = listen_dev(button, "click", /*click_handler*/ ctx[28], false, false, false, false);
+    				dispose = listen_dev(button, "click", /*click_handler*/ ctx[27], false, false, false, false);
     				mounted = true;
     			}
     		},
-    		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*price*/ 32) set_data_dev(t6, /*price*/ ctx[5]);
-    		},
+    		p: noop,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div2);
     			mounted = false;
@@ -2001,16 +1982,16 @@ var app = (function () {
     		block,
     		id: create_if_block$3.name,
     		type: "if",
-    		source: "(198:2) {#if uploadSuccess}",
+    		source: "(190:2) {#if uploadSuccess}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (223:8) {:else}
+    // (215:8) {:else}
     function create_else_block_4(ctx) {
-    	let t_value = /*step*/ ctx[52].number + "";
+    	let t_value = /*step*/ ctx[47].number + "";
     	let t;
 
     	const block = {
@@ -2030,15 +2011,15 @@ var app = (function () {
     		block,
     		id: create_else_block_4.name,
     		type: "else",
-    		source: "(223:8) {:else}",
+    		source: "(215:8) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (221:8) {#if currentStep > step.number}
-    function create_if_block_10(ctx) {
+    // (213:8) {#if currentStep > step.number}
+    function create_if_block_9(ctx) {
     	let t;
 
     	const block = {
@@ -2056,34 +2037,34 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_10.name,
+    		id: create_if_block_9.name,
     		type: "if",
-    		source: "(221:8) {#if currentStep > step.number}",
+    		source: "(213:8) {#if currentStep > step.number}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (213:5) {#each steps as step, index}
+    // (205:5) {#each steps as step, index}
     function create_each_block_3$1(ctx) {
     	let div4;
     	let div0;
     	let t0;
     	let div3;
     	let div1;
-    	let t1_value = /*step*/ ctx[52].title + "";
+    	let t1_value = /*step*/ ctx[47].title + "";
     	let t1;
     	let t2;
     	let div2;
-    	let t3_value = /*step*/ ctx[52].description + "";
+    	let t3_value = /*step*/ ctx[47].description + "";
     	let t3;
     	let t4;
     	let mounted;
     	let dispose;
 
     	function select_block_type_1(ctx, dirty) {
-    		if (/*currentStep*/ ctx[8] > /*step*/ ctx[52].number) return create_if_block_10;
+    		if (/*currentStep*/ ctx[7] > /*step*/ ctx[47].number) return create_if_block_9;
     		return create_else_block_4;
     	}
 
@@ -2091,7 +2072,7 @@ var app = (function () {
     	let if_block = current_block_type(ctx);
 
     	function click_handler_1() {
-    		return /*click_handler_1*/ ctx[29](/*step*/ ctx[52]);
+    		return /*click_handler_1*/ ctx[28](/*step*/ ctx[47]);
     	}
 
     	const block = {
@@ -2108,17 +2089,17 @@ var app = (function () {
     			t3 = text(t3_value);
     			t4 = space();
     			attr_dev(div0, "class", "step-number svelte-1fdt9px");
-    			add_location(div0, file$3, 219, 7, 5546);
+    			add_location(div0, file$3, 211, 7, 5299);
     			attr_dev(div1, "class", "step-title svelte-1fdt9px");
-    			add_location(div1, file$3, 227, 8, 5737);
+    			add_location(div1, file$3, 219, 8, 5490);
     			attr_dev(div2, "class", "step-description svelte-1fdt9px");
-    			add_location(div2, file$3, 228, 8, 5789);
+    			add_location(div2, file$3, 220, 8, 5542);
     			attr_dev(div3, "class", "step-info svelte-1fdt9px");
-    			add_location(div3, file$3, 226, 7, 5704);
+    			add_location(div3, file$3, 218, 7, 5457);
     			attr_dev(div4, "class", "step-item svelte-1fdt9px");
-    			toggle_class(div4, "active", /*currentStep*/ ctx[8] === /*step*/ ctx[52].number);
-    			toggle_class(div4, "completed", /*currentStep*/ ctx[8] > /*step*/ ctx[52].number);
-    			add_location(div4, file$3, 213, 6, 5347);
+    			toggle_class(div4, "active", /*currentStep*/ ctx[7] === /*step*/ ctx[47].number);
+    			toggle_class(div4, "completed", /*currentStep*/ ctx[7] > /*step*/ ctx[47].number);
+    			add_location(div4, file$3, 205, 6, 5100);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div4, anchor);
@@ -2153,12 +2134,12 @@ var app = (function () {
     				}
     			}
 
-    			if (dirty[0] & /*currentStep, steps*/ 8448) {
-    				toggle_class(div4, "active", /*currentStep*/ ctx[8] === /*step*/ ctx[52].number);
+    			if (dirty[0] & /*currentStep, steps*/ 4224) {
+    				toggle_class(div4, "active", /*currentStep*/ ctx[7] === /*step*/ ctx[47].number);
     			}
 
-    			if (dirty[0] & /*currentStep, steps*/ 8448) {
-    				toggle_class(div4, "completed", /*currentStep*/ ctx[8] > /*step*/ ctx[52].number);
+    			if (dirty[0] & /*currentStep, steps*/ 4224) {
+    				toggle_class(div4, "completed", /*currentStep*/ ctx[7] > /*step*/ ctx[47].number);
     			}
     		},
     		d: function destroy(detaching) {
@@ -2173,15 +2154,15 @@ var app = (function () {
     		block,
     		id: create_each_block_3$1.name,
     		type: "each",
-    		source: "(213:5) {#each steps as step, index}",
+    		source: "(205:5) {#each steps as step, index}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (396:32) 
-    function create_if_block_8(ctx) {
+    // (334:32) 
+    function create_if_block_7(ctx) {
     	let div12;
     	let h3;
     	let t1;
@@ -2203,44 +2184,38 @@ var app = (function () {
     	let t8;
     	let t9;
     	let div2;
-    	let t10;
     	let t11;
-    	let t12;
     	let div7;
     	let div4;
     	let span0;
-    	let t14;
+    	let t13;
     	let span1;
+    	let t14;
     	let t15;
-    	let t16;
     	let div5;
     	let span2;
-    	let t18;
+    	let t17;
     	let span3;
+    	let t18;
     	let t19;
-    	let t20;
     	let div6;
     	let span4;
-    	let t22;
+    	let t21;
     	let span5;
+    	let t22;
     	let t23;
     	let t24;
-    	let t25;
     	let div11;
     	let div9;
     	let span6;
-    	let t27;
+    	let t26;
     	let span7;
-    	let t28;
     	let t29;
-    	let t30;
     	let div10;
     	let span8;
-    	let t32;
+    	let t31;
     	let span9;
-    	let t33;
-    	let t34;
-    	let if_block = /*description*/ ctx[4] && create_if_block_9(ctx);
+    	let if_block = /*description*/ ctx[4] && create_if_block_8(ctx);
 
     	const block = {
     		c: function create() {
@@ -2264,103 +2239,100 @@ var app = (function () {
     			t8 = text(t8_value);
     			t9 = space();
     			div2 = element("div");
-    			t10 = text("₦");
-    			t11 = text(/*price*/ ctx[5]);
-    			t12 = space();
+    			div2.textContent = "FREE";
+    			t11 = space();
     			div7 = element("div");
     			div4 = element("div");
     			span0 = element("span");
     			span0.textContent = "Subject:";
-    			t14 = space();
+    			t13 = space();
     			span1 = element("span");
-    			t15 = text(/*subject*/ ctx[1]);
-    			t16 = space();
+    			t14 = text(/*subject*/ ctx[1]);
+    			t15 = space();
     			div5 = element("div");
     			span2 = element("span");
     			span2.textContent = "Year:";
-    			t18 = space();
+    			t17 = space();
     			span3 = element("span");
-    			t19 = text(/*year*/ ctx[2]);
-    			t20 = space();
+    			t18 = text(/*year*/ ctx[2]);
+    			t19 = space();
     			div6 = element("div");
     			span4 = element("span");
     			span4.textContent = "Type:";
-    			t22 = space();
+    			t21 = space();
     			span5 = element("span");
-    			t23 = text(/*examType*/ ctx[3]);
-    			t24 = space();
+    			t22 = text(/*examType*/ ctx[3]);
+    			t23 = space();
     			if (if_block) if_block.c();
-    			t25 = space();
+    			t24 = space();
     			div11 = element("div");
     			div9 = element("div");
     			span6 = element("span");
     			span6.textContent = "You will earn:";
-    			t27 = space();
+    			t26 = space();
     			span7 = element("span");
-    			t28 = text(/*price*/ ctx[5]);
-    			t29 = text(" coins");
-    			t30 = space();
+    			span7.textContent = `${price} coins`;
+    			t29 = space();
     			div10 = element("div");
     			span8 = element("span");
     			span8.textContent = "Students will pay:";
-    			t32 = space();
+    			t31 = space();
     			span9 = element("span");
-    			t33 = text(/*price*/ ctx[5]);
-    			t34 = text(" coins");
+    			span9.textContent = `${price} coins`;
     			attr_dev(h3, "class", "svelte-1fdt9px");
-    			add_location(h3, file$3, 398, 6, 11362);
+    			add_location(h3, file$3, 336, 6, 9340);
     			attr_dev(p0, "class", "svelte-1fdt9px");
-    			add_location(p0, file$3, 399, 6, 11397);
+    			add_location(p0, file$3, 337, 6, 9375);
     			attr_dev(div0, "class", "review-file-icon svelte-1fdt9px");
-    			add_location(div0, file$3, 403, 8, 11532);
+    			add_location(div0, file$3, 341, 8, 9510);
     			attr_dev(h4, "class", "svelte-1fdt9px");
-    			add_location(h4, file$3, 405, 9, 11652);
+    			add_location(h4, file$3, 343, 9, 9630);
     			attr_dev(p1, "class", "svelte-1fdt9px");
-    			add_location(p1, file$3, 406, 9, 11692);
+    			add_location(p1, file$3, 344, 9, 9670);
     			attr_dev(div1, "class", "review-file-info svelte-1fdt9px");
-    			add_location(div1, file$3, 404, 8, 11611);
+    			add_location(div1, file$3, 342, 8, 9589);
     			attr_dev(div2, "class", "review-price svelte-1fdt9px");
-    			add_location(div2, file$3, 408, 8, 11761);
+    			add_location(div2, file$3, 346, 8, 9739);
     			attr_dev(div3, "class", "review-header svelte-1fdt9px");
-    			add_location(div3, file$3, 402, 7, 11495);
+    			add_location(div3, file$3, 340, 7, 9473);
     			attr_dev(span0, "class", "detail-label svelte-1fdt9px");
-    			add_location(span0, file$3, 413, 9, 11910);
+    			add_location(span0, file$3, 351, 9, 9884);
     			attr_dev(span1, "class", "detail-value svelte-1fdt9px");
-    			add_location(span1, file$3, 414, 9, 11963);
+    			add_location(span1, file$3, 352, 9, 9937);
     			attr_dev(div4, "class", "review-detail svelte-1fdt9px");
-    			add_location(div4, file$3, 412, 8, 11872);
+    			add_location(div4, file$3, 350, 8, 9846);
     			attr_dev(span2, "class", "detail-label svelte-1fdt9px");
-    			add_location(span2, file$3, 417, 9, 12070);
+    			add_location(span2, file$3, 355, 9, 10044);
     			attr_dev(span3, "class", "detail-value svelte-1fdt9px");
-    			add_location(span3, file$3, 418, 9, 12120);
+    			add_location(span3, file$3, 356, 9, 10094);
     			attr_dev(div5, "class", "review-detail svelte-1fdt9px");
-    			add_location(div5, file$3, 416, 8, 12032);
+    			add_location(div5, file$3, 354, 8, 10006);
     			attr_dev(span4, "class", "detail-label svelte-1fdt9px");
-    			add_location(span4, file$3, 421, 9, 12224);
+    			add_location(span4, file$3, 359, 9, 10198);
     			attr_dev(span5, "class", "detail-value svelte-1fdt9px");
-    			add_location(span5, file$3, 422, 9, 12274);
+    			add_location(span5, file$3, 360, 9, 10248);
     			attr_dev(div6, "class", "review-detail svelte-1fdt9px");
-    			add_location(div6, file$3, 420, 8, 12186);
+    			add_location(div6, file$3, 358, 8, 10160);
     			attr_dev(div7, "class", "review-details svelte-1fdt9px");
-    			add_location(div7, file$3, 411, 7, 11834);
+    			add_location(div7, file$3, 349, 7, 9808);
     			attr_dev(div8, "class", "review-card svelte-1fdt9px");
-    			add_location(div8, file$3, 401, 6, 11461);
+    			add_location(div8, file$3, 339, 6, 9439);
     			attr_dev(span6, "class", "summary-label svelte-1fdt9px");
-    			add_location(span6, file$3, 435, 8, 12656);
+    			add_location(span6, file$3, 373, 8, 10630);
     			attr_dev(span7, "class", "summary-value svelte-1fdt9px");
-    			add_location(span7, file$3, 436, 8, 12715);
+    			add_location(span7, file$3, 374, 8, 10689);
     			attr_dev(div9, "class", "summary-item svelte-1fdt9px");
-    			add_location(div9, file$3, 434, 7, 12620);
+    			add_location(div9, file$3, 372, 7, 10594);
     			attr_dev(span8, "class", "summary-label svelte-1fdt9px");
-    			add_location(span8, file$3, 439, 8, 12823);
+    			add_location(span8, file$3, 377, 8, 10797);
     			attr_dev(span9, "class", "summary-value svelte-1fdt9px");
-    			add_location(span9, file$3, 440, 8, 12886);
+    			add_location(span9, file$3, 378, 8, 10860);
     			attr_dev(div10, "class", "summary-item svelte-1fdt9px");
-    			add_location(div10, file$3, 438, 7, 12787);
+    			add_location(div10, file$3, 376, 7, 10761);
     			attr_dev(div11, "class", "upload-summary svelte-1fdt9px");
-    			add_location(div11, file$3, 433, 6, 12583);
+    			add_location(div11, file$3, 371, 6, 10557);
     			attr_dev(div12, "class", "step-panel svelte-1fdt9px");
-    			add_location(div12, file$3, 397, 5, 11330);
+    			add_location(div12, file$3, 335, 5, 9308);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div12, anchor);
@@ -2381,59 +2353,52 @@ var app = (function () {
     			append_dev(p1, t8);
     			append_dev(div3, t9);
     			append_dev(div3, div2);
-    			append_dev(div2, t10);
-    			append_dev(div2, t11);
-    			append_dev(div8, t12);
+    			append_dev(div8, t11);
     			append_dev(div8, div7);
     			append_dev(div7, div4);
     			append_dev(div4, span0);
-    			append_dev(div4, t14);
+    			append_dev(div4, t13);
     			append_dev(div4, span1);
-    			append_dev(span1, t15);
-    			append_dev(div7, t16);
+    			append_dev(span1, t14);
+    			append_dev(div7, t15);
     			append_dev(div7, div5);
     			append_dev(div5, span2);
-    			append_dev(div5, t18);
+    			append_dev(div5, t17);
     			append_dev(div5, span3);
-    			append_dev(span3, t19);
-    			append_dev(div7, t20);
+    			append_dev(span3, t18);
+    			append_dev(div7, t19);
     			append_dev(div7, div6);
     			append_dev(div6, span4);
-    			append_dev(div6, t22);
+    			append_dev(div6, t21);
     			append_dev(div6, span5);
-    			append_dev(span5, t23);
-    			append_dev(div7, t24);
+    			append_dev(span5, t22);
+    			append_dev(div7, t23);
     			if (if_block) if_block.m(div7, null);
-    			append_dev(div12, t25);
+    			append_dev(div12, t24);
     			append_dev(div12, div11);
     			append_dev(div11, div9);
     			append_dev(div9, span6);
-    			append_dev(div9, t27);
+    			append_dev(div9, t26);
     			append_dev(div9, span7);
-    			append_dev(span7, t28);
-    			append_dev(span7, t29);
-    			append_dev(div11, t30);
+    			append_dev(div11, t29);
     			append_dev(div11, div10);
     			append_dev(div10, span8);
-    			append_dev(div10, t32);
+    			append_dev(div10, t31);
     			append_dev(div10, span9);
-    			append_dev(span9, t33);
-    			append_dev(span9, t34);
     		},
     		p: function update(ctx, dirty) {
     			if (dirty[0] & /*selectedFile*/ 1 && t4_value !== (t4_value = getFileIcon$1(/*selectedFile*/ ctx[0]?.type) + "")) set_data_dev(t4, t4_value);
     			if (dirty[0] & /*selectedFile*/ 1 && t6_value !== (t6_value = /*selectedFile*/ ctx[0]?.name + "")) set_data_dev(t6, t6_value);
     			if (dirty[0] & /*selectedFile*/ 1 && t8_value !== (t8_value = formatFileSize$1(/*selectedFile*/ ctx[0]?.size) + "")) set_data_dev(t8, t8_value);
-    			if (dirty[0] & /*price*/ 32) set_data_dev(t11, /*price*/ ctx[5]);
-    			if (dirty[0] & /*subject*/ 2) set_data_dev(t15, /*subject*/ ctx[1]);
-    			if (dirty[0] & /*year*/ 4) set_data_dev(t19, /*year*/ ctx[2]);
-    			if (dirty[0] & /*examType*/ 8) set_data_dev(t23, /*examType*/ ctx[3]);
+    			if (dirty[0] & /*subject*/ 2) set_data_dev(t14, /*subject*/ ctx[1]);
+    			if (dirty[0] & /*year*/ 4) set_data_dev(t18, /*year*/ ctx[2]);
+    			if (dirty[0] & /*examType*/ 8) set_data_dev(t22, /*examType*/ ctx[3]);
 
     			if (/*description*/ ctx[4]) {
     				if (if_block) {
     					if_block.p(ctx, dirty);
     				} else {
-    					if_block = create_if_block_9(ctx);
+    					if_block = create_if_block_8(ctx);
     					if_block.c();
     					if_block.m(div7, null);
     				}
@@ -2441,9 +2406,6 @@ var app = (function () {
     				if_block.d(1);
     				if_block = null;
     			}
-
-    			if (dirty[0] & /*price*/ 32) set_data_dev(t28, /*price*/ ctx[5]);
-    			if (dirty[0] & /*price*/ 32) set_data_dev(t33, /*price*/ ctx[5]);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div12);
@@ -2453,279 +2415,16 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_8.name,
-    		type: "if",
-    		source: "(396:32) ",
-    		ctx
-    	});
-
-    	return block;
-    }
-
-    // (342:32) 
-    function create_if_block_7(ctx) {
-    	let div11;
-    	let h3;
-    	let t1;
-    	let p;
-    	let t3;
-    	let div10;
-    	let div0;
-    	let span0;
-    	let t4;
-    	let t5;
-    	let t6;
-    	let span1;
-    	let t8;
-    	let div2;
-    	let input;
-    	let t9;
-    	let div1;
-    	let span2;
-    	let t11;
-    	let span3;
-    	let t13;
-    	let div6;
-    	let div3;
-    	let span4;
-    	let t15;
-    	let span5;
-    	let t17;
-    	let div4;
-    	let span6;
-    	let t19;
-    	let span7;
-    	let t21;
-    	let div5;
-    	let span8;
-    	let t23;
-    	let span9;
-    	let t25;
-    	let div9;
-    	let div7;
-    	let span10;
-    	let t27;
-    	let span11;
-    	let t29;
-    	let div8;
-    	let span12;
-    	let t31;
-    	let span13;
-    	let mounted;
-    	let dispose;
-
-    	const block = {
-    		c: function create() {
-    			div11 = element("div");
-    			h3 = element("h3");
-    			h3.textContent = "💰 Set Your Price";
-    			t1 = space();
-    			p = element("p");
-    			p.textContent = "Choose how much students will pay to download your file";
-    			t3 = space();
-    			div10 = element("div");
-    			div0 = element("div");
-    			span0 = element("span");
-    			t4 = text("₦");
-    			t5 = text(/*price*/ ctx[5]);
-    			t6 = space();
-    			span1 = element("span");
-    			span1.textContent = "Naira";
-    			t8 = space();
-    			div2 = element("div");
-    			input = element("input");
-    			t9 = space();
-    			div1 = element("div");
-    			span2 = element("span");
-    			span2.textContent = "₦1";
-    			t11 = space();
-    			span3 = element("span");
-    			span3.textContent = "₦500";
-    			t13 = space();
-    			div6 = element("div");
-    			div3 = element("div");
-    			span4 = element("span");
-    			span4.textContent = "₦50";
-    			t15 = space();
-    			span5 = element("span");
-    			span5.textContent = "Basic";
-    			t17 = space();
-    			div4 = element("div");
-    			span6 = element("span");
-    			span6.textContent = "₦150";
-    			t19 = space();
-    			span7 = element("span");
-    			span7.textContent = "Standard";
-    			t21 = space();
-    			div5 = element("div");
-    			span8 = element("span");
-    			span8.textContent = "₦300";
-    			t23 = space();
-    			span9 = element("span");
-    			span9.textContent = "Premium";
-    			t25 = space();
-    			div9 = element("div");
-    			div7 = element("div");
-    			span10 = element("span");
-    			span10.textContent = "💡";
-    			t27 = space();
-    			span11 = element("span");
-    			span11.textContent = "Higher quality files typically earn more Naira";
-    			t29 = space();
-    			div8 = element("div");
-    			span12 = element("span");
-    			span12.textContent = "📊";
-    			t31 = space();
-    			span13 = element("span");
-    			span13.textContent = "You can adjust the price later";
-    			attr_dev(h3, "class", "svelte-1fdt9px");
-    			add_location(h3, file$3, 344, 6, 9581);
-    			attr_dev(p, "class", "svelte-1fdt9px");
-    			add_location(p, file$3, 345, 6, 9615);
-    			attr_dev(span0, "class", "price-amount svelte-1fdt9px");
-    			add_location(span0, file$3, 349, 8, 9766);
-    			attr_dev(span1, "class", "price-label svelte-1fdt9px");
-    			add_location(span1, file$3, 350, 8, 9818);
-    			attr_dev(div0, "class", "price-display svelte-1fdt9px");
-    			add_location(div0, file$3, 348, 7, 9729);
-    			attr_dev(input, "type", "range");
-    			attr_dev(input, "min", "1");
-    			attr_dev(input, "max", "50");
-    			attr_dev(input, "class", "price-slider svelte-1fdt9px");
-    			add_location(input, file$3, 354, 8, 9935);
-    			add_location(span2, file$3, 362, 9, 10124);
-    			add_location(span3, file$3, 363, 9, 10150);
-    			attr_dev(div1, "class", "price-labels svelte-1fdt9px");
-    			add_location(div1, file$3, 361, 8, 10087);
-    			attr_dev(div2, "class", "price-slider-container svelte-1fdt9px");
-    			add_location(div2, file$3, 353, 7, 9889);
-    			attr_dev(span4, "class", "suggestion-price svelte-1fdt9px");
-    			add_location(span4, file$3, 369, 9, 10318);
-    			attr_dev(span5, "class", "suggestion-label svelte-1fdt9px");
-    			add_location(span5, file$3, 370, 9, 10370);
-    			attr_dev(div3, "class", "suggestion-item svelte-1fdt9px");
-    			add_location(div3, file$3, 368, 8, 10250);
-    			attr_dev(span6, "class", "suggestion-price svelte-1fdt9px");
-    			add_location(span6, file$3, 373, 9, 10508);
-    			attr_dev(span7, "class", "suggestion-label svelte-1fdt9px");
-    			add_location(span7, file$3, 374, 9, 10561);
-    			attr_dev(div4, "class", "suggestion-item svelte-1fdt9px");
-    			add_location(div4, file$3, 372, 8, 10439);
-    			attr_dev(span8, "class", "suggestion-price svelte-1fdt9px");
-    			add_location(span8, file$3, 377, 9, 10702);
-    			attr_dev(span9, "class", "suggestion-label svelte-1fdt9px");
-    			add_location(span9, file$3, 378, 9, 10755);
-    			attr_dev(div5, "class", "suggestion-item svelte-1fdt9px");
-    			add_location(div5, file$3, 376, 8, 10633);
-    			attr_dev(div6, "class", "price-suggestions svelte-1fdt9px");
-    			add_location(div6, file$3, 367, 7, 10209);
-    			attr_dev(span10, "class", "tip-icon svelte-1fdt9px");
-    			add_location(span10, file$3, 384, 9, 10909);
-    			attr_dev(span11, "class", "tip-text svelte-1fdt9px");
-    			add_location(span11, file$3, 385, 9, 10952);
-    			attr_dev(div7, "class", "tip-item svelte-1fdt9px");
-    			add_location(div7, file$3, 383, 8, 10876);
-    			attr_dev(span12, "class", "tip-icon svelte-1fdt9px");
-    			add_location(span12, file$3, 388, 9, 11087);
-    			attr_dev(span13, "class", "tip-text svelte-1fdt9px");
-    			add_location(span13, file$3, 389, 9, 11130);
-    			attr_dev(div8, "class", "tip-item svelte-1fdt9px");
-    			add_location(div8, file$3, 387, 8, 11054);
-    			attr_dev(div9, "class", "price-tips svelte-1fdt9px");
-    			add_location(div9, file$3, 382, 7, 10842);
-    			attr_dev(div10, "class", "price-section svelte-1fdt9px");
-    			add_location(div10, file$3, 347, 6, 9693);
-    			attr_dev(div11, "class", "step-panel svelte-1fdt9px");
-    			add_location(div11, file$3, 343, 5, 9549);
-    		},
-    		m: function mount(target, anchor) {
-    			insert_dev(target, div11, anchor);
-    			append_dev(div11, h3);
-    			append_dev(div11, t1);
-    			append_dev(div11, p);
-    			append_dev(div11, t3);
-    			append_dev(div11, div10);
-    			append_dev(div10, div0);
-    			append_dev(div0, span0);
-    			append_dev(span0, t4);
-    			append_dev(span0, t5);
-    			append_dev(div0, t6);
-    			append_dev(div0, span1);
-    			append_dev(div10, t8);
-    			append_dev(div10, div2);
-    			append_dev(div2, input);
-    			set_input_value(input, /*price*/ ctx[5]);
-    			append_dev(div2, t9);
-    			append_dev(div2, div1);
-    			append_dev(div1, span2);
-    			append_dev(div1, t11);
-    			append_dev(div1, span3);
-    			append_dev(div10, t13);
-    			append_dev(div10, div6);
-    			append_dev(div6, div3);
-    			append_dev(div3, span4);
-    			append_dev(div3, t15);
-    			append_dev(div3, span5);
-    			append_dev(div6, t17);
-    			append_dev(div6, div4);
-    			append_dev(div4, span6);
-    			append_dev(div4, t19);
-    			append_dev(div4, span7);
-    			append_dev(div6, t21);
-    			append_dev(div6, div5);
-    			append_dev(div5, span8);
-    			append_dev(div5, t23);
-    			append_dev(div5, span9);
-    			append_dev(div10, t25);
-    			append_dev(div10, div9);
-    			append_dev(div9, div7);
-    			append_dev(div7, span10);
-    			append_dev(div7, t27);
-    			append_dev(div7, span11);
-    			append_dev(div9, t29);
-    			append_dev(div9, div8);
-    			append_dev(div8, span12);
-    			append_dev(div8, t31);
-    			append_dev(div8, span13);
-
-    			if (!mounted) {
-    				dispose = [
-    					listen_dev(input, "change", /*input_change_input_handler*/ ctx[37]),
-    					listen_dev(input, "input", /*input_change_input_handler*/ ctx[37]),
-    					listen_dev(div3, "click", /*click_handler_4*/ ctx[38], false, false, false, false),
-    					listen_dev(div4, "click", /*click_handler_5*/ ctx[39], false, false, false, false),
-    					listen_dev(div5, "click", /*click_handler_6*/ ctx[40], false, false, false, false)
-    				];
-
-    				mounted = true;
-    			}
-    		},
-    		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*price*/ 32) set_data_dev(t5, /*price*/ ctx[5]);
-
-    			if (dirty[0] & /*price*/ 32) {
-    				set_input_value(input, /*price*/ ctx[5]);
-    			}
-    		},
-    		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div11);
-    			mounted = false;
-    			run_all(dispose);
-    		}
-    	};
-
-    	dispatch_dev("SvelteRegisterBlock", {
-    		block,
     		id: create_if_block_7.name,
     		type: "if",
-    		source: "(342:32) ",
+    		source: "(334:32) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (283:32) 
+    // (275:32) 
     function create_if_block_6$1(ctx) {
     	let div6;
     	let h3;
@@ -2756,7 +2455,7 @@ var app = (function () {
     	let textarea;
     	let mounted;
     	let dispose;
-    	let each_value_2 = /*subjects*/ ctx[11];
+    	let each_value_2 = /*subjects*/ ctx[10];
     	validate_each_argument(each_value_2);
     	let each_blocks_2 = [];
 
@@ -2764,7 +2463,7 @@ var app = (function () {
     		each_blocks_2[i] = create_each_block_2$1(get_each_context_2$1(ctx, each_value_2, i));
     	}
 
-    	let each_value_1 = /*years*/ ctx[12];
+    	let each_value_1 = /*years*/ ctx[11];
     	validate_each_argument(each_value_1);
     	let each_blocks_1 = [];
 
@@ -2772,7 +2471,7 @@ var app = (function () {
     		each_blocks_1[i] = create_each_block_1$2(get_each_context_1$2(ctx, each_value_1, i));
     	}
 
-    	let each_value = /*examTypes*/ ctx[10];
+    	let each_value = /*examTypes*/ ctx[9];
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
@@ -2833,49 +2532,49 @@ var app = (function () {
     			t16 = space();
     			textarea = element("textarea");
     			attr_dev(h3, "class", "svelte-1fdt9px");
-    			add_location(h3, file$3, 285, 6, 7604);
+    			add_location(h3, file$3, 277, 6, 7357);
     			attr_dev(p, "class", "svelte-1fdt9px");
-    			add_location(p, file$3, 286, 6, 7640);
+    			add_location(p, file$3, 278, 6, 7393);
     			attr_dev(label0, "for", "subject");
-    			add_location(label0, file$3, 290, 8, 7773);
+    			add_location(label0, file$3, 282, 8, 7526);
     			option0.__value = "";
     			option0.value = option0.__value;
-    			add_location(option0, file$3, 292, 9, 7883);
+    			add_location(option0, file$3, 284, 9, 7636);
     			attr_dev(select0, "id", "subject");
     			select0.required = true;
-    			if (/*subject*/ ctx[1] === void 0) add_render_callback(() => /*select0_change_handler*/ ctx[32].call(select0));
-    			add_location(select0, file$3, 291, 8, 7821);
+    			if (/*subject*/ ctx[1] === void 0) add_render_callback(() => /*select0_change_handler*/ ctx[31].call(select0));
+    			add_location(select0, file$3, 283, 8, 7574);
     			attr_dev(div0, "class", "form-group");
-    			add_location(div0, file$3, 289, 7, 7739);
+    			add_location(div0, file$3, 281, 7, 7492);
     			attr_dev(label1, "for", "year");
-    			add_location(label1, file$3, 300, 8, 8132);
+    			add_location(label1, file$3, 292, 8, 7885);
     			option1.__value = "";
     			option1.value = option1.__value;
-    			add_location(option1, file$3, 302, 9, 8239);
+    			add_location(option1, file$3, 294, 9, 7992);
     			attr_dev(select1, "id", "year");
     			select1.required = true;
-    			if (/*year*/ ctx[2] === void 0) add_render_callback(() => /*select1_change_handler*/ ctx[33].call(select1));
-    			add_location(select1, file$3, 301, 8, 8183);
+    			if (/*year*/ ctx[2] === void 0) add_render_callback(() => /*select1_change_handler*/ ctx[32].call(select1));
+    			add_location(select1, file$3, 293, 8, 7936);
     			attr_dev(div1, "class", "form-group");
-    			add_location(div1, file$3, 299, 7, 8098);
+    			add_location(div1, file$3, 291, 7, 7851);
     			attr_dev(label2, "for", "examType");
-    			add_location(label2, file$3, 310, 8, 8471);
+    			add_location(label2, file$3, 302, 8, 8224);
     			attr_dev(div2, "class", "exam-type-grid svelte-1fdt9px");
-    			add_location(div2, file$3, 311, 8, 8522);
+    			add_location(div2, file$3, 303, 8, 8275);
     			attr_dev(div3, "class", "form-group");
-    			add_location(div3, file$3, 309, 7, 8437);
+    			add_location(div3, file$3, 301, 7, 8190);
     			attr_dev(label3, "for", "description");
-    			add_location(label3, file$3, 330, 8, 9150);
+    			add_location(label3, file$3, 322, 8, 8903);
     			attr_dev(textarea, "id", "description");
     			attr_dev(textarea, "placeholder", "Add any additional details about the exam, topics covered, or special notes...");
     			attr_dev(textarea, "rows", "3");
-    			add_location(textarea, file$3, 331, 8, 9215);
+    			add_location(textarea, file$3, 323, 8, 8968);
     			attr_dev(div4, "class", "form-group full-width svelte-1fdt9px");
-    			add_location(div4, file$3, 329, 7, 9105);
+    			add_location(div4, file$3, 321, 7, 8858);
     			attr_dev(div5, "class", "form-grid svelte-1fdt9px");
-    			add_location(div5, file$3, 288, 6, 7707);
+    			add_location(div5, file$3, 280, 6, 7460);
     			attr_dev(div6, "class", "step-panel svelte-1fdt9px");
-    			add_location(div6, file$3, 284, 5, 7572);
+    			add_location(div6, file$3, 276, 5, 7325);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div6, anchor);
@@ -2932,17 +2631,17 @@ var app = (function () {
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(select0, "change", /*select0_change_handler*/ ctx[32]),
-    					listen_dev(select1, "change", /*select1_change_handler*/ ctx[33]),
-    					listen_dev(textarea, "input", /*textarea_input_handler*/ ctx[36])
+    					listen_dev(select0, "change", /*select0_change_handler*/ ctx[31]),
+    					listen_dev(select1, "change", /*select1_change_handler*/ ctx[32]),
+    					listen_dev(textarea, "input", /*textarea_input_handler*/ ctx[35])
     				];
 
     				mounted = true;
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*subjects*/ 2048) {
-    				each_value_2 = /*subjects*/ ctx[11];
+    			if (dirty[0] & /*subjects*/ 1024) {
+    				each_value_2 = /*subjects*/ ctx[10];
     				validate_each_argument(each_value_2);
     				let i;
 
@@ -2965,12 +2664,12 @@ var app = (function () {
     				each_blocks_2.length = each_value_2.length;
     			}
 
-    			if (dirty[0] & /*subject, subjects*/ 2050) {
+    			if (dirty[0] & /*subject, subjects*/ 1026) {
     				select_option(select0, /*subject*/ ctx[1]);
     			}
 
-    			if (dirty[0] & /*years*/ 4096) {
-    				each_value_1 = /*years*/ ctx[12];
+    			if (dirty[0] & /*years*/ 2048) {
+    				each_value_1 = /*years*/ ctx[11];
     				validate_each_argument(each_value_1);
     				let i;
 
@@ -2993,12 +2692,12 @@ var app = (function () {
     				each_blocks_1.length = each_value_1.length;
     			}
 
-    			if (dirty[0] & /*year, years*/ 4100) {
+    			if (dirty[0] & /*year, years*/ 2052) {
     				select_option(select1, /*year*/ ctx[2]);
     			}
 
-    			if (dirty[0] & /*examType, examTypes*/ 1032) {
-    				each_value = /*examTypes*/ ctx[10];
+    			if (dirty[0] & /*examType, examTypes*/ 520) {
+    				each_value = /*examTypes*/ ctx[9];
     				validate_each_argument(each_value);
     				let i;
 
@@ -3039,14 +2738,14 @@ var app = (function () {
     		block,
     		id: create_if_block_6$1.name,
     		type: "if",
-    		source: "(283:32) ",
+    		source: "(275:32) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (238:4) {#if currentStep === 1}
+    // (230:4) {#if currentStep === 1}
     function create_if_block_4$2(ctx) {
     	let div1;
     	let h3;
@@ -3081,19 +2780,19 @@ var app = (function () {
     			t4 = space();
     			if_block.c();
     			attr_dev(h3, "class", "svelte-1fdt9px");
-    			add_location(h3, file$3, 240, 6, 6074);
+    			add_location(h3, file$3, 232, 6, 5827);
     			attr_dev(p, "class", "svelte-1fdt9px");
-    			add_location(p, file$3, 241, 6, 6110);
+    			add_location(p, file$3, 233, 6, 5863);
     			attr_dev(input, "id", "fileInput");
     			attr_dev(input, "type", "file");
     			attr_dev(input, "accept", ".pdf,.doc,.docx,.jpg,.jpeg,.png");
     			attr_dev(input, "class", "file-input-hidden svelte-1fdt9px");
-    			add_location(input, file$3, 250, 7, 6375);
+    			add_location(input, file$3, 242, 7, 6128);
     			attr_dev(div0, "class", "file-drop-zone svelte-1fdt9px");
-    			toggle_class(div0, "drag-over", /*dragOver*/ ctx[9]);
-    			add_location(div0, file$3, 243, 6, 6181);
+    			toggle_class(div0, "drag-over", /*dragOver*/ ctx[8]);
+    			add_location(div0, file$3, 235, 6, 5934);
     			attr_dev(div1, "class", "step-panel svelte-1fdt9px");
-    			add_location(div1, file$3, 239, 5, 6042);
+    			add_location(div1, file$3, 231, 5, 5795);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -3108,10 +2807,10 @@ var app = (function () {
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(input, "change", /*handleFileSelect*/ ctx[14], false, false, false, false),
-    					listen_dev(div0, "dragover", /*handleDragOver*/ ctx[15], false, false, false, false),
-    					listen_dev(div0, "dragleave", /*handleDragLeave*/ ctx[16], false, false, false, false),
-    					listen_dev(div0, "drop", /*handleDrop*/ ctx[17], false, false, false, false)
+    					listen_dev(input, "change", /*handleFileSelect*/ ctx[13], false, false, false, false),
+    					listen_dev(div0, "dragover", /*handleDragOver*/ ctx[14], false, false, false, false),
+    					listen_dev(div0, "dragleave", /*handleDragLeave*/ ctx[15], false, false, false, false),
+    					listen_dev(div0, "drop", /*handleDrop*/ ctx[16], false, false, false, false)
     				];
 
     				mounted = true;
@@ -3130,8 +2829,8 @@ var app = (function () {
     				}
     			}
 
-    			if (dirty[0] & /*dragOver*/ 512) {
-    				toggle_class(div0, "drag-over", /*dragOver*/ ctx[9]);
+    			if (dirty[0] & /*dragOver*/ 256) {
+    				toggle_class(div0, "drag-over", /*dragOver*/ ctx[8]);
     			}
     		},
     		d: function destroy(detaching) {
@@ -3146,15 +2845,15 @@ var app = (function () {
     		block,
     		id: create_if_block_4$2.name,
     		type: "if",
-    		source: "(238:4) {#if currentStep === 1}",
+    		source: "(230:4) {#if currentStep === 1}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (425:8) {#if description}
-    function create_if_block_9(ctx) {
+    // (363:8) {#if description}
+    function create_if_block_8(ctx) {
     	let div;
     	let span0;
     	let t1;
@@ -3170,11 +2869,11 @@ var app = (function () {
     			span1 = element("span");
     			t2 = text(/*description*/ ctx[4]);
     			attr_dev(span0, "class", "detail-label svelte-1fdt9px");
-    			add_location(span0, file$3, 426, 9, 12409);
+    			add_location(span0, file$3, 364, 9, 10383);
     			attr_dev(span1, "class", "detail-value svelte-1fdt9px");
-    			add_location(span1, file$3, 427, 9, 12466);
+    			add_location(span1, file$3, 365, 9, 10440);
     			attr_dev(div, "class", "review-detail svelte-1fdt9px");
-    			add_location(div, file$3, 425, 8, 12371);
+    			add_location(div, file$3, 363, 8, 10345);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -3193,28 +2892,28 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_9.name,
+    		id: create_if_block_8.name,
     		type: "if",
-    		source: "(425:8) {#if description}",
+    		source: "(363:8) {#if description}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (294:9) {#each subjects as subjectOption}
+    // (286:9) {#each subjects as subjectOption}
     function create_each_block_2$1(ctx) {
     	let option;
-    	let t_value = /*subjectOption*/ ctx[49] + "";
+    	let t_value = /*subjectOption*/ ctx[44] + "";
     	let t;
 
     	const block = {
     		c: function create() {
     			option = element("option");
     			t = text(t_value);
-    			option.__value = /*subjectOption*/ ctx[49];
+    			option.__value = /*subjectOption*/ ctx[44];
     			option.value = option.__value;
-    			add_location(option, file$3, 294, 10, 7981);
+    			add_location(option, file$3, 286, 10, 7734);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option, anchor);
@@ -3230,26 +2929,26 @@ var app = (function () {
     		block,
     		id: create_each_block_2$1.name,
     		type: "each",
-    		source: "(294:9) {#each subjects as subjectOption}",
+    		source: "(286:9) {#each subjects as subjectOption}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (304:9) {#each years as yearOption}
+    // (296:9) {#each years as yearOption}
     function create_each_block_1$2(ctx) {
     	let option;
-    	let t_value = /*yearOption*/ ctx[46] + "";
+    	let t_value = /*yearOption*/ ctx[41] + "";
     	let t;
 
     	const block = {
     		c: function create() {
     			option = element("option");
     			t = text(t_value);
-    			option.__value = /*yearOption*/ ctx[46];
+    			option.__value = /*yearOption*/ ctx[41];
     			option.value = option.__value;
-    			add_location(option, file$3, 304, 10, 8326);
+    			add_location(option, file$3, 296, 10, 8079);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option, anchor);
@@ -3265,31 +2964,31 @@ var app = (function () {
     		block,
     		id: create_each_block_1$2.name,
     		type: "each",
-    		source: "(304:9) {#each years as yearOption}",
+    		source: "(296:9) {#each years as yearOption}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (313:9) {#each examTypes as type}
+    // (305:9) {#each examTypes as type}
     function create_each_block$2(ctx) {
     	let label;
     	let input;
     	let t0;
     	let div;
     	let span0;
-    	let t1_value = /*type*/ ctx[43].icon + "";
+    	let t1_value = /*type*/ ctx[38].icon + "";
     	let t1;
     	let t2;
     	let span1;
-    	let t3_value = /*type*/ ctx[43].label + "";
+    	let t3_value = /*type*/ ctx[38].label + "";
     	let t3;
     	let t4;
     	let binding_group;
     	let mounted;
     	let dispose;
-    	binding_group = init_binding_group(/*$$binding_groups*/ ctx[35][0]);
+    	binding_group = init_binding_group(/*$$binding_groups*/ ctx[34][0]);
 
     	const block = {
     		c: function create() {
@@ -3304,19 +3003,19 @@ var app = (function () {
     			t3 = text(t3_value);
     			t4 = space();
     			attr_dev(input, "type", "radio");
-    			input.__value = /*type*/ ctx[43].value;
+    			input.__value = /*type*/ ctx[38].value;
     			input.value = input.__value;
     			attr_dev(input, "class", "exam-type-input svelte-1fdt9px");
-    			add_location(input, file$3, 314, 11, 8684);
+    			add_location(input, file$3, 306, 11, 8437);
     			attr_dev(span0, "class", "exam-type-icon svelte-1fdt9px");
-    			add_location(span0, file$3, 321, 12, 8896);
+    			add_location(span0, file$3, 313, 12, 8649);
     			attr_dev(span1, "class", "exam-type-label svelte-1fdt9px");
-    			add_location(span1, file$3, 322, 12, 8957);
+    			add_location(span1, file$3, 314, 12, 8710);
     			attr_dev(div, "class", "exam-type-content svelte-1fdt9px");
-    			add_location(div, file$3, 320, 11, 8851);
+    			add_location(div, file$3, 312, 11, 8604);
     			attr_dev(label, "class", "exam-type-option svelte-1fdt9px");
-    			toggle_class(label, "selected", /*examType*/ ctx[3] === /*type*/ ctx[43].value);
-    			add_location(label, file$3, 313, 10, 8598);
+    			toggle_class(label, "selected", /*examType*/ ctx[3] === /*type*/ ctx[38].value);
+    			add_location(label, file$3, 305, 10, 8351);
     			binding_group.p(input);
     		},
     		m: function mount(target, anchor) {
@@ -3333,7 +3032,7 @@ var app = (function () {
     			append_dev(label, t4);
 
     			if (!mounted) {
-    				dispose = listen_dev(input, "change", /*input_change_handler*/ ctx[34]);
+    				dispose = listen_dev(input, "change", /*input_change_handler*/ ctx[33]);
     				mounted = true;
     			}
     		},
@@ -3342,8 +3041,8 @@ var app = (function () {
     				input.checked = input.__value === /*examType*/ ctx[3];
     			}
 
-    			if (dirty[0] & /*examType, examTypes*/ 1032) {
-    				toggle_class(label, "selected", /*examType*/ ctx[3] === /*type*/ ctx[43].value);
+    			if (dirty[0] & /*examType, examTypes*/ 520) {
+    				toggle_class(label, "selected", /*examType*/ ctx[3] === /*type*/ ctx[38].value);
     			}
     		},
     		d: function destroy(detaching) {
@@ -3358,14 +3057,14 @@ var app = (function () {
     		block,
     		id: create_each_block$2.name,
     		type: "each",
-    		source: "(313:9) {#each examTypes as type}",
+    		source: "(305:9) {#each examTypes as type}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (270:7) {:else}
+    // (262:7) {:else}
     function create_else_block_3(ctx) {
     	let div2;
     	let div0;
@@ -3397,17 +3096,17 @@ var app = (function () {
     			div1 = element("div");
     			div1.textContent = "Supported: PDF, DOC, DOCX, JPG, PNG";
     			attr_dev(div0, "class", "drop-icon svelte-1fdt9px");
-    			add_location(div0, file$3, 271, 9, 7129);
+    			add_location(div0, file$3, 263, 9, 6882);
     			attr_dev(h4, "class", "svelte-1fdt9px");
-    			add_location(h4, file$3, 272, 9, 7171);
+    			add_location(h4, file$3, 264, 9, 6924);
     			attr_dev(button, "class", "browse-btn svelte-1fdt9px");
-    			add_location(button, file$3, 273, 15, 7216);
+    			add_location(button, file$3, 265, 15, 6969);
     			attr_dev(p, "class", "svelte-1fdt9px");
-    			add_location(p, file$3, 273, 9, 7210);
+    			add_location(p, file$3, 265, 9, 6963);
     			attr_dev(div1, "class", "supported-formats svelte-1fdt9px");
-    			add_location(div1, file$3, 274, 9, 7341);
+    			add_location(div1, file$3, 266, 9, 7094);
     			attr_dev(div2, "class", "file-drop-content svelte-1fdt9px");
-    			add_location(div2, file$3, 270, 8, 7087);
+    			add_location(div2, file$3, 262, 8, 6840);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div2, anchor);
@@ -3422,7 +3121,7 @@ var app = (function () {
     			append_dev(div2, div1);
 
     			if (!mounted) {
-    				dispose = listen_dev(button, "click", /*click_handler_3*/ ctx[31], false, false, false, false);
+    				dispose = listen_dev(button, "click", /*click_handler_3*/ ctx[30], false, false, false, false);
     				mounted = true;
     			}
     		},
@@ -3438,14 +3137,14 @@ var app = (function () {
     		block,
     		id: create_else_block_3.name,
     		type: "else",
-    		source: "(270:7) {:else}",
+    		source: "(262:7) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (259:7) {#if selectedFile}
+    // (251:7) {#if selectedFile}
     function create_if_block_5$1(ctx) {
     	let div4;
     	let div0;
@@ -3481,17 +3180,17 @@ var app = (function () {
     			button = element("button");
     			button.textContent = "Change File";
     			attr_dev(div0, "class", "file-icon svelte-1fdt9px");
-    			add_location(div0, file$3, 260, 9, 6646);
+    			add_location(div0, file$3, 252, 9, 6399);
     			attr_dev(div1, "class", "file-name svelte-1fdt9px");
-    			add_location(div1, file$3, 262, 10, 6756);
+    			add_location(div1, file$3, 254, 10, 6509);
     			attr_dev(div2, "class", "file-size svelte-1fdt9px");
-    			add_location(div2, file$3, 263, 10, 6816);
+    			add_location(div2, file$3, 255, 10, 6569);
     			attr_dev(div3, "class", "file-details svelte-1fdt9px");
-    			add_location(div3, file$3, 261, 9, 6718);
+    			add_location(div3, file$3, 253, 9, 6471);
     			attr_dev(button, "class", "change-file-btn svelte-1fdt9px");
-    			add_location(button, file$3, 265, 9, 6908);
+    			add_location(button, file$3, 257, 9, 6661);
     			attr_dev(div4, "class", "file-selected svelte-1fdt9px");
-    			add_location(div4, file$3, 259, 8, 6608);
+    			add_location(div4, file$3, 251, 8, 6361);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div4, anchor);
@@ -3508,7 +3207,7 @@ var app = (function () {
     			append_dev(div4, button);
 
     			if (!mounted) {
-    				dispose = listen_dev(button, "click", /*click_handler_2*/ ctx[30], false, false, false, false);
+    				dispose = listen_dev(button, "click", /*click_handler_2*/ ctx[29], false, false, false, false);
     				mounted = true;
     			}
     		},
@@ -3528,14 +3227,14 @@ var app = (function () {
     		block,
     		id: create_if_block_5$1.name,
     		type: "if",
-    		source: "(259:7) {#if selectedFile}",
+    		source: "(251:7) {#if selectedFile}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (450:4) {#if currentStep > 1}
+    // (388:4) {#if currentStep > 1}
     function create_if_block_3$3(ctx) {
     	let button;
     	let span;
@@ -3549,9 +3248,9 @@ var app = (function () {
     			span = element("span");
     			span.textContent = "←";
     			t1 = text("\r\n\t\t\t\t\t\tPrevious");
-    			add_location(span, file$3, 451, 6, 13154);
+    			add_location(span, file$3, 389, 6, 11128);
     			attr_dev(button, "class", "btn btn-secondary");
-    			add_location(button, file$3, 450, 5, 13092);
+    			add_location(button, file$3, 388, 5, 11066);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button, anchor);
@@ -3559,7 +3258,7 @@ var app = (function () {
     			append_dev(button, t1);
 
     			if (!mounted) {
-    				dispose = listen_dev(button, "click", /*prevStep*/ ctx[19], false, false, false, false);
+    				dispose = listen_dev(button, "click", /*prevStep*/ ctx[18], false, false, false, false);
     				mounted = true;
     			}
     		},
@@ -3575,14 +3274,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3$3.name,
     		type: "if",
-    		source: "(450:4) {#if currentStep > 1}",
+    		source: "(388:4) {#if currentStep > 1}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (468:4) {:else}
+    // (406:4) {:else}
     function create_else_block_1$2(ctx) {
     	let button;
     	let button_disabled_value;
@@ -3590,7 +3289,7 @@ var app = (function () {
     	let dispose;
 
     	function select_block_type_5(ctx, dirty) {
-    		if (/*uploading*/ ctx[6]) return create_if_block_2$3;
+    		if (/*uploading*/ ctx[5]) return create_if_block_2$3;
     		return create_else_block_2;
     	}
 
@@ -3602,15 +3301,15 @@ var app = (function () {
     			button = element("button");
     			if_block.c();
     			attr_dev(button, "class", "btn btn-success upload-btn svelte-1fdt9px");
-    			button.disabled = button_disabled_value = /*uploading*/ ctx[6] || !/*canUpload*/ ctx[23]();
-    			add_location(button, file$3, 468, 5, 13470);
+    			button.disabled = button_disabled_value = /*uploading*/ ctx[5] || !/*canUpload*/ ctx[22]();
+    			add_location(button, file$3, 406, 5, 11444);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button, anchor);
     			if_block.m(button, null);
 
     			if (!mounted) {
-    				dispose = listen_dev(button, "click", /*handleUpload*/ ctx[21], false, false, false, false);
+    				dispose = listen_dev(button, "click", /*handleUpload*/ ctx[20], false, false, false, false);
     				mounted = true;
     			}
     		},
@@ -3627,7 +3326,7 @@ var app = (function () {
     				}
     			}
 
-    			if (dirty[0] & /*uploading*/ 64 && button_disabled_value !== (button_disabled_value = /*uploading*/ ctx[6] || !/*canUpload*/ ctx[23]())) {
+    			if (dirty[0] & /*uploading*/ 32 && button_disabled_value !== (button_disabled_value = /*uploading*/ ctx[5] || !/*canUpload*/ ctx[22]())) {
     				prop_dev(button, "disabled", button_disabled_value);
     			}
     		},
@@ -3643,14 +3342,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1$2.name,
     		type: "else",
-    		source: "(468:4) {:else}",
+    		source: "(406:4) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (459:4) {#if currentStep < 4}
+    // (397:4) {#if currentStep < 3}
     function create_if_block_1$3(ctx) {
     	let button;
     	let t0;
@@ -3664,10 +3363,10 @@ var app = (function () {
     			t0 = text("Next\r\n\t\t\t\t\t\t");
     			span = element("span");
     			span.textContent = "→";
-    			add_location(span, file$3, 465, 6, 13420);
+    			add_location(span, file$3, 403, 6, 11394);
     			attr_dev(button, "class", "btn btn-success");
-    			button.disabled = !/*canProceed*/ ctx[22]();
-    			add_location(button, file$3, 459, 5, 13293);
+    			button.disabled = !/*canProceed*/ ctx[21]();
+    			add_location(button, file$3, 397, 5, 11267);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button, anchor);
@@ -3675,7 +3374,7 @@ var app = (function () {
     			append_dev(button, span);
 
     			if (!mounted) {
-    				dispose = listen_dev(button, "click", /*nextStep*/ ctx[18], false, false, false, false);
+    				dispose = listen_dev(button, "click", /*nextStep*/ ctx[17], false, false, false, false);
     				mounted = true;
     			}
     		},
@@ -3691,14 +3390,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1$3.name,
     		type: "if",
-    		source: "(459:4) {#if currentStep < 4}",
+    		source: "(397:4) {#if currentStep < 3}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (477:6) {:else}
+    // (415:6) {:else}
     function create_else_block_2(ctx) {
     	let span;
     	let t1;
@@ -3710,9 +3409,9 @@ var app = (function () {
     			span = element("span");
     			span.textContent = "📤";
     			t1 = text("\r\n\t\t\t\t\t\t\tUpload & Earn ");
-    			t2 = text(/*price*/ ctx[5]);
+    			t2 = text(price);
     			t3 = text(" Coins");
-    			add_location(span, file$3, 477, 7, 13717);
+    			add_location(span, file$3, 415, 7, 11691);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -3720,9 +3419,7 @@ var app = (function () {
     			insert_dev(target, t2, anchor);
     			insert_dev(target, t3, anchor);
     		},
-    		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*price*/ 32) set_data_dev(t2, /*price*/ ctx[5]);
-    		},
+    		p: noop,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(span);
     			if (detaching) detach_dev(t1);
@@ -3735,14 +3432,14 @@ var app = (function () {
     		block,
     		id: create_else_block_2.name,
     		type: "else",
-    		source: "(477:6) {:else}",
+    		source: "(415:6) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (474:6) {#if uploading}
+    // (412:6) {#if uploading}
     function create_if_block_2$3(ctx) {
     	let span;
     	let t;
@@ -3752,7 +3449,7 @@ var app = (function () {
     			span = element("span");
     			t = text("\r\n\t\t\t\t\t\t\tUploading...");
     			attr_dev(span, "class", "loading-spinner svelte-1fdt9px");
-    			add_location(span, file$3, 474, 7, 13635);
+    			add_location(span, file$3, 412, 7, 11609);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -3769,7 +3466,7 @@ var app = (function () {
     		block,
     		id: create_if_block_2$3.name,
     		type: "if",
-    		source: "(474:6) {#if uploading}",
+    		source: "(412:6) {#if uploading}",
     		ctx
     	});
 
@@ -3786,7 +3483,7 @@ var app = (function () {
     	let t3;
 
     	function select_block_type(ctx, dirty) {
-    		if (/*uploadSuccess*/ ctx[7]) return create_if_block$3;
+    		if (/*uploadSuccess*/ ctx[6]) return create_if_block$3;
     		return create_else_block$3;
     	}
 
@@ -3802,19 +3499,19 @@ var app = (function () {
     			h2.textContent = "📤 Upload Past Questions";
     			t1 = space();
     			p = element("p");
-    			p.textContent = "Share your knowledge and earn coins when students download your files";
+    			p.textContent = "Share your knowledge and help fellow students succeed";
     			t3 = space();
     			if_block.c();
     			attr_dev(h2, "class", "svelte-1fdt9px");
-    			add_location(h2, file$3, 193, 3, 4679);
+    			add_location(h2, file$3, 185, 3, 4476);
     			attr_dev(p, "class", "svelte-1fdt9px");
-    			add_location(p, file$3, 194, 3, 4717);
+    			add_location(p, file$3, 186, 3, 4514);
     			attr_dev(div0, "class", "upload-header svelte-1fdt9px");
-    			add_location(div0, file$3, 192, 2, 4647);
+    			add_location(div0, file$3, 184, 2, 4444);
     			attr_dev(div1, "class", "card");
-    			add_location(div1, file$3, 191, 1, 4625);
+    			add_location(div1, file$3, 183, 1, 4422);
     			attr_dev(div2, "class", "upload-container svelte-1fdt9px");
-    			add_location(div2, file$3, 190, 0, 4592);
+    			add_location(div2, file$3, 182, 0, 4389);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -3889,7 +3586,6 @@ var app = (function () {
     	let year = '';
     	let examType = '';
     	let description = '';
-    	let price = 5;
     	let uploading = false;
     	let uploadSuccess = false;
     	let currentStep = 1;
@@ -3948,11 +3644,6 @@ var app = (function () {
     		},
     		{
     			number: 3,
-    			title: 'Set Price',
-    			description: 'Choose how much to charge'
-    		},
-    		{
-    			number: 4,
     			title: 'Review & Upload',
     			description: 'Confirm and upload your file'
     		}
@@ -3968,17 +3659,17 @@ var app = (function () {
 
     	function handleDragOver(event) {
     		event.preventDefault();
-    		$$invalidate(9, dragOver = true);
+    		$$invalidate(8, dragOver = true);
     	}
 
     	function handleDragLeave(event) {
     		event.preventDefault();
-    		$$invalidate(9, dragOver = false);
+    		$$invalidate(8, dragOver = false);
     	}
 
     	function handleDrop(event) {
     		event.preventDefault();
-    		$$invalidate(9, dragOver = false);
+    		$$invalidate(8, dragOver = false);
     		const files = event.dataTransfer.files;
 
     		if (files.length > 0) {
@@ -3989,19 +3680,19 @@ var app = (function () {
 
     	function nextStep() {
     		if (currentStep < 4) {
-    			$$invalidate(8, currentStep++, currentStep);
+    			$$invalidate(7, currentStep++, currentStep);
     		}
     	}
 
     	function prevStep() {
     		if (currentStep > 1) {
-    			$$invalidate(8, currentStep--, currentStep);
+    			$$invalidate(7, currentStep--, currentStep);
     		}
     	}
 
     	function goToStep(step) {
     		if (step <= currentStep || step === 2 && selectedFile || step === 3 && selectedFile && subject && year && examType) {
-    			$$invalidate(8, currentStep = step);
+    			$$invalidate(7, currentStep = step);
     		}
     	}
 
@@ -4011,7 +3702,7 @@ var app = (function () {
     			return;
     		}
 
-    		$$invalidate(6, uploading = true);
+    		$$invalidate(5, uploading = true);
 
     		// Simulate upload process
     		setTimeout(
@@ -4023,7 +3714,7 @@ var app = (function () {
     					year,
     					examType,
     					description,
-    					price,
+    					price: 0, // All files are free
     					uploadDate: new Date().toISOString(),
     					size: selectedFile.size,
     					type: selectedFile.type,
@@ -4045,15 +3736,10 @@ var app = (function () {
     					dispatch('addAvailableFile', fileData);
     				}
 
-    				// Award coins to uploader
-    				if (onAddCoins) {
-    					onAddCoins(price);
-    				} else {
-    					dispatch('addCoins', price);
-    				}
+    				// No payment system - files are free
+    				$$invalidate(5, uploading = false);
 
-    				$$invalidate(6, uploading = false);
-    				$$invalidate(7, uploadSuccess = true);
+    				$$invalidate(6, uploadSuccess = true);
 
     				// Reset form
     				resetForm();
@@ -4061,7 +3747,7 @@ var app = (function () {
     				// Hide success message after 3 seconds
     				setTimeout(
     					() => {
-    						$$invalidate(7, uploadSuccess = false);
+    						$$invalidate(6, uploadSuccess = false);
     					},
     					3000
     				);
@@ -4076,8 +3762,8 @@ var app = (function () {
     		$$invalidate(2, year = '');
     		$$invalidate(3, examType = '');
     		$$invalidate(4, description = '');
-    		$$invalidate(5, price = 5);
-    		$$invalidate(8, currentStep = 1);
+    		price = 5;
+    		$$invalidate(7, currentStep = 1);
 
     		// Reset file input
     		const fileInput = document.getElementById('fileInput');
@@ -4091,15 +3777,13 @@ var app = (function () {
     				return selectedFile;
     			case 2:
     				return subject && year && examType;
-    			case 3:
-    				return price > 0;
     			default:
     				return true;
     		}
     	}
 
     	function canUpload() {
-    		return selectedFile && subject && year && examType && price > 0;
+    		return selectedFile && subject && year && examType;
     	}
 
     	const writable_props = ['uploadedFiles', 'onAddCoins', 'onAddUploadedFile', 'onAddAvailableFile'];
@@ -4109,7 +3793,7 @@ var app = (function () {
     	});
 
     	const $$binding_groups = [[]];
-    	const click_handler = () => $$invalidate(7, uploadSuccess = false);
+    	const click_handler = () => $$invalidate(6, uploadSuccess = false);
     	const click_handler_1 = step => goToStep(step.number);
     	const click_handler_2 = () => document.getElementById('fileInput').click();
     	const click_handler_3 = () => document.getElementById('fileInput').click();
@@ -4117,13 +3801,13 @@ var app = (function () {
     	function select0_change_handler() {
     		subject = select_value(this);
     		$$invalidate(1, subject);
-    		$$invalidate(11, subjects);
+    		$$invalidate(10, subjects);
     	}
 
     	function select1_change_handler() {
     		year = select_value(this);
     		$$invalidate(2, year);
-    		$$invalidate(12, years);
+    		$$invalidate(11, years);
     	}
 
     	function input_change_handler() {
@@ -4136,20 +3820,11 @@ var app = (function () {
     		$$invalidate(4, description);
     	}
 
-    	function input_change_input_handler() {
-    		price = to_number(this.value);
-    		$$invalidate(5, price);
-    	}
-
-    	const click_handler_4 = () => $$invalidate(5, price = 50);
-    	const click_handler_5 = () => $$invalidate(5, price = 150);
-    	const click_handler_6 = () => $$invalidate(5, price = 300);
-
     	$$self.$$set = $$props => {
-    		if ('uploadedFiles' in $$props) $$invalidate(24, uploadedFiles = $$props.uploadedFiles);
-    		if ('onAddCoins' in $$props) $$invalidate(25, onAddCoins = $$props.onAddCoins);
-    		if ('onAddUploadedFile' in $$props) $$invalidate(26, onAddUploadedFile = $$props.onAddUploadedFile);
-    		if ('onAddAvailableFile' in $$props) $$invalidate(27, onAddAvailableFile = $$props.onAddAvailableFile);
+    		if ('uploadedFiles' in $$props) $$invalidate(23, uploadedFiles = $$props.uploadedFiles);
+    		if ('onAddCoins' in $$props) $$invalidate(24, onAddCoins = $$props.onAddCoins);
+    		if ('onAddUploadedFile' in $$props) $$invalidate(25, onAddUploadedFile = $$props.onAddUploadedFile);
+    		if ('onAddAvailableFile' in $$props) $$invalidate(26, onAddAvailableFile = $$props.onAddAvailableFile);
     	};
 
     	$$self.$capture_state = () => ({
@@ -4164,7 +3839,6 @@ var app = (function () {
     		year,
     		examType,
     		description,
-    		price,
     		uploading,
     		uploadSuccess,
     		currentStep,
@@ -4189,20 +3863,19 @@ var app = (function () {
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ('uploadedFiles' in $$props) $$invalidate(24, uploadedFiles = $$props.uploadedFiles);
-    		if ('onAddCoins' in $$props) $$invalidate(25, onAddCoins = $$props.onAddCoins);
-    		if ('onAddUploadedFile' in $$props) $$invalidate(26, onAddUploadedFile = $$props.onAddUploadedFile);
-    		if ('onAddAvailableFile' in $$props) $$invalidate(27, onAddAvailableFile = $$props.onAddAvailableFile);
+    		if ('uploadedFiles' in $$props) $$invalidate(23, uploadedFiles = $$props.uploadedFiles);
+    		if ('onAddCoins' in $$props) $$invalidate(24, onAddCoins = $$props.onAddCoins);
+    		if ('onAddUploadedFile' in $$props) $$invalidate(25, onAddUploadedFile = $$props.onAddUploadedFile);
+    		if ('onAddAvailableFile' in $$props) $$invalidate(26, onAddAvailableFile = $$props.onAddAvailableFile);
     		if ('selectedFile' in $$props) $$invalidate(0, selectedFile = $$props.selectedFile);
     		if ('subject' in $$props) $$invalidate(1, subject = $$props.subject);
     		if ('year' in $$props) $$invalidate(2, year = $$props.year);
     		if ('examType' in $$props) $$invalidate(3, examType = $$props.examType);
     		if ('description' in $$props) $$invalidate(4, description = $$props.description);
-    		if ('price' in $$props) $$invalidate(5, price = $$props.price);
-    		if ('uploading' in $$props) $$invalidate(6, uploading = $$props.uploading);
-    		if ('uploadSuccess' in $$props) $$invalidate(7, uploadSuccess = $$props.uploadSuccess);
-    		if ('currentStep' in $$props) $$invalidate(8, currentStep = $$props.currentStep);
-    		if ('dragOver' in $$props) $$invalidate(9, dragOver = $$props.dragOver);
+    		if ('uploading' in $$props) $$invalidate(5, uploading = $$props.uploading);
+    		if ('uploadSuccess' in $$props) $$invalidate(6, uploadSuccess = $$props.uploadSuccess);
+    		if ('currentStep' in $$props) $$invalidate(7, currentStep = $$props.currentStep);
+    		if ('dragOver' in $$props) $$invalidate(8, dragOver = $$props.dragOver);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -4215,7 +3888,6 @@ var app = (function () {
     		year,
     		examType,
     		description,
-    		price,
     		uploading,
     		uploadSuccess,
     		currentStep,
@@ -4246,11 +3918,7 @@ var app = (function () {
     		select1_change_handler,
     		input_change_handler,
     		$$binding_groups,
-    		textarea_input_handler,
-    		input_change_input_handler,
-    		click_handler_4,
-    		click_handler_5,
-    		click_handler_6
+    		textarea_input_handler
     	];
     }
 
@@ -4265,10 +3933,10 @@ var app = (function () {
     			create_fragment$3,
     			safe_not_equal,
     			{
-    				uploadedFiles: 24,
-    				onAddCoins: 25,
-    				onAddUploadedFile: 26,
-    				onAddAvailableFile: 27
+    				uploadedFiles: 23,
+    				onAddCoins: 24,
+    				onAddUploadedFile: 25,
+    				onAddAvailableFile: 26
     			},
     			null,
     			[-1, -1]
